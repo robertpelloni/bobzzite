@@ -1,0 +1,36 @@
+name: bobzzite
+description: Gaming Linux with the bob ecosystem
+
+base-image: ghcr.io/ublue-os/bazzite
+image-version: latest
+
+modules:
+  - type: files
+    files:
+      - source: branding
+        destination: /usr/share/bobzzite
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/atim/heroic-games-launcher/repo/fedora-%OS_VERSION%/atim-heroic-games-launcher-fedora-%OS_VERSION%.repo
+    install:
+      - git
+      - gh
+      - neofetch
+      - htop
+      - vim
+
+  - type: default-flatpaks
+    system:
+      install:
+        - org.godotengine.Godot
+        - com.vscodium.codium
+        - org.gimp.GIMP
+        - org.audacityteam.Audacity
+        - com.obsproject.Studio
+    user:
+      install: []
+
+  - type: script
+    scripts:
+      - post-install.sh
