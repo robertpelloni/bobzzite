@@ -36,19 +36,27 @@ rpm-ostree rebase ostree-unverified-registry:ghcr.io/robertpelloni/bobzzite:late
 systemctl reboot
 ```
 
-## Post-Rebase Provisioning
+## Post-Rebase Provisioning & Global Tools
 
-After the initial boot into bobzzite, run the post-install provisioning pipeline:
+After the initial boot into bobzzite, user tools are globally accessible:
+
+### Option A: Graphical Desktop Launchers
+- Launch **"Install Indie Dev Suite"** from the application menu to automatically download and configure Godot 4, VS Codium, GIMP, Audacity, and OBS Studio.
+- Launch **"Godot 4 Starter Project"** to immediately open the starter template inside Godot 4.
+
+### Option B: System Command-Line Binaries
+Because helper utilities are installed into `/usr/local/bin`, you can run them directly from any terminal session:
 
 ```bash
-# Run full post-installation configuration
+# Install indie dev suite (Godot, VS Codium, GIMP, Audacity, OBS Studio)
+install-indie-tools.sh
+
+# Configure Godot 4 & VS Codium LSP / bidirectional integration
+configure-godot-codium.sh
+
+# Or run the repo post-install provisioning hook
 bash scripts/post-install.sh
 ```
-
-This automatically:
-1. Verifies and configures the Flathub remote.
-2. Installs the indie game development tool suite via Flatpak (Godot 4, VS Codium, GIMP, Audacity, OBS Studio) using `scripts/install-indie-tools.sh`.
-3. Configures VS Codium and Godot 4 integration using `scripts/configure-godot-codium.sh` (GDScript language server port 6005, settings, and socket permissions).
 
 ## Rolling Back
 

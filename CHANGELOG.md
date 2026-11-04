@@ -5,12 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.1] - 2026-04-12
+
+### Documentation
+- Updated `DEPLOY.md` to document both graphical launcher workflows and direct terminal usage of `/usr/local/bin` helper tools.
+- Expanded `docs/USER_GUIDE.md` with a comprehensive troubleshooting section for Flatpak permissions, LSP networking, and configuration re-runs.
+- Updated `HANDOFF.md` and `TODO.md` to reflect latest user experience and system binary refinements.
+
 ## [0.5.0] - 2026-04-12
 
 ### Added
 - Added desktop application shortcuts:
   - `bobzzite-dev-tools.desktop`: Graphical launcher to run indie developer provisioning.
   - `bobzzite-godot-starter.desktop`: Quick-launch shortcut to open the starter project in Godot 4.
+- Installed helper scripts to `/usr/local/bin` (`install-indie-tools.sh`, `configure-godot-codium.sh`).
 - Added comprehensive User Guide (`docs/USER_GUIDE.md`) covering first boot, dev workflows, gaming features, and maintenance.
 - Updated `README.md` and build validation tooling.
 

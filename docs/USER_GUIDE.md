@@ -8,10 +8,10 @@ Welcome to **bobzzite**, the Fedora Atomic-powered operating system built for ga
 
 ### First Boot
 On first boot after installing or rebasing to bobzzite:
-1. Open a terminal or search for **"Install Indie Dev Suite"** in your application launcher.
-2. Run the provisioning script to install flatpak developer applications:
+1. Open your desktop application menu and search for **"Install Indie Dev Suite"**.
+2. Alternatively, open any terminal and execute:
    ```bash
-   bash scripts/post-install.sh
+   install-indie-tools.sh
    ```
 3. This downloads and installs:
    - **Godot Engine 4** (`org.godotengine.Godot`)
@@ -19,6 +19,11 @@ On first boot after installing or rebasing to bobzzite:
    - **GIMP** (`org.gimp.GIMP`)
    - **Audacity** (`org.audacityteam.Audacity`)
    - **OBS Studio** (`com.obsproject.Studio`)
+
+4. Configure editor integration and language server connections by running:
+   ```bash
+   configure-godot-codium.sh
+   ```
 
 ---
 
@@ -31,7 +36,10 @@ bobzzite comes pre-configured with tight integration between Godot and VS Codium
 3. Flatpak sandbox socket network permissions are already configured.
 
 ### Starting a New Project
-You can find a pre-configured starter project template in your home directory under `~/Templates/Godot4_Starter`. Launch it anytime using the **"Godot 4 Starter Project"** application shortcut.
+You can find a pre-configured starter project template in your home directory under `~/Templates/Godot4_Starter`. Launch it anytime using the **"Godot 4 Starter Project"** application shortcut or run:
+```bash
+flatpak run org.godotengine.Godot -e --path ~/Templates/Godot4_Starter
+```
 
 ---
 
@@ -60,3 +68,17 @@ bobzzite is immutable:
   rpm-ostree rollback
   systemctl reboot
   ```
+
+---
+
+## 5. Troubleshooting & FAQ
+
+### Flatpak Permission Issues
+If Godot and VS Codium cannot communicate over the local LSP port (6005):
+```bash
+flatpak override --user --share=network com.vscodium.codium
+flatpak override --user --share=network org.godotengine.Godot
+```
+
+### Re-running Configuration
+You can re-run `configure-godot-codium.sh` at any time without overwriting personal keybindings or custom settings outside of the Godot Tools configuration.
