@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 0.5.1)
+## Immediate Tasks (Sprint 0.6.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -13,6 +13,6 @@
 - [x] Create user desktop application shortcuts (`bobzzite-dev-tools.desktop`, `bobzzite-godot-starter.desktop`)
 - [x] Install global helper scripts in `/usr/local/bin`
 - [x] Create comprehensive User Guide (`docs/USER_GUIDE.md`) with troubleshooting section
-- [ ] Add GitHub Actions CI smoke test step using `scripts/validate_build.py`
+- [x] Add GitHub Actions CI smoke test step using `scripts/validate_build.py`
 - [ ] Verify image build pipeline in GHCR
 - [ ] Add plymouth boot splash configuration template

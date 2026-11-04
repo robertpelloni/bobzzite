@@ -4,6 +4,7 @@ FROM ghcr.io/ublue-os/bazzite:latest
 # Build arguments
 ARG IMAGE_NAME="bobzzite"
 ARG IMAGE_VENDOR="robertpelloni"
+ARG IMAGE_VERSION="0.6.0"
 ARG FEDORA_MAJOR_VERSION="41"
 
 # Labels
@@ -11,6 +12,7 @@ LABEL org.opencontainers.image.title="${IMAGE_NAME}"
 LABEL org.opencontainers.image.description="Gaming Linux with the bob ecosystem"
 LABEL org.opencontainers.image.source="https://github.com/robertpelloni/bobzzite"
 LABEL org.opencontainers.image.vendor="${IMAGE_VENDOR}"
+LABEL org.opencontainers.image.version="${IMAGE_VERSION}"
 
 # Copy configuration files
 COPY config/files /
