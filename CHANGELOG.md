@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2026-04-12
+
+### Added
+- Added custom Plymouth boot splash theme in `branding/plymouth/bobzzite/`.
+- Configured `Containerfile` and `config/scripts/build.sh` to install the Plymouth theme into `/usr/share/plymouth/themes/bobzzite/` and set it as default via `plymouth-set-default-theme`.
+- Updated build validation to test Plymouth theme directory.
+
 ## [0.6.2] - 2026-04-12
 
 ### Documentation

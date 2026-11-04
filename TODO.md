@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 0.6.2)
+## Immediate Tasks (Sprint 0.7.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -16,4 +16,5 @@
 - [x] Add GitHub Actions CI smoke test step using `scripts/validate_build.py`
 - [x] Add Containerfile image version metadata label
 - [x] Expand README.md with full command reference and documentation index
-- [ ] Add plymouth boot splash configuration template
+- [x] Add custom Plymouth boot splash theme in `branding/plymouth/bobzzite/`
+- [ ] Add custom SDDM login greeter theme

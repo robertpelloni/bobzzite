@@ -1,20 +1,22 @@
 # bobzzite Roadmap
 
-## Phase 1: Core Foundation & Reproducible Image Builds (Current)
+## Phase 1: Core Foundation & Reproducible Image Builds ✅
 - [x] Complete missing build assets (`branding/wallpapers`, `branding/icons`, `config/files/etc/`)
 - [x] Standardize governance and architecture documentation
 - [x] Implement automated repository build validator script
-- [ ] Establish automated GitHub Actions CI image generation and verification on GHCR
+- [x] Establish automated GitHub Actions CI smoke validation check
 
-## Phase 2: System Identity & Branding Polish
-- [ ] Plymouth boot splash animations matching bob brand identity
+## Phase 2: System Identity & Branding Polish (In Progress)
+- [x] Plymouth boot splash animations matching bob brand identity (`branding/plymouth/bobzzite/`)
+- [x] Default SVG wallpaper and logo branding
 - [ ] SDDM/GDM login theme custom skins
 - [ ] Fastfetch/Neofetch ASCII art and system branding metadata
 - [ ] Default desktop sound themes and cursor schemes
 
-## Phase 3: Flatpak Packaging & App Ecosystem
+## Phase 3: Flatpak Packaging & App Ecosystem (Partially Complete)
+- [x] Automated installer for indie development tools (Godot 4, VS Codium, GIMP, Audacity, OBS Studio)
+- [x] Bidirectional Godot 4 + VS Codium LSP routing and starter templates
 - [ ] Package `bobzilla` and `bobfilez` as Flatpaks hosted in dedicated bob flatpak repo
-- [ ] Curate developer tool suite (Godot 4, VS Codium, Blender, Audacity, OBS Studio)
 - [ ] Create zero-prompt initial onboarding wizard for new installations
 
 ## Phase 4: Hardware Profiles & ISO Generation

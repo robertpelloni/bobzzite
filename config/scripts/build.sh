@@ -17,12 +17,19 @@ if [ -f /etc/bobzzite-release ]; then
     cat /etc/bobzzite-release
 fi
 
-# Ensure wallpaper and icon permissions
+# Ensure wallpaper, icon, and plymouth permissions
 if [ -d /usr/share/backgrounds/bobzzite ]; then
     chmod 644 /usr/share/backgrounds/bobzzite/* 2>/dev/null || true
 fi
 if [ -d /usr/share/icons/bobzzite ]; then
     chmod 644 /usr/share/icons/bobzzite/* 2>/dev/null || true
+fi
+if [ -d /usr/share/plymouth/themes/bobzzite ]; then
+    chmod 644 /usr/share/plymouth/themes/bobzzite/* 2>/dev/null || true
+    if command -v plymouth-set-default-theme >/dev/null 2>&1; then
+        echo "Setting default Plymouth boot theme to bobzzite..."
+        plymouth-set-default-theme bobzzite || true
+    fi
 fi
 
 echo "=== bobzzite build complete ==="
