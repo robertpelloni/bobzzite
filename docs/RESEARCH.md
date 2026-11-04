@@ -106,46 +106,29 @@ Standard structure:
 3. Image pushed to GHCR (GitHub Container Registry)
 4. Users `rpm-ostree rebase` to new image
 
-### Key Files
-
-**Containerfile**:
-```dockerfile
-FROM ghcr.io/ublue-os/bazzite:latest
-COPY config/files /
-RUN /tmp/scripts/build.sh
-```
-
-**recipe.yml** (BlueBuild format):
-```yaml
-name: bobzzite
-base-image: ghcr.io/ublue-os/bazzite
-modules:
-  - type: rpm-ostree
-    install: [git, gh, neofetch]
-  - type: default-flatpaks
-    system:
-      install: [org.godotengine.Godot]
-```
-
 ---
 
-## Customization Opportunities
+## Customization & Developer Tooling
 
 ### Branding
 - `/usr/lib/os-release` - OS identification
-- `/usr/share/backgrounds/` - Wallpapers
-- `/usr/share/icons/` - Icon themes
+- `/usr/share/backgrounds/` - Wallpapers (`branding/wallpapers/bobzzite-default.svg`)
+- `/usr/share/icons/` - Icon themes (`branding/icons/bobzzite-logo.svg`)
 - Plymouth theme - Boot splash
 - GRUB theme - Bootloader
 - SDDM/GDM theme - Login screen
 
-### Pre-installed Apps (Flatpak)
+### Pre-installed & Automated Indie Dev Apps (Flatpak)
+- **Godot Engine 4** (`org.godotengine.Godot`): Game engine for 2D & 3D development
+- **VS Codium** (`com.vscodium.codium`): Open-source telemetry-free code editor
+- **GIMP** (`org.gimp.GIMP`): 2D image and sprite editor
+- **Audacity** (`org.audacityteam.Audacity`): Sound effect and audio editing
+- **OBS Studio** (`com.obsproject.Studio`): Screen recording, gameplay streaming, devlogging
+- **Integration**:
+  - Automatically installed via `scripts/install-indie-tools.sh`
+  - Integrated with Godot LSP (port 6005) and socket permissions via `scripts/configure-godot-codium.sh`
 - bobzilla (when packaged as Flatpak)
-- bobfilez (when packaged)
-- Godot Engine
-- VS Codium
-- OBS Studio
-- GIMP, Audacity
+- bobfilez (when packaged as Flatpak)
 
 ### System Tweaks
 - Default Firefox → bobzilla
@@ -188,9 +171,12 @@ Same command - seamless since we're layered on Bazzite.
 - [x] Containerfile written
 - [x] GitHub Actions workflow
 - [x] Basic branding hooks
+- [x] Build validation tooling (`scripts/validate_build.py`)
 
-### Phase 2: Branding
-- [ ] bob wallpapers
+### Phase 2: Branding & Developer Integration
+- [x] Default bob wallpaper and icon assets
+- [x] Automated indie development suite installer
+- [x] Godot 4 + VS Codium LSP configuration
 - [ ] Custom Plymouth splash
 - [ ] SDDM/GDM theme
 - [ ] Icon pack
@@ -210,14 +196,4 @@ Same command - seamless since we're layered on Bazzite.
 ### Phase 5: Unique Features
 - [ ] Multiplayer computing experiments
 - [ ] bobcoin integration
-- [ ] Indie dev toolkit
-
----
-
-## Resources
-
-- Bazzite: https://bazzite.gg / github.com/ublue-os/bazzite
-- Universal Blue: https://universal-blue.org
-- BlueBuild: https://blue-build.org
-- Fedora Atomic: https://fedoraproject.org/atomic-desktops/
-- Image Template: github.com/ublue-os/image-template
+- [ ] Indie dev toolkit enhancements

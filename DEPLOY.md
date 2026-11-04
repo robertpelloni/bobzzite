@@ -36,6 +36,20 @@ rpm-ostree rebase ostree-unverified-registry:ghcr.io/robertpelloni/bobzzite:late
 systemctl reboot
 ```
 
+## Post-Rebase Provisioning
+
+After the initial boot into bobzzite, run the post-install provisioning pipeline:
+
+```bash
+# Run full post-installation configuration
+bash scripts/post-install.sh
+```
+
+This automatically:
+1. Verifies and configures the Flathub remote.
+2. Installs the indie game development tool suite via Flatpak (Godot 4, VS Codium, GIMP, Audacity, OBS Studio) using `scripts/install-indie-tools.sh`.
+3. Configures VS Codium and Godot 4 integration using `scripts/configure-godot-codium.sh` (GDScript language server port 6005, settings, and socket permissions).
+
 ## Rolling Back
 
 If rollback is necessary:
