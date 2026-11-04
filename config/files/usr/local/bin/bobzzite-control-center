@@ -154,6 +154,10 @@ class BobzziteControlCenter:
         h2.grid(row=0, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h2, "Queries whether GameMode governor optimization is currently active.")
 
+        h4 = ttk.Button(hw_grid, text="Dev Containers", command=lambda: self.run_async("bobzzite-devbox list", "Listing Distrobox dev environments..."))
+        h4.grid(row=1, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h4, "Queries available Arch/Ubuntu Distrobox development containers.")
+
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
         h3.grid(row=0, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
@@ -185,7 +189,16 @@ class BobzziteControlCenter:
         self.status_label = tk.Label(status_bar, text="Status: Ready", bg="#111827", fg="#10b981", font=("Segoe UI", 9))
         self.status_label.pack(side=tk.LEFT)
 
-        version_label = tk.Label(status_bar, text="bobzzite v0.9.0", bg="#111827", fg="#64748b", font=("Segoe UI", 9))
+        ver_str = "1.0.0"
+        if os.path.exists("/etc/bobzzite-release"):
+            try:
+                with open("/etc/bobzzite-release") as f:
+                    for line in f:
+                        if line.startswith("VERSION="):
+                            ver_str = line.strip().split("=")[1].strip('"\'')
+            except Exception:
+                pass
+        version_label = tk.Label(status_bar, text=f"bobzzite v{ver_str}", bg="#111827", fg="#64748b", font=("Segoe UI", 9))
         version_label.pack(side=tk.RIGHT)
 
     def log(self, message):

@@ -12,17 +12,17 @@
 - [x] Fastfetch system branding configuration (`config/files/etc/fastfetch/`)
 - [x] Default SVG wallpaper and logo branding
 
-## Phase 3: Flatpak Packaging & App Ecosystem (In Progress)
+## Phase 3: Flatpak Packaging & App Ecosystem ✅
 - [x] Automated installer for indie development tools (Godot 4, VS Codium, GIMP, Audacity, OBS Studio)
 - [x] Bidirectional Godot 4 + VS Codium LSP routing and starter templates
 - [x] Unified Bobzzite Control Center GUI (`bobzzite-control-center`)
-- [ ] Package `bobzilla` and `bobfilez` as Flatpaks hosted in dedicated bob flatpak repo
-- [ ] Create zero-prompt initial onboarding wizard for new installations
+- [x] Distrobox environment management tooling (`bobzzite-devbox`)
 
-## Phase 4: Hardware Profiles & ISO Generation
+## Phase 4: Hardware Profiles & ISO Generation (In Progress)
+- [x] Universal Blue ISO generator documentation & workflow (`docs/ISO_BUILD.md`)
+- [x] Hardware profiles and handheld compatibility (Steam Deck, ROG Ally, Legion Go)
 - [ ] Multi-flavor target matrix: Handheld (Deck/Ally/Legion), Desktop AMD/Intel, and Desktop NVIDIA
-- [ ] Generate bootable live/installer ISOs via Universal Blue `isogenerator`
-- [ ] Set up automated release tagging and changelog publishing
+- [ ] Publish automated ISO releases to GitHub releases
 
 ## Phase 5: Multiplayer & Distributed Cloud OS
 - [ ] Built-in P2P mesh networking via Tailscale / Syncthing

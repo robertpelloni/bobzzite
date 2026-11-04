@@ -37,7 +37,8 @@ def check_scripts():
         "scripts/post-install.sh",
         "scripts/install-indie-tools.sh",
         "scripts/configure-godot-codium.sh",
-        "scripts/bobzzite-control-center.py"
+        "scripts/bobzzite-control-center.py",
+        "scripts/bobzzite-devbox.sh"
     ]
     errors = 0
     for script in scripts_to_check:
@@ -75,7 +76,8 @@ def check_required_docs():
         "HANDOFF.md",
         "README.md",
         "AGENTS.md",
-        "docs/USER_GUIDE.md"
+        "docs/USER_GUIDE.md",
+        "docs/ISO_BUILD.md"
     ]
     errors = 0
     for doc in required_docs:

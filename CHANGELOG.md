@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2026-04-12
+
+### Added
+- Landmark 1.0.0 Stable Release of **bobzzite**.
+- Added Distrobox container management tool `scripts/bobzzite-devbox.sh` (and `/usr/local/bin/bobzzite-devbox`) supporting zero-configuration setup of Arch and Ubuntu developer containers.
+- Integrated Distrobox container management action into Bobzzite Control Center.
+- Added comprehensive live & offline installer ISO generation guide in `docs/ISO_BUILD.md`.
+- Updated build validation to verify `docs/ISO_BUILD.md` and `scripts/bobzzite-devbox.sh`.
+
 ## [0.9.0] - 2026-04-12
 
 ### Added

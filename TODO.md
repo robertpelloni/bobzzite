@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 0.9.0)
+## Immediate Tasks (Sprint 1.0.0 Stable)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -21,3 +21,5 @@
 - [x] Add Fastfetch system terminal branding profile in `config/files/etc/fastfetch/`
 - [x] Create unified Bobzzite Control Center GUI dashboard (`scripts/bobzzite-control-center.py`)
 - [x] Add launcher `config/files/etc/skel/.local/share/applications/bobzzite-control-center.desktop`
+- [x] Add Distrobox container management tool (`scripts/bobzzite-devbox.sh`)
+- [x] Document bootable ISO generation via Universal Blue isogenerator (`docs/ISO_BUILD.md`)
