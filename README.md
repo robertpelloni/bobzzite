@@ -1,44 +1,49 @@
 # bobzzite
 
-bobzzite is the *definition* of a custom gaming Linux image: a
+bobzzite is a custom gaming and indie developer Linux image: a
 Universal Blue / Bazzite derivative with bob-ecosystem branding and apps.
-The repo is tiny (~10 KB) — a `Containerfile`, a `config/recipe.yml`,
-`config/scripts/`, a `scripts/post-install.sh`, a GitHub Actions workflow,
-and docs.
+Built on Fedora Atomic with rpm-ostree.
 
-**It does not currently build.** The `Containerfile` starts
-`FROM ghcr.io/ublue-os/bazzite:latest` and then copies paths that are not in
-this repository:
+## Features
 
-- `COPY config/files /` — there is no `config/files/` directory
-- `COPY branding/wallpapers …` and `COPY branding/icons …` — there is no
-  `branding/` directory
+- **Base Gaming Stack**: Inherits Valve Proton enhancements, Steam Big Picture, Heroic Games Launcher, and GameMode from Bazzite.
+- **Indie Development Suite**: Pre-configured automated installation of Godot Engine 4, VS Codium, GIMP, Audacity, and OBS Studio via Flatpak.
+- **Immutable & Atomic**: Root filesystem is read-only, atomic updates and rollbacks via `rpm-ostree`.
+- **Custom Branding**: Dedicated bob branding assets, wallpapers, icons, and system identity files.
 
-Until those exist, the image build fails at the copy steps, and there is no
-published `ghcr.io/robertpelloni/bobzzite` image to rebase to — the rebase
-and ISO-install instructions in the old README described the intended end
-state, not something that exists. The old README also documented a larger
-tree (`packages/`, `branding/plymouth/`, …) than the repo contains.
+## Project Structure
 
-## What is here
+- `Containerfile` — Main build definition layering on `ghcr.io/ublue-os/bazzite:latest`
+- `config/recipe.yml` — BlueBuild image recipe with package and flatpak specifications
+- `config/files/` — Configuration files layered onto the root filesystem (e.g. `/etc/bobzzite-release`)
+- `branding/` — Wallpapers (`branding/wallpapers/`) and logos (`branding/icons/`)
+- `scripts/` — Utility scripts:
+  - `scripts/install-indie-tools.sh` — Automated installer for the indie game development tool suite
+  - `scripts/post-install.sh` — Post-install setup hook
+  - `scripts/validate_build.py` — Repo and container build syntax validator
+- `docs/` — Architectural research and technical notes
 
-- `Containerfile` — Bazzite base + config/branding copy steps + a build
-  script run (see above for the missing pieces)
-- `config/recipe.yml` — image recipe (782 bytes)
-- `config/scripts/` — build-time scripts invoked by the Containerfile
-- `scripts/post-install.sh` — post-install customization stub
-- `.github/workflows/` — the image-build workflow from the Universal Blue
-  template
-
-## If it were finished
+## Building the Image
 
 ```bash
-podman build -t bobzzite .   # local test build
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/robertpelloni/bobzzite:latest
+# Validate local repository configuration
+python3 scripts/validate_build.py
+
+# Build using Podman or Docker
+podman build -t bobzzite:latest -f Containerfile .
 ```
 
-## Status
+## Installing Indie Development Tools
 
-Skeleton, dormant since the July 2026 checkpoint commits (latest activity
-is an automated agent checkpoint, 2026-10-19). Upstream: Bazzite
-(https://bazzite.gg) on Fedora Atomic via Universal Blue.
+On an installed or rebased system, run:
+
+```bash
+bash scripts/install-indie-tools.sh
+```
+
+## Rebasing Existing Fedora Atomic / Bazzite
+
+```bash
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/robertpelloni/bobzzite:latest
+systemctl reboot
+```

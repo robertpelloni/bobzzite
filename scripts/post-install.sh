@@ -3,6 +3,8 @@ set -euo pipefail
 
 echo "=== bobzzite post-install setup ==="
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # Ensure flathub remote is configured
 if command -v flatpak >/dev/null 2>&1; then
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || true
@@ -11,7 +13,10 @@ else
     echo "Flatpak command not present; skipping flathub addition."
 fi
 
-echo "Installing/verifying bob ecosystem apps..."
-# Future flatpak apps will install here
+# Run indie developer tools installation script
+if [ -f "${SCRIPT_DIR}/install-indie-tools.sh" ]; then
+    bash "${SCRIPT_DIR}/install-indie-tools.sh"
+fi
+
 echo "=== Post-install complete ==="
 echo "Welcome to bobzzite!"

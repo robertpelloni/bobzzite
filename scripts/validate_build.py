@@ -34,7 +34,8 @@ def check_containerfile_copies():
 def check_scripts():
     scripts_to_check = [
         "config/scripts/build.sh",
-        "scripts/post-install.sh"
+        "scripts/post-install.sh",
+        "scripts/install-indie-tools.sh"
     ]
     errors = 0
     for script in scripts_to_check:
