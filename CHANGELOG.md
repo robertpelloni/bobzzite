@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0] - 2026-04-12
+
+### Added
+- Created unified Bobzzite Control Center GUI (`scripts/bobzzite-control-center.py` and `/usr/local/bin/bobzzite-control-center`).
+- Added application launcher `config/files/etc/skel/.local/share/applications/bobzzite-control-center.desktop`.
+- Consolidated dashboard features into a single cohesive window:
+  - High-Value Quick Actions (Indie Tool Suite provisioning, Godot Starter Project launch, Godot-Codium LSP wiring).
+  - System Updates & Diagnostics (rpm-ostree query, Flatpak update check, local build validation).
+  - Hardware & Gaming profiles (Fastfetch query, GameMode status, safe server shutdown/exit).
+  - Explicit interactive buttons, status console with real-time process output, and descriptive tooltip guidance.
+- Updated `README.md`, `docs/USER_GUIDE.md`, and build validation script.
+
 ## [0.8.0] - 2026-04-12
 
 ### Added

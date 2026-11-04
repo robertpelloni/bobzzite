@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=bobzzite Control Center
+Comment=Unified Dashboard & Management Console for bobzzite Gaming OS
+Exec=/usr/local/bin/bobzzite-control-center
+Icon=/usr/share/icons/bobzzite/bobzzite-logo.svg
+Terminal=false
+Categories=System;Settings;Development;
+Keywords=bobzzite;dashboard;control;indie;tools;flatpak;godot;vscodium;

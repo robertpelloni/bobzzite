@@ -36,7 +36,8 @@ def check_scripts():
         "config/scripts/build.sh",
         "scripts/post-install.sh",
         "scripts/install-indie-tools.sh",
-        "scripts/configure-godot-codium.sh"
+        "scripts/configure-godot-codium.sh",
+        "scripts/bobzzite-control-center.py"
     ]
     errors = 0
     for script in scripts_to_check:
