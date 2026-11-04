@@ -18,5 +18,10 @@ if [ -f "${SCRIPT_DIR}/install-indie-tools.sh" ]; then
     bash "${SCRIPT_DIR}/install-indie-tools.sh"
 fi
 
+# Run Godot 4 & VS Codium integration configuration
+if [ -f "${SCRIPT_DIR}/configure-godot-codium.sh" ]; then
+    bash "${SCRIPT_DIR}/configure-godot-codium.sh"
+fi
+
 echo "=== Post-install complete ==="
 echo "Welcome to bobzzite!"
