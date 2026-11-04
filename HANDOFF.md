@@ -2,15 +2,16 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `0.4.0` (tracked in `VERSION.md`)
+- **Current Version**: `0.5.0` (tracked in `VERSION.md`)
 - **Key Features Added & Configured**:
   - Automated installation of indie development suite (`scripts/install-indie-tools.sh`): Godot 4, VS Codium, GIMP, Audacity, OBS Studio.
   - Bidirectional developer workflow setup (`scripts/configure-godot-codium.sh`): configures VS Codium settings for Godot Tools, GDScript LSP port 6005, installs `geequlim.godot-tools`, and sets Flatpak network sharing.
   - Pre-seeded Godot 4 editor settings (`config/files/etc/skel/.config/godot/editor_settings-4.tres`) and starter project template (`config/files/etc/skel/Templates/Godot4_Starter/project.godot`).
-  - Comprehensive documentation updates across `DEPLOY.md`, `README.md`, `docs/RESEARCH.md`, and changelog tracking.
+  - Desktop entries in `/etc/skel/.local/share/applications/` (`bobzzite-dev-tools.desktop`, `bobzzite-godot-starter.desktop`).
+  - Beginner-friendly User Guide (`docs/USER_GUIDE.md`).
   - Repaired missing `Containerfile` copy paths and established build validation tests.
 - **Validation**:
-  - `scripts/validate_build.py` verifies Containerfile COPY references, indie tool scripts, and permissions.
+  - `scripts/validate_build.py` verifies Containerfile COPY references, indie tool scripts, user documentation, and permissions.
 
 ## Resumption Instructions for Successor Agents
 1. Review `TODO.md` and `ROADMAP.md` for prioritized milestones.

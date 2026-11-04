@@ -13,6 +13,9 @@ Built on Fedora Atomic with rpm-ostree.
   - Automated extension installation for `geequlim.godot-tools`.
   - Godot 4 editor template (`editor_settings-4.tres`) automatically delegates external script editing to VS Codium with project and cursor line/column arguments.
   - Pre-seeded Godot 4 project starter template in `/etc/skel/Templates/Godot4_Starter`.
+- **Desktop Application Launchers**:
+  - Desktop entries in `/etc/skel/.local/share/applications/` for one-click dev tool provisioning and starter project launching.
+- **User Documentation**: Complete beginner-friendly guide available in [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md).
 - **Immutable & Atomic**: Root filesystem is read-only, atomic updates and rollbacks via `rpm-ostree`.
 - **Custom Branding**: Dedicated bob branding assets, wallpapers, icons, and system identity files.
 
@@ -22,15 +25,16 @@ Built on Fedora Atomic with rpm-ostree.
 - `config/recipe.yml` — BlueBuild image recipe with package and flatpak specifications
 - `config/files/` — Configuration files layered onto the root filesystem:
   - `/etc/bobzzite-release` — OS release metadata
-  - `/etc/skel/.config/godot/editor_settings-4.tres` — Default Godot 4 editor external editor settings
+  - `/etc/skel/.config/godot/editor_settings-4.tres` — Default Godot 4 external editor settings
   - `/etc/skel/Templates/Godot4_Starter/` — Starter Godot 4 project skeleton
+  - `/etc/skel/.local/share/applications/` — User desktop launcher shortcuts
 - `branding/` — Wallpapers (`branding/wallpapers/`) and logos (`branding/icons/`)
 - `scripts/` — Utility scripts:
   - `scripts/install-indie-tools.sh` — Automated installer for the indie game development tool suite
   - `scripts/configure-godot-codium.sh` — Configures Godot 4 & VS Codium LSP, extensions, and Flatpak integration
   - `scripts/post-install.sh` — Post-install setup hook
   - `scripts/validate_build.py` — Repo and container build syntax validator
-- `docs/` — Architectural research and technical notes
+- `docs/` — User guide (`docs/USER_GUIDE.md`), architectural research, and technical notes
 
 ## Building the Image
 
@@ -60,6 +64,8 @@ bash scripts/install-indie-tools.sh
 # Configure Godot 4 & VS Codium integration
 bash scripts/configure-godot-codium.sh
 ```
+
+See [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) for full step-by-step guidance.
 
 ## Rebasing Existing Fedora Atomic / Bazzite
 

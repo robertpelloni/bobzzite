@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Install Indie Dev Suite
+Comment=Set up Godot 4, VS Codium, GIMP, Audacity, and OBS Studio on bobzzite
+Exec=/usr/bin/bash /usr/local/bin/install-indie-tools.sh
+Icon=/usr/share/icons/bobzzite/bobzzite-logo.svg
+Terminal=true
+Categories=Development;Building;
+Keywords=game;dev;godot;vscodium;gimp;obs;

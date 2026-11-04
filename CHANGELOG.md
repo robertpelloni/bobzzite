@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-04-12
+
+### Added
+- Added desktop application shortcuts:
+  - `bobzzite-dev-tools.desktop`: Graphical launcher to run indie developer provisioning.
+  - `bobzzite-godot-starter.desktop`: Quick-launch shortcut to open the starter project in Godot 4.
+- Added comprehensive User Guide (`docs/USER_GUIDE.md`) covering first boot, dev workflows, gaming features, and maintenance.
+- Updated `README.md` and build validation tooling.
+
 ## [0.4.0] - 2026-04-12
 
 ### Added

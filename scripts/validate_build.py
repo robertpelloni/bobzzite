@@ -73,7 +73,8 @@ def check_required_docs():
         "CHANGELOG.md",
         "HANDOFF.md",
         "README.md",
-        "AGENTS.md"
+        "AGENTS.md",
+        "docs/USER_GUIDE.md"
     ]
     errors = 0
     for doc in required_docs:

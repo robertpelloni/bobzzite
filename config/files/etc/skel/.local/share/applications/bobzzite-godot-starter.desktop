@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Godot 4 Starter Project
+Comment=Open the bobzzite starter template in Godot 4
+Exec=sh -c 'flatpak run org.godotengine.Godot -e --path "$HOME/Templates/Godot4_Starter"'
+Icon=/usr/share/icons/bobzzite/bobzzite-logo.svg
+Terminal=false
+Categories=Development;GUIDesigner;
+Keywords=godot;game;project;starter;template;
