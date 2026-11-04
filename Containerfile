@@ -4,7 +4,7 @@ FROM ghcr.io/ublue-os/bazzite:latest
 # Build arguments
 ARG IMAGE_NAME="bobzzite"
 ARG IMAGE_VENDOR="robertpelloni"
-ARG IMAGE_VERSION="0.6.0"
+ARG IMAGE_VERSION="0.6.2"
 ARG FEDORA_MAJOR_VERSION="41"
 
 # Labels

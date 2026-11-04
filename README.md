@@ -37,8 +37,12 @@ Built on Fedora Atomic with rpm-ostree.
   - Automated extension installation for `geequlim.godot-tools`.
   - Godot 4 editor template (`editor_settings-4.tres`) automatically delegates external script editing to VS Codium with project and cursor line/column arguments.
   - Pre-seeded Godot 4 project starter template in `/etc/skel/Templates/Godot4_Starter`.
-- **Desktop Application Launchers**:
+- **Desktop Application Launchers & System Binaries**:
   - Desktop entries in `/etc/skel/.local/share/applications/` for one-click dev tool provisioning and starter project launching.
+  - Global executables installed in `/usr/local/bin` (`install-indie-tools.sh`, `configure-godot-codium.sh`).
+- **Automated CI & Validation**:
+  - GitHub Actions build workflow automatically validates file references, permissions, and documentation before container image generation.
+  - Local validator script: `python3 scripts/validate_build.py`.
 - **User Documentation**: Complete beginner-friendly guide available in [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md).
 - **Immutable & Atomic**: Root filesystem is read-only, atomic updates and rollbacks via `rpm-ostree`.
 - **Custom Branding**: Dedicated bob branding assets, wallpapers, icons, and system identity files.
@@ -57,6 +61,7 @@ Built on Fedora Atomic with rpm-ostree.
   - `/etc/skel/.config/godot/editor_settings-4.tres` — Default Godot 4 external editor settings
   - `/etc/skel/Templates/Godot4_Starter/` — Starter Godot 4 project skeleton
   - `/etc/skel/.local/share/applications/` — User desktop launcher shortcuts
+  - `/usr/local/bin/` — Global helper scripts (`install-indie-tools.sh`, `configure-godot-codium.sh`)
 - `branding/` — Wallpapers (`branding/wallpapers/`) and logos (`branding/icons/`)
 - `scripts/` — Utility scripts:
   - `scripts/install-indie-tools.sh` — Automated installer for the indie game development tool suite
@@ -95,6 +100,17 @@ configure-godot-codium.sh
 ```
 
 See [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) for full step-by-step guidance.
+
+## Governance & Documentation Suite
+
+- [`VISION.md`](VISION.md) — Strategic vision and core pillars.
+- [`ROADMAP.md`](ROADMAP.md) — Long-term milestones and ecosystem integration plans.
+- [`DEPLOY.md`](DEPLOY.md) — Deployment instructions and rebasing guide.
+- [`TODO.md`](TODO.md) — Granular sprint tasks.
+- [`MEMORY.md`](MEMORY.md) — Architectural notes and traits.
+- [`IDEAS.md`](IDEAS.md) — Aggressive ideas for multiplayer OS and distributed compute.
+- [`CHANGELOG.md`](CHANGELOG.md) — Chronological version release log.
+- [`HANDOFF.md`](HANDOFF.md) — Context handoff notes for agent resumption.
 
 ## Rebasing Existing Fedora Atomic / Bazzite
 
