@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.1] - 2026-04-12
+
+### Documentation
+- Added visual ASCII architecture hierarchy diagrams to `README.md` and `docs/USER_GUIDE.md`.
+- Expanded `docs/USER_GUIDE.md` with in-depth FAQ (Flatpak isolation, Distrobox containers, LSP troubleshooting).
+- Added hardware compatibility specifications for desktop GPUs and handheld gaming devices in `README.md`.
+- Updated `HANDOFF.md` and `TODO.md`.
+
 ## [0.6.0] - 2026-04-12
 
 ### Added

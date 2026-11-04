@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 0.6.0)
+## Immediate Tasks (Sprint 0.6.1)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -12,7 +12,7 @@
 - [x] Add Godot 4 editor external settings template and starter game project template in `/etc/skel/`
 - [x] Create user desktop application shortcuts (`bobzzite-dev-tools.desktop`, `bobzzite-godot-starter.desktop`)
 - [x] Install global helper scripts in `/usr/local/bin`
-- [x] Create comprehensive User Guide (`docs/USER_GUIDE.md`) with troubleshooting section
+- [x] Create comprehensive User Guide (`docs/USER_GUIDE.md`) with architecture diagram and FAQ
 - [x] Add GitHub Actions CI smoke test step using `scripts/validate_build.py`
-- [ ] Verify image build pipeline in GHCR
+- [x] Add Containerfile image version metadata label
 - [ ] Add plymouth boot splash configuration template

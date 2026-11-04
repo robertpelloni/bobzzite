@@ -4,6 +4,30 @@ bobzzite is a custom gaming and indie developer Linux image: a
 Universal Blue / Bazzite derivative with bob-ecosystem branding and apps.
 Built on Fedora Atomic with rpm-ostree.
 
+```
+┌────────────────────────────────────────────────────────┐
+│                      bobzzite                          │
+│   (Wallpapers, Icons, Godot 4 + VS Codium Workflow,    │
+│    Indie Game Dev Suite, Bob Ecosystem Applications)   │
+└──────────────────────────┬─────────────────────────────┘
+                           │ layers on
+┌──────────────────────────▼─────────────────────────────┐
+│                      Bazzite                           │
+│   (Proton GE, Steam Big Picture, Lutris, Heroic,       │
+│    Gamescope, Decky Loader, GameMode, Handheld tweaks) │
+└──────────────────────────┬─────────────────────────────┘
+                           │ layers on
+┌──────────────────────────▼─────────────────────────────┐
+│                   Universal Blue                       │
+│    (NVIDIA / AMD drivers, multimedia codecs, kernel)   │
+└──────────────────────────┬─────────────────────────────┘
+                           │ layers on
+┌──────────────────────────▼─────────────────────────────┐
+│                 Fedora Atomic Desktop                  │
+│       (Silverblue / Kinoite immutable rpm-ostree)      │
+└────────────────────────────────────────────────────────┘
+```
+
 ## Features
 
 - **Base Gaming Stack**: Inherits Valve Proton enhancements, Steam Big Picture, Heroic Games Launcher, and GameMode from Bazzite.
@@ -18,6 +42,11 @@ Built on Fedora Atomic with rpm-ostree.
 - **User Documentation**: Complete beginner-friendly guide available in [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md).
 - **Immutable & Atomic**: Root filesystem is read-only, atomic updates and rollbacks via `rpm-ostree`.
 - **Custom Branding**: Dedicated bob branding assets, wallpapers, icons, and system identity files.
+
+## Hardware Compatibility
+
+- **Desktop Gaming PCs**: Full native support for AMD Radeon, Intel Arc, and NVIDIA GeForce GPUs.
+- **Handheld Gaming PCs**: Inherits Bazzite's hardware integrations for Valve Steam Deck (LCD & OLED), ASUS ROG Ally, Lenovo Legion Go, and GPD Win devices.
 
 ## Project Structure
 
@@ -59,10 +88,10 @@ Or run individual setup scripts:
 
 ```bash
 # Install indie dev tools (Godot, VS Codium, GIMP, Audacity, OBS Studio)
-bash scripts/install-indie-tools.sh
+install-indie-tools.sh
 
 # Configure Godot 4 & VS Codium integration
-bash scripts/configure-godot-codium.sh
+configure-godot-codium.sh
 ```
 
 See [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) for full step-by-step guidance.

@@ -4,7 +4,37 @@ Welcome to **bobzzite**, the Fedora Atomic-powered operating system built for ga
 
 ---
 
-## 1. Quick Start
+## 1. System Architecture
+
+bobzzite builds upon a layered, atomic container structure:
+
+```
+┌────────────────────────────────────────────────────────┐
+│                      bobzzite                          │
+│   (Wallpapers, Icons, Godot 4 + VS Codium Workflow,    │
+│    Indie Game Dev Suite, Bob Ecosystem Applications)   │
+└──────────────────────────┬─────────────────────────────┘
+                           │ layers on
+┌──────────────────────────▼─────────────────────────────┐
+│                      Bazzite                           │
+│   (Proton GE, Steam Big Picture, Lutris, Heroic,       │
+│    Gamescope, Decky Loader, GameMode, Handheld tweaks) │
+└──────────────────────────┬─────────────────────────────┘
+                           │ layers on
+┌──────────────────────────▼─────────────────────────────┐
+│                   Universal Blue                       │
+│    (NVIDIA / AMD drivers, multimedia codecs, kernel)   │
+└──────────────────────────┬─────────────────────────────┘
+                           │ layers on
+┌──────────────────────────▼─────────────────────────────┐
+│                 Fedora Atomic Desktop                  │
+│       (Silverblue / Kinoite immutable rpm-ostree)      │
+└────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 2. Quick Start
 
 ### First Boot
 On first boot after installing or rebasing to bobzzite:
@@ -27,7 +57,7 @@ On first boot after installing or rebasing to bobzzite:
 
 ---
 
-## 2. Indie Game Development Workflow
+## 3. Indie Game Development Workflow
 
 ### Bidirectional Godot 4 & VS Codium Editing
 bobzzite comes pre-configured with tight integration between Godot and VS Codium:
@@ -43,16 +73,17 @@ flatpak run org.godotengine.Godot -e --path ~/Templates/Godot4_Starter
 
 ---
 
-## 3. Gaming on bobzzite
+## 4. Gaming on bobzzite
 
 Because bobzzite is layered directly on top of Bazzite:
 - **Steam & Proton**: Run Steam to access Proton GE, Steam Big Picture, and GameMode automatically.
 - **Heroic Games Launcher**: Play Epic Games and GOG titles with Proton and Wine managers.
 - **Lutris**: Manage classic PC titles, emulators, and Windows titles with dedicated runners.
+- **Handheld Devices**: Seamless support for Steam Deck quick-access menus, TDP controls, and controller layout mapping.
 
 ---
 
-## 4. System Updates & Maintenance
+## 5. System Updates & Maintenance
 
 bobzzite is immutable:
 - To update the base operating system:
@@ -71,14 +102,24 @@ bobzzite is immutable:
 
 ---
 
-## 5. Troubleshooting & FAQ
+## 6. Troubleshooting & FAQ
 
-### Flatpak Permission Issues
-If Godot and VS Codium cannot communicate over the local LSP port (6005):
+### Q: Why Flatpak instead of native RPM packages for tools?
+**A:** Flatpak applications run containerized and decoupled from the host operating system. This ensures updates to development tools or game engines will never break base system libraries, and the base system can be rolled back atomically without touching user project files.
+
+### Q: What if Godot and VS Codium cannot communicate over the local LSP port (6005)?
+**A:** Run the following permission override:
 ```bash
 flatpak override --user --share=network com.vscodium.codium
 flatpak override --user --share=network org.godotengine.Godot
 ```
 
-### Re-running Configuration
-You can re-run `configure-godot-codium.sh` at any time without overwriting personal keybindings or custom settings outside of the Godot Tools configuration.
+### Q: How do I re-run the configuration script safely?
+**A:** You can re-run `configure-godot-codium.sh` at any time. It preserves existing keybindings, user configurations, and project settings.
+
+### Q: Can I install additional software using Distrobox?
+**A:** Yes! Distrobox is built directly into the base Bazzite layer. You can create Arch, Ubuntu, or Alpine containers seamlessly:
+```bash
+distrobox create -i archlinux:latest -n dev-box
+distrobox enter dev-box
+```
