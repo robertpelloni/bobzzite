@@ -31,5 +31,8 @@ if [ -d /usr/share/plymouth/themes/bobzzite ]; then
         plymouth-set-default-theme bobzzite || true
     fi
 fi
+if [ -d /usr/share/sddm/themes/bobzzite ]; then
+    chmod -R 644 /usr/share/sddm/themes/bobzzite/* 2>/dev/null || true
+fi
 
 echo "=== bobzzite build complete ==="

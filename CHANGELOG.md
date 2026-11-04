@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] - 2026-04-12
+
+### Added
+- Added custom SDDM login greeter theme in `branding/sddm/bobzzite/` (`Main.qml`, `metadata.desktop`, `theme.conf`, wallpaper, and logo assets).
+- Added Fastfetch terminal system branding configuration in `config/files/etc/fastfetch/config.jsonc`.
+- Configured `Containerfile` and `config/scripts/build.sh` to install the SDDM theme into `/usr/share/sddm/themes/bobzzite/`.
+- Updated build validation to verify SDDM theme source files.
+
 ## [0.7.0] - 2026-04-12
 
 ### Added

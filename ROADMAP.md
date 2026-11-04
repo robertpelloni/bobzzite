@@ -6,11 +6,11 @@
 - [x] Implement automated repository build validator script
 - [x] Establish automated GitHub Actions CI smoke validation check
 
-## Phase 2: System Identity & Branding Polish (In Progress)
+## Phase 2: System Identity & Branding Polish (Near Completion)
 - [x] Plymouth boot splash animations matching bob brand identity (`branding/plymouth/bobzzite/`)
+- [x] SDDM login greeter theme (`branding/sddm/bobzzite/`)
+- [x] Fastfetch system branding configuration (`config/files/etc/fastfetch/`)
 - [x] Default SVG wallpaper and logo branding
-- [ ] SDDM/GDM login theme custom skins
-- [ ] Fastfetch/Neofetch ASCII art and system branding metadata
 - [ ] Default desktop sound themes and cursor schemes
 
 ## Phase 3: Flatpak Packaging & App Ecosystem (Partially Complete)

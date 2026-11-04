@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 0.7.0)
+## Immediate Tasks (Sprint 0.8.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -17,4 +17,6 @@
 - [x] Add Containerfile image version metadata label
 - [x] Expand README.md with full command reference and documentation index
 - [x] Add custom Plymouth boot splash theme in `branding/plymouth/bobzzite/`
-- [ ] Add custom SDDM login greeter theme
+- [x] Add custom SDDM login greeter theme in `branding/sddm/bobzzite/`
+- [x] Add Fastfetch system terminal branding profile in `config/files/etc/fastfetch/`
+- [ ] Add sound theme soundpack hooks
