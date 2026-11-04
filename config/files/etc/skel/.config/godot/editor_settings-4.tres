@@ -1,0 +1,8 @@
+[gd_resource type="EditorSettings" format=3]
+
+[resource]
+text_editor/external/use_external_editor = true
+text_editor/external/exec_path = "/usr/bin/flatpak"
+text_editor/external/exec_flags = "run com.vscodium.codium {project} --goto {file}:{line}:{col}"
+network/language_server/remote_host = "127.0.0.1"
+network/language_server/remote_port = 6005

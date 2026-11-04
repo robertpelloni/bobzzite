@@ -8,7 +8,11 @@ Built on Fedora Atomic with rpm-ostree.
 
 - **Base Gaming Stack**: Inherits Valve Proton enhancements, Steam Big Picture, Heroic Games Launcher, and GameMode from Bazzite.
 - **Indie Development Suite**: Pre-configured automated installation of Godot Engine 4, VS Codium, GIMP, Audacity, and OBS Studio via Flatpak.
-- **Godot + VS Codium Integration**: Automated configuration of VS Codium LSP (`geequlim.godot-tools`), GDScript language server port routing (6005), and Flatpak permission overrides for smooth inter-process editing.
+- **Bidirectional Godot + VS Codium Workflow**:
+  - VS Codium is configured with Godot Tools LSP settings (`127.0.0.1:6005`).
+  - Automated extension installation for `geequlim.godot-tools`.
+  - Godot 4 editor template (`editor_settings-4.tres`) automatically delegates external script editing to VS Codium with project and cursor line/column arguments.
+  - Pre-seeded Godot 4 project starter template in `/etc/skel/Templates/Godot4_Starter`.
 - **Immutable & Atomic**: Root filesystem is read-only, atomic updates and rollbacks via `rpm-ostree`.
 - **Custom Branding**: Dedicated bob branding assets, wallpapers, icons, and system identity files.
 
@@ -16,11 +20,14 @@ Built on Fedora Atomic with rpm-ostree.
 
 - `Containerfile` — Main build definition layering on `ghcr.io/ublue-os/bazzite:latest`
 - `config/recipe.yml` — BlueBuild image recipe with package and flatpak specifications
-- `config/files/` — Configuration files layered onto the root filesystem (e.g. `/etc/bobzzite-release`)
+- `config/files/` — Configuration files layered onto the root filesystem:
+  - `/etc/bobzzite-release` — OS release metadata
+  - `/etc/skel/.config/godot/editor_settings-4.tres` — Default Godot 4 editor external editor settings
+  - `/etc/skel/Templates/Godot4_Starter/` — Starter Godot 4 project skeleton
 - `branding/` — Wallpapers (`branding/wallpapers/`) and logos (`branding/icons/`)
 - `scripts/` — Utility scripts:
   - `scripts/install-indie-tools.sh` — Automated installer for the indie game development tool suite
-  - `scripts/configure-godot-codium.sh` — Configures Godot 4 & VS Codium LSP and Flatpak integration
+  - `scripts/configure-godot-codium.sh` — Configures Godot 4 & VS Codium LSP, extensions, and Flatpak integration
   - `scripts/post-install.sh` — Post-install setup hook
   - `scripts/validate_build.py` — Repo and container build syntax validator
 - `docs/` — Architectural research and technical notes
@@ -38,6 +45,13 @@ podman build -t bobzzite:latest -f Containerfile .
 ## Installing & Configuring Indie Development Tools
 
 On an installed or rebased system, run:
+
+```bash
+# Run full post-installation provisioning
+bash scripts/post-install.sh
+```
+
+Or run individual setup scripts:
 
 ```bash
 # Install indie dev tools (Godot, VS Codium, GIMP, Audacity, OBS Studio)

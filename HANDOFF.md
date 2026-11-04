@@ -2,11 +2,12 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `0.3.1` (tracked in `VERSION.md`)
-- **Key Features Added & Documented**:
+- **Current Version**: `0.4.0` (tracked in `VERSION.md`)
+- **Key Features Added & Configured**:
   - Automated installation of indie development suite (`scripts/install-indie-tools.sh`): Godot 4, VS Codium, GIMP, Audacity, OBS Studio.
-  - Seamless developer workflow setup (`scripts/configure-godot-codium.sh`): configures VS Codium settings for Godot Tools, GDScript LSP port 6005, and Flatpak network sharing.
-  - Comprehensive documentation updates across `DEPLOY.md`, `README.md`, and `docs/RESEARCH.md`.
+  - Bidirectional developer workflow setup (`scripts/configure-godot-codium.sh`): configures VS Codium settings for Godot Tools, GDScript LSP port 6005, installs `geequlim.godot-tools`, and sets Flatpak network sharing.
+  - Pre-seeded Godot 4 editor settings (`config/files/etc/skel/.config/godot/editor_settings-4.tres`) and starter project template (`config/files/etc/skel/Templates/Godot4_Starter/project.godot`).
+  - Comprehensive documentation updates across `DEPLOY.md`, `README.md`, `docs/RESEARCH.md`, and changelog tracking.
   - Repaired missing `Containerfile` copy paths and established build validation tests.
 - **Validation**:
   - `scripts/validate_build.py` verifies Containerfile COPY references, indie tool scripts, and permissions.

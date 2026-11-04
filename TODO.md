@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 0.3.0)
+## Immediate Tasks (Sprint 0.4.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -9,6 +9,7 @@
 - [x] Create indie dev suite installer `scripts/install-indie-tools.sh`
 - [x] Hook indie dev tool installer into `scripts/post-install.sh`
 - [x] Create Godot 4 + VS Codium integration script `scripts/configure-godot-codium.sh`
+- [x] Add Godot 4 editor external settings template and starter game project template in `/etc/skel/`
 - [ ] Add GitHub Actions CI smoke test step using `scripts/validate_build.py`
 - [ ] Verify image build pipeline in GHCR
 - [ ] Add plymouth boot splash configuration template
