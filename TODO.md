@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 1.1.0)
+## Immediate Tasks (Sprint 1.2.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -26,3 +26,4 @@
 - [x] Install `bobzzite-validate` into `/usr/local/bin` and ensure resilient path resolution in Control Center
 - [x] Add first-boot onboarding wizard (`scripts/bobzzite-onboarding.sh` and autostart launcher)
 - [x] Add ambient system sound theme (`branding/sounds/bobzzite/`)
+- [x] Add P2P mesh networking & remote collaboration manager (`scripts/bobzzite-mesh.sh` and `docs/MULTIPLAYER.md`)

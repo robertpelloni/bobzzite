@@ -40,6 +40,7 @@ def check_scripts():
         "scripts/bobzzite-control-center.py",
         "scripts/bobzzite-devbox.sh",
         "scripts/bobzzite-onboarding.sh",
+        "scripts/bobzzite-mesh.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -79,7 +80,8 @@ def check_required_docs():
         "README.md",
         "AGENTS.md",
         "docs/USER_GUIDE.md",
-        "docs/ISO_BUILD.md"
+        "docs/ISO_BUILD.md",
+        "docs/MULTIPLAYER.md"
     ]
     errors = 0
     for doc in required_docs:

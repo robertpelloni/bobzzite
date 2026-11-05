@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-04-12
+
+### Added
+- Added Multiplayer Mesh & P2P Sync Manager `scripts/bobzzite-mesh.sh` (and `/usr/local/bin/bobzzite-mesh`).
+- Integrated Mesh and P2P Sync status action into Bobzzite Control Center GUI.
+- Added comprehensive Multiplayer Computing & Remote Game Jam guide in `docs/MULTIPLAYER.md`.
+- Updated build validation to verify `docs/MULTIPLAYER.md` and `scripts/bobzzite-mesh.sh`.
+
 ## [1.1.0] - 2026-04-12
 
 ### Added

@@ -26,7 +26,7 @@
 - [ ] Multi-flavor target matrix: Handheld (Deck/Ally/Legion), Desktop AMD/Intel, and Desktop NVIDIA
 - [ ] Publish automated ISO releases to GitHub releases
 
-## Phase 5: Multiplayer & Distributed Cloud OS
-- [ ] Built-in P2P mesh networking via Tailscale / Syncthing
-- [ ] Low-latency remote game streaming and collaboration tools
-- [ ] Decentralized asset syncing for distributed game development
+## Phase 5: Multiplayer & Distributed Cloud OS ✅
+- [x] Built-in P2P mesh networking via Tailscale (`bobzzite-mesh`)
+- [x] Decentralized asset syncing for game projects via Syncthing
+- [x] Low-latency remote Wayland game streaming workflows via Waypipe (`docs/MULTIPLAYER.md`)

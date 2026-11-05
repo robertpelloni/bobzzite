@@ -155,11 +155,15 @@ class BobzziteControlCenter:
         ToolTip(h2, "Queries whether GameMode governor optimization is currently active.")
 
         h4 = ttk.Button(hw_grid, text="Dev Containers", command=lambda: self.run_async("bobzzite-devbox list", "Listing Distrobox dev environments..."))
-        h4.grid(row=1, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h4, "Queries available Arch/Ubuntu Distrobox development containers.")
 
+        h5 = ttk.Button(hw_grid, text="Mesh / P2P Status", command=lambda: self.run_async("bobzzite-mesh status", "Querying P2P mesh & sync status..."))
+        h5.grid(row=1, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h5, "Queries status of Tailscale mesh networking and Syncthing P2P syncing.")
+
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, padx=6, pady=4, sticky="ew")
+        h3.grid(row=0, column=2, rowspan=2, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)
