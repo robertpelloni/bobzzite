@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-04-12
+
+### Added
+- Added System Backup, Rollback & Snapshot Utility `scripts/bobzzite-backup.sh` (and `/usr/local/bin/bobzzite-backup`).
+- Integrated "Backup / Snapshots" action into Bobzzite Control Center.
+- Added comprehensive guide on OSTree pinning, rollback, and user data snapshots in `docs/BACKUP_ROLLBACK.md`.
+- Updated build validation to test `docs/BACKUP_ROLLBACK.md` and `scripts/bobzzite-backup.sh`.
+
 ## [1.4.0] - 2026-04-12
 
 ### Added

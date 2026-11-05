@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 1.4.0)
+## Immediate Tasks (Sprint 1.5.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -30,3 +30,4 @@
 - [x] Add System Doctor health diagnostics tool (`scripts/bobzzite-doctor.sh` and `docs/DIAGNOSTICS.md`)
 - [x] Add multi-hardware flavor build automation (`scripts/build-flavors.sh` and CI matrix)
 - [x] Document hardware target matrix in `docs/HARDWARE_FLAVORS.md`
+- [x] Add atomic rollback, ostree pinning, and dev snapshot utility (`scripts/bobzzite-backup.sh` and `docs/BACKUP_ROLLBACK.md`)

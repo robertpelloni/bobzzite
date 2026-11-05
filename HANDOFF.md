@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `1.4.0` (tracked in `VERSION.md`)
+- **Current Version**: `1.5.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Atomic OSTree deployment pinning, system rollback, and user dev snapshot utility (`scripts/bobzzite-backup.sh` and `/usr/local/bin/bobzzite-backup`).
+  - Integrated "Backup / Snapshots" action into the Bobzzite Control Center.
+  - Complete rollback, pinning, and snapshot documentation in `docs/BACKUP_ROLLBACK.md`.
   - Multi-hardware flavor build automation (`scripts/build-flavors.sh`) supporting:
     - `bobzzite` (desktop AMD Radeon and Intel Arc/Iris)
     - `bobzzite-deck` (Valve Steam Deck LCD/OLED, ASUS ROG Ally, Lenovo Legion Go)
@@ -25,12 +28,12 @@
   - Automated installation of indie development suite (`scripts/install-indie-tools.sh`): Godot 4, VS Codium, GIMP, Audacity, OBS Studio.
   - Bidirectional developer workflow setup (`scripts/configure-godot-codium.sh`).
   - Pre-seeded Godot 4 editor settings and starter project template in `/etc/skel/`.
-  - Containerfile updated with image versioning label and ARG (`1.4.0`).
+  - Containerfile updated with image versioning label and ARG (`1.5.0`).
   - User Guide (`docs/USER_GUIDE.md`) with system layering diagram, handheld optimization notes, and developer FAQ.
   - Complete documentation index in `README.md`.
   - Repaired missing `Containerfile` copy paths and established build validation tests.
 - **Validation**:
-  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Distrobox scripts, onboarding script, mesh script, diagnostics doctor, flavor script, ISO documentation, hardware flavors documentation, multiplayer documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
+  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Distrobox scripts, onboarding script, mesh script, diagnostics doctor, backup script, flavor script, ISO documentation, hardware flavors documentation, multiplayer documentation, backup documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
 
 ## Resumption Instructions for Successor Agents
 1. Review `TODO.md` and `ROADMAP.md` for prioritized milestones.

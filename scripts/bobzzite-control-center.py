@@ -163,8 +163,12 @@ class BobzziteControlCenter:
         ToolTip(h5, "Queries status of Tailscale mesh networking and Syncthing P2P syncing.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
-        mb4.grid(row=1, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        mb4.grid(row=1, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb4, "Performs health checks on atomic OS, GPU drivers, GameMode, and dev tool Flatpaks.")
+
+        mb5 = ttk.Button(m_grid, text="Backup / Snapshots", command=lambda: self.run_async("bobzzite-backup status", "Checking backup snapshots..."))
+        mb5.grid(row=1, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb5, "Inspects pinned ostree deployments and saved user dev snapshots.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
         h3.grid(row=0, column=2, rowspan=2, padx=6, pady=4, sticky="nsew")

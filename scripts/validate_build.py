@@ -43,6 +43,7 @@ def check_scripts():
         "scripts/bobzzite-mesh.sh",
         "scripts/bobzzite-doctor.sh",
         "scripts/build-flavors.sh",
+        "scripts/bobzzite-backup.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -85,7 +86,8 @@ def check_required_docs():
         "docs/ISO_BUILD.md",
         "docs/MULTIPLAYER.md",
         "docs/DIAGNOSTICS.md",
-        "docs/HARDWARE_FLAVORS.md"
+        "docs/HARDWARE_FLAVORS.md",
+        "docs/BACKUP_ROLLBACK.md"
     ]
     errors = 0
     for doc in required_docs:

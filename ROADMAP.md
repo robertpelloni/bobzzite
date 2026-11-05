@@ -25,6 +25,7 @@
 - [x] Hardware profiles and handheld compatibility (Steam Deck, ROG Ally, Legion Go)
 - [x] Multi-flavor target matrix: Handheld (Deck/Ally/Legion), Desktop AMD/Intel, and Desktop NVIDIA (`scripts/build-flavors.sh`, `docs/HARDWARE_FLAVORS.md`)
 - [x] Automated CI matrix build strategy in `.github/workflows/build.yml`
+- [x] Atomic rollback, deployment pinning, and dev snapshot management (`docs/BACKUP_ROLLBACK.md`)
 
 ## Phase 5: Multiplayer & Distributed Cloud OS ✅
 - [x] Built-in P2P mesh networking via Tailscale (`bobzzite-mesh`)
