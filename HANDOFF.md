@@ -2,22 +2,16 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `1.5.0` (tracked in `VERSION.md`)
+- **Current Version**: `1.6.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Bob ecosystem Flatpak packaging manifests (`packages/flatpak/com.robertpelloni.bobzilla.yml`, `packages/flatpak/com.robertpelloni.bobfilez.yml`).
+  - Automated Flatpak builder tooling (`scripts/build-flatpaks.sh` and `docs/FLATPAK_PACKAGING.md`).
   - Atomic OSTree deployment pinning, system rollback, and user dev snapshot utility (`scripts/bobzzite-backup.sh` and `/usr/local/bin/bobzzite-backup`).
-  - Integrated "Backup / Snapshots" action into the Bobzzite Control Center.
-  - Complete rollback, pinning, and snapshot documentation in `docs/BACKUP_ROLLBACK.md`.
-  - Multi-hardware flavor build automation (`scripts/build-flavors.sh`) supporting:
-    - `bobzzite` (desktop AMD Radeon and Intel Arc/Iris)
-    - `bobzzite-deck` (Valve Steam Deck LCD/OLED, ASUS ROG Ally, Lenovo Legion Go)
-    - `bobzzite-nvidia` (GeForce GPUs with proprietary NVIDIA drivers)
-  - GitHub Actions CI workflow matrix strategy (.github/workflows/build.yml) compiling all three flavor targets.
-  - Complete hardware specifications and rebasing instructions in `docs/HARDWARE_FLAVORS.md`.
+  - Multi-hardware flavor build automation (`scripts/build-flavors.sh`) and GitHub Actions matrix builds for `bobzzite`, `bobzzite-deck`, and `bobzzite-nvidia`.
   - System Health & Diagnostics Doctor (`scripts/bobzzite-doctor.sh` and `/usr/local/bin/bobzzite-doctor`).
   - Peer-to-peer mesh networking & asset synchronization manager (`scripts/bobzzite-mesh.sh` and `/usr/local/bin/bobzzite-mesh`).
-  - Multiplayer Computing & Remote Game Jam guide in `docs/MULTIPLAYER.md`.
   - First-boot onboarding wizard (`scripts/bobzzite-onboarding.sh` and autostart `.desktop` entry) for automated initial setup.
-  - Ambient system sound theme in `branding/sounds/bobzzite/` (`index.theme` and desktop-login audio cue).
+  - Ambient system sound theme in `branding/sounds/bobzzite/`.
   - Unified Bobzzite Control Center GUI (`scripts/bobzzite-control-center.py` and `/usr/local/bin/bobzzite-control-center`).
   - Distrobox environment manager (`scripts/bobzzite-devbox.sh` and `/usr/local/bin/bobzzite-devbox`).
   - Universal Blue ISO generator deployment specification (`docs/ISO_BUILD.md`).
@@ -28,12 +22,12 @@
   - Automated installation of indie development suite (`scripts/install-indie-tools.sh`): Godot 4, VS Codium, GIMP, Audacity, OBS Studio.
   - Bidirectional developer workflow setup (`scripts/configure-godot-codium.sh`).
   - Pre-seeded Godot 4 editor settings and starter project template in `/etc/skel/`.
-  - Containerfile updated with image versioning label and ARG (`1.5.0`).
+  - Containerfile updated with image versioning label and ARG (`1.6.0`).
   - User Guide (`docs/USER_GUIDE.md`) with system layering diagram, handheld optimization notes, and developer FAQ.
   - Complete documentation index in `README.md`.
   - Repaired missing `Containerfile` copy paths and established build validation tests.
 - **Validation**:
-  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Distrobox scripts, onboarding script, mesh script, diagnostics doctor, backup script, flavor script, ISO documentation, hardware flavors documentation, multiplayer documentation, backup documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
+  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Distrobox scripts, onboarding script, mesh script, diagnostics doctor, backup script, flavor script, flatpak builder, ISO documentation, hardware flavors documentation, multiplayer documentation, backup documentation, flatpak packaging documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
 
 ## Resumption Instructions for Successor Agents
 1. Review `TODO.md` and `ROADMAP.md` for prioritized milestones.

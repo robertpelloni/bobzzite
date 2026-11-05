@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 1.5.0)
+## Immediate Tasks (Sprint 1.6.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -31,3 +31,5 @@
 - [x] Add multi-hardware flavor build automation (`scripts/build-flavors.sh` and CI matrix)
 - [x] Document hardware target matrix in `docs/HARDWARE_FLAVORS.md`
 - [x] Add atomic rollback, ostree pinning, and dev snapshot utility (`scripts/bobzzite-backup.sh` and `docs/BACKUP_ROLLBACK.md`)
+- [x] Add Flatpak packaging manifests for bobzilla and bobfilez (`packages/flatpak/`)
+- [x] Add Flatpak builder script (`scripts/build-flatpaks.sh` and `docs/FLATPAK_PACKAGING.md`)

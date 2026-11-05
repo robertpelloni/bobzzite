@@ -19,6 +19,8 @@
 - [x] Unified Bobzzite Control Center GUI (`bobzzite-control-center`)
 - [x] Distrobox environment management tooling (`bobzzite-devbox`)
 - [x] First-boot onboarding wizard (`bobzzite-onboarding`)
+- [x] Flatpak packaging manifests for bobzilla and bobfilez (`packages/flatpak/`)
+- [x] Automated Flatpak builder tooling (`scripts/build-flatpaks.sh`, `docs/FLATPAK_PACKAGING.md`)
 
 ## Phase 4: Hardware Profiles & ISO Generation ✅
 - [x] Universal Blue ISO generator documentation & workflow (`docs/ISO_BUILD.md`)

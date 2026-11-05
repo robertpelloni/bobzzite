@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-04-12
+
+### Added
+- Added Flatpak packaging manifests for bob ecosystem applications: `packages/flatpak/com.robertpelloni.bobzilla.yml` and `packages/flatpak/com.robertpelloni.bobfilez.yml`.
+- Added automated local Flatpak builder script `scripts/build-flatpaks.sh`.
+- Added Flatpak packaging and distribution guide in `docs/FLATPAK_PACKAGING.md`.
+- Updated build validation to test `docs/FLATPAK_PACKAGING.md` and `scripts/build-flatpaks.sh`.
+
 ## [1.5.0] - 2026-04-12
 
 ### Added
