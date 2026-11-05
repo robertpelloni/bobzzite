@@ -131,7 +131,7 @@ class BobzziteControlCenter:
         mb2.grid(row=0, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(mb2, "Checks for and applies updates to all installed user Flatpaks.")
 
-        mb3 = ttk.Button(m_grid, text="Validate Repo / Build", command=lambda: self.run_async("python3 scripts/validate_build.py", "Validating repository build readiness..."))
+        mb3 = ttk.Button(m_grid, text="Validate Repo / Build", command=lambda: self.run_async("if command -v bobzzite-validate >/dev/null 2>&1; then bobzzite-validate; elif [ -f scripts/validate_build.py ]; then python3 scripts/validate_build.py; else echo 'Validation script not found'; fi", "Validating system & build readiness..."))
         mb3.grid(row=0, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb3, "Runs repository integrity, asset copy, and documentation checks.")
 

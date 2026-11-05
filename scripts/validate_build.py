@@ -38,7 +38,8 @@ def check_scripts():
         "scripts/install-indie-tools.sh",
         "scripts/configure-godot-codium.sh",
         "scripts/bobzzite-control-center.py",
-        "scripts/bobzzite-devbox.sh"
+        "scripts/bobzzite-devbox.sh",
+        "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
     for script in scripts_to_check:
