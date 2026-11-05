@@ -17,6 +17,7 @@
 - [x] Automated installer for indie development tools (Godot 4, VS Codium, GIMP, Audacity, OBS Studio)
 - [x] Bidirectional Godot 4 + VS Codium LSP routing and starter templates
 - [x] Unified Bobzzite Control Center GUI (`bobzzite-control-center`)
+- [x] System Tray Monitor applet (`bobzzite-tray`)
 - [x] Distrobox environment management tooling (`bobzzite-devbox`)
 - [x] First-boot onboarding wizard (`bobzzite-onboarding`)
 - [x] Flatpak packaging manifests for bobzilla and bobfilez (`packages/flatpak/`)

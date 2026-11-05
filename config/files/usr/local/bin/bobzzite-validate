@@ -47,6 +47,7 @@ def check_scripts():
         "scripts/build-flatpaks.sh",
         "scripts/bobzzite-tweak.sh",
         "scripts/bobzzite-gamepad.sh",
+        "scripts/bobzzite-tray.py",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0

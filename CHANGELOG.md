@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2026-04-12
+
+### Added
+- Added System Tray Monitor applet `scripts/bobzzite-tray.py` (and `/usr/local/bin/bobzzite-tray`).
+- Added autostart launcher `config/files/etc/skel/.config/autostart/bobzzite-tray.desktop` for background system monitoring.
+- Enabled quick actions in the tray applet to launch Control Center, trigger diagnostics, and quit background services.
+- Updated build validation to verify `scripts/bobzzite-tray.py`.
+
 ## [1.8.0] - 2026-04-12
 
 ### Added

@@ -2,10 +2,10 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `1.8.0` (tracked in `VERSION.md`)
+- **Current Version**: `1.9.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - System Tray Monitor applet (`scripts/bobzzite-tray.py` and `/usr/local/bin/bobzzite-tray`) with autostart launcher and quick actions to open Control Center, trigger diagnostics, and quit background services.
   - Game controller and handheld PC mapping utility (`scripts/bobzzite-gamepad.sh` and `/usr/local/bin/bobzzite-gamepad`) with documentation in `docs/CONTROLLER_SUPPORT.md`.
-  - Integrated "Game Controllers" action into Bobzzite Control Center.
   - System performance and latency tuning utility (`scripts/bobzzite-tweak.sh` and `/usr/local/bin/bobzzite-tweak`) with documentation in `docs/PERFORMANCE_TUNING.md`.
   - Full documentation directory index across all 9 guide specifications in `README.md`.
   - Bob ecosystem Flatpak packaging manifests (`packages/flatpak/com.robertpelloni.bobzilla.yml`, `packages/flatpak/com.robertpelloni.bobfilez.yml`).
@@ -26,12 +26,12 @@
   - Automated installation of indie development suite (`scripts/install-indie-tools.sh`): Godot 4, VS Codium, GIMP, Audacity, OBS Studio.
   - Bidirectional developer workflow setup (`scripts/configure-godot-codium.sh`).
   - Pre-seeded Godot 4 editor settings and starter project template in `/etc/skel/`.
-  - Containerfile updated with image versioning label and ARG (`1.8.0`).
+  - Containerfile updated with image versioning label and ARG (`1.9.0`).
   - User Guide (`docs/USER_GUIDE.md`) with system layering diagram, handheld optimization notes, and developer FAQ.
   - Complete documentation index in `README.md`.
   - Repaired missing `Containerfile` copy paths and established build validation tests.
 - **Validation**:
-  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Distrobox scripts, onboarding script, mesh script, diagnostics doctor, backup script, flavor script, flatpak builder, performance tuner, gamepad manager, ISO documentation, hardware flavors documentation, multiplayer documentation, backup documentation, flatpak packaging documentation, tuning documentation, controller documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
+  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Tray applet, Distrobox scripts, onboarding script, mesh script, diagnostics doctor, backup script, flavor script, flatpak builder, performance tuner, gamepad manager, ISO documentation, hardware flavors documentation, multiplayer documentation, backup documentation, flatpak packaging documentation, tuning documentation, controller documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
 
 ## Resumption Instructions for Successor Agents
 1. Review `TODO.md` and `ROADMAP.md` for prioritized milestones.
