@@ -1,0 +1,20 @@
+# Plymouth script for bobzzite boot splash
+
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+# Load background or logo image
+logo_image = Image("logo.png");
+resized_logo = logo_image.Scale(160, 160);
+logo_sprite = Sprite(resized_logo);
+
+# Center logo
+logo_sprite.SetX((screen_width - 160) / 2);
+logo_sprite.SetY((screen_height - 160) / 2);
+
+# Progress callback
+fun progress_callback(duration, progress) {
+    # Optional pulse or rotation effect
+}
+
+Plymouth.SetBootProgressFunction(progress_callback);

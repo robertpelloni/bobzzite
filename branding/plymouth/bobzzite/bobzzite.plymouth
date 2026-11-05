@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=bobzzite Splash
+Description=Default boot splash theme for bobzzite gaming OS
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/bobzzite
+ScriptFile=/usr/share/plymouth/themes/bobzzite/bobzzite.script

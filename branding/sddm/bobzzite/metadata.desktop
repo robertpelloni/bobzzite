@@ -1,0 +1,12 @@
+[SddmGreeterTheme]
+Name=bobzzite
+Description=Default SDDM login greeter theme for bobzzite gaming OS
+Author=robertpelloni
+Copyright=(c) 2026 bobzzite
+Screenshot=screenshot.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=
+Theme-Id=bobzzite
+Theme-API=2.0

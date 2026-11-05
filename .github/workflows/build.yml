@@ -10,12 +10,21 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: bobzzite
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        flavor:
+          - name: bobzzite
+            base: ghcr.io/ublue-os/bazzite:latest
+          - name: bobzzite-deck
+            base: ghcr.io/ublue-os/bazzite-deck:latest
+          - name: bobzzite-nvidia
+            base: ghcr.io/ublue-os/bazzite-nvidia:latest
     permissions:
       contents: read
       packages: write
@@ -23,6 +32,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate repository and build configuration
+        run: |
+          python3 scripts/validate_build.py
 
       - name: Generate tags
         id: generate-tags
@@ -45,7 +63,10 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          image: ${{ env.IMAGE_NAME }}
+          build-args: |
+            BASE_IMAGE=${{ matrix.flavor.base }}
+            IMAGE_NAME=${{ matrix.flavor.name }}
+          image: ${{ matrix.flavor.name }}
           tags: |
             latest
             ${{ steps.generate-tags.outputs.date }}
