@@ -2,8 +2,9 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `1.6.0` (tracked in `VERSION.md`)
+- **Current Version**: `1.6.1` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Full documentation directory index across all 7 guide specifications in `README.md`.
   - Bob ecosystem Flatpak packaging manifests (`packages/flatpak/com.robertpelloni.bobzilla.yml`, `packages/flatpak/com.robertpelloni.bobfilez.yml`).
   - Automated Flatpak builder tooling (`scripts/build-flatpaks.sh` and `docs/FLATPAK_PACKAGING.md`).
   - Atomic OSTree deployment pinning, system rollback, and user dev snapshot utility (`scripts/bobzzite-backup.sh` and `/usr/local/bin/bobzzite-backup`).
@@ -22,7 +23,7 @@
   - Automated installation of indie development suite (`scripts/install-indie-tools.sh`): Godot 4, VS Codium, GIMP, Audacity, OBS Studio.
   - Bidirectional developer workflow setup (`scripts/configure-godot-codium.sh`).
   - Pre-seeded Godot 4 editor settings and starter project template in `/etc/skel/`.
-  - Containerfile updated with image versioning label and ARG (`1.6.0`).
+  - Containerfile updated with image versioning label and ARG (`1.6.1`).
   - User Guide (`docs/USER_GUIDE.md`) with system layering diagram, handheld optimization notes, and developer FAQ.
   - Complete documentation index in `README.md`.
   - Repaired missing `Containerfile` copy paths and established build validation tests.

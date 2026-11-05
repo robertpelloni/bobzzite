@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.1] - 2026-04-12
+
+### Documentation
+- Updated `README.md` with full technical specification index across all 7 documentation guides (`ISO_BUILD.md`, `HARDWARE_FLAVORS.md`, `DIAGNOSTICS.md`, `BACKUP_ROLLBACK.md`, `MULTIPLAYER.md`, `FLATPAK_PACKAGING.md`, `USER_GUIDE.md`).
+- Documented full system tool suite in `README.md` (`bobzzite-doctor`, `bobzzite-backup`, `bobzzite-devbox`, `bobzzite-mesh`, `build-flavors.sh`, `build-flatpaks.sh`).
+- Updated `HANDOFF.md` and `TODO.md` tracking version 1.6.1.
+
 ## [1.6.0] - 2026-04-12
 
 ### Added
