@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `1.2.0` (tracked in `VERSION.md`)
+- **Current Version**: `1.3.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - System Health & Diagnostics Doctor (`scripts/bobzzite-doctor.sh` and `/usr/local/bin/bobzzite-doctor`).
+  - Integrated System Doctor action into the Bobzzite Control Center.
+  - Comprehensive diagnostics documentation in `docs/DIAGNOSTICS.md`.
   - Peer-to-peer mesh networking & asset synchronization manager (`scripts/bobzzite-mesh.sh` and `/usr/local/bin/bobzzite-mesh`).
   - Multiplayer Computing & Remote Game Jam guide in `docs/MULTIPLAYER.md`.
   - First-boot onboarding wizard (`scripts/bobzzite-onboarding.sh` and autostart `.desktop` entry) for automated initial setup.
@@ -20,12 +23,12 @@
   - Bidirectional developer workflow setup (`scripts/configure-godot-codium.sh`).
   - Pre-seeded Godot 4 editor settings and starter project template in `/etc/skel/`.
   - GitHub Actions CI workflow automated with pre-build validator step (`scripts/validate_build.py`).
-  - Containerfile updated with image versioning label and ARG (`1.2.0`).
+  - Containerfile updated with image versioning label and ARG (`1.3.0`).
   - User Guide (`docs/USER_GUIDE.md`) with system layering diagram, handheld optimization notes, and developer FAQ.
   - Complete documentation index in `README.md`.
   - Repaired missing `Containerfile` copy paths and established build validation tests.
 - **Validation**:
-  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Distrobox scripts, onboarding script, mesh script, ISO documentation, multiplayer documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
+  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Distrobox scripts, onboarding script, mesh script, diagnostics doctor, ISO documentation, multiplayer documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
 
 ## Resumption Instructions for Successor Agents
 1. Review `TODO.md` and `ROADMAP.md` for prioritized milestones.
