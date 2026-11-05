@@ -1,0 +1,23 @@
+app-id: com.robertpelloni.bobzilla
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+command: bobzilla
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --share=network
+  - --filesystem=host
+modules:
+  - name: bobzilla
+    buildsystem: simple
+    build-commands:
+      - install -D -m 755 bobzilla.sh /app/bin/bobzilla
+    sources:
+      - type: inline
+        dest-filename: bobzilla.sh
+        contents: |
+          #!/bin/bash
+          echo "Starting bobzilla browser on bobzzite..."
+          exec firefox "$@"

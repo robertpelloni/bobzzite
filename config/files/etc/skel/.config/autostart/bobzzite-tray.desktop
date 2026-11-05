@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=bobzzite System Tray
+Comment=Background status applet and quick controls for bobzzite
+Exec=/usr/local/bin/bobzzite-tray
+Terminal=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

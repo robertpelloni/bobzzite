@@ -154,6 +154,14 @@ class BobzziteControlCenter:
         h2.grid(row=0, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h2, "Queries whether GameMode governor optimization is currently active.")
 
+        h6 = ttk.Button(hw_grid, text="System Tuning", command=lambda: self.run_async("bobzzite-tweak status", "Inspecting system performance tunables..."))
+        h6.grid(row=2, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h6, "Queries low-latency sysctl parameters, split lock mitigation, and PipeWire latency.")
+
+        h7 = ttk.Button(hw_grid, text="Game Controllers", command=lambda: self.run_async("bobzzite-gamepad list", "Detecting connected controllers & joysticks..."))
+        h7.grid(row=2, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h7, "Detects connected gamepads, tests axes/buttons, and configures handheld mapping.")
+
         h4 = ttk.Button(hw_grid, text="Dev Containers", command=lambda: self.run_async("bobzzite-devbox list", "Listing Distrobox dev environments..."))
         h4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h4, "Queries available Arch/Ubuntu Distrobox development containers.")
@@ -163,11 +171,15 @@ class BobzziteControlCenter:
         ToolTip(h5, "Queries status of Tailscale mesh networking and Syncthing P2P syncing.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
-        mb4.grid(row=1, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        mb4.grid(row=1, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb4, "Performs health checks on atomic OS, GPU drivers, GameMode, and dev tool Flatpaks.")
 
+        mb5 = ttk.Button(m_grid, text="Backup / Snapshots", command=lambda: self.run_async("bobzzite-backup status", "Checking backup snapshots..."))
+        mb5.grid(row=1, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb5, "Inspects pinned ostree deployments and saved user dev snapshots.")
+
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=2, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=3, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

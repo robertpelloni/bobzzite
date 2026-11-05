@@ -5,6 +5,53 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2026-04-12
+
+### Added
+- Added System Tray Monitor applet `scripts/bobzzite-tray.py` (and `/usr/local/bin/bobzzite-tray`).
+- Added autostart launcher `config/files/etc/skel/.config/autostart/bobzzite-tray.desktop` for background system monitoring.
+- Enabled quick actions in the tray applet to launch Control Center, trigger diagnostics, and quit background services.
+- Updated build validation to verify `scripts/bobzzite-tray.py`.
+
+## [1.8.0] - 2026-04-12
+
+### Added
+- Added Game Controller & Handheld Mapping Tool `scripts/bobzzite-gamepad.sh` (and `/usr/local/bin/bobzzite-gamepad`).
+- Integrated "Game Controllers" action into Bobzzite Control Center.
+- Added comprehensive controller guide and handheld PC mapping notes in `docs/CONTROLLER_SUPPORT.md`.
+- Updated build validation to test `docs/CONTROLLER_SUPPORT.md` and `scripts/bobzzite-gamepad.sh`.
+
+## [1.7.0] - 2026-04-12
+
+### Added
+- Added System Performance & Latency Tuner `scripts/bobzzite-tweak.sh` (and `/usr/local/bin/bobzzite-tweak`) to manage low-latency sysctl tunables, split-lock mitigation, and PipeWire audio buffers.
+- Integrated "System Tuning" action into Bobzzite Control Center.
+- Added comprehensive performance tuning guide in `docs/PERFORMANCE_TUNING.md`.
+- Updated build validation to test `docs/PERFORMANCE_TUNING.md` and `scripts/bobzzite-tweak.sh`.
+
+## [1.6.1] - 2026-04-12
+
+### Documentation
+- Updated `README.md` with full technical specification index across all 7 documentation guides (`ISO_BUILD.md`, `HARDWARE_FLAVORS.md`, `DIAGNOSTICS.md`, `BACKUP_ROLLBACK.md`, `MULTIPLAYER.md`, `FLATPAK_PACKAGING.md`, `USER_GUIDE.md`).
+- Documented full system tool suite in `README.md` (`bobzzite-doctor`, `bobzzite-backup`, `bobzzite-devbox`, `bobzzite-mesh`, `build-flavors.sh`, `build-flatpaks.sh`).
+- Updated `HANDOFF.md` and `TODO.md` tracking version 1.6.1.
+
+## [1.6.0] - 2026-04-12
+
+### Added
+- Added Flatpak packaging manifests for bob ecosystem applications: `packages/flatpak/com.robertpelloni.bobzilla.yml` and `packages/flatpak/com.robertpelloni.bobfilez.yml`.
+- Added automated local Flatpak builder script `scripts/build-flatpaks.sh`.
+- Added Flatpak packaging and distribution guide in `docs/FLATPAK_PACKAGING.md`.
+- Updated build validation to test `docs/FLATPAK_PACKAGING.md` and `scripts/build-flatpaks.sh`.
+
+## [1.5.0] - 2026-04-12
+
+### Added
+- Added System Backup, Rollback & Snapshot Utility `scripts/bobzzite-backup.sh` (and `/usr/local/bin/bobzzite-backup`).
+- Integrated "Backup / Snapshots" action into Bobzzite Control Center.
+- Added comprehensive guide on OSTree pinning, rollback, and user data snapshots in `docs/BACKUP_ROLLBACK.md`.
+- Updated build validation to test `docs/BACKUP_ROLLBACK.md` and `scripts/bobzzite-backup.sh`.
+
 ## [1.4.0] - 2026-04-12
 
 ### Added

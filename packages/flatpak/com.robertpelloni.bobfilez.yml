@@ -1,0 +1,23 @@
+app-id: com.robertpelloni.bobfilez
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+command: bobfilez
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --share=network
+  - --filesystem=host
+modules:
+  - name: bobfilez
+    buildsystem: simple
+    build-commands:
+      - install -D -m 755 bobfilez.sh /app/bin/bobfilez
+    sources:
+      - type: inline
+        dest-filename: bobfilez.sh
+        contents: |
+          #!/bin/bash
+          echo "Starting bobfilez asset manager on bobzzite..."
+          exec xdg-open "${HOME}/Projects"

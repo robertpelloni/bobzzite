@@ -37,38 +37,29 @@ Built on Fedora Atomic with rpm-ostree.
   - Automated extension installation for `geequlim.godot-tools`.
   - Godot 4 editor template (`editor_settings-4.tres`) automatically delegates external script editing to VS Codium with project and cursor line/column arguments.
   - Pre-seeded Godot 4 project starter template in `/etc/skel/Templates/Godot4_Starter`.
+- **Bobzzite Control Center GUI**:
+  - Unified desktop dashboard (`bobzzite-control-center`) integrating high-value actions, system diagnostics, dev containers, and hardware status into a single window.
+  - Real-time execution log console, interactive controls, and explanatory tooltips.
+- **Multi-Hardware Flavors**:
+  - `bobzzite`: Desktop AMD Radeon and Intel Arc.
+  - `bobzzite-deck`: Valve Steam Deck (LCD/OLED), ROG Ally, Legion Go.
+  - `bobzzite-nvidia`: Desktop/Laptop NVIDIA GeForce RTX/GTX with proprietary drivers.
+- **Developer & Admin Tooling**:
+  - `bobzzite-doctor`: Complete system health and runtime diagnostics.
+  - `bobzzite-backup`: OSTree deployment pinning, atomic rollback, and dev project snapshots.
+  - `bobzzite-devbox`: Zero-configuration Arch and Ubuntu Distrobox containers.
+  - `bobzzite-mesh`: Tailscale peer-to-peer networking, Syncthing asset sync, and Waypipe streaming.
+  - `build-flatpaks.sh`: Flatpak builder for bob ecosystem apps (`bobzilla`, `bobfilez`).
+  - `build-flavors.sh`: Local and automated CI matrix image builder.
 - **Desktop Application Launchers & System Binaries**:
-  - Desktop entries in `/etc/skel/.local/share/applications/` for one-click dev tool provisioning and starter project launching.
-  - Global executables installed in `/usr/local/bin` (`install-indie-tools.sh`, `configure-godot-codium.sh`).
-- **Automated CI & Validation**:
-  - GitHub Actions build workflow automatically validates file references, permissions, and documentation before container image generation.
-  - Local validator script: `python3 scripts/validate_build.py`.
-- **User Documentation**: Complete beginner-friendly guide available in [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md).
-- **Immutable & Atomic**: Root filesystem is read-only, atomic updates and rollbacks via `rpm-ostree`.
-- **Custom Branding**: Dedicated bob branding assets, wallpapers, icons, and system identity files.
-
-## Hardware Compatibility
-
-- **Desktop Gaming PCs**: Full native support for AMD Radeon, Intel Arc, and NVIDIA GeForce GPUs.
-- **Handheld Gaming PCs**: Inherits Bazzite's hardware integrations for Valve Steam Deck (LCD & OLED), ASUS ROG Ally, Lenovo Legion Go, and GPD Win devices.
-
-## Project Structure
-
-- `Containerfile` — Main build definition layering on `ghcr.io/ublue-os/bazzite:latest`
-- `config/recipe.yml` — BlueBuild image recipe with package and flatpak specifications
-- `config/files/` — Configuration files layered onto the root filesystem:
-  - `/etc/bobzzite-release` — OS release metadata
-  - `/etc/skel/.config/godot/editor_settings-4.tres` — Default Godot 4 external editor settings
-  - `/etc/skel/Templates/Godot4_Starter/` — Starter Godot 4 project skeleton
-  - `/etc/skel/.local/share/applications/` — User desktop launcher shortcuts
-  - `/usr/local/bin/` — Global helper scripts (`install-indie-tools.sh`, `configure-godot-codium.sh`)
-- `branding/` — Wallpapers (`branding/wallpapers/`) and logos (`branding/icons/`)
-- `scripts/` — Utility scripts:
-  - `scripts/install-indie-tools.sh` — Automated installer for the indie game development tool suite
-  - `scripts/configure-godot-codium.sh` — Configures Godot 4 & VS Codium LSP, extensions, and Flatpak integration
-  - `scripts/post-install.sh` — Post-install setup hook
-  - `scripts/validate_build.py` — Repo and container build syntax validator
-- `docs/` — User guide (`docs/USER_GUIDE.md`), architectural research, and technical notes
+  - Desktop entries in `/etc/skel/.local/share/applications/` (`bobzzite-control-center.desktop`, `bobzzite-dev-tools.desktop`, `bobzzite-godot-starter.desktop`).
+  - Global executables in `/usr/local/bin`.
+- **Custom System Branding**:
+  - Plymouth boot splash theme (`branding/plymouth/bobzzite/`).
+  - SDDM login greeter theme (`branding/sddm/bobzzite/`).
+  - Ambient sound theme (`branding/sounds/bobzzite/`).
+  - Fastfetch terminal branding (`config/files/etc/fastfetch/config.jsonc`).
+  - Release metadata in `/etc/bobzzite-release`.
 
 ## Building the Image
 
@@ -78,6 +69,9 @@ python3 scripts/validate_build.py
 
 # Build using Podman or Docker
 podman build -t bobzzite:latest -f Containerfile .
+
+# Or build specific hardware flavor
+scripts/build-flavors.sh bobzzite-deck
 ```
 
 ## Installing & Configuring Indie Development Tools
@@ -97,11 +91,12 @@ install-indie-tools.sh
 
 # Configure Godot 4 & VS Codium integration
 configure-godot-codium.sh
+
+# Launch the unified dashboard
+bobzzite-control-center
 ```
 
-See [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) for full step-by-step guidance.
-
-## Governance & Documentation Suite
+## Governance & Documentation Directory
 
 - [`VISION.md`](VISION.md) — Strategic vision and core pillars.
 - [`ROADMAP.md`](ROADMAP.md) — Long-term milestones and ecosystem integration plans.
@@ -111,10 +106,10 @@ See [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) for full step-by-step guidance.
 - [`IDEAS.md`](IDEAS.md) — Aggressive ideas for multiplayer OS and distributed compute.
 - [`CHANGELOG.md`](CHANGELOG.md) — Chronological version release log.
 - [`HANDOFF.md`](HANDOFF.md) — Context handoff notes for agent resumption.
-
-## Rebasing Existing Fedora Atomic / Bazzite
-
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/robertpelloni/bobzzite:latest
-systemctl reboot
-```
+- [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md) — Comprehensive user guide and FAQ.
+- [`docs/HARDWARE_FLAVORS.md`](docs/HARDWARE_FLAVORS.md) — Hardware matrix specifications.
+- [`docs/ISO_BUILD.md`](docs/ISO_BUILD.md) — Live and offline bootable ISO creation guide.
+- [`docs/DIAGNOSTICS.md`](docs/DIAGNOSTICS.md) — System doctor and health verification.
+- [`docs/BACKUP_ROLLBACK.md`](docs/BACKUP_ROLLBACK.md) — Atomic rollback and snapshot management.
+- [`docs/MULTIPLAYER.md`](docs/MULTIPLAYER.md) — Mesh networking, Syncthing, and Waypipe workflows.
+- [`docs/FLATPAK_PACKAGING.md`](docs/FLATPAK_PACKAGING.md) — Bob ecosystem Flatpak packaging.

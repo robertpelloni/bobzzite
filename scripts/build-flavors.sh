@@ -8,7 +8,7 @@ set -euo pipefail
 #  - bobzzite-nvidia : Desktop & Laptop NVIDIA GeForce GPUs
 
 FLAVOR="${1:-all}"
-IMAGE_VERSION="${2:-1.4.0}"
+IMAGE_VERSION="${2:-1.9.0}"
 BUILD_TOOL="${BUILD_TOOL:-docker}"
 
 if ! command -v "$BUILD_TOOL" >/dev/null 2>&1; then
