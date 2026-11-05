@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `1.9.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.0.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Automated system storage cleanup and maintenance tool (`scripts/bobzzite-clean.sh` and `/usr/local/bin/bobzzite-clean`), cache purging, and Flatpak runtime pruning.
+  - Storage maintenance guide authored in `docs/MAINTENANCE.md`.
+  - Integrated "Purge System Caches" action into the unified Bobzzite Control Center.
   - System Tray Monitor applet (`scripts/bobzzite-tray.py` and `/usr/local/bin/bobzzite-tray`) with autostart launcher and quick actions to open Control Center, trigger diagnostics, and quit background services.
   - Game controller and handheld PC mapping utility (`scripts/bobzzite-gamepad.sh` and `/usr/local/bin/bobzzite-gamepad`) with documentation in `docs/CONTROLLER_SUPPORT.md`.
   - System performance and latency tuning utility (`scripts/bobzzite-tweak.sh` and `/usr/local/bin/bobzzite-tweak`) with documentation in `docs/PERFORMANCE_TUNING.md`.

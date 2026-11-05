@@ -48,6 +48,7 @@ def check_scripts():
         "scripts/bobzzite-tweak.sh",
         "scripts/bobzzite-gamepad.sh",
         "scripts/bobzzite-tray.py",
+        "scripts/bobzzite-clean.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -94,7 +95,8 @@ def check_required_docs():
         "docs/BACKUP_ROLLBACK.md",
         "docs/FLATPAK_PACKAGING.md",
         "docs/PERFORMANCE_TUNING.md",
-        "docs/CONTROLLER_SUPPORT.md"
+        "docs/CONTROLLER_SUPPORT.md",
+        "docs/MAINTENANCE.md"
     ]
     errors = 0
     for doc in required_docs:

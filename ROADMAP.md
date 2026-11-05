@@ -36,3 +36,8 @@
 - [x] Built-in P2P mesh networking via Tailscale (`bobzzite-mesh`)
 - [x] Decentralized asset syncing for game projects via Syncthing
 - [x] Low-latency remote Wayland game streaming workflows via Waypipe (`docs/MULTIPLAYER.md`)
+
+## Phase 6: System Maintenance & Long-Term Autonomous Governance ✅
+- [x] Automated system cleanup, cache pruning, and Flatpak runtime maintenance (`bobzzite-clean`, `docs/MAINTENANCE.md`)
+- [x] Integrated cache purge action in unified Bobzzite Control Center
+- [x] Full major version 2.0.0 milestone reached

@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-04-12
+
+### Added
+- Added automated system storage maintenance & cache purging tool `bobzzite-clean` (`scripts/bobzzite-clean.sh` and `/usr/local/bin/bobzzite-clean`).
+- Cleaned unused Flatpak runtimes, Flatpak app caches, user thumbnail directories, crash dumps, and vacuumed systemd journal logs.
+- Integrated "Purge System Caches" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive storage and maintenance guide in `docs/MAINTENANCE.md`.
+- Updated build validation to verify `scripts/bobzzite-clean.sh` and `docs/MAINTENANCE.md`.
+- Bumped major version milestone across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [1.9.0] - 2026-04-12
 
 ### Added
