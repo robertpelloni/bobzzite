@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `2.0.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.1.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Automated system hardware benchmark and performance profiler (`scripts/bobzzite-bench.sh` and `/usr/local/bin/bobzzite-bench`), testing CPU single-thread hashing, disk sequential I/O write throughput, governor states, and Vulkan GPU capabilities.
+  - Benchmarking guide authored in `docs/BENCHMARKS.md`.
+  - Integrated "Run Benchmark" action into the unified Bobzzite Control Center.
   - Automated system storage cleanup and maintenance tool (`scripts/bobzzite-clean.sh` and `/usr/local/bin/bobzzite-clean`), cache purging, and Flatpak runtime pruning.
   - Storage maintenance guide authored in `docs/MAINTENANCE.md`.
   - Integrated "Purge System Caches" action into the unified Bobzzite Control Center.

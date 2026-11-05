@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-04-12
+
+### Added
+- Added automated hardware benchmarking and performance profiler `bobzzite-bench` (`scripts/bobzzite-bench.sh` and `/usr/local/bin/bobzzite-bench`).
+- Benchmarking includes CPU single-thread hashing throughput, disk sequential I/O write latency, CPU scaling governor detection, and Vulkan GPU probe.
+- Integrated "Run Benchmark" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive benchmarking and hardware baseline documentation in `docs/BENCHMARKS.md`.
+- Updated build validation to verify `scripts/bobzzite-bench.sh` and `docs/BENCHMARKS.md`.
+- Bumped version to 2.1.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [2.0.0] - 2026-04-12
 
 ### Added

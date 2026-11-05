@@ -40,4 +40,6 @@
 ## Phase 6: System Maintenance & Long-Term Autonomous Governance ✅
 - [x] Automated system cleanup, cache pruning, and Flatpak runtime maintenance (`bobzzite-clean`, `docs/MAINTENANCE.md`)
 - [x] Integrated cache purge action in unified Bobzzite Control Center
-- [x] Full major version 2.0.0 milestone reached
+- [x] Automated system hardware benchmark & performance profiler (`bobzzite-bench`, `docs/BENCHMARKS.md`)
+- [x] Unified Control Center benchmark runner integration
+- [x] Release 2.1.0 milestone reached
