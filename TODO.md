@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 1.7.0)
+## Immediate Tasks (Sprint 1.8.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -34,3 +34,4 @@
 - [x] Add Flatpak packaging manifests for bobzilla and bobfilez (`packages/flatpak/`)
 - [x] Add Flatpak builder script (`scripts/build-flatpaks.sh` and `docs/FLATPAK_PACKAGING.md`)
 - [x] Add system performance & latency tuning tool (`scripts/bobzzite-tweak.sh` and `docs/PERFORMANCE_TUNING.md`)
+- [x] Add game controller and handheld PC mapping utility (`scripts/bobzzite-gamepad.sh` and `docs/CONTROLLER_SUPPORT.md`)
