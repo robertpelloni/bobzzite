@@ -20,11 +20,11 @@
 - [x] Distrobox environment management tooling (`bobzzite-devbox`)
 - [x] First-boot onboarding wizard (`bobzzite-onboarding`)
 
-## Phase 4: Hardware Profiles & ISO Generation (In Progress)
+## Phase 4: Hardware Profiles & ISO Generation ✅
 - [x] Universal Blue ISO generator documentation & workflow (`docs/ISO_BUILD.md`)
 - [x] Hardware profiles and handheld compatibility (Steam Deck, ROG Ally, Legion Go)
-- [ ] Multi-flavor target matrix: Handheld (Deck/Ally/Legion), Desktop AMD/Intel, and Desktop NVIDIA
-- [ ] Publish automated ISO releases to GitHub releases
+- [x] Multi-flavor target matrix: Handheld (Deck/Ally/Legion), Desktop AMD/Intel, and Desktop NVIDIA (`scripts/build-flavors.sh`, `docs/HARDWARE_FLAVORS.md`)
+- [x] Automated CI matrix build strategy in `.github/workflows/build.yml`
 
 ## Phase 5: Multiplayer & Distributed Cloud OS ✅
 - [x] Built-in P2P mesh networking via Tailscale (`bobzzite-mesh`)

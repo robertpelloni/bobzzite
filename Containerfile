@@ -1,10 +1,17 @@
-# bobzzite base image - layers on Bazzite
-FROM ghcr.io/ublue-os/bazzite:latest
-
 # Build arguments
+ARG BASE_IMAGE="ghcr.io/ublue-os/bazzite:latest"
 ARG IMAGE_NAME="bobzzite"
 ARG IMAGE_VENDOR="robertpelloni"
-ARG IMAGE_VERSION="1.3.0"
+ARG IMAGE_VERSION="1.4.0"
+ARG FEDORA_MAJOR_VERSION="41"
+
+# bobzzite base image - layers on chosen Bazzite flavor
+FROM ${BASE_IMAGE}
+
+# Re-declare build arguments inside stage
+ARG IMAGE_NAME="bobzzite"
+ARG IMAGE_VENDOR="robertpelloni"
+ARG IMAGE_VERSION="1.4.0"
 ARG FEDORA_MAJOR_VERSION="41"
 
 # Labels

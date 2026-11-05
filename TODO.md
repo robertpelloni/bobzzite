@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 1.3.0)
+## Immediate Tasks (Sprint 1.4.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -28,3 +28,5 @@
 - [x] Add ambient system sound theme (`branding/sounds/bobzzite/`)
 - [x] Add P2P mesh networking & remote collaboration manager (`scripts/bobzzite-mesh.sh` and `docs/MULTIPLAYER.md`)
 - [x] Add System Doctor health diagnostics tool (`scripts/bobzzite-doctor.sh` and `docs/DIAGNOSTICS.md`)
+- [x] Add multi-hardware flavor build automation (`scripts/build-flavors.sh` and CI matrix)
+- [x] Document hardware target matrix in `docs/HARDWARE_FLAVORS.md`
