@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-04-12
+
+### Added
+- Added First-Boot Onboarding Wizard `scripts/bobzzite-onboarding.sh` and `/usr/local/bin/bobzzite-onboarding`.
+- Added autostart entry `config/files/etc/skel/.config/autostart/bobzzite-onboarding.desktop` to guide new users on initial login.
+- Added default sound theme in `branding/sounds/bobzzite/` (`index.theme` and desktop login chime).
+- Configured `Containerfile` and `config/scripts/build.sh` to install sound assets into `/usr/share/sounds/bobzzite/`.
+
 ## [1.0.1] - 2026-04-12
 
 ### Fixed

@@ -4,7 +4,7 @@ FROM ghcr.io/ublue-os/bazzite:latest
 # Build arguments
 ARG IMAGE_NAME="bobzzite"
 ARG IMAGE_VENDOR="robertpelloni"
-ARG IMAGE_VERSION="1.0.1"
+ARG IMAGE_VERSION="1.1.0"
 ARG FEDORA_MAJOR_VERSION="41"
 
 # Labels
@@ -22,6 +22,7 @@ COPY branding/wallpapers /usr/share/backgrounds/bobzzite/
 COPY branding/icons /usr/share/icons/bobzzite/
 COPY branding/plymouth/bobzzite /usr/share/plymouth/themes/bobzzite/
 COPY branding/sddm/bobzzite /usr/share/sddm/themes/bobzzite/
+COPY branding/sounds/bobzzite /usr/share/sounds/bobzzite/
 
 # Run build scripts
 COPY config/scripts /tmp/scripts/

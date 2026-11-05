@@ -39,6 +39,7 @@ def check_scripts():
         "scripts/configure-godot-codium.sh",
         "scripts/bobzzite-control-center.py",
         "scripts/bobzzite-devbox.sh",
+        "scripts/bobzzite-onboarding.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0

@@ -1,0 +1,7 @@
+[Sound Theme]
+Name=bobzzite
+Comment=Default ambient sound theme for bobzzite gaming OS
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo

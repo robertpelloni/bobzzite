@@ -11,12 +11,14 @@
 - [x] SDDM login greeter theme (`branding/sddm/bobzzite/`)
 - [x] Fastfetch system branding configuration (`config/files/etc/fastfetch/`)
 - [x] Default SVG wallpaper and logo branding
+- [x] Ambient system sound theme (`branding/sounds/bobzzite/`)
 
 ## Phase 3: Flatpak Packaging & App Ecosystem ✅
 - [x] Automated installer for indie development tools (Godot 4, VS Codium, GIMP, Audacity, OBS Studio)
 - [x] Bidirectional Godot 4 + VS Codium LSP routing and starter templates
 - [x] Unified Bobzzite Control Center GUI (`bobzzite-control-center`)
 - [x] Distrobox environment management tooling (`bobzzite-devbox`)
+- [x] First-boot onboarding wizard (`bobzzite-onboarding`)
 
 ## Phase 4: Hardware Profiles & ISO Generation (In Progress)
 - [x] Universal Blue ISO generator documentation & workflow (`docs/ISO_BUILD.md`)

@@ -2,8 +2,10 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `1.0.1` (tracked in `VERSION.md`)
+- **Current Version**: `1.1.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - First-boot onboarding wizard (`scripts/bobzzite-onboarding.sh` and autostart `.desktop` entry) for automated initial setup.
+  - Ambient system sound theme in `branding/sounds/bobzzite/` (`index.theme` and desktop-login audio cue).
   - Unified Bobzzite Control Center GUI (`scripts/bobzzite-control-center.py` and `/usr/local/bin/bobzzite-control-center`).
   - Dynamic path resolution for build validation in Control Center and installation of `bobzzite-validate` in `/usr/local/bin/`.
   - Distrobox environment manager (`scripts/bobzzite-devbox.sh` and `/usr/local/bin/bobzzite-devbox`).
@@ -16,12 +18,12 @@
   - Bidirectional developer workflow setup (`scripts/configure-godot-codium.sh`).
   - Pre-seeded Godot 4 editor settings and starter project template in `/etc/skel/`.
   - GitHub Actions CI workflow automated with pre-build validator step (`scripts/validate_build.py`).
-  - Containerfile updated with image versioning label and ARG (`1.0.1`).
+  - Containerfile updated with image versioning label and ARG (`1.1.0`).
   - User Guide (`docs/USER_GUIDE.md`) with system layering diagram, handheld optimization notes, and developer FAQ.
   - Complete documentation index in `README.md`.
   - Repaired missing `Containerfile` copy paths and established build validation tests.
 - **Validation**:
-  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Distrobox scripts, ISO documentation, SDDM/Plymouth themes, indie tool scripts, user documentation, and permissions.
+  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Distrobox scripts, onboarding script, ISO documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
 
 ## Resumption Instructions for Successor Agents
 1. Review `TODO.md` and `ROADMAP.md` for prioritized milestones.

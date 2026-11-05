@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 1.0.1)
+## Immediate Tasks (Sprint 1.1.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -24,3 +24,5 @@
 - [x] Add Distrobox container management tool (`scripts/bobzzite-devbox.sh`)
 - [x] Document bootable ISO generation via Universal Blue isogenerator (`docs/ISO_BUILD.md`)
 - [x] Install `bobzzite-validate` into `/usr/local/bin` and ensure resilient path resolution in Control Center
+- [x] Add first-boot onboarding wizard (`scripts/bobzzite-onboarding.sh` and autostart launcher)
+- [x] Add ambient system sound theme (`branding/sounds/bobzzite/`)

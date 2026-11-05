@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=bobzzite Onboarding
+Comment=First boot welcome wizard and setup initialization
+Exec=/usr/local/bin/bobzzite-onboarding
+Terminal=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

@@ -34,5 +34,8 @@ fi
 if [ -d /usr/share/sddm/themes/bobzzite ]; then
     chmod -R 644 /usr/share/sddm/themes/bobzzite/* 2>/dev/null || true
 fi
+if [ -d /usr/share/sounds/bobzzite ]; then
+    chmod -R 644 /usr/share/sounds/bobzzite/* 2>/dev/null || true
+fi
 
 echo "=== bobzzite build complete ==="
