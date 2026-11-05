@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0] - 2026-04-12
+
+### Added
+- Added System Performance & Latency Tuner `scripts/bobzzite-tweak.sh` (and `/usr/local/bin/bobzzite-tweak`) to manage low-latency sysctl tunables, split-lock mitigation, and PipeWire audio buffers.
+- Integrated "System Tuning" action into Bobzzite Control Center.
+- Added comprehensive performance tuning guide in `docs/PERFORMANCE_TUNING.md`.
+- Updated build validation to test `docs/PERFORMANCE_TUNING.md` and `scripts/bobzzite-tweak.sh`.
+
 ## [1.6.1] - 2026-04-12
 
 ### Documentation
