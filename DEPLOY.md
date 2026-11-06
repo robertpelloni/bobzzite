@@ -1,68 +1,74 @@
-# bobzzite Deployment & Building Guide
+# Bobzzite OS Deployment Guide
 
-## Build Requirements
-- Podman or Docker engine installed.
-- Red Hat `buildah` (optional, for native OCI building as used in GitHub Actions).
+## Overview
 
-## Local Container Image Build
+Bobzzite OS images are published as OCI containers via GitHub Packages (GHCR) and can be deployed directly onto existing Fedora Atomic (Silverblue, Kinoite, Bazzite) installations, or via bootable ISO media.
 
-To test build the image locally using Docker or Podman:
+---
+
+## Deployment Flavors
+
+| Flavor | Target Architecture / Hardware | Registry Tag |
+|---|---|---|
+| `bobzzite` | AMD Radeon & Intel Arc / UHD Graphics | `ghcr.io/robertpelloni/bobzzite:latest` |
+| `bobzzite-deck` | Valve Steam Deck (LCD/OLED), ROG Ally, Legion Go | `ghcr.io/robertpelloni/bobzzite-deck:latest` |
+| `bobzzite-nvidia` | NVIDIA GeForce RTX/GTX Desktop & Laptop GPUs | `ghcr.io/robertpelloni/bobzzite-nvidia:latest` |
+
+---
+
+## Deployment & Rebase Automation: `bobzzite-deploy`
+
+The `bobzzite-deploy` utility automates deployment inspection and seamless switching between hardware flavors.
 
 ```bash
-# Using Podman
-podman build -t bobzzite:latest -f Containerfile .
+# 1. Query current ostree deployment and status
+bobzzite-deploy status
 
-# Using Docker
-docker build -t bobzzite:latest -f Containerfile .
+# 2. Rebase host to Desktop AMD/Intel flavor
+bobzzite-deploy bobzzite registry
+
+# 3. Rebase host to Steam Deck handheld flavor
+bobzzite-deploy bobzzite-deck registry
+
+# 4. Rebase host to NVIDIA proprietary driver flavor
+bobzzite-deploy bobzzite-nvidia registry
 ```
 
-## Validating Configuration
+---
 
-Run the project build and recipe validator:
+## Air-Gapped / Offline USB Deployment
 
-```bash
-python3 scripts/validate_build.py
-```
+For testing or air-gapped machine setups without continuous internet access:
 
-## Deploying to a Fedora Atomic / Bazzite Host
+1. **Export Local OCI Archive:**
+   ```bash
+   ./scripts/build-flavors.sh bobzzite export-tar
+   # Outputs /tmp/bobzzite-flavors/bobzzite.tar.gz
+   ```
 
-On an existing Fedora Silverblue, Kinoite, or Bazzite workstation:
+2. **Copy Archive to Target Machine:**
+   Transfer `bobzzite.tar.gz` to `/var/tmp/bobzzite.tar.gz` on the target system.
 
-```bash
-# Rebase system to the published bobzzite image
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/robertpelloni/bobzzite:latest
+3. **Execute Offline Rebase:**
+   ```bash
+   bobzzite-deploy bobzzite oci-archive
+   ```
+   Or directly via `rpm-ostree`:
+   ```bash
+   sudo rpm-ostree rebase ostree-unverified-image:oci-archive:/var/tmp/bobzzite.tar.gz
+   ```
 
-# Reboot into bobzzite
-systemctl reboot
-```
+4. **Reboot to Complete Deployment:**
+   ```bash
+   systemctl reboot
+   ```
 
-## Post-Rebase Provisioning & Global Tools
+---
 
-After the initial boot into bobzzite, user tools are globally accessible:
+## Rollback & Recovery
 
-### Option A: Graphical Desktop Launchers
-- Launch **"Install Indie Dev Suite"** from the application menu to automatically download and configure Godot 4, VS Codium, GIMP, Audacity, and OBS Studio.
-- Launch **"Godot 4 Starter Project"** to immediately open the starter template inside Godot 4.
-
-### Option B: System Command-Line Binaries
-Because helper utilities are installed into `/usr/local/bin`, you can run them directly from any terminal session:
-
-```bash
-# Install indie dev suite (Godot, VS Codium, GIMP, Audacity, OBS Studio)
-install-indie-tools.sh
-
-# Configure Godot 4 & VS Codium LSP / bidirectional integration
-configure-godot-codium.sh
-
-# Or run the repo post-install provisioning hook
-bash scripts/post-install.sh
-```
-
-## Rolling Back
-
-If rollback is necessary:
+If an issue is detected after rebasing, immediately revert to the prior pinned or active deployment:
 
 ```bash
-rpm-ostree rollback
-systemctl reboot
+bobzzite-backup rollback
 ```

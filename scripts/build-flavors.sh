@@ -13,9 +13,10 @@
 set -euo pipefail
 
 FLAVOR="${1:-all}"
-ACTION="${2:-build}" # build | check | dry-run | manifest
+ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar
 IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "2.3.0")}"
 BUILD_TOOL="${BUILD_TOOL:-docker}"
+EXPORT_DIR="${EXPORT_DIR:-/tmp/bobzzite-flavors}"
 
 BOLD='\033[1m'
 GREEN='\033[0;32m'
@@ -73,6 +74,13 @@ process_flavor() {
                 --build-arg IMAGE_VERSION="$IMAGE_VERSION" \
                 -f Containerfile .
             echo -e "  ${GREEN}✔ Verification passed for ${target_flavor}.${NC}\n"
+            ;;
+        export-tar)
+            mkdir -p "${EXPORT_DIR}"
+            local tar_path="${EXPORT_DIR}/${target_flavor}.tar.gz"
+            echo -e "  [EXPORT] Archiving ${target_flavor}:latest to ${tar_path}..."
+            $BUILD_TOOL save "$target_flavor:latest" | gzip > "${tar_path}"
+            echo -e "  ${BOLD}${GREEN}✔ Exported OCI archive to ${tar_path}.${NC}\n"
             ;;
         manifest)
             echo -e "  [MANIFEST] Flavor Metadata:"

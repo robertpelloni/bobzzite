@@ -49,3 +49,6 @@
 - [x] Multi-hardware flavor build automation engine enhancement (`scripts/build-flavors.sh`)
 - [x] Hardware Flavors inspector wired into Bobzzite Control Center
 - [x] Release 2.3.0 milestone reached
+- [x] Local deployment & atomic rebase automation tool (`bobzzite-deploy`, `DEPLOY.md`)
+- [x] Offline OCI archive export capability in build engine
+- [x] Release 2.4.0 milestone reached

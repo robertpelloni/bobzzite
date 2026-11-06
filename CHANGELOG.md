@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.0] - 2026-04-12
+
+### Added
+- Added local deployment and rebase automation tool `bobzzite-deploy` (`scripts/bobzzite-deploy.sh` and `/usr/local/bin/bobzzite-deploy`).
+- Added OCI archive export action (`export-tar`) to `scripts/build-flavors.sh` for offline and air-gapped machine setups.
+- Integrated "Deploy & Rebase" action into the unified Bobzzite Control Center dashboard UI.
+- Rewrote `DEPLOY.md` with multi-flavor rebase instructions, registry commands, and air-gapped workflows.
+- Updated build validation to verify `scripts/bobzzite-deploy.sh`.
+- Bumped version to 2.4.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [2.3.0] - 2026-04-12
 
 ### Added

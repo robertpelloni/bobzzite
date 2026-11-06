@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `2.3.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.4.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Local deployment and rebase automation tool (`scripts/bobzzite-deploy.sh` and `/usr/local/bin/bobzzite-deploy`) supporting online registry switching and air-gapped OCI archive rebases.
+  - Multi-flavor build engine OCI archive export action (`export-tar`) and complete guide in `DEPLOY.md`.
+  - Integrated "Deploy & Rebase" action into the unified Bobzzite Control Center dashboard UI.
   - Enhanced multi-hardware flavor build automation engine (`scripts/build-flavors.sh`) supporting manifest inspections, dry-run syntax verification, and flavor metadata generation.
   - Hardware Flavors inspector integrated into the unified Bobzzite Control Center dashboard UI.
   - Automated audio server diagnostic and profile switcher (`scripts/bobzzite-audio.sh` and `/usr/local/bin/bobzzite-audio`), featuring PipeWire status queries, low-latency quantum buffer management, and speaker test routines.

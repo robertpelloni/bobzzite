@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 2.3.0)
+## Immediate Tasks (Sprint 2.4.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -48,3 +48,7 @@
 - [x] Enhance multi-hardware flavor build engine (`scripts/build-flavors.sh`)
 - [x] Wire "Hardware Flavors" action into Bobzzite Control Center
 - [x] Release 2.3.0 milestone completed
+- [x] Implement local deployment and rebase automation tool (`bobzzite-deploy.sh` and `DEPLOY.md`)
+- [x] Add OCI archive export to `scripts/build-flavors.sh`
+- [x] Wire "Deploy & Rebase" action into Bobzzite Control Center
+- [x] Release 2.4.0 milestone completed

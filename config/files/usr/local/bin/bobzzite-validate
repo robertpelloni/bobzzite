@@ -51,6 +51,7 @@ def check_scripts():
         "scripts/bobzzite-clean.sh",
         "scripts/bobzzite-bench.sh",
         "scripts/bobzzite-audio.sh",
+        "scripts/bobzzite-deploy.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
