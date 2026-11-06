@@ -192,8 +192,12 @@ class BobzziteControlCenter:
         ToolTip(h_deploy, "Queries deployment status and stages atomic rebasing across AMD, Deck, or NVIDIA images.")
 
         h_stream = ttk.Button(hw_grid, text="Game Streaming", command=lambda: self.run_async("bobzzite-stream status", "Inspecting Sunshine streaming host & video encoders..."))
-        h_stream.grid(row=5, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_stream.grid(row=5, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_stream, "Manages Sunshine game streaming host and Moonlight client pairing for remote playtests.")
+
+        h_vr = ttk.Button(hw_grid, text="VR & OpenXR", command=lambda: self.run_async("bobzzite-vr status", "Probing VR headsets, DRM leasing & OpenXR runtimes..."))
+        h_vr.grid(row=5, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_vr, "Checks connected VR headsets, Wayland DRM display leasing, and OpenXR runtime configuration.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
@@ -208,7 +212,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=3, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=6, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

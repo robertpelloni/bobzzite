@@ -54,6 +54,7 @@ def check_scripts():
         "scripts/bobzzite-deploy.sh",
         "scripts/bobzzite-stream.sh",
         "scripts/bobzzite-package.sh",
+        "scripts/bobzzite-vr.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -106,7 +107,8 @@ def check_required_docs():
         "docs/AUDIO_SETUP.md",
         "docs/STREAMING.md",
         "docs/BUILD_HEALTH.md",
-        "docs/GAME_PACKAGING.md"
+        "docs/GAME_PACKAGING.md",
+        "docs/VR_SETUP.md"
     ]
     errors = 0
     for doc in required_docs:
