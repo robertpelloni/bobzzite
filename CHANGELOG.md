@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-04-12
+
+### Added
+- Added multi-flavor build matrix automated verification test suite (`scripts/build-flavors.sh all test-matrix`).
+- Verified build arguments, upstream base image registry accessibility, and label metadata consistency across `bobzzite`, `bobzzite-deck`, and `bobzzite-nvidia`.
+- Integrated "Hardware Flavors" matrix verification action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive hardware matrix testing guide in `docs/HARDWARE_MATRIX_TESTING.md`.
+- Updated build validation to verify `docs/HARDWARE_MATRIX_TESTING.md`.
+- Bumped major version milestone to 3.0.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [2.9.0] - 2026-04-12
 
 ### Added

@@ -109,7 +109,8 @@ def check_required_docs():
         "docs/BUILD_HEALTH.md",
         "docs/GAME_PACKAGING.md",
         "docs/VR_SETUP.md",
-        "docs/HARDWARE_DETECTION.md"
+        "docs/HARDWARE_DETECTION.md",
+        "docs/HARDWARE_MATRIX_TESTING.md"
     ]
     errors = 0
     for doc in required_docs:

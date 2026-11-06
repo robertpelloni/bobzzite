@@ -183,9 +183,9 @@ class BobzziteControlCenter:
         h5.grid(row=1, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h5, "Queries status of Tailscale mesh networking and Syncthing P2P syncing.")
 
-        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("scripts/build-flavors.sh all manifest", "Inspecting Hardware Flavor Profiles & Bases..."))
+        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("scripts/build-flavors.sh all test-matrix", "Testing & validating Hardware Flavor Matrix..."))
         h_flavors.grid(row=4, column=0, padx=6, pady=4, sticky="ew")
-        ToolTip(h_flavors, "Displays target matrix specifications for Desktop AMD/Intel, Handhelds, and NVIDIA builds.")
+        ToolTip(h_flavors, "Validates multi-flavor build matrix, upstream base registries, and hardware profiles.")
 
         h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
         h_deploy.grid(row=4, column=1, padx=6, pady=4, sticky="ew")

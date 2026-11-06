@@ -13,8 +13,8 @@
 set -euo pipefail
 
 FLAVOR="${1:-all}"
-ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar
-IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "2.3.0")}"
+ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar | test-matrix
+IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "3.0.0")}"
 BUILD_TOOL="${BUILD_TOOL:-docker}"
 EXPORT_DIR="${EXPORT_DIR:-/tmp/bobzzite-flavors}"
 
@@ -75,6 +75,21 @@ process_flavor() {
                 -f Containerfile .
             echo -e "  ${GREEN}✔ Verification passed for ${target_flavor}.${NC}\n"
             ;;
+        test-matrix)
+            echo -e "  [MATRIX-TEST] Running comprehensive build argument and base integrity test..."
+            if [ ! -f Containerfile ]; then
+                echo -e "  ${RED}Error: Containerfile missing!${NC}"
+                return 1
+            fi
+            echo -e "    • Testing target flavor: ${CYAN}${target_flavor}${NC}"
+            echo -e "    • Validating upstream base image: ${CYAN}${base_image}${NC}"
+            $BUILD_TOOL build --check \
+                --build-arg BASE_IMAGE="$base_image" \
+                --build-arg IMAGE_NAME="$target_flavor" \
+                --build-arg IMAGE_VERSION="$IMAGE_VERSION" \
+                -f Containerfile .
+            echo -e "  ${BOLD}${GREEN}✔ Matrix test passed for ${target_flavor}.${NC}\n"
+            ;;
         export-tar)
             mkdir -p "${EXPORT_DIR}"
             local tar_path="${EXPORT_DIR}/${target_flavor}.tar.gz"
@@ -122,7 +137,7 @@ case "$FLAVOR" in
         process_flavor "bobzzite-nvidia"
         ;;
     *)
-        echo "Usage: $0 [all|bobzzite|bobzzite-deck|bobzzite-nvidia] [build|check|dry-run|manifest] [version]"
+        echo "Usage: $0 [all|bobzzite|bobzzite-deck|bobzzite-nvidia] [build|check|dry-run|manifest|export-tar|test-matrix] [version]"
         exit 1
         ;;
 esac

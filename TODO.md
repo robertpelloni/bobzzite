@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 2.9.0)
+## Immediate Tasks (Sprint 3.0.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -65,3 +65,6 @@
 - [x] Release 2.8.0 milestone completed
 - [x] Implement automated hardware flavor detection (`bobzzite-deploy detect` and `docs/HARDWARE_DETECTION.md`)
 - [x] Release 2.9.0 milestone completed
+- [x] Implement multi-flavor build matrix test suite (`scripts/build-flavors.sh all test-matrix` and `docs/HARDWARE_MATRIX_TESTING.md`)
+- [x] Wire matrix test into Bobzzite Control Center
+- [x] Major release 3.0.0 milestone completed
