@@ -2,11 +2,8 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `2.8.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.7.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
-  - Automated VR / XR headset and OpenXR diagnostic utility (`scripts/bobzzite-vr.sh` and `/usr/local/bin/bobzzite-vr`).
-  - VR and OpenXR architecture guide authored in `docs/VR_SETUP.md`.
-  - Integrated "VR & OpenXR" action into the unified Bobzzite Control Center dashboard UI.
   - Automated indie game packaging and headless export utility (`scripts/bobzzite-package.sh` and `/usr/local/bin/bobzzite-package`).
   - Game packaging guide authored in `docs/GAME_PACKAGING.md`.
   - Integrated "Package Game Project" action into the unified Bobzzite Control Center dashboard UI.

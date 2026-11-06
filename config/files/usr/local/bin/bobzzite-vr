@@ -84,11 +84,11 @@ EOF
     setup-steamvr)
         echo -e "${GREEN}Configuring SteamVR as default OpenXR runtime...${NC}"
         mkdir -p "${HOME}/.config/openxr/1"
-        cat << EOF > "${HOME}/.config/openxr/1/active_runtime.json"
+        cat << 'EOF' > "${HOME}/.config/openxr/1/active_runtime.json"
 {
   "file_format_version": "1.0.0",
   "runtime": {
-    "library_path": "${HOME}/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrclient.so"
+    "library_path": "/home/jules/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrclient.so"
   }
 }
 EOF

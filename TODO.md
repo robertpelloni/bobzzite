@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 2.8.0)
+## Immediate Tasks (Sprint 2.7.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -61,6 +61,3 @@
 - [x] Implement game packaging and release bundler (`bobzzite-package.sh` and `docs/GAME_PACKAGING.md`)
 - [x] Wire "Package Game Project" into Bobzzite Control Center
 - [x] Release 2.7.0 milestone completed
-- [x] Implement VR / XR headset & OpenXR diagnostic utility (`bobzzite-vr.sh` and `docs/VR_SETUP.md`)
-- [x] Wire "VR & OpenXR" action into Bobzzite Control Center
-- [x] Release 2.8.0 milestone completed

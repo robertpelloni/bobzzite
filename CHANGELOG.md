@@ -5,16 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.8.0] - 2026-04-12
-
-### Added
-- Added automated VR / XR headset and OpenXR diagnostic utility `bobzzite-vr` (`scripts/bobzzite-vr.sh` and `/usr/local/bin/bobzzite-vr`).
-- Added status probes for connected USB headsets, Wayland direct display leasing (`wp_drm_lease_device_v1`), and OpenXR runtime manifest switching.
-- Integrated "VR & OpenXR" action into the unified Bobzzite Control Center dashboard UI.
-- Authored comprehensive VR and OpenXR development guide in `docs/VR_SETUP.md`.
-- Updated build validation to verify `scripts/bobzzite-vr.sh` and `docs/VR_SETUP.md`.
-- Bumped version to 2.8.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
-
 ## [2.7.0] - 2026-04-12
 
 ### Added
