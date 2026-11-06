@@ -178,6 +178,10 @@ class BobzziteControlCenter:
         h5.grid(row=1, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h5, "Queries status of Tailscale mesh networking and Syncthing P2P syncing.")
 
+        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("scripts/build-flavors.sh all manifest", "Inspecting Hardware Flavor Profiles & Bases..."))
+        h_flavors.grid(row=4, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_flavors, "Displays target matrix specifications for Desktop AMD/Intel, Handhelds, and NVIDIA builds.")
+
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(mb4, "Performs health checks on atomic OS, GPU drivers, GameMode, and dev tool Flatpaks.")

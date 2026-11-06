@@ -2,8 +2,10 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `2.2.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.3.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Enhanced multi-hardware flavor build automation engine (`scripts/build-flavors.sh`) supporting manifest inspections, dry-run syntax verification, and flavor metadata generation.
+  - Hardware Flavors inspector integrated into the unified Bobzzite Control Center dashboard UI.
   - Automated audio server diagnostic and profile switcher (`scripts/bobzzite-audio.sh` and `/usr/local/bin/bobzzite-audio`), featuring PipeWire status queries, low-latency quantum buffer management, and speaker test routines.
   - Audio architecture guide authored in `docs/AUDIO_SETUP.md`.
   - Integrated "Audio & PipeWire" action into the unified Bobzzite Control Center.

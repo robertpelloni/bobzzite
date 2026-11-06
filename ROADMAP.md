@@ -46,3 +46,6 @@
 - [x] Automated audio server diagnostic and latency switcher (`bobzzite-audio`, `docs/AUDIO_SETUP.md`)
 - [x] Integrated Audio & PipeWire manager into unified Bobzzite Control Center
 - [x] Release 2.2.0 milestone reached
+- [x] Multi-hardware flavor build automation engine enhancement (`scripts/build-flavors.sh`)
+- [x] Hardware Flavors inspector wired into Bobzzite Control Center
+- [x] Release 2.3.0 milestone reached

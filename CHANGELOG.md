@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2026-04-12
+
+### Added
+- Enhanced multi-hardware flavor build automation engine `scripts/build-flavors.sh` with manifest inspection, dry-run checking, and target verification.
+- Integrated "Hardware Flavors" action into the unified Bobzzite Control Center dashboard UI.
+- Updated `docs/HARDWARE_FLAVORS.md` with multi-target matrix architecture and CLI invocation workflows.
+- Bumped version to 2.3.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [2.2.0] - 2026-04-12
 
 ### Added

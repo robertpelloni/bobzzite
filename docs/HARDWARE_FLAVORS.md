@@ -1,55 +1,51 @@
-# bobzzite Hardware Flavors & Target Matrix
+# Bobzzite Multi-Hardware Flavor Architecture & Matrix
 
-bobzzite targets three primary hardware tiers through layered OCI container images:
+## Target Matrix Overview
 
----
+Bobzzite OS generates three specialized atomic OS images built on Fedora Atomic and Universal Blue:
 
-## 1. Flavor Matrix
-
-| Flavor | Base Upstream | Target Hardware | Included Features |
+| Flavor | Upstream Base Image | Target Hardware Platforms | Default Session / Desktop |
 |---|---|---|---|
-| **`bobzzite`** | `bazzite:latest` | Desktop & Laptop AMD Radeon, Intel Arc / Iris Xe | Open-source Mesa Vulkan drivers, GameMode, Proton GE |
-| **`bobzzite-deck`** | `bazzite-deck:latest` | Valve Steam Deck (LCD/OLED), ASUS ROG Ally, Lenovo Legion Go, GPD Win | Gamescope session compositor, Decky Loader plugins, TDP/fan controls |
-| **`bobzzite-nvidia`** | `bazzite-nvidia:latest` | Desktop & Laptop NVIDIA GeForce RTX / GTX | Proprietary NVIDIA driver stack, NVENC hardware encoding, CUDA support |
+| `bobzzite` | `ghcr.io/ublue-os/bazzite:latest` | Desktop & Laptop AMD Radeon, Intel Arc / UHD GPUs | KDE Plasma (Desktop Mode) |
+| `bobzzite-deck` | `ghcr.io/ublue-os/bazzite-deck:latest` | Valve Steam Deck (LCD & OLED), ASUS ROG Ally, Lenovo Legion Go | Steam Gamepad UI + KDE Plasma |
+| `bobzzite-nvidia` | `ghcr.io/ublue-os/bazzite-nvidia:latest` | Desktop & Mobile NVIDIA RTX 3000/4000 & GTX GPUs | KDE Plasma (NVIDIA Wayland / X11) |
 
 ---
 
-## 2. Building Flavors Locally
+## Flavor Build Automation: `scripts/build-flavors.sh`
 
-Use the automated flavor build script:
+The `scripts/build-flavors.sh` automation engine supports multiple operational modes:
 
 ```bash
-# Build desktop AMD/Intel flavor
-scripts/build-flavors.sh bobzzite
+# 1. Output flavor hardware manifest and target metadata
+./scripts/build-flavors.sh all manifest
 
-# Build handheld Deck / Ally flavor
-scripts/build-flavors.sh bobzzite-deck
+# 2. Syntax and base argument dry-run check
+./scripts/build-flavors.sh all dry-run
 
-# Build NVIDIA GeForce flavor
-scripts/build-flavors.sh bobzzite-nvidia
+# 3. Build a specific hardware target
+./scripts/build-flavors.sh bobzzite-deck build 2.3.0
 
-# Build all flavors sequentially
-scripts/build-flavors.sh all
+# 4. Build all flavors sequentially
+./scripts/build-flavors.sh all build 2.3.0
 ```
 
 ---
 
-## 3. Rebasing to Specific Flavors
+## Continuous Integration Build Pipeline
 
-### Standard AMD / Intel Desktop
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/robertpelloni/bobzzite:latest
-systemctl reboot
+In `.github/workflows/build.yml`, hardware flavors are built concurrently via a GitHub Actions matrix strategy:
+
+```yaml
+strategy:
+  matrix:
+    flavor:
+      - name: bobzzite
+        base: ghcr.io/ublue-os/bazzite:latest
+      - name: bobzzite-deck
+        base: ghcr.io/ublue-os/bazzite-deck:latest
+      - name: bobzzite-nvidia
+        base: ghcr.io/ublue-os/bazzite-nvidia:latest
 ```
 
-### Handheld Steam Deck / ROG Ally
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/robertpelloni/bobzzite-deck:latest
-systemctl reboot
-```
-
-### NVIDIA GeForce
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/robertpelloni/bobzzite-nvidia:latest
-systemctl reboot
-```
+All images automatically receive `:latest` and semantic version tags (`:${{ steps.version.outputs.version }}`) pushed to GHCR upon merging to `main`.
