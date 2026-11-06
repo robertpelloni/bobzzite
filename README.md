@@ -113,3 +113,10 @@ bobzzite-control-center
 - [`docs/BACKUP_ROLLBACK.md`](docs/BACKUP_ROLLBACK.md) — Atomic rollback and snapshot management.
 - [`docs/MULTIPLAYER.md`](docs/MULTIPLAYER.md) — Mesh networking, Syncthing, and Waypipe workflows.
 - [`docs/FLATPAK_PACKAGING.md`](docs/FLATPAK_PACKAGING.md) — Bob ecosystem Flatpak packaging.
+- [`docs/PERFORMANCE_TUNING.md`](docs/PERFORMANCE_TUNING.md) — Low-latency kernel/sysctl performance profiles.
+- [`docs/CONTROLLER_SUPPORT.md`](docs/CONTROLLER_SUPPORT.md) — Gamepad detection and handheld input mapping.
+- [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md) — Automated cache purging and storage maintenance.
+- [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md) — System performance benchmarks and hardware profiling.
+- [`docs/AUDIO_SETUP.md`](docs/AUDIO_SETUP.md) — Low-latency PipeWire quantum buffers and audio routing.
+- [`docs/STREAMING.md`](docs/STREAMING.md) — Remote gameplay and development desktop streaming via Sunshine/Moonlight.
+- [`docs/BUILD_HEALTH.md`](docs/BUILD_HEALTH.md) — Build health diagnostics, validation metrics, and CI QA.

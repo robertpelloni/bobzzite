@@ -55,3 +55,8 @@
 - [x] Remote game & dev streaming management utility (`bobzzite-stream`, `docs/STREAMING.md`)
 - [x] Integrated Game Streaming launcher into Bobzzite Control Center
 - [x] Release 2.5.0 milestone reached
+- [x] Build health diagnostics and full documentation index (`docs/BUILD_HEALTH.md`, `README.md`)
+- [x] Release 2.6.0 milestone reached
+- [x] Automated game packaging and release bundler (`bobzzite-package`, `docs/GAME_PACKAGING.md`)
+- [x] Control Center game packager integration
+- [x] Release 2.7.0 milestone reached

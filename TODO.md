@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 2.5.0)
+## Immediate Tasks (Sprint 2.7.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -55,3 +55,9 @@
 - [x] Implement remote game & dev streaming management utility (`bobzzite-stream.sh` and `docs/STREAMING.md`)
 - [x] Wire "Game Streaming" action into Bobzzite Control Center
 - [x] Release 2.5.0 milestone completed
+- [x] Author Build Health & QA specification (`docs/BUILD_HEALTH.md`)
+- [x] Expand `README.md` documentation index
+- [x] Release 2.6.0 milestone completed
+- [x] Implement game packaging and release bundler (`bobzzite-package.sh` and `docs/GAME_PACKAGING.md`)
+- [x] Wire "Package Game Project" into Bobzzite Control Center
+- [x] Release 2.7.0 milestone completed

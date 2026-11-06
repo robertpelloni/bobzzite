@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.0] - 2026-04-12
+
+### Added
+- Added automated indie game packaging and release bundler `bobzzite-package` (`scripts/bobzzite-package.sh` and `/usr/local/bin/bobzzite-package`).
+- Integrated "Package Game Project" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive game packaging and Steam Deck verification guide in `docs/GAME_PACKAGING.md`.
+- Updated build validation to verify `scripts/bobzzite-package.sh` and `docs/GAME_PACKAGING.md`.
+- Bumped version to 2.7.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
+## [2.6.0] - 2026-04-12
+
+### Added
+- Authored Build Health and Quality Assurance specification in `docs/BUILD_HEALTH.md`.
+- Expanded `README.md` documentation index with links and descriptions across all 14 technical guides.
+- Updated `scripts/validate_build.py` to enforce presence and formatting of `docs/BUILD_HEALTH.md`.
+- Bumped version to 2.6.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [2.5.0] - 2026-04-12
 
 ### Added

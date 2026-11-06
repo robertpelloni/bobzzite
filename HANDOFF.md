@@ -2,8 +2,13 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `2.5.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.7.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Automated indie game packaging and headless export utility (`scripts/bobzzite-package.sh` and `/usr/local/bin/bobzzite-package`).
+  - Game packaging guide authored in `docs/GAME_PACKAGING.md`.
+  - Integrated "Package Game Project" action into the unified Bobzzite Control Center dashboard UI.
+  - Build health diagnostics and QA specification in `docs/BUILD_HEALTH.md`.
+  - Expanded `README.md` documentation index covering all 14 technical guides.
   - Remote game and developer streaming management utility (`scripts/bobzzite-stream.sh` and `/usr/local/bin/bobzzite-stream`) with Sunshine daemon control, Moonlight client pairing, and hardware encoder discovery.
   - Streaming guide authored in `docs/STREAMING.md`.
   - Integrated "Game Streaming" action into the unified Bobzzite Control Center dashboard UI.

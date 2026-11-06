@@ -112,6 +112,11 @@ class BobzziteControlCenter:
         b3.grid(row=0, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(b3, "Wires Godot GDScript LSP port 6005, installs extensions, and sets Flatpak socket permissions.")
 
+        b4 = ttk.Button(btn_grid, text="📦 Package Game Project",
+                        command=lambda: self.run_async("bobzzite-package", "Packaging Godot 4 game project to Linux release..."))
+        b4.grid(row=1, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        ToolTip(b4, "Builds and exports standalone Linux binaries and resource packages headlessly.")
+
         btn_grid.columnconfigure(0, weight=1)
         btn_grid.columnconfigure(1, weight=1)
         btn_grid.columnconfigure(2, weight=1)
