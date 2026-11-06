@@ -52,3 +52,6 @@
 - [x] Local deployment & atomic rebase automation tool (`bobzzite-deploy`, `DEPLOY.md`)
 - [x] Offline OCI archive export capability in build engine
 - [x] Release 2.4.0 milestone reached
+- [x] Remote game & dev streaming management utility (`bobzzite-stream`, `docs/STREAMING.md`)
+- [x] Integrated Game Streaming launcher into Bobzzite Control Center
+- [x] Release 2.5.0 milestone reached

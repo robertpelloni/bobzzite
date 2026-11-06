@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `2.4.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.5.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Remote game and developer streaming management utility (`scripts/bobzzite-stream.sh` and `/usr/local/bin/bobzzite-stream`) with Sunshine daemon control, Moonlight client pairing, and hardware encoder discovery.
+  - Streaming guide authored in `docs/STREAMING.md`.
+  - Integrated "Game Streaming" action into the unified Bobzzite Control Center dashboard UI.
   - Local deployment and rebase automation tool (`scripts/bobzzite-deploy.sh` and `/usr/local/bin/bobzzite-deploy`) supporting online registry switching and air-gapped OCI archive rebases.
   - Multi-flavor build engine OCI archive export action (`export-tar`) and complete guide in `DEPLOY.md`.
   - Integrated "Deploy & Rebase" action into the unified Bobzzite Control Center dashboard UI.

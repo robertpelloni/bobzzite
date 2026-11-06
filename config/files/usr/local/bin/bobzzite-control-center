@@ -186,6 +186,10 @@ class BobzziteControlCenter:
         h_deploy.grid(row=4, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_deploy, "Queries deployment status and stages atomic rebasing across AMD, Deck, or NVIDIA images.")
 
+        h_stream = ttk.Button(hw_grid, text="Game Streaming", command=lambda: self.run_async("bobzzite-stream status", "Inspecting Sunshine streaming host & video encoders..."))
+        h_stream.grid(row=5, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_stream, "Manages Sunshine game streaming host and Moonlight client pairing for remote playtests.")
+
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(mb4, "Performs health checks on atomic OS, GPU drivers, GameMode, and dev tool Flatpaks.")
