@@ -154,6 +154,14 @@ class BobzziteControlCenter:
         h2.grid(row=0, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h2, "Queries whether GameMode governor optimization is currently active.")
 
+        h_bench = ttk.Button(hw_grid, text="Run Benchmark", command=lambda: self.run_async("bobzzite-bench", "Executing system hardware & I/O benchmark..."))
+        h_bench.grid(row=3, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_bench, "Measures CPU compute, storage I/O throughput, governor state, and GPU Vulkan capabilities.")
+
+        h_audio = ttk.Button(hw_grid, text="Audio & PipeWire", command=lambda: self.run_async("bobzzite-audio status", "Inspecting PipeWire audio server & latency..."))
+        h_audio.grid(row=3, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_audio, "Inspects PipeWire audio server status, active sound cards, and audio latency quantum.")
+
         h6 = ttk.Button(hw_grid, text="System Tuning", command=lambda: self.run_async("bobzzite-tweak status", "Inspecting system performance tunables..."))
         h6.grid(row=2, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h6, "Queries low-latency sysctl parameters, split lock mitigation, and PipeWire latency.")
@@ -170,13 +178,21 @@ class BobzziteControlCenter:
         h5.grid(row=1, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h5, "Queries status of Tailscale mesh networking and Syncthing P2P syncing.")
 
+        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("scripts/build-flavors.sh all manifest", "Inspecting Hardware Flavor Profiles & Bases..."))
+        h_flavors.grid(row=4, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_flavors, "Displays target matrix specifications for Desktop AMD/Intel, Handhelds, and NVIDIA builds.")
+
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
-        mb4.grid(row=1, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(mb4, "Performs health checks on atomic OS, GPU drivers, GameMode, and dev tool Flatpaks.")
 
         mb5 = ttk.Button(m_grid, text="Backup / Snapshots", command=lambda: self.run_async("bobzzite-backup status", "Checking backup snapshots..."))
-        mb5.grid(row=1, column=2, padx=6, pady=4, sticky="ew")
+        mb5.grid(row=1, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(mb5, "Inspects pinned ostree deployments and saved user dev snapshots.")
+
+        mb6 = ttk.Button(m_grid, text="Purge System Caches", command=lambda: self.run_async("bobzzite-clean", "Purging temporary caches and unused Flatpaks..."))
+        mb6.grid(row=1, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
         h3.grid(row=0, column=2, rowspan=3, padx=6, pady=4, sticky="nsew")

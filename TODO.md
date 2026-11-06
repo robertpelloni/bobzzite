@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 1.9.0)
+## Immediate Tasks (Sprint 2.3.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -36,3 +36,15 @@
 - [x] Add system performance & latency tuning tool (`scripts/bobzzite-tweak.sh` and `docs/PERFORMANCE_TUNING.md`)
 - [x] Add game controller and handheld PC mapping utility (`scripts/bobzzite-gamepad.sh` and `docs/CONTROLLER_SUPPORT.md`)
 - [x] Add System Tray Monitor applet (`scripts/bobzzite-tray.py` and autostart launcher)
+- [x] Add automated system cache and Flatpak pruning tool (`scripts/bobzzite-clean.sh` and `docs/MAINTENANCE.md`)
+- [x] Wire "Purge System Caches" action into unified Bobzzite Control Center
+- [x] Major release 2.0.0 milestone completed
+- [x] Implement automated system benchmark & hardware profiler (`bobzzite-bench.sh` and `docs/BENCHMARKS.md`)
+- [x] Add "Run Benchmark" action into Bobzzite Control Center
+- [x] Release 2.1.0 milestone completed
+- [x] Implement automated audio server diagnostic & switcher (`bobzzite-audio.sh` and `docs/AUDIO_SETUP.md`)
+- [x] Add "Audio & PipeWire" action into Bobzzite Control Center
+- [x] Release 2.2.0 milestone completed
+- [x] Enhance multi-hardware flavor build engine (`scripts/build-flavors.sh`)
+- [x] Wire "Hardware Flavors" action into Bobzzite Control Center
+- [x] Release 2.3.0 milestone completed

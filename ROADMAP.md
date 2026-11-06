@@ -36,3 +36,16 @@
 - [x] Built-in P2P mesh networking via Tailscale (`bobzzite-mesh`)
 - [x] Decentralized asset syncing for game projects via Syncthing
 - [x] Low-latency remote Wayland game streaming workflows via Waypipe (`docs/MULTIPLAYER.md`)
+
+## Phase 6: System Maintenance & Long-Term Autonomous Governance ✅
+- [x] Automated system cleanup, cache pruning, and Flatpak runtime maintenance (`bobzzite-clean`, `docs/MAINTENANCE.md`)
+- [x] Integrated cache purge action in unified Bobzzite Control Center
+- [x] Automated system hardware benchmark & performance profiler (`bobzzite-bench`, `docs/BENCHMARKS.md`)
+- [x] Unified Control Center benchmark runner integration
+- [x] Release 2.1.0 milestone reached
+- [x] Automated audio server diagnostic and latency switcher (`bobzzite-audio`, `docs/AUDIO_SETUP.md`)
+- [x] Integrated Audio & PipeWire manager into unified Bobzzite Control Center
+- [x] Release 2.2.0 milestone reached
+- [x] Multi-hardware flavor build automation engine enhancement (`scripts/build-flavors.sh`)
+- [x] Hardware Flavors inspector wired into Bobzzite Control Center
+- [x] Release 2.3.0 milestone reached

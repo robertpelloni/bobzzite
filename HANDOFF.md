@@ -2,8 +2,19 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `1.9.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.3.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Enhanced multi-hardware flavor build automation engine (`scripts/build-flavors.sh`) supporting manifest inspections, dry-run syntax verification, and flavor metadata generation.
+  - Hardware Flavors inspector integrated into the unified Bobzzite Control Center dashboard UI.
+  - Automated audio server diagnostic and profile switcher (`scripts/bobzzite-audio.sh` and `/usr/local/bin/bobzzite-audio`), featuring PipeWire status queries, low-latency quantum buffer management, and speaker test routines.
+  - Audio architecture guide authored in `docs/AUDIO_SETUP.md`.
+  - Integrated "Audio & PipeWire" action into the unified Bobzzite Control Center.
+  - Automated system hardware benchmark and performance profiler (`scripts/bobzzite-bench.sh` and `/usr/local/bin/bobzzite-bench`), testing CPU single-thread hashing, disk sequential I/O write throughput, governor states, and Vulkan GPU capabilities.
+  - Benchmarking guide authored in `docs/BENCHMARKS.md`.
+  - Integrated "Run Benchmark" action into the unified Bobzzite Control Center.
+  - Automated system storage cleanup and maintenance tool (`scripts/bobzzite-clean.sh` and `/usr/local/bin/bobzzite-clean`), cache purging, and Flatpak runtime pruning.
+  - Storage maintenance guide authored in `docs/MAINTENANCE.md`.
+  - Integrated "Purge System Caches" action into the unified Bobzzite Control Center.
   - System Tray Monitor applet (`scripts/bobzzite-tray.py` and `/usr/local/bin/bobzzite-tray`) with autostart launcher and quick actions to open Control Center, trigger diagnostics, and quit background services.
   - Game controller and handheld PC mapping utility (`scripts/bobzzite-gamepad.sh` and `/usr/local/bin/bobzzite-gamepad`) with documentation in `docs/CONTROLLER_SUPPORT.md`.
   - System performance and latency tuning utility (`scripts/bobzzite-tweak.sh` and `/usr/local/bin/bobzzite-tweak`) with documentation in `docs/PERFORMANCE_TUNING.md`.

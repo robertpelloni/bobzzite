@@ -5,6 +5,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2026-04-12
+
+### Added
+- Enhanced multi-hardware flavor build automation engine `scripts/build-flavors.sh` with manifest inspection, dry-run checking, and target verification.
+- Integrated "Hardware Flavors" action into the unified Bobzzite Control Center dashboard UI.
+- Updated `docs/HARDWARE_FLAVORS.md` with multi-target matrix architecture and CLI invocation workflows.
+- Bumped version to 2.3.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
+## [2.2.0] - 2026-04-12
+
+### Added
+- Added automated audio server diagnostic and profile switcher `bobzzite-audio` (`scripts/bobzzite-audio.sh` and `/usr/local/bin/bobzzite-audio`).
+- Implemented status probe for PipeWire, WirePlumber, ALSA cards, and latency quantum inspection.
+- Added Low-Latency Pro-Audio profile (128 buffer quantum / ~2.6ms latency) and stereo speaker test routines.
+- Integrated "Audio & PipeWire" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive audio architecture guide in `docs/AUDIO_SETUP.md`.
+- Updated build validation to verify `scripts/bobzzite-audio.sh` and `docs/AUDIO_SETUP.md`.
+- Bumped version to 2.2.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
+## [2.1.0] - 2026-04-12
+
+### Added
+- Added automated hardware benchmarking and performance profiler `bobzzite-bench` (`scripts/bobzzite-bench.sh` and `/usr/local/bin/bobzzite-bench`).
+- Benchmarking includes CPU single-thread hashing throughput, disk sequential I/O write latency, CPU scaling governor detection, and Vulkan GPU probe.
+- Integrated "Run Benchmark" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive benchmarking and hardware baseline documentation in `docs/BENCHMARKS.md`.
+- Updated build validation to verify `scripts/bobzzite-bench.sh` and `docs/BENCHMARKS.md`.
+- Bumped version to 2.1.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
+## [2.0.0] - 2026-04-12
+
+### Added
+- Added automated system storage maintenance & cache purging tool `bobzzite-clean` (`scripts/bobzzite-clean.sh` and `/usr/local/bin/bobzzite-clean`).
+- Cleaned unused Flatpak runtimes, Flatpak app caches, user thumbnail directories, crash dumps, and vacuumed systemd journal logs.
+- Integrated "Purge System Caches" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive storage and maintenance guide in `docs/MAINTENANCE.md`.
+- Updated build validation to verify `scripts/bobzzite-clean.sh` and `docs/MAINTENANCE.md`.
+- Bumped major version milestone across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [1.9.0] - 2026-04-12
 
 ### Added
