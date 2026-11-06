@@ -50,6 +50,7 @@ def check_scripts():
         "scripts/bobzzite-tray.py",
         "scripts/bobzzite-clean.sh",
         "scripts/bobzzite-bench.sh",
+        "scripts/bobzzite-audio.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -98,7 +99,8 @@ def check_required_docs():
         "docs/PERFORMANCE_TUNING.md",
         "docs/CONTROLLER_SUPPORT.md",
         "docs/MAINTENANCE.md",
-        "docs/BENCHMARKS.md"
+        "docs/BENCHMARKS.md",
+        "docs/AUDIO_SETUP.md"
     ]
     errors = 0
     for doc in required_docs:

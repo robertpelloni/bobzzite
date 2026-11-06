@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-04-12
+
+### Added
+- Added automated audio server diagnostic and profile switcher `bobzzite-audio` (`scripts/bobzzite-audio.sh` and `/usr/local/bin/bobzzite-audio`).
+- Implemented status probe for PipeWire, WirePlumber, ALSA cards, and latency quantum inspection.
+- Added Low-Latency Pro-Audio profile (128 buffer quantum / ~2.6ms latency) and stereo speaker test routines.
+- Integrated "Audio & PipeWire" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive audio architecture guide in `docs/AUDIO_SETUP.md`.
+- Updated build validation to verify `scripts/bobzzite-audio.sh` and `docs/AUDIO_SETUP.md`.
+- Bumped version to 2.2.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [2.1.0] - 2026-04-12
 
 ### Added

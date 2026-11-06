@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 2.1.0)
+## Immediate Tasks (Sprint 2.2.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -42,3 +42,6 @@
 - [x] Implement automated system benchmark & hardware profiler (`bobzzite-bench.sh` and `docs/BENCHMARKS.md`)
 - [x] Add "Run Benchmark" action into Bobzzite Control Center
 - [x] Release 2.1.0 milestone completed
+- [x] Implement automated audio server diagnostic & switcher (`bobzzite-audio.sh` and `docs/AUDIO_SETUP.md`)
+- [x] Add "Audio & PipeWire" action into Bobzzite Control Center
+- [x] Release 2.2.0 milestone completed

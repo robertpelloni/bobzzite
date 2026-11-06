@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `2.1.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.2.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Automated audio server diagnostic and profile switcher (`scripts/bobzzite-audio.sh` and `/usr/local/bin/bobzzite-audio`), featuring PipeWire status queries, low-latency quantum buffer management, and speaker test routines.
+  - Audio architecture guide authored in `docs/AUDIO_SETUP.md`.
+  - Integrated "Audio & PipeWire" action into the unified Bobzzite Control Center.
   - Automated system hardware benchmark and performance profiler (`scripts/bobzzite-bench.sh` and `/usr/local/bin/bobzzite-bench`), testing CPU single-thread hashing, disk sequential I/O write throughput, governor states, and Vulkan GPU capabilities.
   - Benchmarking guide authored in `docs/BENCHMARKS.md`.
   - Integrated "Run Benchmark" action into the unified Bobzzite Control Center.

@@ -43,3 +43,6 @@
 - [x] Automated system hardware benchmark & performance profiler (`bobzzite-bench`, `docs/BENCHMARKS.md`)
 - [x] Unified Control Center benchmark runner integration
 - [x] Release 2.1.0 milestone reached
+- [x] Automated audio server diagnostic and latency switcher (`bobzzite-audio`, `docs/AUDIO_SETUP.md`)
+- [x] Integrated Audio & PipeWire manager into unified Bobzzite Control Center
+- [x] Release 2.2.0 milestone reached
