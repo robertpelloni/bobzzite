@@ -60,3 +60,7 @@
 - [x] Automated game packaging and release bundler (`bobzzite-package`, `docs/GAME_PACKAGING.md`)
 - [x] Control Center game packager integration
 - [x] Release 2.7.0 milestone reached
+- [x] VR / XR headset and OpenXR diagnostic utility (`bobzzite-vr`, `docs/VR_SETUP.md`)
+- [x] Release 2.8.0 milestone reached
+- [x] Automated hardware flavor detection & DMI/PCI probing (`bobzzite-deploy detect`, `docs/HARDWARE_DETECTION.md`)
+- [x] Release 2.9.0 milestone reached

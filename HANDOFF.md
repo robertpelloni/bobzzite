@@ -2,8 +2,12 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `2.7.0` (tracked in `VERSION.md`)
+- **Current Version**: `2.9.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Automated hardware flavor detection (`bobzzite-deploy detect`) probing DMI chassis and PCI device classes for Steam Deck, ROG Ally, NVIDIA, and AMD/Intel platforms.
+  - Hardware detection guide authored in `docs/HARDWARE_DETECTION.md`.
+  - Automated VR / XR headset and OpenXR diagnostic utility (`scripts/bobzzite-vr.sh` and `/usr/local/bin/bobzzite-vr`) with Wayland DRM display leasing and manifest switching.
+  - VR and OpenXR architecture guide authored in `docs/VR_SETUP.md`.
   - Automated indie game packaging and headless export utility (`scripts/bobzzite-package.sh` and `/usr/local/bin/bobzzite-package`).
   - Game packaging guide authored in `docs/GAME_PACKAGING.md`.
   - Integrated "Package Game Project" action into the unified Bobzzite Control Center dashboard UI.

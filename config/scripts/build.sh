@@ -3,6 +3,13 @@ set -euo pipefail
 
 echo "=== bobzzite build script ==="
 
+echo "Installing GUI dependencies and runtime utilities..."
+if command -v dnf5 >/dev/null 2>&1; then
+    dnf5 install -y python3-tkinter || true
+elif command -v dnf >/dev/null 2>&1; then
+    dnf install -y python3-tkinter || true
+fi
+
 echo "Setting up bobzzite branding and os-release identification..."
 
 if [ -f /usr/lib/os-release ]; then

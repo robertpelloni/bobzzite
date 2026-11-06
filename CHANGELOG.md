@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.9.0] - 2026-04-12
+
+### Added
+- Added automated hardware flavor detection (`detect` / `auto-detect`) in `scripts/bobzzite-deploy.sh` (and `/usr/local/bin/bobzzite-deploy`) via DMI chassis and PCI vendor probing.
+- Wired hardware auto-detection into Bobzzite Control Center "Deploy & Rebase" dashboard action.
+- Authored comprehensive hardware compatibility and automated flavor selection guide in `docs/HARDWARE_DETECTION.md`.
+- Updated build validation to verify `docs/HARDWARE_DETECTION.md`.
+- Bumped version to 2.9.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [2.7.0] - 2026-04-12
 
 ### Added

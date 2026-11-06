@@ -187,9 +187,9 @@ class BobzziteControlCenter:
         h_flavors.grid(row=4, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_flavors, "Displays target matrix specifications for Desktop AMD/Intel, Handhelds, and NVIDIA builds.")
 
-        h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy status", "Checking OS deployment status & rebase targets..."))
+        h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
         h_deploy.grid(row=4, column=1, padx=6, pady=4, sticky="ew")
-        ToolTip(h_deploy, "Queries deployment status and stages atomic rebasing across AMD, Deck, or NVIDIA images.")
+        ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
 
         h_stream = ttk.Button(hw_grid, text="Game Streaming", command=lambda: self.run_async("bobzzite-stream status", "Inspecting Sunshine streaming host & video encoders..."))
         h_stream.grid(row=5, column=0, padx=6, pady=4, sticky="ew")
