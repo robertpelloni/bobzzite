@@ -2,8 +2,10 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `3.0.0` (tracked in `VERSION.md`)
+- **Current Version**: `3.1.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Multi-flavor architecture profiling and benchmark action (`scripts/build-flavors.sh all bench-matrix`).
+  - Hardware matrix profiles and handheld tier guide authored in `docs/HARDWARE_MATRIX_PROFILES.md`.
   - Multi-flavor build matrix automated verification test suite (`scripts/build-flavors.sh all test-matrix`).
   - Hardware matrix testing guide authored in `docs/HARDWARE_MATRIX_TESTING.md`.
   - Automated hardware flavor detection (`bobzzite-deploy detect`) probing DMI chassis and PCI device classes for Steam Deck, ROG Ally, NVIDIA, and AMD/Intel platforms.

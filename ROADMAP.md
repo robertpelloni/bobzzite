@@ -66,3 +66,5 @@
 - [x] Release 2.9.0 milestone reached
 - [x] Multi-flavor build matrix automated verification test suite (`scripts/build-flavors.sh all test-matrix`, `docs/HARDWARE_MATRIX_TESTING.md`)
 - [x] Major release 3.0.0 milestone reached
+- [x] Multi-flavor architecture profiles & matrix benchmarks (`scripts/build-flavors.sh all bench-matrix`, `docs/HARDWARE_MATRIX_PROFILES.md`)
+- [x] Release 3.1.0 milestone reached

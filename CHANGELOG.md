@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-04-12
+
+### Added
+- Added multi-flavor architecture profiling and benchmark action (`scripts/build-flavors.sh all bench-matrix`).
+- Authored hardware matrix tier specifications and handheld performance profiles in `docs/HARDWARE_MATRIX_PROFILES.md`.
+- Integrated "Hardware Flavors" matrix benchmarking action into the unified Bobzzite Control Center dashboard UI.
+- Updated build validation to verify `docs/HARDWARE_MATRIX_PROFILES.md`.
+- Bumped version to 3.1.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [3.0.0] - 2026-04-12
 
 ### Added
