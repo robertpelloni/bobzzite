@@ -137,6 +137,11 @@ class BobzziteControlCenter:
         b8.grid(row=2, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(b8, "Compiles and configures custom, size-optimized Godot 4 export templates.")
 
+        b9 = ttk.Button(btn_grid, text="⚡ GDExtension (C++/Rust)",
+                        command=lambda: self.run_async("bobzzite-gdextension", "Scanning GDExtension native manifests..."))
+        b9.grid(row=3, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        ToolTip(b9, "Scaffolds and validates high-performance native C++ and godot-rust GDExtensions.")
+
         btn_grid.columnconfigure(0, weight=1)
         btn_grid.columnconfigure(1, weight=1)
         btn_grid.columnconfigure(2, weight=1)

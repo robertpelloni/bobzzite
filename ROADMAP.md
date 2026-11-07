@@ -86,3 +86,5 @@
 - [x] Release 3.9.0 milestone reached
 - [x] Multi-hardware flavor compliance and profile auditor (`bobzzite-hardware-audit`, `docs/HARDWARE_COMPLIANCE.md`)
 - [x] Major release 4.0.0 milestone reached
+- [x] Godot 4 GDExtension C++ & Rust native build pipeline (`bobzzite-gdextension`, `docs/GDEXTENSION_GUIDE.md`)
+- [x] Release 4.1.0 milestone reached

@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `4.0.0` (tracked in `VERSION.md`)
+- **Current Version**: `4.1.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Godot 4 GDExtension C++ & Rust native build pipeline and manifest scaffolder (`scripts/bobzzite-gdextension.sh` and `/usr/local/bin/bobzzite-gdextension`).
+  - GDExtension architecture guide authored in `docs/GDEXTENSION_GUIDE.md`.
+  - Integrated "GDExtension (C++/Rust)" action into the unified Bobzzite Control Center dashboard UI.
   - Multi-hardware flavor compliance and profile auditor (`scripts/bobzzite-hardware-audit.sh` and `/usr/local/bin/bobzzite-hardware-audit`).
   - Hardware compliance and QA guide authored in `docs/HARDWARE_COMPLIANCE.md`.
   - Command-Line & Utility Quick Reference Cheatsheet authored in `docs/QUICK_REFERENCE.md`.
