@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 4.1.0)
+## Immediate Tasks (Sprint 4.2.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -98,3 +98,6 @@
 - [x] Implement Godot 4 GDExtension builder and scaffolding utility (`bobzzite-gdextension.sh` and `docs/GDEXTENSION_GUIDE.md`)
 - [x] Wire "GDExtension (C++/Rust)" into Bobzzite Control Center
 - [x] Release 4.1.0 milestone completed
+- [x] Implement automated bootable ISO generator (`bobzzite-iso.sh` and `docs/ISO_BUILD.md`)
+- [x] Wire "Generate ISO" into Bobzzite Control Center
+- [x] Release 4.2.0 milestone completed

@@ -2,8 +2,10 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `4.1.0` (tracked in `VERSION.md`)
+- **Current Version**: `4.2.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Automated bootable ISO generation pipeline (`scripts/bobzzite-iso.sh` and `/usr/local/bin/bobzzite-iso`).
+  - Integrated "Generate ISO" action into the unified Bobzzite Control Center dashboard UI.
   - Godot 4 GDExtension C++ & Rust native build pipeline and manifest scaffolder (`scripts/bobzzite-gdextension.sh` and `/usr/local/bin/bobzzite-gdextension`).
   - GDExtension architecture guide authored in `docs/GDEXTENSION_GUIDE.md`.
   - Integrated "GDExtension (C++/Rust)" action into the unified Bobzzite Control Center dashboard UI.

@@ -60,6 +60,7 @@ def check_scripts():
         "scripts/bobzzite-export-templates.sh",
         "scripts/bobzzite-hardware-audit.sh",
         "scripts/bobzzite-gdextension.sh",
+        "scripts/bobzzite-iso.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0

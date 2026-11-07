@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.2.0] - 2026-04-12
+
+### Added
+- Added automated bootable ISO generation pipeline `bobzzite-iso` (`scripts/bobzzite-iso.sh` and `/usr/local/bin/bobzzite-iso`).
+- Integrated Universal Blue `isogenerator` container generation and helper script creation.
+- Integrated "Generate ISO" action into the unified Bobzzite Control Center dashboard UI.
+- Updated `docs/ISO_BUILD.md` with CLI parameters, checksum verification, and USB flashing methods.
+- Updated build validation to verify `scripts/bobzzite-iso.sh`.
+- Bumped version to 4.2.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [4.1.0] - 2026-04-12
 
 ### Added

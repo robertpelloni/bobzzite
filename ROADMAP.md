@@ -88,3 +88,5 @@
 - [x] Major release 4.0.0 milestone reached
 - [x] Godot 4 GDExtension C++ & Rust native build pipeline (`bobzzite-gdextension`, `docs/GDEXTENSION_GUIDE.md`)
 - [x] Release 4.1.0 milestone reached
+- [x] Automated bootable ISO generation pipeline (`bobzzite-iso`, `docs/ISO_BUILD.md`)
+- [x] Release 4.2.0 milestone reached

@@ -1,70 +1,53 @@
-# bobzzite Live & Offline ISO Generation
+# Bobzzite OS Bootable ISO Generation Guide
 
-This guide explains how to generate bootable installation ISO images for **bobzzite** using Universal Blue's `isogenerator`.
+## Overview
 
----
+Bobzzite OS can be packaged into a bootable offline installation ISO using the **Universal Blue isogenerator** container pipeline.
 
-## 1. Prerequisites
-
-- A machine with `podman` or `docker` installed.
-- Root or rootless container privileges.
-- At least 25 GB free disk space.
+This produces a hybrid UEFI/BIOS bootable `.iso` containing the Anaconda graphical installer configured to install the chosen Bobzzite flavor directly onto physical NVMe, SSD, or external USB storage.
 
 ---
 
-## 2. Generating the ISO via Universal Blue Container
+## Generating Bootable Media: `bobzzite-iso`
 
-Universal Blue provides an automated containerized tool (`ghcr.io/ublue-os/isogenerator`) to produce standard Fedora Anaconda installer ISOs configured to pull or embed your custom OCI container image.
-
-### Building an Online / Net-Installer ISO
+Run `bobzzite-iso` or trigger the generator from the **Bobzzite Control Center**:
 
 ```bash
-podman run --rm --privileged \
-  --volume ./build:/build \
-  ghcr.io/ublue-os/isogenerator:latest \
-  --image-repo ghcr.io/robertpelloni \
-  --image-name bobzzite \
-  --image-tag latest \
-  --version 41 \
-  --output /build/bobzzite-latest.iso
-```
+# 1. Generate ISO builder for standard desktop AMD/Intel flavor
+bobzzite-iso bobzzite ~/Builds/ISO
 
-### Building an Offline / Embedded ISO
+# 2. Generate ISO builder for Steam Deck / Handheld PC flavor
+bobzzite-iso bobzzite-deck ~/Builds/ISO
 
-To embed the entire bobzzite container image directly into the installer ISO (for offline installation without internet access):
-
-```bash
-podman run --rm --privileged \
-  --volume ./build:/build \
-  ghcr.io/ublue-os/isogenerator:latest \
-  --image-repo ghcr.io/robertpelloni \
-  --image-name bobzzite \
-  --image-tag latest \
-  --version 41 \
-  --offline \
-  --output /build/bobzzite-offline-latest.iso
+# 3. Generate ISO builder for Desktop NVIDIA GPU flavor
+bobzzite-iso bobzzite-nvidia ~/Builds/ISO
 ```
 
 ---
 
-## 3. Writing the ISO to USB Media
+## Building the ISO with Podman or Docker
 
-Once the ISO file is generated in the `./build/` directory, flash it to a USB drive using `dd` or tools like BalenaEtcher / Fedora Media Writer:
+Execute the generated script or run the container generator directly:
 
 ```bash
-# Identify your USB drive (e.g. /dev/sdX)
-lsblk
-
-# Flash ISO
-sudo dd if=./build/bobzzite-latest.iso of=/dev/sdX bs=4M status=progress conv=fsync
+sudo podman run --rm --privileged \
+     -v ~/Builds/ISO:/build-container-installer/build \
+     ghcr.io/ublue-os/isogenerator:latest \
+     ghcr.io/robertpelloni/bobzzite:latest
 ```
+
+### Build Artifacts
+- Bootable ISO: `~/Builds/ISO/bobzzite-latest.iso`
+- SHA256 Checksum: `~/Builds/ISO/bobzzite-latest.iso-CHECKSUM`
 
 ---
 
-## 4. Boot & Installation
+## Flashing ISO to USB Installation Media
 
-1. Insert the USB drive into your gaming PC or handheld device.
-2. Enter the BIOS / boot selection menu (F12, F11, or Volume Down on Steam Deck).
-3. Boot the **bobzzite** installer.
-4. Follow the Anaconda installer instructions to partition storage and complete installation.
-5. On first boot, launch **Bobzzite Control Center** from the application menu to finalize dev tools and gaming settings.
+### Using `dd` on Linux:
+```bash
+sudo dd if=~/Builds/ISO/bobzzite-latest.iso of=/dev/sdX bs=4M status=progress oflag=sync
+```
+
+### Using Ventoy:
+Simply copy `bobzzite-latest.iso` onto your Ventoy-formatted USB drive.

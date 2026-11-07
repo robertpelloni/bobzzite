@@ -216,6 +216,10 @@ class BobzziteControlCenter:
         h_deploy.grid(row=4, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
 
+        h_iso = ttk.Button(hw_grid, text="Generate ISO", command=lambda: self.run_async("bobzzite-iso bobzzite", "Generating bootable installer media scripts..."))
+        h_iso.grid(row=6, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_iso, "Configures and generates bootable installation ISOs using the Universal Blue isogenerator.")
+
         h_stream = ttk.Button(hw_grid, text="Game Streaming", command=lambda: self.run_async("bobzzite-stream status", "Inspecting Sunshine streaming host & video encoders..."))
         h_stream.grid(row=5, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_stream, "Manages Sunshine game streaming host and Moonlight client pairing for remote playtests.")
@@ -225,7 +229,7 @@ class BobzziteControlCenter:
         ToolTip(h_vr, "Checks connected VR headsets, Wayland DRM display leasing, and OpenXR runtime configuration.")
 
         h_audit = ttk.Button(hw_grid, text="Hardware Audit", command=lambda: self.run_async("bobzzite-hardware-audit", "Auditing hardware compliance across flavor requirements..."))
-        h_audit.grid(row=6, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_audit.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_audit, "Audits CPU, GPU rendering, PipeWire audio, and controller compliance for Bobzzite OS.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
