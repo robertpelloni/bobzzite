@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `3.2.0` (tracked in `VERSION.md`)
+- **Current Version**: `3.3.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Automated game localization and i18n management utility (`scripts/bobzzite-i18n.sh` and `/usr/local/bin/bobzzite-i18n`).
+  - Game localization guide authored in `docs/LOCALIZATION.md`.
+  - Integrated "Localization & i18n" action into the unified Bobzzite Control Center dashboard UI.
   - Automated game asset optimization pipeline (`scripts/bobzzite-assets.sh` and `/usr/local/bin/bobzzite-assets`).
   - Asset optimization guide authored in `docs/ASSET_PIPELINE.md`.
   - Integrated "Optimize Game Assets" action into the unified Bobzzite Control Center dashboard UI.

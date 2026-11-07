@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.0] - 2026-04-12
+
+### Added
+- Added automated game localization and string management utility `bobzzite-i18n` (`scripts/bobzzite-i18n.sh` and `/usr/local/bin/bobzzite-i18n`).
+- Implemented multi-language translation CSV templating, catalog scanning, and gettext `.mo` compilation for Godot 4.
+- Integrated "Localization & i18n" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive game internationalization guide in `docs/LOCALIZATION.md`.
+- Updated build validation to verify `scripts/bobzzite-i18n.sh` and `docs/LOCALIZATION.md`.
+- Bumped version to 3.3.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [3.2.0] - 2026-04-12
 
 ### Added

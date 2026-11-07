@@ -70,3 +70,5 @@
 - [x] Release 3.1.0 milestone reached
 - [x] Automated game asset optimization pipeline (`bobzzite-assets`, `docs/ASSET_PIPELINE.md`)
 - [x] Release 3.2.0 milestone reached
+- [x] Automated game localization and i18n management utility (`bobzzite-i18n`, `docs/LOCALIZATION.md`)
+- [x] Release 3.3.0 milestone reached
