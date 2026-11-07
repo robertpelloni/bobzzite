@@ -84,3 +84,5 @@
 - [x] Release 3.8.0 milestone reached
 - [x] Command-line quick reference cheatsheet and full documentation synchronization (`docs/QUICK_REFERENCE.md`)
 - [x] Release 3.9.0 milestone reached
+- [x] Multi-hardware flavor compliance and profile auditor (`bobzzite-hardware-audit`, `docs/HARDWARE_COMPLIANCE.md`)
+- [x] Major release 4.0.0 milestone reached

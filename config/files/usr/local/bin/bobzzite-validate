@@ -58,6 +58,7 @@ def check_scripts():
         "scripts/bobzzite-i18n.sh",
         "scripts/bobzzite-test.sh",
         "scripts/bobzzite-export-templates.sh",
+        "scripts/bobzzite-hardware-audit.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -122,7 +123,8 @@ def check_required_docs():
         "docs/GODOT_CODIUM_INTEGRATION.md",
         "docs/EXPORT_TEMPLATES.md",
         "docs/HARDWARE_CAPABILITIES.md",
-        "docs/QUICK_REFERENCE.md"
+        "docs/QUICK_REFERENCE.md",
+        "docs/HARDWARE_COMPLIANCE.md"
     ]
     errors = 0
     for doc in required_docs:

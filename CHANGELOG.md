@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2026-04-12
+
+### Added
+- Added multi-hardware flavor compliance and profile auditor `bobzzite-hardware-audit` (`scripts/bobzzite-hardware-audit.sh` and `/usr/local/bin/bobzzite-hardware-audit`).
+- Audited DMI form factor, kernel architecture, DRI/Vulkan nodes, PipeWire real-time audio, and Linux evdev gamepad interfaces.
+- Integrated "Hardware Audit" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive hardware compliance and quality assurance guide in `docs/HARDWARE_COMPLIANCE.md`.
+- Updated build validation to verify `scripts/bobzzite-hardware-audit.sh` and `docs/HARDWARE_COMPLIANCE.md`.
+- Bumped major milestone version to 4.0.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [3.9.0] - 2026-04-12
 
 ### Added
