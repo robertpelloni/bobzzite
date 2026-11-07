@@ -2,8 +2,10 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `3.4.0` (tracked in `VERSION.md`)
+- **Current Version**: `3.5.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Multi-flavor build configuration generator (`scripts/build-flavors.sh <flavor> config`) generating `.flavor-config.env`.
+  - Hardware customization guide authored in `docs/HARDWARE_CUSTOMIZATION.md`.
   - Automated game test runner and CI utility (`scripts/bobzzite-test.sh` and `/usr/local/bin/bobzzite-test`).
   - Automated testing guide authored in `docs/AUTOMATED_TESTING.md`.
   - Integrated "Run Game Tests" action into the unified Bobzzite Control Center dashboard UI.

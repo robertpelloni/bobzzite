@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0] - 2026-04-12
+
+### Added
+- Added multi-flavor build environment configuration generator (`scripts/build-flavors.sh <flavor> config`).
+- Exported flavor target metadata, default compositors (gamescope vs kwin_wayland), and driver stacks to `.flavor-config.env`.
+- Authored comprehensive hardware flavor customization guide in `docs/HARDWARE_CUSTOMIZATION.md`.
+- Updated build validation to verify `docs/HARDWARE_CUSTOMIZATION.md`.
+- Bumped version to 3.5.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [3.4.0] - 2026-04-12
 
 ### Added

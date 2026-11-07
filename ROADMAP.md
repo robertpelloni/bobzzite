@@ -74,3 +74,5 @@
 - [x] Release 3.3.0 milestone reached
 - [x] Automated game test runner and CI/CD utility (`bobzzite-test`, `docs/AUTOMATED_TESTING.md`)
 - [x] Release 3.4.0 milestone reached
+- [x] Multi-flavor build configuration generator (`scripts/build-flavors.sh config`, `docs/HARDWARE_CUSTOMIZATION.md`)
+- [x] Release 3.5.0 milestone reached

@@ -13,10 +13,11 @@
 set -euo pipefail
 
 FLAVOR="${1:-all}"
-ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar | test-matrix | bench-matrix
-IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "3.1.0")}"
+ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar | test-matrix | bench-matrix | config
+IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "3.5.0")}"
 BUILD_TOOL="${BUILD_TOOL:-docker}"
 EXPORT_DIR="${EXPORT_DIR:-/tmp/bobzzite-flavors}"
+CONFIG_FILE="${CONFIG_FILE:-.flavor-config.env}"
 
 BOLD='\033[1m'
 GREEN='\033[0;32m'
@@ -90,6 +91,26 @@ process_flavor() {
                 -f Containerfile .
             echo -e "  ${BOLD}${GREEN}✔ Matrix test passed for ${target_flavor}.${NC}\n"
             ;;
+        config)
+            echo -e "  [CONFIG] Generating flavor build environment configuration..."
+            cat << EOF > "${CONFIG_FILE}"
+# Bobzzite OS Target Flavor Build Configuration
+BOBZZITE_TARGET_FLAVOR="${target_flavor}"
+BOBZZITE_BASE_IMAGE="${base_image}"
+BOBZZITE_IMAGE_VERSION="${IMAGE_VERSION}"
+BOBZZITE_BUILD_TOOL="${BUILD_TOOL}"
+BOBZZITE_COMPOSITOR="$(case "$target_flavor" in
+    bobzzite-deck) echo "gamescope";;
+    *) echo "kwin_wayland";;
+esac)"
+BOBZZITE_DRIVER_STACK="$(case "$target_flavor" in
+    bobzzite-deck) echo "mesa-radv-aco";;
+    bobzzite-nvidia) echo "nvidia-proprietary-akmod";;
+    bobzzite) echo "mesa-radv-anv";;
+esac)"
+EOF
+            echo -e "  ${BOLD}${GREEN}✔ Configuration exported to ${CONFIG_FILE}.${NC}\n"
+            ;;
         bench-matrix)
             echo -e "  [BENCH-MATRIX] Profiling hardware flavor architecture specifications..."
             echo -e "    • Target Flavor     : ${BOLD}${target_flavor}${NC}"
@@ -153,7 +174,7 @@ case "$FLAVOR" in
         process_flavor "bobzzite-nvidia"
         ;;
     *)
-        echo "Usage: $0 [all|bobzzite|bobzzite-deck|bobzzite-nvidia] [build|check|dry-run|manifest|export-tar|test-matrix|bench-matrix] [version]"
+        echo "Usage: $0 [all|bobzzite|bobzzite-deck|bobzzite-nvidia] [build|check|dry-run|manifest|export-tar|test-matrix|bench-matrix|config] [version]"
         exit 1
         ;;
 esac
