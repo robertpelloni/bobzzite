@@ -2,8 +2,10 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `3.5.0` (tracked in `VERSION.md`)
+- **Current Version**: `3.6.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Enhanced bidirectional Godot 4 & VS Codium debugging (Debug Adapter Protocol on port 6006, `launch.json`, and `tasks.json`).
+  - Godot-Codium integration guide authored in `docs/GODOT_CODIUM_INTEGRATION.md`.
   - Multi-flavor build configuration generator (`scripts/build-flavors.sh <flavor> config`) generating `.flavor-config.env`.
   - Hardware customization guide authored in `docs/HARDWARE_CUSTOMIZATION.md`.
   - Automated game test runner and CI utility (`scripts/bobzzite-test.sh` and `/usr/local/bin/bobzzite-test`).

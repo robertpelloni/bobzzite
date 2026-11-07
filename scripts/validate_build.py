@@ -117,7 +117,8 @@ def check_required_docs():
         "docs/ASSET_PIPELINE.md",
         "docs/LOCALIZATION.md",
         "docs/AUTOMATED_TESTING.md",
-        "docs/HARDWARE_CUSTOMIZATION.md"
+        "docs/HARDWARE_CUSTOMIZATION.md",
+        "docs/GODOT_CODIUM_INTEGRATION.md"
     ]
     errors = 0
     for doc in required_docs:

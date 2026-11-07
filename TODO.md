@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 3.5.0)
+## Immediate Tasks (Sprint 3.6.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -82,3 +82,5 @@
 - [x] Release 3.4.0 milestone completed
 - [x] Implement multi-flavor build config generator (`scripts/build-flavors.sh config` and `docs/HARDWARE_CUSTOMIZATION.md`)
 - [x] Release 3.5.0 milestone completed
+- [x] Implement Godot 4 & VS Codium DAP configurations and workspace templates (`docs/GODOT_CODIUM_INTEGRATION.md`)
+- [x] Release 3.6.0 milestone completed

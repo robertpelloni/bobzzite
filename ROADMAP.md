@@ -76,3 +76,5 @@
 - [x] Release 3.4.0 milestone reached
 - [x] Multi-flavor build configuration generator (`scripts/build-flavors.sh config`, `docs/HARDWARE_CUSTOMIZATION.md`)
 - [x] Release 3.5.0 milestone reached
+- [x] Enhanced Godot 4 & VS Codium DAP debugging and workspace integration (`docs/GODOT_CODIUM_INTEGRATION.md`)
+- [x] Release 3.6.0 milestone reached
