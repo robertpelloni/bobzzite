@@ -19,7 +19,7 @@
 - [x] Multi-language translation compiler (`bobzzite-i18n`).
 - [x] Headless GDScript automated unit testing framework (`bobzzite-test`).
 
-## Phase 3: Hardware Flavors, Custom Templates & Compliance (Completed - v3.5.0 to v4.8.0)
+## Phase 3: Hardware Flavors, Custom Templates & Compliance (Completed - v3.5.0 to v4.9.0)
 - [x] Multi-target build engine (`scripts/build-flavors.sh`) supporting `bobzzite`, `bobzzite-deck`, and `bobzzite-nvidia`.
 - [x] Headless SCons Godot export template builder (`bobzzite-export-templates`).
 - [x] System compliance & hardware QA auditor (`bobzzite-hardware-audit`).
@@ -30,9 +30,10 @@
 - [x] Hardware profile assertion & validation engine (`bobzzite-profile-validate`).
 - [x] Hardware profile analysis & fit scoring engine (`bobzzite-deploy profile-analyze`).
 - [x] Broad hardware compatibility matrix auditor (`bobzzite-compat`).
+- [x] Automated GitHub Actions CI workflow & local runner (`bobzzite-ci`).
 - [x] ISO generation pipeline via Universal Blue isogenerator (`bobzzite-iso`).
 
 ## Phase 4: Cloud CI & Multi-Architecture Targets (Upcoming)
 - [ ] Automated multi-arch container image builds for ARM64 (Snapdragon X Elite / Rockchip RK3588).
-- [ ] Continuous integration automated image artifact publishing to GitHub Container Registry (`ghcr.io/robertpelloni/bobzzite`).
+- [ ] Automated image artifact publishing to GitHub Container Registry (`ghcr.io/robertpelloni/bobzzite`).
 - [ ] Integration of remote web dashboard for headless workstation management.

@@ -165,6 +165,10 @@ class BobzziteControlCenter:
         mb3.grid(row=0, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb3, "Runs repository integrity, asset copy, and documentation checks.")
 
+        mb_ci = ttk.Button(m_grid, text="Run CI Smoke Suite", command=lambda: self.run_async("if command -v bobzzite-ci >/dev/null 2>&1; then bobzzite-ci; elif [ -f scripts/bobzzite-ci.sh ]; then ./scripts/bobzzite-ci.sh; else echo 'CI runner script not found'; fi", "Executing Complete Local CI Smoke Test Pipeline..."))
+        mb_ci.grid(row=2, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_ci, "Executes the full automated CI validation suite locally before pushing changes.")
+
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)
         m_grid.columnconfigure(2, weight=1)
