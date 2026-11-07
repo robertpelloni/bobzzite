@@ -129,8 +129,13 @@ class BobzziteControlCenter:
 
         b7 = ttk.Button(btn_grid, text="🧪 Run Game Tests",
                         command=lambda: self.run_async("bobzzite-test", "Running headless game unit tests & syntax checks..."))
-        b7.grid(row=2, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        b7.grid(row=2, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(b7, "Runs headless GDScript syntax validation, scene integrity scans, and unit tests.")
+
+        b8 = ttk.Button(btn_grid, text="⚙️ Export Templates",
+                        command=lambda: self.run_async("bobzzite-export-templates", "Inspecting Godot custom template parameters..."))
+        b8.grid(row=2, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(b8, "Compiles and configures custom, size-optimized Godot 4 export templates.")
 
         btn_grid.columnconfigure(0, weight=1)
         btn_grid.columnconfigure(1, weight=1)

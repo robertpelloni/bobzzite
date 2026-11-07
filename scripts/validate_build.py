@@ -57,6 +57,7 @@ def check_scripts():
         "scripts/bobzzite-assets.sh",
         "scripts/bobzzite-i18n.sh",
         "scripts/bobzzite-test.sh",
+        "scripts/bobzzite-export-templates.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -118,7 +119,8 @@ def check_required_docs():
         "docs/LOCALIZATION.md",
         "docs/AUTOMATED_TESTING.md",
         "docs/HARDWARE_CUSTOMIZATION.md",
-        "docs/GODOT_CODIUM_INTEGRATION.md"
+        "docs/GODOT_CODIUM_INTEGRATION.md",
+        "docs/EXPORT_TEMPLATES.md"
     ]
     errors = 0
     for doc in required_docs:

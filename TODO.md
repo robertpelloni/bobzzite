@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 3.6.0)
+## Immediate Tasks (Sprint 3.7.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -84,3 +84,6 @@
 - [x] Release 3.5.0 milestone completed
 - [x] Implement Godot 4 & VS Codium DAP configurations and workspace templates (`docs/GODOT_CODIUM_INTEGRATION.md`)
 - [x] Release 3.6.0 milestone completed
+- [x] Implement custom Godot 4 export template compiler tool (`bobzzite-export-templates.sh` and `docs/EXPORT_TEMPLATES.md`)
+- [x] Wire "Export Templates" into Bobzzite Control Center
+- [x] Release 3.7.0 milestone completed

@@ -2,8 +2,11 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `3.6.0` (tracked in `VERSION.md`)
+- **Current Version**: `3.7.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Custom Godot 4 export template compiler tool (`scripts/bobzzite-export-templates.sh` and `/usr/local/bin/bobzzite-export-templates`).
+  - Export template customization guide authored in `docs/EXPORT_TEMPLATES.md`.
+  - Integrated "Export Templates" action into the unified Bobzzite Control Center dashboard UI.
   - Enhanced bidirectional Godot 4 & VS Codium debugging (Debug Adapter Protocol on port 6006, `launch.json`, and `tasks.json`).
   - Godot-Codium integration guide authored in `docs/GODOT_CODIUM_INTEGRATION.md`.
   - Multi-flavor build configuration generator (`scripts/build-flavors.sh <flavor> config`) generating `.flavor-config.env`.

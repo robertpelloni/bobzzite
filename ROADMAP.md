@@ -78,3 +78,5 @@
 - [x] Release 3.5.0 milestone reached
 - [x] Enhanced Godot 4 & VS Codium DAP debugging and workspace integration (`docs/GODOT_CODIUM_INTEGRATION.md`)
 - [x] Release 3.6.0 milestone reached
+- [x] Custom Godot 4 export template compiler tool (`bobzzite-export-templates`, `docs/EXPORT_TEMPLATES.md`)
+- [x] Release 3.7.0 milestone reached
