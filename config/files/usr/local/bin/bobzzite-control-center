@@ -212,8 +212,12 @@ class BobzziteControlCenter:
         h_flavors.grid(row=4, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_flavors, "Inspects hardware profiles, base image URIs, compositors, and GPU acceleration.")
 
+        h_compare = ttk.Button(hw_grid, text="Compare Profiles", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all compare; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all compare; else echo 'Build flavors script not found'; fi", "Generating Side-by-Side Hardware Comparison Matrix..."))
+        h_compare.grid(row=4, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_compare, "Compares compositors, display leasing, audio buffers, and drivers across flavors side-by-side.")
+
         h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
-        h_deploy.grid(row=4, column=1, padx=6, pady=4, sticky="ew")
+        h_deploy.grid(row=7, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
 
         h_iso = ttk.Button(hw_grid, text="Generate ISO", command=lambda: self.run_async("bobzzite-iso bobzzite", "Generating bootable installer media scripts..."))
@@ -245,7 +249,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=7, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=8, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

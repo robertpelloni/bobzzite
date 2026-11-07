@@ -128,7 +128,8 @@ def check_required_docs():
         "docs/QUICK_REFERENCE.md",
         "docs/HARDWARE_COMPLIANCE.md",
         "docs/GDEXTENSION_GUIDE.md",
-        "docs/HARDWARE_PROFILES_INTEGRATION.md"
+        "docs/HARDWARE_PROFILES_INTEGRATION.md",
+        "docs/HARDWARE_MATRIX_COMPARISON.md"
     ]
     errors = 0
     for doc in required_docs:

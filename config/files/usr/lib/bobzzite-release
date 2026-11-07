@@ -1,9 +1,9 @@
 NAME="Bobzzite OS"
-VERSION="4.3.0"
+VERSION="4.4.0"
 ID=bobzzite
 ID_LIKE="bazzite fedora"
-VERSION_ID=4.3.0
-PRETTY_NAME="Bobzzite OS v4.3.0 (Game Dev Edition)"
+VERSION_ID=4.4.0
+PRETTY_NAME="Bobzzite OS v4.4.0 (Game Dev Edition)"
 ANSI_COLOR="0;36"
 HOME_URL="https://github.com/robertpelloni/bobzzite"
 BUG_REPORT_URL="https://github.com/robertpelloni/bobzzite/issues"

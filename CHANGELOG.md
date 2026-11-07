@@ -5,6 +5,20 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [4.4.0] - 2025-05-18
+
+### Added
+- **Hardware Profile Comparison & JSON Export**:
+  - Added `compare` action to `scripts/build-flavors.sh` producing a side-by-side capability and driver stack matrix across `bobzzite`, `bobzzite-deck`, and `bobzzite-nvidia`.
+  - Added `export-profile` action to `scripts/build-flavors.sh` outputting structured JSON profiles for CI pipelines and automated system configuration.
+  - Authored comprehensive comparison guide in `docs/HARDWARE_MATRIX_COMPARISON.md`.
+- **Bobzzite Control Center GUI**:
+  - Integrated one-click "Compare Profiles" button under the Hardware Flavors card with real-time log output and informative tooltips.
+- **System Binaries**:
+  - Mirrored updated flavor and control center scripts in `config/files/usr/local/bin/`.
+
+---
+
 ## [4.3.0] - 2025-05-18
 
 ### Added
@@ -25,59 +39,3 @@ This project adheres to Semantic Versioning and tracks a unified single source o
   - Added `bobzzite-hardware-audit` for validating ACPI suspend/resume, DRM leasing, and controller input nodes (`docs/HARDWARE_COMPLIANCE.md`).
   - Added GDExtension C++ SDK development workflow guide in `docs/GDEXTENSION_GUIDE.md`.
   - Added comprehensive CLI cheatsheet in `docs/QUICK_REFERENCE.md`.
-
----
-
-## [4.1.0] - 2025-05-18
-
-### Added
-- **Custom Godot 4 Export Template Compiler (`bobzzite-export-templates`)**:
-  - SCons automated headless build pipeline for lightweight custom game templates (`docs/EXPORT_TEMPLATES.md`).
-
----
-
-## [4.0.0] - 2025-05-18
-
-### Added
-- **Comprehensive Hardware Matrix Profiles**:
-  - Comprehensive performance and tuning profiles across Steam Deck, ASUS ROG Ally, Lenovo Legion Go, NVIDIA RTX Workstations, and AMD Radeon Desktops (`docs/HARDWARE_MATRIX_PROFILES.md`).
-
----
-
-## [3.9.0] - 2025-05-18
-
-### Added
-- **Hardware Matrix Benchmarking & Configuration Generation**:
-  - Enhanced `scripts/build-flavors.sh` with `test-matrix`, `bench-matrix`, and `config` actions (`docs/HARDWARE_MATRIX_TESTING.md`).
-
----
-
-## [3.8.0] - 2025-05-18
-
-### Added
-- **Hardware Customization Engine**:
-  - Introduced granular device customization guides (`docs/HARDWARE_CUSTOMIZATION.md`).
-
----
-
-## [3.7.0] - 2025-05-18
-
-### Added
-- **Automated Game Unit Testing Framework (`bobzzite-test`)**:
-  - Headless GDScript syntax validator and test suite runner (`docs/AUTOMATED_TESTING.md`).
-
----
-
-## [3.6.0] - 2025-05-18
-
-### Added
-- **Game Localization Pipeline (`bobzzite-i18n`)**:
-  - Translation compilation and GNU gettext `.mo` generation (`docs/LOCALIZATION.md`).
-
----
-
-## [3.5.0] - 2025-05-18
-
-### Added
-- **Multi-Hardware Target Flavor Build Engine (`scripts/build-flavors.sh`)**:
-  - Multi-target image compiler for `bobzzite`, `bobzzite-deck`, and `bobzzite-nvidia` (`docs/HARDWARE_FLAVORS.md`).
