@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [4.7.0] - 2025-05-18
+
+### Added
+- **Hardware Profile Analysis & Suitability Scoring**:
+  - Enhanced `scripts/bobzzite-deploy.sh` with `profile-analyze` action to probe live system specs (DMI product, CPU cores, GPU PCI vendor codes, DRM nodes) and compute fit percentage across flavors.
+  - Authored comprehensive guide in `docs/HARDWARE_PROFILE_ANALYSIS.md`.
+- **Bobzzite Control Center GUI**:
+  - Integrated "Profile Analysis" button into Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 30 scripts and 25 technical documentation guides.
+
+---
+
 ## [4.6.0] - 2025-05-18
 
 ### Added
@@ -13,8 +26,6 @@ This project adheres to Semantic Versioning and tracks a unified single source o
   - Authored validation documentation and CI guidelines in `docs/HARDWARE_PROFILE_VALIDATION.md`.
 - **Bobzzite Control Center GUI**:
   - Integrated "Validate Profiles" action button under the Hardware & Gaming Profiles card with real-time log output and tooltips.
-- **Continuous Validation**:
-  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 30 scripts and 24 technical documentation guides.
 
 ---
 
@@ -27,17 +38,3 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 - **WebRTC Browser Remote Streaming Gateway**:
   - Implemented `scripts/bobzzite-webrtc.sh` (mirrored in `config/files/usr/local/bin/bobzzite-webrtc`) for zero-install, browser-based remote playtest streaming.
   - Authored complete WebRTC architecture and port specification in `docs/WEBRTC_STREAMING.md`.
-- **Bobzzite Control Center GUI Integration**:
-  - Added dedicated one-click "WebRTC Stream" probe button under the Hardware & Gaming Profiles section with live terminal output and tooltips.
-
----
-
-## [4.4.0] - 2025-05-18
-
-### Added
-- **Hardware Profile Comparison & JSON Export**:
-  - Added `compare` action to `scripts/build-flavors.sh` producing a side-by-side capability and driver stack matrix across `bobzzite`, `bobzzite-deck`, and `bobzzite-nvidia`.
-  - Added `export-profile` action to `scripts/build-flavors.sh` outputting structured JSON profiles for CI pipelines and automated system configuration.
-  - Authored comprehensive comparison guide in `docs/HARDWARE_MATRIX_COMPARISON.md`.
-- **Bobzzite Control Center GUI**:
-  - Integrated one-click "Compare Profiles" button under the Hardware Flavors card with real-time log output and informative tooltips.

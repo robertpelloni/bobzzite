@@ -1,6 +1,6 @@
 # Bobzzite OS - Session Handoff & Architecture Transition Guide
 
-**Current Version:** 4.6.0
+**Current Version:** 4.7.0
 **State:** Production-Ready Immutable Game Development OS Container
 **Target Upstream:** `ghcr.io/ublue-os/bazzite:latest` (Universal Blue / Fedora 41)
 
@@ -11,9 +11,9 @@
 Bobzzite is a specialized distribution designed for indie game developers, pixel artists, chiptune composers, and gaming handheld enthusiasts. It provides an atomic, ostree-based system layered directly on Fedora Silverblue via Universal Blue (`bazzite`).
 
 Key integrated subsystems include:
-- **Unified Dashboard**: Single-window Python/Tkinter `bobzzite-control-center` with grouped tabs, real-time logging, asynchronous subprocess workers, tooltips, and system tray management (`bobzzite-tray`). Exposes flavor inspection, side-by-side matrix comparison, profile assertion validation, and WebRTC browser streaming.
+- **Unified Dashboard**: Single-window Python/Tkinter `bobzzite-control-center` with grouped tabs, real-time logging, asynchronous subprocess workers, tooltips, and system tray management (`bobzzite-tray`). Exposes flavor inspection, side-by-side matrix comparison, profile assertion validation, hardware fit analysis, and WebRTC browser streaming.
 - **Complete Indie Tooling**: Godot 4, VS Codium, Blender, Aseprite, Audacity, LMMS, Inkscape, Tiled, RenderDoc, and Krita.
-- **Hardware Profile & Matrix Testing**: Automated flavor build matrix (`scripts/build-flavors.sh`) supporting `bobzzite` (desktop AMD/Intel), `bobzzite-deck` (handhelds with Gamescope), and `bobzzite-nvidia` (GeForce workstations) with automated inspection, comparison matrices, JSON profile export, smoke dry-runs, profile assertion validation (`bobzzite-profile-validate`), and compliance auditing.
+- **Hardware Profile & Matrix Testing**: Automated flavor build matrix (`scripts/build-flavors.sh`) supporting `bobzzite` (desktop AMD/Intel), `bobzzite-deck` (handhelds with Gamescope), and `bobzzite-nvidia` (GeForce workstations) with automated inspection, comparison matrices, JSON profile export, smoke dry-runs, profile assertion validation (`bobzzite-profile-validate`), hardware fit analysis (`bobzzite-deploy profile-analyze`), and compliance auditing.
 - **Remote Playtesting & Streaming**: Both Moonlight/Sunshine native game streaming (`bobzzite-stream`) and zero-install WebRTC browser streaming (`bobzzite-webrtc`).
 - **Asset, Packaging, Audio, & Test Pipelines**: Low-latency PipeWire quantum configurations, asset compression, gettext translation compilations, GDScript syntax validation, and SCons custom Godot export template builds.
 
@@ -22,7 +22,7 @@ Key integrated subsystems include:
 ## 2. Active Utilities Catalog
 
 All utilities are located in `scripts/` and mirrored in `config/files/usr/local/bin/`:
-1. `bobzzite-control-center`: Main unified desktop GUI with hardware comparison, profile validation, and WebRTC streaming integration.
+1. `bobzzite-control-center`: Main unified desktop GUI with hardware comparison, profile validation, fit analysis, and WebRTC streaming integration.
 2. `bobzzite-tray`: System tray daemon with quick actions and server termination controls.
 3. `bobzzite-doctor`: Comprehensive system diagnostics and configuration auditor.
 4. `bobzzite-flavors` / `bobzzite-build-flavors`: Multi-hardware flavor build engine with `inspect`, `compare`, `export-profile`, `matrix-test`, and `config` actions.
@@ -41,7 +41,7 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 17. `bobzzite-vr`: Monado OpenXR and Wayland DRM display lease manager.
 18. `bobzzite-tweak`: Kernel sysctl, ZRAM, and power-profile optimizer.
 19. `bobzzite-clean`: Flatpak cache and temporary directory cleaner.
-20. `bobzzite-deploy`: Hardware detection and atomic rebase assistant.
+20. `bobzzite-deploy`: Hardware detection, profile fit analysis, and atomic rebase assistant.
 21. `bobzzite-gamepad`: Gamepad input event listener and latency tester.
 22. `bobzzite-backup`: Btrfs/ostree config snapshot and rollback utility.
 23. `bobzzite-devbox`: Containerized distrobox environment launcher.
@@ -54,6 +54,6 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 ## 3. Resume Instructions for Successor Models
 
 To resume work without friction:
-1. Run `python3 scripts/validate_build.py` to confirm all 30 scripts and 24 documentation guides pass syntax and path checks.
+1. Run `python3 scripts/validate_build.py` to confirm all 30 scripts and 25 documentation guides pass syntax and path checks.
 2. Run `docker build --check -f Containerfile .` to verify containerfile syntax.
 3. Consult `TODO.md` and `ROADMAP.md` for upcoming enhancements.

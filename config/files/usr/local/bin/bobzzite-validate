@@ -134,7 +134,8 @@ def check_required_docs():
         "docs/HARDWARE_MATRIX_COMPARISON.md",
         "docs/WEBRTC_STREAMING.md",
         "docs/HARDWARE_CONFIG_MATRIX.md",
-        "docs/HARDWARE_PROFILE_VALIDATION.md"
+        "docs/HARDWARE_PROFILE_VALIDATION.md",
+        "docs/HARDWARE_PROFILE_ANALYSIS.md"
     ]
     errors = 0
     for doc in required_docs:

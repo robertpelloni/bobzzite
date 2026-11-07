@@ -241,8 +241,12 @@ class BobzziteControlCenter:
         ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
 
         h_val_prof = ttk.Button(hw_grid, text="Validate Profiles", command=lambda: self.run_async("if command -v bobzzite-profile-validate >/dev/null 2>&1; then bobzzite-profile-validate all; elif [ -f scripts/bobzzite-profile-validate.sh ]; then ./scripts/bobzzite-profile-validate.sh all; else echo 'Profile validate script not found'; fi", "Auditing Hardware JSON Profiles & Assertions..."))
-        h_val_prof.grid(row=8, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_val_prof.grid(row=8, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_val_prof, "Verifies that all target flavor profiles satisfy compositor, driver, and audio buffer constraints.")
+
+        h_prof_an = ttk.Button(hw_grid, text="Profile Analysis", command=lambda: self.run_async("bobzzite-deploy profile-analyze", "Analyzing host hardware fit against target flavor profiles..."))
+        h_prof_an.grid(row=8, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_prof_an, "Calculates fit percentage and flavor migration recommendations for this physical machine.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
