@@ -15,7 +15,7 @@ set -euo pipefail
 
 FLAVOR="${1:-all}"
 ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar | test-matrix | bench-matrix | config | summary | inspect | compare | export-profile
-IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "4.4.0")}"
+IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "4.6.0")}"
 BUILD_TOOL="${BUILD_TOOL:-docker}"
 EXPORT_DIR="${EXPORT_DIR:-/tmp/bobzzite-flavors}"
 CONFIG_FILE="${CONFIG_FILE:-.flavor-config.env}"

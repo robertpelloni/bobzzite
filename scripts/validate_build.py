@@ -62,6 +62,7 @@ def check_scripts():
         "scripts/bobzzite-gdextension.sh",
         "scripts/bobzzite-iso.sh",
         "scripts/bobzzite-webrtc.sh",
+        "scripts/bobzzite-profile-validate.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -132,7 +133,8 @@ def check_required_docs():
         "docs/HARDWARE_PROFILES_INTEGRATION.md",
         "docs/HARDWARE_MATRIX_COMPARISON.md",
         "docs/WEBRTC_STREAMING.md",
-        "docs/HARDWARE_CONFIG_MATRIX.md"
+        "docs/HARDWARE_CONFIG_MATRIX.md",
+        "docs/HARDWARE_PROFILE_VALIDATION.md"
     ]
     errors = 0
     for doc in required_docs:

@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [4.6.0] - 2025-05-18
+
+### Added
+- **Hardware Profile Validation & Assertion Engine**:
+  - Implemented `scripts/bobzzite-profile-validate.sh` (mirrored to `config/files/usr/local/bin/bobzzite-profile-validate`) to test generated hardware profiles against architectural constraints (compositor, driver stack, encoders, audio buffer).
+  - Authored validation documentation and CI guidelines in `docs/HARDWARE_PROFILE_VALIDATION.md`.
+- **Bobzzite Control Center GUI**:
+  - Integrated "Validate Profiles" action button under the Hardware & Gaming Profiles card with real-time log output and tooltips.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 30 scripts and 24 technical documentation guides.
+
+---
+
 ## [4.5.0] - 2025-05-18
 
 ### Added
@@ -16,8 +29,6 @@ This project adheres to Semantic Versioning and tracks a unified single source o
   - Authored complete WebRTC architecture and port specification in `docs/WEBRTC_STREAMING.md`.
 - **Bobzzite Control Center GUI Integration**:
   - Added dedicated one-click "WebRTC Stream" probe button under the Hardware & Gaming Profiles section with live terminal output and tooltips.
-- **Continuous Validation**:
-  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 29 scripts and 23 technical documentation guides.
 
 ---
 
@@ -30,18 +41,3 @@ This project adheres to Semantic Versioning and tracks a unified single source o
   - Authored comprehensive comparison guide in `docs/HARDWARE_MATRIX_COMPARISON.md`.
 - **Bobzzite Control Center GUI**:
   - Integrated one-click "Compare Profiles" button under the Hardware Flavors card with real-time log output and informative tooltips.
-- **System Binaries**:
-  - Mirrored updated flavor and control center scripts in `config/files/usr/local/bin/`.
-
----
-
-## [4.3.0] - 2025-05-18
-
-### Added
-- **Multi-Flavor Hardware Profile Inspector**:
-  - Enhanced `scripts/build-flavors.sh` with the `inspect` action to provide detailed hardware acceleration, target driver stack, and compositor telemetry across all three hardware targets (`bobzzite`, `bobzzite-deck`, `bobzzite-nvidia`).
-  - Added `docs/HARDWARE_PROFILES_INTEGRATION.md` detailing hardware flavor inspection workflows and CI integration.
-- **Control Center Integration**:
-  - Connected the new flavor inspection routine to the **Bobzzite Control Center** unified dashboard.
-- **Build Validation**:
-  - Updated `scripts/validate_build.py` to continuously verify the presence and formatting of hardware profile documentation.

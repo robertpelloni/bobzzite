@@ -216,14 +216,6 @@ class BobzziteControlCenter:
         h_compare.grid(row=4, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_compare, "Compares compositors, display leasing, audio buffers, and drivers across flavors side-by-side.")
 
-        h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
-        h_deploy.grid(row=7, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
-        ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
-
-        h_iso = ttk.Button(hw_grid, text="Generate ISO", command=lambda: self.run_async("bobzzite-iso bobzzite", "Generating bootable installer media scripts..."))
-        h_iso.grid(row=6, column=1, padx=6, pady=4, sticky="ew")
-        ToolTip(h_iso, "Configures and generates bootable installation ISOs using the Universal Blue isogenerator.")
-
         h_stream = ttk.Button(hw_grid, text="Game Streaming", command=lambda: self.run_async("bobzzite-stream status", "Inspecting Sunshine streaming host & video encoders..."))
         h_stream.grid(row=5, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_stream, "Manages Sunshine game streaming host and Moonlight client pairing for remote playtests.")
@@ -236,9 +228,21 @@ class BobzziteControlCenter:
         h_vr.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_vr, "Checks connected VR headsets, Wayland DRM display leasing, and OpenXR runtime configuration.")
 
+        h_iso = ttk.Button(hw_grid, text="Generate ISO", command=lambda: self.run_async("bobzzite-iso bobzzite", "Generating bootable installer media scripts..."))
+        h_iso.grid(row=6, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_iso, "Configures and generates bootable installation ISOs using the Universal Blue isogenerator.")
+
         h_audit = ttk.Button(hw_grid, text="Hardware Audit", command=lambda: self.run_async("bobzzite-hardware-audit", "Auditing hardware compliance across flavor requirements..."))
         h_audit.grid(row=7, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_audit, "Audits CPU, GPU rendering, PipeWire audio, and controller compliance for Bobzzite OS.")
+
+        h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
+        h_deploy.grid(row=7, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
+
+        h_val_prof = ttk.Button(hw_grid, text="Validate Profiles", command=lambda: self.run_async("if command -v bobzzite-profile-validate >/dev/null 2>&1; then bobzzite-profile-validate all; elif [ -f scripts/bobzzite-profile-validate.sh ]; then ./scripts/bobzzite-profile-validate.sh all; else echo 'Profile validate script not found'; fi", "Auditing Hardware JSON Profiles & Assertions..."))
+        h_val_prof.grid(row=8, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_val_prof, "Verifies that all target flavor profiles satisfy compositor, driver, and audio buffer constraints.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
@@ -253,7 +257,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=8, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=9, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)
