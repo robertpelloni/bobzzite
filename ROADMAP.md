@@ -82,3 +82,5 @@
 - [x] Release 3.7.0 milestone reached
 - [x] Multi-flavor architecture summary matrix & capability comparisons (`scripts/build-flavors.sh summary`, `docs/HARDWARE_CAPABILITIES.md`)
 - [x] Release 3.8.0 milestone reached
+- [x] Command-line quick reference cheatsheet and full documentation synchronization (`docs/QUICK_REFERENCE.md`)
+- [x] Release 3.9.0 milestone reached
