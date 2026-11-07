@@ -248,6 +248,10 @@ class BobzziteControlCenter:
         h_prof_an.grid(row=8, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_prof_an, "Calculates fit percentage and flavor migration recommendations for this physical machine.")
 
+        h_compat = ttk.Button(hw_grid, text="Hardware Compatibility", command=lambda: self.run_async("if command -v bobzzite-compat >/dev/null 2>&1; then bobzzite-compat check; elif [ -f scripts/bobzzite-compat.sh ]; then ./scripts/bobzzite-compat.sh check; else echo 'Compat script not found'; fi", "Auditing broad hardware compatibility tier & instructions..."))
+        h_compat.grid(row=9, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_compat, "Audits CPU instruction sets (AVX2), GPU backends, and assigns compatibility tier.")
+
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(mb4, "Performs health checks on atomic OS, GPU drivers, GameMode, and dev tool Flatpaks.")
@@ -261,7 +265,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=9, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=10, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

@@ -19,7 +19,7 @@
 - [x] Multi-language translation compiler (`bobzzite-i18n`).
 - [x] Headless GDScript automated unit testing framework (`bobzzite-test`).
 
-## Phase 3: Hardware Flavors, Custom Templates & Compliance (Completed - v3.5.0 to v4.7.0)
+## Phase 3: Hardware Flavors, Custom Templates & Compliance (Completed - v3.5.0 to v4.8.0)
 - [x] Multi-target build engine (`scripts/build-flavors.sh`) supporting `bobzzite`, `bobzzite-deck`, and `bobzzite-nvidia`.
 - [x] Headless SCons Godot export template builder (`bobzzite-export-templates`).
 - [x] System compliance & hardware QA auditor (`bobzzite-hardware-audit`).
@@ -29,6 +29,7 @@
 - [x] Full hardware configuration matrix specification (`docs/HARDWARE_CONFIG_MATRIX.md`).
 - [x] Hardware profile assertion & validation engine (`bobzzite-profile-validate`).
 - [x] Hardware profile analysis & fit scoring engine (`bobzzite-deploy profile-analyze`).
+- [x] Broad hardware compatibility matrix auditor (`bobzzite-compat`).
 - [x] ISO generation pipeline via Universal Blue isogenerator (`bobzzite-iso`).
 
 ## Phase 4: Cloud CI & Multi-Architecture Targets (Upcoming)

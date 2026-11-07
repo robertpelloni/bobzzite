@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [4.8.0] - 2025-05-18
+
+### Added
+- **Broad Hardware Compatibility Auditor (`bobzzite-compat`)**:
+  - Implemented `scripts/bobzzite-compat.sh` to audit CPU microcode, instruction set extensions (SSE4.2, AVX, AVX2, FMA3), GPU rendering nodes, PipeWire pro-audio buffers, and assign system compatibility tiers.
+  - Authored comprehensive guide in `docs/HARDWARE_COMPATIBILITY_MATRIX.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Hardware Compatibility" action button under Hardware & Gaming Profiles card with real-time logs and tooltips.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 31 scripts and 26 technical documentation guides.
+
+---
+
 ## [4.7.0] - 2025-05-18
 
 ### Added
@@ -13,8 +26,6 @@ This project adheres to Semantic Versioning and tracks a unified single source o
   - Authored comprehensive guide in `docs/HARDWARE_PROFILE_ANALYSIS.md`.
 - **Bobzzite Control Center GUI**:
   - Integrated "Profile Analysis" button into Hardware & Gaming Profiles card.
-- **Continuous Validation**:
-  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 30 scripts and 25 technical documentation guides.
 
 ---
 
@@ -22,19 +33,7 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ### Added
 - **Hardware Profile Validation & Assertion Engine**:
-  - Implemented `scripts/bobzzite-profile-validate.sh` (mirrored to `config/files/usr/local/bin/bobzzite-profile-validate`) to test generated hardware profiles against architectural constraints (compositor, driver stack, encoders, audio buffer).
+  - Implemented `scripts/bobzzite-profile-validate.sh` to test generated hardware profiles against architectural constraints.
   - Authored validation documentation and CI guidelines in `docs/HARDWARE_PROFILE_VALIDATION.md`.
 - **Bobzzite Control Center GUI**:
   - Integrated "Validate Profiles" action button under the Hardware & Gaming Profiles card with real-time log output and tooltips.
-
----
-
-## [4.5.0] - 2025-05-18
-
-### Added
-- **Multi-Flavor Hardware Configuration Matrix & Specification**:
-  - Authored comprehensive hardware specification guide in `docs/HARDWARE_CONFIG_MATRIX.md` detailing kernel command-line parameters, compositors, display leasing, and driver stacks.
-  - Updated `docs/HARDWARE_FLAVORS.md` and `docs/DEPLOY.md` with complete hardware matrix routing for AMD, Intel, Handheld APUs, and NVIDIA GeForce workstations.
-- **WebRTC Browser Remote Streaming Gateway**:
-  - Implemented `scripts/bobzzite-webrtc.sh` (mirrored in `config/files/usr/local/bin/bobzzite-webrtc`) for zero-install, browser-based remote playtest streaming.
-  - Authored complete WebRTC architecture and port specification in `docs/WEBRTC_STREAMING.md`.
