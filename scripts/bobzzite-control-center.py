@@ -228,12 +228,16 @@ class BobzziteControlCenter:
         h_stream.grid(row=5, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_stream, "Manages Sunshine game streaming host and Moonlight client pairing for remote playtests.")
 
+        h_webrtc = ttk.Button(hw_grid, text="WebRTC Stream", command=lambda: self.run_async("if command -v bobzzite-webrtc >/dev/null 2>&1; then bobzzite-webrtc status; elif [ -f scripts/bobzzite-webrtc.sh ]; then ./scripts/bobzzite-webrtc.sh status; else echo 'WebRTC script not found'; fi", "Inspecting WebRTC browser playtest streaming gateway..."))
+        h_webrtc.grid(row=5, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_webrtc, "Probes WebRTC browser streaming gateway ports and hardware video encoder acceleration.")
+
         h_vr = ttk.Button(hw_grid, text="VR & OpenXR", command=lambda: self.run_async("bobzzite-vr status", "Probing VR headsets, DRM leasing & OpenXR runtimes..."))
-        h_vr.grid(row=5, column=1, padx=6, pady=4, sticky="ew")
+        h_vr.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_vr, "Checks connected VR headsets, Wayland DRM display leasing, and OpenXR runtime configuration.")
 
         h_audit = ttk.Button(hw_grid, text="Hardware Audit", command=lambda: self.run_async("bobzzite-hardware-audit", "Auditing hardware compliance across flavor requirements..."))
-        h_audit.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
+        h_audit.grid(row=7, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_audit, "Audits CPU, GPU rendering, PipeWire audio, and controller compliance for Bobzzite OS.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))

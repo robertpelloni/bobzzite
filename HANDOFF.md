@@ -1,6 +1,6 @@
 # Bobzzite OS - Session Handoff & Architecture Transition Guide
 
-**Current Version:** 4.4.0
+**Current Version:** 4.5.0
 **State:** Production-Ready Immutable Game Development OS Container
 **Target Upstream:** `ghcr.io/ublue-os/bazzite:latest` (Universal Blue / Fedora 41)
 
@@ -11,9 +11,10 @@
 Bobzzite is a specialized distribution designed for indie game developers, pixel artists, chiptune composers, and gaming handheld enthusiasts. It provides an atomic, ostree-based system layered directly on Fedora Silverblue via Universal Blue (`bazzite`).
 
 Key integrated subsystems include:
-- **Unified Dashboard**: Single-window Python/Tkinter `bobzzite-control-center` with grouped tabs, real-time logging, asynchronous subprocess workers, tooltips, and system tray management (`bobzzite-tray`). Exposes one-click flavor inspection and side-by-side comparison.
+- **Unified Dashboard**: Single-window Python/Tkinter `bobzzite-control-center` with grouped tabs, real-time logging, asynchronous subprocess workers, tooltips, and system tray management (`bobzzite-tray`). Exposes flavor inspection, side-by-side matrix comparison, and WebRTC browser streaming.
 - **Complete Indie Tooling**: Godot 4, VS Codium, Blender, Aseprite, Audacity, LMMS, Inkscape, Tiled, RenderDoc, and Krita.
 - **Hardware Profile & Matrix Testing**: Automated flavor build matrix (`scripts/build-flavors.sh`) supporting `bobzzite` (desktop AMD/Intel), `bobzzite-deck` (handhelds with Gamescope), and `bobzzite-nvidia` (GeForce workstations) with automated inspection, comparison matrices, JSON profile export, smoke dry-runs, and compliance auditing.
+- **Remote Playtesting & Streaming**: Both Moonlight/Sunshine native game streaming (`bobzzite-stream`) and zero-install WebRTC browser streaming (`bobzzite-webrtc`).
 - **Asset, Packaging, Audio, & Test Pipelines**: Low-latency PipeWire quantum configurations, asset compression, gettext translation compilations, GDScript syntax validation, and SCons custom Godot export template builds.
 
 ---
@@ -21,7 +22,7 @@ Key integrated subsystems include:
 ## 2. Active Utilities Catalog
 
 All utilities are located in `scripts/` and mirrored in `config/files/usr/local/bin/`:
-1. `bobzzite-control-center`: Main unified desktop GUI with hardware comparison integration.
+1. `bobzzite-control-center`: Main unified desktop GUI with hardware comparison and WebRTC streaming integration.
 2. `bobzzite-tray`: System tray daemon with quick actions and server termination controls.
 3. `bobzzite-doctor`: Comprehensive system diagnostics and configuration auditor.
 4. `bobzzite-flavors` / `bobzzite-build-flavors`: Multi-hardware flavor build engine with `inspect`, `compare`, `export-profile`, `matrix-test`, and `config` actions.
@@ -35,22 +36,23 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 12. `bobzzite-audio`: PipeWire low-latency quantum buffer management.
 13. `bobzzite-bench`: CPU, disk I/O, and Vulkan GPU benchmarking.
 14. `bobzzite-stream`: Sunshine host and Moonlight client manager.
-15. `bobzzite-vr`: Monado OpenXR and Wayland DRM display lease manager.
-16. `bobzzite-tweak`: Kernel sysctl, ZRAM, and power-profile optimizer.
-17. `bobzzite-clean`: Flatpak cache and temporary directory cleaner.
-18. `bobzzite-deploy`: Hardware detection and atomic rebase assistant.
-19. `bobzzite-gamepad`: Gamepad input event listener and latency tester.
-20. `bobzzite-backup`: Btrfs/ostree config snapshot and rollback utility.
-21. `bobzzite-devbox`: Containerized distrobox environment launcher.
-22. `bobzzite-onboarding`: First-boot interactive walkthrough.
-23. `bobzzite-mesh`: Peer-to-peer multiplayer testing mesh.
-24. `bobzzite-iso`: Universal Blue ISO build wrapper.
+15. `bobzzite-webrtc`: WebRTC browser remote streaming gateway.
+16. `bobzzite-vr`: Monado OpenXR and Wayland DRM display lease manager.
+17. `bobzzite-tweak`: Kernel sysctl, ZRAM, and power-profile optimizer.
+18. `bobzzite-clean`: Flatpak cache and temporary directory cleaner.
+19. `bobzzite-deploy`: Hardware detection and atomic rebase assistant.
+20. `bobzzite-gamepad`: Gamepad input event listener and latency tester.
+21. `bobzzite-backup`: Btrfs/ostree config snapshot and rollback utility.
+22. `bobzzite-devbox`: Containerized distrobox environment launcher.
+23. `bobzzite-onboarding`: First-boot interactive walkthrough.
+24. `bobzzite-mesh`: Peer-to-peer multiplayer testing mesh.
+25. `bobzzite-iso`: Universal Blue ISO build wrapper.
 
 ---
 
 ## 3. Resume Instructions for Successor Models
 
 To resume work without friction:
-1. Run `python3 scripts/validate_build.py` to confirm all 28 scripts and 21 documentation guides pass syntax and path checks.
+1. Run `python3 scripts/validate_build.py` to confirm all 29 scripts and 23 documentation guides pass syntax and path checks.
 2. Run `docker build --check -f Containerfile .` to verify containerfile syntax.
 3. Consult `TODO.md` and `ROADMAP.md` for upcoming enhancements.

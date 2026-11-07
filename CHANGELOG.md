@@ -5,6 +5,22 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [4.5.0] - 2025-05-18
+
+### Added
+- **Multi-Flavor Hardware Configuration Matrix & Specification**:
+  - Authored comprehensive hardware specification guide in `docs/HARDWARE_CONFIG_MATRIX.md` detailing kernel command-line parameters, compositors, display leasing, and driver stacks.
+  - Updated `docs/HARDWARE_FLAVORS.md` and `docs/DEPLOY.md` with complete hardware matrix routing for AMD, Intel, Handheld APUs, and NVIDIA GeForce workstations.
+- **WebRTC Browser Remote Streaming Gateway**:
+  - Implemented `scripts/bobzzite-webrtc.sh` (mirrored in `config/files/usr/local/bin/bobzzite-webrtc`) for zero-install, browser-based remote playtest streaming.
+  - Authored complete WebRTC architecture and port specification in `docs/WEBRTC_STREAMING.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated one-click "WebRTC Stream" probe button under the Hardware & Gaming Profiles section with live terminal output and tooltips.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 29 scripts and 23 technical documentation guides.
+
+---
+
 ## [4.4.0] - 2025-05-18
 
 ### Added
@@ -29,13 +45,3 @@ This project adheres to Semantic Versioning and tracks a unified single source o
   - Connected the new flavor inspection routine to the **Bobzzite Control Center** unified dashboard.
 - **Build Validation**:
   - Updated `scripts/validate_build.py` to continuously verify the presence and formatting of hardware profile documentation.
-
----
-
-## [4.2.0] - 2025-05-18
-
-### Added
-- **Hardware Compliance & Matrix Suite**:
-  - Added `bobzzite-hardware-audit` for validating ACPI suspend/resume, DRM leasing, and controller input nodes (`docs/HARDWARE_COMPLIANCE.md`).
-  - Added GDExtension C++ SDK development workflow guide in `docs/GDEXTENSION_GUIDE.md`.
-  - Added comprehensive CLI cheatsheet in `docs/QUICK_REFERENCE.md`.
