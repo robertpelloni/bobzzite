@@ -56,6 +56,7 @@ def check_scripts():
         "scripts/bobzzite-vr.sh",
         "scripts/bobzzite-assets.sh",
         "scripts/bobzzite-i18n.sh",
+        "scripts/bobzzite-test.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -114,7 +115,8 @@ def check_required_docs():
         "docs/HARDWARE_MATRIX_TESTING.md",
         "docs/HARDWARE_MATRIX_PROFILES.md",
         "docs/ASSET_PIPELINE.md",
-        "docs/LOCALIZATION.md"
+        "docs/LOCALIZATION.md",
+        "docs/AUTOMATED_TESTING.md"
     ]
     errors = 0
     for doc in required_docs:

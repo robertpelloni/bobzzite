@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 3.3.0)
+## Immediate Tasks (Sprint 3.4.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -77,3 +77,6 @@
 - [x] Implement game localization management utility (`bobzzite-i18n.sh` and `docs/LOCALIZATION.md`)
 - [x] Wire "Localization & i18n" into Bobzzite Control Center
 - [x] Release 3.3.0 milestone completed
+- [x] Implement automated game test runner (`bobzzite-test.sh` and `docs/AUTOMATED_TESTING.md`)
+- [x] Wire "Run Game Tests" into Bobzzite Control Center
+- [x] Release 3.4.0 milestone completed

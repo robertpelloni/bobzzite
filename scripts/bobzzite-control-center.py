@@ -127,6 +127,11 @@ class BobzziteControlCenter:
         b6.grid(row=1, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(b6, "Extracts, generates, and compiles multi-language CSV and gettext translation tables.")
 
+        b7 = ttk.Button(btn_grid, text="🧪 Run Game Tests",
+                        command=lambda: self.run_async("bobzzite-test", "Running headless game unit tests & syntax checks..."))
+        b7.grid(row=2, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        ToolTip(b7, "Runs headless GDScript syntax validation, scene integrity scans, and unit tests.")
+
         btn_grid.columnconfigure(0, weight=1)
         btn_grid.columnconfigure(1, weight=1)
         btn_grid.columnconfigure(2, weight=1)
@@ -193,7 +198,7 @@ class BobzziteControlCenter:
         h5.grid(row=1, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h5, "Queries status of Tailscale mesh networking and Syncthing P2P syncing.")
 
-        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("scripts/build-flavors.sh all bench-matrix", "Profiling Hardware Flavor Matrix Architecture..."))
+        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all bench-matrix; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all bench-matrix; else echo 'Build flavors script not found'; fi", "Profiling Hardware Flavor Matrix Architecture..."))
         h_flavors.grid(row=4, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_flavors, "Profiles multi-flavor hardware matrix, layer metrics, and architecture tiers.")
 

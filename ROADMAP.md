@@ -72,3 +72,5 @@
 - [x] Release 3.2.0 milestone reached
 - [x] Automated game localization and i18n management utility (`bobzzite-i18n`, `docs/LOCALIZATION.md`)
 - [x] Release 3.3.0 milestone reached
+- [x] Automated game test runner and CI/CD utility (`bobzzite-test`, `docs/AUTOMATED_TESTING.md`)
+- [x] Release 3.4.0 milestone reached
