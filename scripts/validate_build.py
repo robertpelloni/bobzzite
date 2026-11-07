@@ -3,7 +3,6 @@
 
 import os
 import sys
-import re
 
 def check_containerfile_copies():
     containerfile = "Containerfile"
@@ -55,6 +54,7 @@ def check_scripts():
         "scripts/bobzzite-stream.sh",
         "scripts/bobzzite-package.sh",
         "scripts/bobzzite-vr.sh",
+        "scripts/bobzzite-assets.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -111,7 +111,8 @@ def check_required_docs():
         "docs/VR_SETUP.md",
         "docs/HARDWARE_DETECTION.md",
         "docs/HARDWARE_MATRIX_TESTING.md",
-        "docs/HARDWARE_MATRIX_PROFILES.md"
+        "docs/HARDWARE_MATRIX_PROFILES.md",
+        "docs/ASSET_PIPELINE.md"
     ]
     errors = 0
     for doc in required_docs:

@@ -68,3 +68,5 @@
 - [x] Major release 3.0.0 milestone reached
 - [x] Multi-flavor architecture profiles & matrix benchmarks (`scripts/build-flavors.sh all bench-matrix`, `docs/HARDWARE_MATRIX_PROFILES.md`)
 - [x] Release 3.1.0 milestone reached
+- [x] Automated game asset optimization pipeline (`bobzzite-assets`, `docs/ASSET_PIPELINE.md`)
+- [x] Release 3.2.0 milestone reached

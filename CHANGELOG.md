@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2026-04-12
+
+### Added
+- Added automated game asset optimization pipeline `bobzzite-assets` (`scripts/bobzzite-assets.sh` and `/usr/local/bin/bobzzite-assets`).
+- Implemented texture scanning, PNG lossless compression, and audio stream transcoding to OGG Vorbis.
+- Integrated "Optimize Game Assets" action into the unified Bobzzite Control Center dashboard UI.
+- Authored comprehensive game asset conditioning guide in `docs/ASSET_PIPELINE.md`.
+- Updated build validation to verify `scripts/bobzzite-assets.sh` and `docs/ASSET_PIPELINE.md`.
+- Bumped version to 3.2.0 across `VERSION.md`, `Containerfile`, and `config/files/etc/bobzzite-release`.
+
 ## [3.1.0] - 2026-04-12
 
 ### Added

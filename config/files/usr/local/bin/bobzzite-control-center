@@ -114,8 +114,13 @@ class BobzziteControlCenter:
 
         b4 = ttk.Button(btn_grid, text="📦 Package Game Project",
                         command=lambda: self.run_async("bobzzite-package", "Packaging Godot 4 game project to Linux release..."))
-        b4.grid(row=1, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        b4.grid(row=1, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(b4, "Builds and exports standalone Linux binaries and resource packages headlessly.")
+
+        b5 = ttk.Button(btn_grid, text="🎨 Optimize Game Assets",
+                        command=lambda: self.run_async("bobzzite-assets", "Analyzing and optimizing textures & audio..."))
+        b5.grid(row=1, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(b5, "Scans and optimizes PNG textures and transcodes streaming audio for Godot projects.")
 
         btn_grid.columnconfigure(0, weight=1)
         btn_grid.columnconfigure(1, weight=1)
