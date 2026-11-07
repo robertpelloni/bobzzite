@@ -1,6 +1,6 @@
 # Bobzzite OS - Session Handoff & Architecture Transition Guide
 
-**Current Version:** 5.0.0 (Milestone 5.0)
+**Current Version:** 5.1.0
 **State:** Production-Ready Multi-Architecture Immutable Game Development OS Container
 **Target Upstream:** `ghcr.io/ublue-os/bazzite:latest` (Universal Blue / Fedora 41)
 
@@ -11,10 +11,10 @@
 Bobzzite is a specialized distribution designed for indie game developers, pixel artists, chiptune composers, and gaming handheld enthusiasts. It provides an atomic, ostree-based system layered directly on Fedora Silverblue via Universal Blue (`bazzite`).
 
 Key integrated subsystems include:
-- **Unified Dashboard**: Single-window Python/Tkinter `bobzzite-control-center` with grouped tabs, real-time logging, asynchronous subprocess workers, tooltips, and system tray management (`bobzzite-tray`). Exposes flavor inspection, matrix comparison, profile validation, hardware fit analysis, broad compatibility auditing, local CI runner, multi-arch targets, and WebRTC browser streaming.
+- **Unified Dashboard**: Single-window Python/Tkinter `bobzzite-control-center` with grouped tabs, real-time logging, asynchronous subprocess workers, tooltips, and system tray management (`bobzzite-tray`). Exposes flavor inspection, matrix comparison, profile validation, hardware fit analysis, broad compatibility auditing, local CI runner, multi-arch targets, and WebRTC client generation.
 - **Complete Indie Tooling**: Godot 4, VS Codium, Blender, Aseprite, Audacity, LMMS, Inkscape, Tiled, RenderDoc, and Krita.
 - **Hardware Profile & Matrix Testing**: Automated flavor build matrix (`scripts/build-flavors.sh`) supporting `bobzzite` (desktop AMD/Intel), `bobzzite-deck` (handhelds with Gamescope), `bobzzite-nvidia` (GeForce workstations), and `bobzzite-arm64` (Snapdragon X Elite / RK3588) with automated inspection, comparison matrices, JSON profile export, smoke dry-runs, profile assertion validation (`bobzzite-profile-validate`), hardware fit analysis (`bobzzite-deploy profile-analyze`), compatibility auditing (`bobzzite-compat`), and local CI runner (`bobzzite-ci`).
-- **Remote Playtesting & Streaming**: Both Moonlight/Sunshine native game streaming (`bobzzite-stream`) and zero-install WebRTC browser streaming (`bobzzite-webrtc`).
+- **Remote Playtesting & Streaming**: Both Moonlight/Sunshine native game streaming (`bobzzite-stream`) and zero-install WebRTC browser streaming (`bobzzite-webrtc`) with integrated HTML5 gamepad test client generation (`bobzzite-webrtc generate-client`).
 - **Asset, Packaging, Audio, & Test Pipelines**: Low-latency PipeWire quantum configurations, asset compression, gettext translation compilations, GDScript syntax validation, and SCons custom Godot export template builds.
 
 ---
@@ -39,7 +39,7 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 15. `bobzzite-audio`: PipeWire low-latency quantum buffer management.
 16. `bobzzite-bench`: CPU, disk I/O, and Vulkan GPU benchmarking.
 17. `bobzzite-stream`: Sunshine host and Moonlight client manager.
-18. `bobzzite-webrtc`: WebRTC browser remote streaming gateway.
+18. `bobzzite-webrtc`: WebRTC browser remote streaming gateway and HTML5 client generator.
 19. `bobzzite-vr`: Monado OpenXR and Wayland DRM display lease manager.
 20. `bobzzite-tweak`: Kernel sysctl, ZRAM, and power-profile optimizer.
 21. `bobzzite-clean`: Flatpak cache and temporary directory cleaner.
@@ -56,6 +56,6 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 ## 3. Resume Instructions for Successor Models
 
 To resume work without friction:
-1. Run `python3 scripts/validate_build.py` to confirm all 32 scripts and 28 documentation guides pass syntax and path checks.
+1. Run `python3 scripts/validate_build.py` to confirm all 32 scripts and 29 documentation guides pass syntax and path checks.
 2. Run `docker build --check -f Containerfile .` to verify containerfile syntax.
 3. Consult `TODO.md` and `ROADMAP.md` for upcoming enhancements.

@@ -140,7 +140,8 @@ def check_required_docs():
         "docs/HARDWARE_PROFILE_ANALYSIS.md",
         "docs/HARDWARE_COMPATIBILITY_MATRIX.md",
         "docs/CONTINUOUS_INTEGRATION.md",
-        "docs/MULTI_ARCH_BUILDS.md"
+        "docs/MULTI_ARCH_BUILDS.md",
+        "docs/WEBRTC_CLIENT_GUIDE.md"
     ]
     errors = 0
     for doc in required_docs:

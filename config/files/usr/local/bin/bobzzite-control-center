@@ -228,6 +228,10 @@ class BobzziteControlCenter:
         h_webrtc.grid(row=5, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_webrtc, "Probes WebRTC browser streaming gateway ports and hardware video encoder acceleration.")
 
+        h_client = ttk.Button(hw_grid, text="Generate WebRTC Client", command=lambda: self.run_async("if command -v bobzzite-webrtc >/dev/null 2>&1; then bobzzite-webrtc generate-client; elif [ -f scripts/bobzzite-webrtc.sh ]; then ./scripts/bobzzite-webrtc.sh generate-client; else echo 'WebRTC script not found'; fi", "Generating zero-dependency HTML5 WebRTC client..."))
+        h_client.grid(row=10, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_client, "Creates a zero-install HTML5/JS WebRTC playtest client page with gamepad support.")
+
         h_vr = ttk.Button(hw_grid, text="VR & OpenXR", command=lambda: self.run_async("bobzzite-vr status", "Probing VR headsets, DRM leasing & OpenXR runtimes..."))
         h_vr.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_vr, "Checks connected VR headsets, Wayland DRM display leasing, and OpenXR runtime configuration.")
@@ -273,7 +277,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=10, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=11, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

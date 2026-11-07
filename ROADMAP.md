@@ -33,7 +33,8 @@
 - [x] Automated GitHub Actions CI workflow & local runner (`bobzzite-ci`).
 - [x] ISO generation pipeline via Universal Blue isogenerator (`bobzzite-iso`).
 
-## Phase 4: Multi-Architecture & Cloud Native Distribution (Completed - Milestone v5.0.0)
+## Phase 4: Multi-Architecture & Cloud Native Distribution (Completed - v5.0.0 to v5.1.0)
 - [x] Multi-architecture container image builds for ARM64 (`bobzzite-arm64` for Snapdragon X Elite / Rockchip RK3588).
 - [x] Comprehensive multi-arch build guide (`docs/MULTI_ARCH_BUILDS.md`) and Control Center integration.
+- [x] Zero-install HTML5/JS WebRTC playtest client page generator (`bobzzite-webrtc generate-client`) and guide (`docs/WEBRTC_CLIENT_GUIDE.md`).
 - [ ] Integration of remote web dashboard for headless workstation management.

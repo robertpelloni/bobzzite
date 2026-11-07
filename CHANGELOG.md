@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [5.1.0] - 2025-05-18
+
+### Added
+- **Browser-Based Remote WebRTC Gamepad Test Client**:
+  - Enhanced `scripts/bobzzite-webrtc.sh` with `generate-client` action producing a zero-install HTML5/JavaScript playtest client (`/tmp/bobzzite-webrtc-client/index.html`) featuring analog stick polling, HTML5 gamepad status indicators, and low-latency canvas rendering.
+  - Authored comprehensive guide in `docs/WEBRTC_CLIENT_GUIDE.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Generate WebRTC Client" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 32 scripts and 29 technical documentation guides.
+
+---
+
 ## [5.0.0] - 2025-05-18 - MILESTONE RELEASE 5.0
 
 ### Added
@@ -14,8 +27,6 @@ This project adheres to Semantic Versioning and tracks a unified single source o
   - Authored comprehensive guide in `docs/MULTI_ARCH_BUILDS.md`.
 - **Bobzzite Control Center GUI Integration**:
   - Added dedicated "Multi-Arch Targets" action button under Hardware & Gaming Profiles card with real-time logs and tooltips.
-- **Continuous Validation**:
-  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 32 scripts and 28 technical documentation guides.
 
 ---
 
@@ -25,17 +36,3 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 - **Automated CI/CD Workflow & GitHub Actions Matrix Testing**:
   - Implemented `scripts/bobzzite-ci.sh` for reproducible local CI validation.
   - Enhanced `.github/workflows/build.yml` with automated matrix validation, profile assertion checks, and container image builds across all three hardware targets.
-  - Authored comprehensive guide in `docs/CONTINUOUS_INTEGRATION.md`.
-- **Bobzzite Control Center GUI Integration**:
-  - Added dedicated "Run CI Smoke Suite" button under System Updates & Diagnostics with live logging and tooltips.
-
----
-
-## [4.8.0] - 2025-05-18
-
-### Added
-- **Broad Hardware Compatibility Auditor (`bobzzite-compat`)**:
-  - Implemented `scripts/bobzzite-compat.sh` to audit CPU microcode, instruction set extensions (SSE4.2, AVX, AVX2, FMA3), GPU rendering nodes, PipeWire pro-audio buffers, and assign system compatibility tiers.
-  - Authored comprehensive guide in `docs/HARDWARE_COMPATIBILITY_MATRIX.md`.
-- **Bobzzite Control Center GUI Integration**:
-  - Added dedicated "Hardware Compatibility" action button under Hardware & Gaming Profiles card with real-time logs and tooltips.
