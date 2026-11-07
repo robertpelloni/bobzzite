@@ -3,9 +3,10 @@
 # Bobzzite OS - Multi-Hardware Flavor Build Automation Engine
 # ==============================================================================
 # Builds, tests, and verifies container images across hardware target flavors:
-#   • bobzzite        : Desktop AMD / Intel Arc
-#   • bobzzite-deck   : Handheld PCs (Steam Deck LCD/OLED, ROG Ally, Legion Go)
-#   • bobzzite-nvidia : Desktop & Laptop NVIDIA GeForce RTX / GTX
+#   • bobzzite        : Desktop AMD / Intel Arc (x86_64)
+#   • bobzzite-deck   : Handheld PCs (Steam Deck, Ally, Legion Go) (x86_64)
+#   • bobzzite-nvidia : Desktop & Laptop NVIDIA GeForce RTX/GTX (x86_64)
+#   • bobzzite-arm64  : ARM64 Devices (Snapdragon X Elite, Rockchip RK3588) (aarch64)
 #
 # Supports dry-run validation, custom tagging, export manifests, hardware profile
 # comparison, and JSON profile export for CI/CD integration.
@@ -14,8 +15,8 @@
 set -euo pipefail
 
 FLAVOR="${1:-all}"
-ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar | test-matrix | bench-matrix | config | summary | inspect | compare | export-profile
-IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "4.6.0")}"
+ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar | test-matrix | bench-matrix | config | summary | inspect | compare | export-profile | multi-arch
+IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "5.0.0")}"
 BUILD_TOOL="${BUILD_TOOL:-docker}"
 EXPORT_DIR="${EXPORT_DIR:-/tmp/bobzzite-flavors}"
 CONFIG_FILE="${CONFIG_FILE:-.flavor-config.env}"
@@ -51,6 +52,9 @@ get_base_image() {
         bobzzite-nvidia)
             echo "ghcr.io/ublue-os/bazzite-nvidia:latest"
             ;;
+        bobzzite-arm64)
+            echo "ghcr.io/ublue-os/bazzite:latest"
+            ;;
         bobzzite)
             echo "ghcr.io/ublue-os/bazzite:latest"
             ;;
@@ -60,29 +64,51 @@ get_base_image() {
     esac
 }
 
+get_target_arch() {
+    local target="$1"
+    case "$target" in
+        bobzzite-arm64)
+            echo "linux/arm64"
+            ;;
+        *)
+            echo "linux/amd64"
+            ;;
+    esac
+}
+
 render_comparison_matrix() {
     echo -e "${BOLD}${CYAN}================================================================================================${NC}"
     echo -e "${BOLD}                       BOBZZITE MULTI-HARDWARE PROFILE COMPARISON MATRIX                        ${NC}"
     echo -e "${BOLD}${CYAN}================================================================================================${NC}"
-    printf "%-22s | %-22s | %-22s | %-22s\n" "Attribute" "bobzzite (Desktop)" "bobzzite-deck (Handheld)" "bobzzite-nvidia (RTX/GTX)"
-    echo "-----------------------+------------------------+------------------------+-----------------------"
-    printf "%-22s | %-22s | %-22s | %-22s\n" "Upstream Base" "bazzite:latest" "bazzite-deck:latest" "bazzite-nvidia:latest"
-    printf "%-22s | %-22s | %-22s | %-22s\n" "Primary Compositor" "KWin Wayland (KDE 6)" "Gamescope Gamepad UI" "KWin Wayland (KDE 6)"
-    printf "%-22s | %-22s | %-22s | %-22s\n" "Target Hardware" "AMD RX / Intel Arc" "Steam Deck, Ally, Go" "GeForce RTX 20/30/40"
-    printf "%-22s | %-22s | %-22s | %-22s\n" "Graphics Drivers" "Mesa RADV / ANV (ACO)" "RADV (Custom APU ACO)" "NVIDIA 565+ (AKMOD)"
-    printf "%-22s | %-22s | %-22s | %-22s\n" "Hardware Encoders" "VA-API / AMF / QSV" "VA-API / AMF (RDNA 2/3)" "NVENC / NVDEC / CUDA"
-    printf "%-22s | %-22s | %-22s | %-22s\n" "Power / TDP Controls" "power-profiles-daemon" "Handheld Daemon / TDP" "nvidia-powerd / PPD"
-    printf "%-22s | %-22s | %-22s | %-22s\n" "Display Leasing" "OpenXR DRM Lease" "Native Gamescope DRM" "DRM Lease via NVIDIA"
-    printf "%-22s | %-22s | %-22s | %-22s\n" "Default Audio Buffer" "128 frames (2.9ms)" "256 frames (5.8ms)" "128 frames (2.9ms)"
+    printf "%-20s | %-20s | %-20s | %-20s | %-20s\n" "Attribute" "bobzzite" "bobzzite-deck" "bobzzite-nvidia" "bobzzite-arm64"
+    echo "---------------------+----------------------+----------------------+----------------------+---------------------"
+    printf "%-20s | %-20s | %-20s | %-20s | %-20s\n" "Architecture" "x86_64 (amd64)" "x86_64 (amd64)" "x86_64 (amd64)" "aarch64 (arm64)"
+    printf "%-20s | %-20s | %-20s | %-20s | %-20s\n" "Upstream Base" "bazzite:latest" "bazzite-deck:latest" "bazzite-nvidia:latest" "bazzite:latest"
+    printf "%-20s | %-20s | %-20s | %-20s | %-20s\n" "Primary Compositor" "KWin Wayland (KDE)" "Gamescope UI" "KWin Wayland (KDE)" "KWin Wayland (KDE)"
+    printf "%-20s | %-20s | %-20s | %-20s | %-20s\n" "Target Hardware" "AMD RX / Intel Arc" "Steam Deck, Ally" "GeForce RTX/GTX" "Snapdragon / RK3588"
+    printf "%-20s | %-20s | %-20s | %-20s | %-20s\n" "Graphics Drivers" "Mesa RADV / ANV" "RADV (Custom APU)" "NVIDIA 565+ (AKMOD)" "Mesa Panfrost / Freedreno"
+    printf "%-20s | %-20s | %-20s | %-20s | %-20s\n" "Hardware Encoders" "VA-API / AMF / QSV" "VA-API / AMF (RDNA)" "NVENC / NVDEC" "V4L2 M2M / VA-API"
+    printf "%-20s | %-20s | %-20s | %-20s | %-20s\n" "Audio Buffer" "128 frames (2.9ms)" "256 frames (5.8ms)" "128 frames (2.9ms)" "256 frames (5.8ms)"
     echo -e "${BOLD}${CYAN}================================================================================================${NC}\n"
+}
+
+render_multi_arch_targets() {
+    echo -e "${BOLD}${CYAN}>>> Bobzzite OS Multi-Architecture Compilation Targets:${NC}"
+    echo -e "  • ${BOLD}linux/amd64${NC}   : Standard PC workstations, gaming rigs, and x86 handhelds."
+    echo -e "  • ${BOLD}linux/arm64${NC}   : Snapdragon X Elite laptops, Rockchip RK3588 SBCs, Raspberry Pi 5."
+    echo -e "\n${BOLD}Cross-Compilation Requirements:${NC}"
+    echo -e "  • QEMU User Emulation: ${GREEN}qemu-user-static installed & binfmt registered${NC}"
+    echo -e "  • Docker Buildx Engine: ${GREEN}docker buildx create --use --platform linux/amd64,linux/arm64${NC}\n"
 }
 
 process_flavor() {
     local target_flavor="$1"
     local base_image
     base_image=$(get_base_image "$target_flavor")
+    local target_arch
+    target_arch=$(get_target_arch "$target_flavor")
 
-    echo -e "${YELLOW}>>> Target Flavor: ${BOLD}${target_flavor}${NC} (Upstream Base: ${base_image})"
+    echo -e "${YELLOW}>>> Target Flavor: ${BOLD}${target_flavor}${NC} (Arch: ${target_arch}, Base: ${base_image})"
 
     case "${ACTION}" in
         check|dry-run)
@@ -101,6 +127,7 @@ process_flavor() {
                 return 1
             fi
             echo -e "    • Testing target flavor: ${CYAN}${target_flavor}${NC}"
+            echo -e "    • Architecture platform: ${CYAN}${target_arch}${NC}"
             echo -e "    • Validating upstream base image: ${CYAN}${base_image}${NC}"
             $BUILD_TOOL build --check \
                 --build-arg BASE_IMAGE="$base_image" \
@@ -114,6 +141,7 @@ process_flavor() {
             cat << EOF > "${CONFIG_FILE}"
 # Bobzzite OS Target Flavor Build Configuration
 BOBZZITE_TARGET_FLAVOR="${target_flavor}"
+BOBZZITE_TARGET_ARCH="${target_arch}"
 BOBZZITE_BASE_IMAGE="${base_image}"
 BOBZZITE_IMAGE_VERSION="${IMAGE_VERSION}"
 BOBZZITE_BUILD_TOOL="${BUILD_TOOL}"
@@ -124,6 +152,7 @@ esac)"
 BOBZZITE_DRIVER_STACK="$(case "$target_flavor" in
     bobzzite-deck) echo "mesa-radv-aco";;
     bobzzite-nvidia) echo "nvidia-proprietary-akmod";;
+    bobzzite-arm64) echo "mesa-panfrost-freedreno";;
     bobzzite) echo "mesa-radv-anv";;
 esac)"
 EOF
@@ -136,6 +165,7 @@ EOF
             cat << EOF > "${profile_json}"
 {
   "flavor": "${target_flavor}",
+  "arch": "${target_arch}",
   "version": "${IMAGE_VERSION}",
   "base_image": "${base_image}",
   "compositor": "$(case "$target_flavor" in
@@ -145,22 +175,25 @@ EOF
   "hardware_target": "$(case "$target_flavor" in
     bobzzite-deck) echo "Handheld Gaming PCs (Steam Deck, ROG Ally, Legion Go)";;
     bobzzite-nvidia) echo "Workstation / Laptop NVIDIA GeForce RTX/GTX";;
+    bobzzite-arm64) echo "ARM64 SBCs & Snapdragon X Elite Laptops";;
     bobzzite) echo "Desktop / Laptop AMD Radeon & Intel Arc";;
   esac)",
   "driver_stack": "$(case "$target_flavor" in
     bobzzite-deck) echo "RADV ACO (AMD Mesa)";;
     bobzzite-nvidia) echo "NVIDIA Proprietary AKMOD";;
+    bobzzite-arm64) echo "Mesa Panfrost / Freedreno (Turnip)";;
     bobzzite) echo "Mesa RADV / ANV";;
   esac)",
   "video_encoders": [
     $(case "$target_flavor" in
         bobzzite-deck) echo '"vaapi", "amf"';;
         bobzzite-nvidia) echo '"nvenc", "nvdec", "cuda"';;
+        bobzzite-arm64) echo '"v4l2m2m", "vaapi"';;
         bobzzite) echo '"vaapi", "qsv", "amf"';;
     esac)
   ],
   "audio_quantum_default": $(case "$target_flavor" in
-    bobzzite-deck) echo "256";;
+    bobzzite-deck|bobzzite-arm64) echo "256";;
     *) echo "128";;
   esac)
 }
@@ -170,6 +203,7 @@ EOF
         inspect)
             echo -e "  [INSPECT] Deep Hardware Profile & Image Inspection for: ${BOLD}${target_flavor}${NC}"
             echo -e "    • Registry Target       : ghcr.io/robertpelloni/${target_flavor}:${IMAGE_VERSION}"
+            echo -e "    • Target Architecture   : ${CYAN}${target_arch}${NC}"
             echo -e "    • Upstream Base Image   : ${CYAN}${base_image}${NC}"
             echo -e "    • Session Environment   : $(case "$target_flavor" in
                 bobzzite-deck) echo "Steam Gamepad UI + Gamescope + KDE Plasma Wayland";;
@@ -178,11 +212,13 @@ EOF
             echo -e "    • Target GPU Vendors    : $(case "$target_flavor" in
                 bobzzite-deck) echo "AMD RDNA 2/3 APU (Steam Deck, ROG Ally, Legion Go)";;
                 bobzzite-nvidia) echo "NVIDIA GeForce RTX 20/30/40 & GTX 16xx Series";;
+                bobzzite-arm64) echo "Adreno / Mali / Immortalis ARM GPUs";;
                 bobzzite) echo "AMD Radeon RX 5000-7000 & Intel Arc / UHD Graphics";;
             esac)"
             echo -e "    • Hardware Acceleration : $(case "$target_flavor" in
                 bobzzite-deck) echo "RADV ACO Vulkan 1.3, VA-API Hardware Encode";;
                 bobzzite-nvidia) echo "NVIDIA 565+ Driver, NVENC/NVDEC, CUDA Compute";;
+                bobzzite-arm64) echo "Turnip / PanVK Vulkan 1.3, V4L2 Hardware Encode";;
                 bobzzite) echo "Mesa RADV/ANV Vulkan 1.3, VA-API / QuickSync";;
             esac)"
             echo -e "    • Flavor Verification   : ${BOLD}${GREEN}READY FOR CI / LOCAL BUILD${NC}\n"
@@ -190,6 +226,7 @@ EOF
         summary)
             echo -e "  [SUMMARY] Hardware Flavor Architecture Matrix:"
             echo -e "    • Flavor Name     : ${BOLD}${target_flavor}${NC}"
+            echo -e "    • Architecture    : ${CYAN}${target_arch}${NC}"
             echo -e "    • Base Image      : ${CYAN}${base_image}${NC}"
             echo -e "    • Compositor      : $(case "$target_flavor" in
                 bobzzite-deck) echo "Gamescope (Steam Gamepad UI) + KWin Wayland";;
@@ -198,26 +235,31 @@ EOF
             echo -e "    • Video Encoders  : $(case "$target_flavor" in
                 bobzzite-deck) echo "VA-API / AMF (RDNA 2/3 hardware encode)";;
                 bobzzite-nvidia) echo "NVENC / NVDEC (NVIDIA Optical Flow)";;
+                bobzzite-arm64) echo "V4L2 M2M / VA-API (ARM VPU)";;
                 bobzzite) echo "VA-API / Intel QuickSync / AMF";;
             esac)"
             echo -e "    • Primary Devices : $(case "$target_flavor" in
                 bobzzite-deck) echo "Steam Deck (LCD/OLED), ROG Ally, Legion Go, AYANEO";;
                 bobzzite-nvidia) echo "GeForce RTX 20/30/40, GTX 16xx (Desktops/Laptops)";;
+                bobzzite-arm64) echo "Snapdragon X Elite, Rockchip RK3588, Raspberry Pi 5";;
                 bobzzite) echo "AMD Radeon RX 5000-7000, Intel Arc, UHD Graphics";;
             esac)\n"
             ;;
         bench-matrix)
             echo -e "  [BENCH-MATRIX] Profiling hardware flavor architecture specifications..."
             echo -e "    • Target Flavor     : ${BOLD}${target_flavor}${NC}"
+            echo -e "    • Architecture      : ${CYAN}${target_arch}${NC}"
             echo -e "    • Base Image        : ${CYAN}${base_image}${NC}"
             echo -e "    • Estimated OCI Size: $(case "$target_flavor" in
                 bobzzite-deck) echo "~4.8 GB (Gamescope, Steam Gamepad UI, Handheld Daemons)";;
                 bobzzite-nvidia) echo "~6.2 GB (NVIDIA Proprietary Drivers, CUDA, NVENC)";;
+                bobzzite-arm64) echo "~3.9 GB (ARM64 Mesa Drivers, Wayland/KDE Desktop)";;
                 bobzzite) echo "~4.2 GB (Mesa RADV/ANV, Wayland/KDE Desktop)";;
             esac)"
             echo -e "    • Architecture Tier : $(case "$target_flavor" in
                 bobzzite-deck) echo "Handheld Gaming (Custom TDP, 720p/800p/1080p, Gyro/Touch)";;
                 bobzzite-nvidia) echo "High-End Workstation / Gaming (Raytracing, DLSS, CUDA)";;
+                bobzzite-arm64) echo "ARM64 Power-Efficient / Mobile Gaming (Panfrost/Turnip)";;
                 bobzzite) echo "Mainstream Desktop / Laptop (Open Source Graphics, Mesa)";;
             esac)"
             echo -e "  ${BOLD}${GREEN}✔ Profile metrics generated for ${target_flavor}.${NC}\n"
@@ -232,18 +274,21 @@ EOF
         manifest)
             echo -e "  [MANIFEST] Flavor Metadata:"
             echo -e "    - Flavor Name    : ${target_flavor}"
+            echo -e "    - Architecture   : ${target_arch}"
             echo -e "    - Upstream Base  : ${base_image}"
             echo -e "    - Primary Tag    : ${target_flavor}:latest"
             echo -e "    - Versioned Tag  : ${target_flavor}:${IMAGE_VERSION}"
             echo -e "    - Target Hardware: $(case "$target_flavor" in
                 bobzzite-deck) echo "Steam Deck (LCD/OLED), ROG Ally, Legion Go (Handheld Gamepad UI)";;
                 bobzzite-nvidia) echo "NVIDIA Proprietary Drivers (RTX 30xx/40xx, NVDEC/NVENC)";;
+                bobzzite-arm64) echo "ARM64 Snapdragon X Elite & Rockchip RK3588 (Panfrost/Turnip)";;
                 bobzzite) echo "Desktop / Laptop AMD Radeon & Intel Arc (Open Source Mesa)";;
             esac)\n"
             ;;
         build)
-            echo -e "  [BUILD] Compiling container image for ${target_flavor}..."
+            echo -e "  [BUILD] Compiling container image for ${target_flavor} (${target_arch})..."
             $BUILD_TOOL build \
+                --platform "${target_arch}" \
                 --build-arg BASE_IMAGE="$base_image" \
                 --build-arg IMAGE_NAME="$target_flavor" \
                 --build-arg IMAGE_VERSION="$IMAGE_VERSION" \
@@ -262,19 +307,23 @@ EOF
 if [ "$ACTION" = "compare" ]; then
     render_comparison_matrix
     exit 0
+elif [ "$ACTION" = "multi-arch" ]; then
+    render_multi_arch_targets
+    exit 0
 fi
 
 case "$FLAVOR" in
-    bobzzite|bobzzite-deck|bobzzite-nvidia)
+    bobzzite|bobzzite-deck|bobzzite-nvidia|bobzzite-arm64)
         process_flavor "$FLAVOR"
         ;;
     all)
         process_flavor "bobzzite"
         process_flavor "bobzzite-deck"
         process_flavor "bobzzite-nvidia"
+        process_flavor "bobzzite-arm64"
         ;;
     *)
-        echo "Usage: $0 [all|bobzzite|bobzzite-deck|bobzzite-nvidia] [build|check|dry-run|manifest|export-tar|test-matrix|bench-matrix|config|summary|inspect|compare|export-profile] [version]"
+        echo "Usage: $0 [all|bobzzite|bobzzite-deck|bobzzite-nvidia|bobzzite-arm64] [build|check|dry-run|manifest|export-tar|test-matrix|bench-matrix|config|summary|inspect|compare|export-profile|multi-arch] [version]"
         exit 1
         ;;
 esac

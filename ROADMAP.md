@@ -33,7 +33,7 @@
 - [x] Automated GitHub Actions CI workflow & local runner (`bobzzite-ci`).
 - [x] ISO generation pipeline via Universal Blue isogenerator (`bobzzite-iso`).
 
-## Phase 4: Cloud CI & Multi-Architecture Targets (Upcoming)
-- [ ] Automated multi-arch container image builds for ARM64 (Snapdragon X Elite / Rockchip RK3588).
-- [ ] Automated image artifact publishing to GitHub Container Registry (`ghcr.io/robertpelloni/bobzzite`).
+## Phase 4: Multi-Architecture & Cloud Native Distribution (Completed - Milestone v5.0.0)
+- [x] Multi-architecture container image builds for ARM64 (`bobzzite-arm64` for Snapdragon X Elite / Rockchip RK3588).
+- [x] Comprehensive multi-arch build guide (`docs/MULTI_ARCH_BUILDS.md`) and Control Center integration.
 - [ ] Integration of remote web dashboard for headless workstation management.

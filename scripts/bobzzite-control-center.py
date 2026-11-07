@@ -253,8 +253,12 @@ class BobzziteControlCenter:
         ToolTip(h_prof_an, "Calculates fit percentage and flavor migration recommendations for this physical machine.")
 
         h_compat = ttk.Button(hw_grid, text="Hardware Compatibility", command=lambda: self.run_async("if command -v bobzzite-compat >/dev/null 2>&1; then bobzzite-compat check; elif [ -f scripts/bobzzite-compat.sh ]; then ./scripts/bobzzite-compat.sh check; else echo 'Compat script not found'; fi", "Auditing broad hardware compatibility tier & instructions..."))
-        h_compat.grid(row=9, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_compat.grid(row=9, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_compat, "Audits CPU instruction sets (AVX2), GPU backends, and assigns compatibility tier.")
+
+        h_multi_arch = ttk.Button(hw_grid, text="Multi-Arch Targets", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all multi-arch; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all multi-arch; else echo 'Build flavors script not found'; fi", "Querying multi-architecture build targets (x86_64, aarch64)..."))
+        h_multi_arch.grid(row=9, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_multi_arch, "Displays multi-architecture compilation targets for x86_64 and ARM64 SBCs/laptops.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")

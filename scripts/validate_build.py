@@ -139,7 +139,8 @@ def check_required_docs():
         "docs/HARDWARE_PROFILE_VALIDATION.md",
         "docs/HARDWARE_PROFILE_ANALYSIS.md",
         "docs/HARDWARE_COMPATIBILITY_MATRIX.md",
-        "docs/CONTINUOUS_INTEGRATION.md"
+        "docs/CONTINUOUS_INTEGRATION.md",
+        "docs/MULTI_ARCH_BUILDS.md"
     ]
     errors = 0
     for doc in required_docs:

@@ -5,17 +5,29 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [5.0.0] - 2025-05-18 - MILESTONE RELEASE 5.0
+
+### Added
+- **Multi-Architecture Target Profiles (x86_64 & ARM64)**:
+  - Enhanced `scripts/build-flavors.sh` with ARM64 cross-compilation support (`bobzzite-arm64`) targeting Qualcomm Snapdragon X Elite laptops, Rockchip RK3588 SBCs, and Raspberry Pi 5.
+  - Added `multi-arch` action to inspect supported CPU architectures (`linux/amd64`, `linux/arm64`) and build requirements (QEMU binfmt & Docker Buildx).
+  - Authored comprehensive guide in `docs/MULTI_ARCH_BUILDS.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Multi-Arch Targets" action button under Hardware & Gaming Profiles card with real-time logs and tooltips.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 32 scripts and 28 technical documentation guides.
+
+---
+
 ## [4.9.0] - 2025-05-18
 
 ### Added
 - **Automated CI/CD Workflow & GitHub Actions Matrix Testing**:
-  - Implemented `scripts/bobzzite-ci.sh` (mirrored to `config/files/usr/local/bin/bobzzite-ci`) for reproducible local CI validation.
+  - Implemented `scripts/bobzzite-ci.sh` for reproducible local CI validation.
   - Enhanced `.github/workflows/build.yml` with automated matrix validation, profile assertion checks, and container image builds across all three hardware targets.
   - Authored comprehensive guide in `docs/CONTINUOUS_INTEGRATION.md`.
 - **Bobzzite Control Center GUI Integration**:
   - Added dedicated "Run CI Smoke Suite" button under System Updates & Diagnostics with live logging and tooltips.
-- **Continuous Validation**:
-  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 32 scripts and 27 technical documentation guides.
 
 ---
 
@@ -27,12 +39,3 @@ This project adheres to Semantic Versioning and tracks a unified single source o
   - Authored comprehensive guide in `docs/HARDWARE_COMPATIBILITY_MATRIX.md`.
 - **Bobzzite Control Center GUI Integration**:
   - Added dedicated "Hardware Compatibility" action button under Hardware & Gaming Profiles card with real-time logs and tooltips.
-
----
-
-## [4.7.0] - 2025-05-18
-
-### Added
-- **Hardware Profile Analysis & Suitability Scoring**:
-  - Enhanced `scripts/bobzzite-deploy.sh` with `profile-analyze` action to probe live system specs (DMI product, CPU cores, GPU PCI vendor codes, DRM nodes) and compute fit percentage across flavors.
-  - Authored comprehensive guide in `docs/HARDWARE_PROFILE_ANALYSIS.md`.
