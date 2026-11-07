@@ -1,92 +1,32 @@
-# bobzzite Roadmap
+# Bobzzite OS - Master Roadmap
 
-## Phase 1: Core Foundation & Reproducible Image Builds ✅
-- [x] Complete missing build assets (`branding/wallpapers`, `branding/icons`, `config/files/etc/`)
-- [x] Standardize governance and architecture documentation
-- [x] Implement automated repository build validator script
-- [x] Establish automated GitHub Actions CI smoke validation check
+## Phase 1: Core Distribution & Indie Dev Integration (Completed - v0.1.0 to v1.9.0)
+- [x] Establish automated immutable OS build infrastructure using Universal Blue.
+- [x] Package and preconfigure Godot 4, VS Codium, Blender, Aseprite, LMMS, Audacity, and Krita.
+- [x] Configure automated bidirectional LSP & DAP debugging between Godot and VS Codium.
+- [x] Design custom Plymouth boot splash, SDDM login screen, and terminal fastfetch branding.
+- [x] Deliver single-window unified `bobzzite-control-center` with system tray companion `bobzzite-tray`.
 
-## Phase 2: System Identity & Branding Polish ✅
-- [x] Plymouth boot splash animations matching bob brand identity (`branding/plymouth/bobzzite/`)
-- [x] SDDM login greeter theme (`branding/sddm/bobzzite/`)
-- [x] Fastfetch system branding configuration (`config/files/etc/fastfetch/`)
-- [x] Default SVG wallpaper and logo branding
-- [x] Ambient system sound theme (`branding/sounds/bobzzite/`)
+## Phase 2: Performance, Diagnostics & Hardware Workflows (Completed - v2.0.0 to v3.4.0)
+- [x] Low-latency PipeWire audio subsystem with 64/128/256/512 buffer presets (`bobzzite-audio`).
+- [x] Comprehensive CPU, I/O, and Vulkan GPU hardware benchmarking (`bobzzite-bench`).
+- [x] Automated system cleanup and Flatpak cache management (`bobzzite-clean`).
+- [x] Automatic hardware detection and atomic rebase assistant (`bobzzite-deploy`).
+- [x] Sunshine and Moonlight low-latency game streaming suite (`bobzzite-stream`).
+- [x] Headless Godot 4 export and AppImage bundler (`bobzzite-package`).
+- [x] Monado OpenXR runtime switcher and Wayland DRM lease manager (`bobzzite-vr`).
+- [x] Lossless asset pipeline for texture optimization and audio transcoding (`bobzzite-assets`).
+- [x] Multi-language translation compiler (`bobzzite-i18n`).
+- [x] Headless GDScript automated unit testing framework (`bobzzite-test`).
 
-## Phase 3: Flatpak Packaging & App Ecosystem ✅
-- [x] Automated installer for indie development tools (Godot 4, VS Codium, GIMP, Audacity, OBS Studio)
-- [x] Bidirectional Godot 4 + VS Codium LSP routing and starter templates
-- [x] Unified Bobzzite Control Center GUI (`bobzzite-control-center`)
-- [x] System Tray Monitor applet (`bobzzite-tray`)
-- [x] Distrobox environment management tooling (`bobzzite-devbox`)
-- [x] First-boot onboarding wizard (`bobzzite-onboarding`)
-- [x] Flatpak packaging manifests for bobzilla and bobfilez (`packages/flatpak/`)
-- [x] Automated Flatpak builder tooling (`scripts/build-flatpaks.sh`, `docs/FLATPAK_PACKAGING.md`)
+## Phase 3: Hardware Flavors, Custom Templates & Compliance (Completed - v3.5.0 to v4.3.0)
+- [x] Multi-target build engine (`scripts/build-flavors.sh`) supporting `bobzzite`, `bobzzite-deck`, and `bobzzite-nvidia`.
+- [x] Headless SCons Godot export template builder (`bobzzite-export-templates`).
+- [x] System compliance & hardware QA auditor (`bobzzite-hardware-audit`).
+- [x] Deep flavor inspector (`bobzzite-build-flavors all inspect`) integrated into Control Center.
+- [x] ISO generation pipeline via Universal Blue isogenerator (`bobzzite-iso`).
 
-## Phase 4: Hardware Profiles & ISO Generation ✅
-- [x] Universal Blue ISO generator documentation & workflow (`docs/ISO_BUILD.md`)
-- [x] Hardware profiles and handheld compatibility (Steam Deck, ROG Ally, Legion Go)
-- [x] Multi-flavor target matrix: Handheld (Deck/Ally/Legion), Desktop AMD/Intel, and Desktop NVIDIA (`scripts/build-flavors.sh`, `docs/HARDWARE_FLAVORS.md`)
-- [x] Automated CI matrix build strategy in `.github/workflows/build.yml`
-- [x] Atomic rollback, deployment pinning, and dev snapshot management (`docs/BACKUP_ROLLBACK.md`)
-- [x] System performance & latency tuning presets (`scripts/bobzzite-tweak.sh`, `docs/PERFORMANCE_TUNING.md`)
-- [x] Game controller & handheld input mapping management (`scripts/bobzzite-gamepad.sh`, `docs/CONTROLLER_SUPPORT.md`)
-
-## Phase 5: Multiplayer & Distributed Cloud OS ✅
-- [x] Built-in P2P mesh networking via Tailscale (`bobzzite-mesh`)
-- [x] Decentralized asset syncing for game projects via Syncthing
-- [x] Low-latency remote Wayland game streaming workflows via Waypipe (`docs/MULTIPLAYER.md`)
-
-## Phase 6: System Maintenance & Long-Term Autonomous Governance ✅
-- [x] Automated system cleanup, cache pruning, and Flatpak runtime maintenance (`bobzzite-clean`, `docs/MAINTENANCE.md`)
-- [x] Integrated cache purge action in unified Bobzzite Control Center
-- [x] Automated system hardware benchmark & performance profiler (`bobzzite-bench`, `docs/BENCHMARKS.md`)
-- [x] Unified Control Center benchmark runner integration
-- [x] Release 2.1.0 milestone reached
-- [x] Automated audio server diagnostic and latency switcher (`bobzzite-audio`, `docs/AUDIO_SETUP.md`)
-- [x] Integrated Audio & PipeWire manager into unified Bobzzite Control Center
-- [x] Release 2.2.0 milestone reached
-- [x] Multi-hardware flavor build automation engine enhancement (`scripts/build-flavors.sh`)
-- [x] Hardware Flavors inspector wired into Bobzzite Control Center
-- [x] Release 2.3.0 milestone reached
-- [x] Local deployment & atomic rebase automation tool (`bobzzite-deploy`, `DEPLOY.md`)
-- [x] Offline OCI archive export capability in build engine
-- [x] Release 2.4.0 milestone reached
-- [x] Remote game & dev streaming management utility (`bobzzite-stream`, `docs/STREAMING.md`)
-- [x] Integrated Game Streaming launcher into Bobzzite Control Center
-- [x] Release 2.5.0 milestone reached
-- [x] Build health diagnostics and full documentation index (`docs/BUILD_HEALTH.md`, `README.md`)
-- [x] Release 2.6.0 milestone reached
-- [x] Automated game packaging and release bundler (`bobzzite-package`, `docs/GAME_PACKAGING.md`)
-- [x] Control Center game packager integration
-- [x] Release 2.7.0 milestone reached
-- [x] VR / XR headset and OpenXR diagnostic utility (`bobzzite-vr`, `docs/VR_SETUP.md`)
-- [x] Release 2.8.0 milestone reached
-- [x] Automated hardware flavor detection & DMI/PCI probing (`bobzzite-deploy detect`, `docs/HARDWARE_DETECTION.md`)
-- [x] Release 2.9.0 milestone reached
-- [x] Multi-flavor build matrix automated verification test suite (`scripts/build-flavors.sh all test-matrix`, `docs/HARDWARE_MATRIX_TESTING.md`)
-- [x] Major release 3.0.0 milestone reached
-- [x] Multi-flavor architecture profiles & matrix benchmarks (`scripts/build-flavors.sh all bench-matrix`, `docs/HARDWARE_MATRIX_PROFILES.md`)
-- [x] Release 3.1.0 milestone reached
-- [x] Automated game asset optimization pipeline (`bobzzite-assets`, `docs/ASSET_PIPELINE.md`)
-- [x] Release 3.2.0 milestone reached
-- [x] Automated game localization and i18n management utility (`bobzzite-i18n`, `docs/LOCALIZATION.md`)
-- [x] Release 3.3.0 milestone reached
-- [x] Automated game test runner and CI/CD utility (`bobzzite-test`, `docs/AUTOMATED_TESTING.md`)
-- [x] Release 3.4.0 milestone reached
-- [x] Multi-flavor build configuration generator (`scripts/build-flavors.sh config`, `docs/HARDWARE_CUSTOMIZATION.md`)
-- [x] Release 3.5.0 milestone reached
-- [x] Enhanced Godot 4 & VS Codium DAP debugging and workspace integration (`docs/GODOT_CODIUM_INTEGRATION.md`)
-- [x] Release 3.6.0 milestone reached
-- [x] Custom Godot 4 export template compiler tool (`bobzzite-export-templates`, `docs/EXPORT_TEMPLATES.md`)
-- [x] Release 3.7.0 milestone reached
-- [x] Multi-flavor architecture summary matrix & capability comparisons (`scripts/build-flavors.sh summary`, `docs/HARDWARE_CAPABILITIES.md`)
-- [x] Release 3.8.0 milestone reached
-- [x] Command-line quick reference cheatsheet and full documentation synchronization (`docs/QUICK_REFERENCE.md`)
-- [x] Release 3.9.0 milestone reached
-- [x] Multi-hardware flavor compliance and profile auditor (`bobzzite-hardware-audit`, `docs/HARDWARE_COMPLIANCE.md`)
-- [x] Major release 4.0.0 milestone reached
-- [x] Godot 4 GDExtension C++ & Rust native build pipeline (`bobzzite-gdextension`, `docs/GDEXTENSION_GUIDE.md`)
-- [x] Release 4.1.0 milestone reached
-- [x] Automated bootable ISO generation pipeline (`bobzzite-iso`, `docs/ISO_BUILD.md`)
-- [x] Release 4.2.0 milestone reached
+## Phase 4: Cloud CI & Multi-Architecture Targets (Upcoming)
+- [ ] Automated multi-arch container image builds for ARM64 (Snapdragon X Elite / Rockchip RK3588).
+- [ ] Continuous integration automated image artifact publishing to GitHub Container Registry (`ghcr.io/robertpelloni/bobzzite`).
+- [ ] Integration of remote web dashboard for headless workstation management.

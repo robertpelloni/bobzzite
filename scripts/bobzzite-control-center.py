@@ -208,9 +208,9 @@ class BobzziteControlCenter:
         h5.grid(row=1, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h5, "Queries status of Tailscale mesh networking and Syncthing P2P syncing.")
 
-        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all summary; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all summary; else echo 'Build flavors script not found'; fi", "Displaying Hardware Flavor Capabilities & Matrix..."))
+        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all inspect; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all inspect; else echo 'Build flavors script not found'; fi", "Inspecting Hardware Flavor Profiles & Acceleration..."))
         h_flavors.grid(row=4, column=0, padx=6, pady=4, sticky="ew")
-        ToolTip(h_flavors, "Displays comprehensive hardware flavor capabilities, compositors, and video encoders.")
+        ToolTip(h_flavors, "Inspects hardware profiles, base image URIs, compositors, and GPU acceleration.")
 
         h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
         h_deploy.grid(row=4, column=1, padx=6, pady=4, sticky="ew")

@@ -1,96 +1,56 @@
-# bobzzite Handoff & Session Summary
+# Bobzzite OS - Session Handoff & Architecture Transition Guide
 
-## Session Overview
-- **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `4.2.0` (tracked in `VERSION.md`)
-- **Key Features & Enhancements**:
-  - Automated bootable ISO generation pipeline (`scripts/bobzzite-iso.sh` and `/usr/local/bin/bobzzite-iso`).
-  - Integrated "Generate ISO" action into the unified Bobzzite Control Center dashboard UI.
-  - Godot 4 GDExtension C++ & Rust native build pipeline and manifest scaffolder (`scripts/bobzzite-gdextension.sh` and `/usr/local/bin/bobzzite-gdextension`).
-  - GDExtension architecture guide authored in `docs/GDEXTENSION_GUIDE.md`.
-  - Integrated "GDExtension (C++/Rust)" action into the unified Bobzzite Control Center dashboard UI.
-  - Multi-hardware flavor compliance and profile auditor (`scripts/bobzzite-hardware-audit.sh` and `/usr/local/bin/bobzzite-hardware-audit`).
-  - Hardware compliance and QA guide authored in `docs/HARDWARE_COMPLIANCE.md`.
-  - Command-Line & Utility Quick Reference Cheatsheet authored in `docs/QUICK_REFERENCE.md`.
-  - Expanded `README.md` master documentation index covering all 19 technical documentation guides.
-  - Multi-flavor architecture summary matrix action (`scripts/build-flavors.sh all summary`).
-  - Hardware capabilities and video encoder comparison guide authored in `docs/HARDWARE_CAPABILITIES.md`.
-  - Custom Godot 4 export template compiler tool (`scripts/bobzzite-export-templates.sh` and `/usr/local/bin/bobzzite-export-templates`).
-  - Export template customization guide authored in `docs/EXPORT_TEMPLATES.md`.
-  - Integrated "Export Templates" action into the unified Bobzzite Control Center dashboard UI.
-  - Enhanced bidirectional Godot 4 & VS Codium debugging (Debug Adapter Protocol on port 6006, `launch.json`, and `tasks.json`).
-  - Godot-Codium integration guide authored in `docs/GODOT_CODIUM_INTEGRATION.md`.
-  - Multi-flavor build configuration generator (`scripts/build-flavors.sh <flavor> config`) generating `.flavor-config.env`.
-  - Hardware customization guide authored in `docs/HARDWARE_CUSTOMIZATION.md`.
-  - Automated game test runner and CI utility (`scripts/bobzzite-test.sh` and `/usr/local/bin/bobzzite-test`).
-  - Automated testing guide authored in `docs/AUTOMATED_TESTING.md`.
-  - Integrated "Run Game Tests" action into the unified Bobzzite Control Center dashboard UI.
-  - Automated game localization and i18n management utility (`scripts/bobzzite-i18n.sh` and `/usr/local/bin/bobzzite-i18n`).
-  - Game localization guide authored in `docs/LOCALIZATION.md`.
-  - Integrated "Localization & i18n" action into the unified Bobzzite Control Center dashboard UI.
-  - Automated game asset optimization pipeline (`scripts/bobzzite-assets.sh` and `/usr/local/bin/bobzzite-assets`).
-  - Asset optimization guide authored in `docs/ASSET_PIPELINE.md`.
-  - Integrated "Optimize Game Assets" action into the unified Bobzzite Control Center dashboard UI.
-  - Multi-flavor architecture profiling and benchmark action (`scripts/build-flavors.sh all bench-matrix`).
-  - Hardware matrix profiles and handheld tier guide authored in `docs/HARDWARE_MATRIX_PROFILES.md`.
-  - Multi-flavor build matrix automated verification test suite (`scripts/build-flavors.sh all test-matrix`).
-  - Hardware matrix testing guide authored in `docs/HARDWARE_MATRIX_TESTING.md`.
-  - Automated hardware flavor detection (`bobzzite-deploy detect`) probing DMI chassis and PCI device classes for Steam Deck, ROG Ally, NVIDIA, and AMD/Intel platforms.
-  - Hardware detection guide authored in `docs/HARDWARE_DETECTION.md`.
-  - Automated VR / XR headset and OpenXR diagnostic utility (`scripts/bobzzite-vr.sh` and `/usr/local/bin/bobzzite-vr`) with Wayland DRM display leasing and manifest switching.
-  - VR and OpenXR architecture guide authored in `docs/VR_SETUP.md`.
-  - Automated indie game packaging and headless export utility (`scripts/bobzzite-package.sh` and `/usr/local/bin/bobzzite-package`).
-  - Game packaging guide authored in `docs/GAME_PACKAGING.md`.
-  - Integrated "Package Game Project" action into the unified Bobzzite Control Center dashboard UI.
-  - Build health diagnostics and QA specification in `docs/BUILD_HEALTH.md`.
-  - Expanded `README.md` documentation index covering all 14 technical guides.
-  - Remote game and developer streaming management utility (`scripts/bobzzite-stream.sh` and `/usr/local/bin/bobzzite-stream`) with Sunshine daemon control, Moonlight client pairing, and hardware encoder discovery.
-  - Streaming guide authored in `docs/STREAMING.md`.
-  - Integrated "Game Streaming" action into the unified Bobzzite Control Center dashboard UI.
-  - Local deployment and rebase automation tool (`scripts/bobzzite-deploy.sh` and `/usr/local/bin/bobzzite-deploy`) supporting online registry switching and air-gapped OCI archive rebases.
-  - Multi-flavor build engine OCI archive export action (`export-tar`) and complete guide in `DEPLOY.md`.
-  - Integrated "Deploy & Rebase" action into the unified Bobzzite Control Center dashboard UI.
-  - Enhanced multi-hardware flavor build automation engine (`scripts/build-flavors.sh`) supporting manifest inspections, dry-run syntax verification, and flavor metadata generation.
-  - Hardware Flavors inspector integrated into the unified Bobzzite Control Center dashboard UI.
-  - Automated audio server diagnostic and profile switcher (`scripts/bobzzite-audio.sh` and `/usr/local/bin/bobzzite-audio`), featuring PipeWire status queries, low-latency quantum buffer management, and speaker test routines.
-  - Audio architecture guide authored in `docs/AUDIO_SETUP.md`.
-  - Integrated "Audio & PipeWire" action into the unified Bobzzite Control Center.
-  - Automated system hardware benchmark and performance profiler (`scripts/bobzzite-bench.sh` and `/usr/local/bin/bobzzite-bench`), testing CPU single-thread hashing, disk sequential I/O write throughput, governor states, and Vulkan GPU capabilities.
-  - Benchmarking guide authored in `docs/BENCHMARKS.md`.
-  - Integrated "Run Benchmark" action into the unified Bobzzite Control Center.
-  - Automated system storage cleanup and maintenance tool (`scripts/bobzzite-clean.sh` and `/usr/local/bin/bobzzite-clean`), cache purging, and Flatpak runtime pruning.
-  - Storage maintenance guide authored in `docs/MAINTENANCE.md`.
-  - Integrated "Purge System Caches" action into the unified Bobzzite Control Center.
-  - System Tray Monitor applet (`scripts/bobzzite-tray.py` and `/usr/local/bin/bobzzite-tray`) with autostart launcher and quick actions to open Control Center, trigger diagnostics, and quit background services.
-  - Game controller and handheld PC mapping utility (`scripts/bobzzite-gamepad.sh` and `/usr/local/bin/bobzzite-gamepad`) with documentation in `docs/CONTROLLER_SUPPORT.md`.
-  - System performance and latency tuning utility (`scripts/bobzzite-tweak.sh` and `/usr/local/bin/bobzzite-tweak`) with documentation in `docs/PERFORMANCE_TUNING.md`.
-  - Full documentation directory index across all 9 guide specifications in `README.md`.
-  - Bob ecosystem Flatpak packaging manifests (`packages/flatpak/com.robertpelloni.bobzilla.yml`, `packages/flatpak/com.robertpelloni.bobfilez.yml`).
-  - Automated Flatpak builder tooling (`scripts/build-flatpaks.sh` and `docs/FLATPAK_PACKAGING.md`).
-  - Atomic OSTree deployment pinning, system rollback, and user dev snapshot utility (`scripts/bobzzite-backup.sh` and `/usr/local/bin/bobzzite-backup`).
-  - Multi-hardware flavor build automation (`scripts/build-flavors.sh`) and GitHub Actions matrix builds for `bobzzite`, `bobzzite-deck`, and `bobzzite-nvidia`.
-  - System Health & Diagnostics Doctor (`scripts/bobzzite-doctor.sh` and `/usr/local/bin/bobzzite-doctor`).
-  - Peer-to-peer mesh networking & asset synchronization manager (`scripts/bobzzite-mesh.sh` and `/usr/local/bin/bobzzite-mesh`).
-  - First-boot onboarding wizard (`scripts/bobzzite-onboarding.sh` and autostart `.desktop` entry) for automated initial setup.
-  - Ambient system sound theme in `branding/sounds/bobzzite/`.
-  - Unified Bobzzite Control Center GUI (`scripts/bobzzite-control-center.py` and `/usr/local/bin/bobzzite-control-center`).
-  - Distrobox environment manager (`scripts/bobzzite-devbox.sh` and `/usr/local/bin/bobzzite-devbox`).
-  - Universal Blue ISO generator deployment specification (`docs/ISO_BUILD.md`).
-  - Desktop entries in `/etc/skel/.local/share/applications/` (`bobzzite-control-center.desktop`, `bobzzite-dev-tools.desktop`, `bobzzite-godot-starter.desktop`).
-  - SDDM Login Greeter Theme (`branding/sddm/bobzzite/`).
-  - Fastfetch terminal system branding profile (`config/files/etc/fastfetch/config.jsonc`).
-  - Plymouth boot splash theme (`branding/plymouth/bobzzite/`).
-  - Automated installation of indie development suite (`scripts/install-indie-tools.sh`): Godot 4, VS Codium, GIMP, Audacity, OBS Studio.
-  - Bidirectional developer workflow setup (`scripts/configure-godot-codium.sh`).
-  - Pre-seeded Godot 4 editor settings and starter project template in `/etc/skel/`.
-  - Containerfile updated with image versioning label and ARG (`1.9.0`).
-  - User Guide (`docs/USER_GUIDE.md`) with system layering diagram, handheld optimization notes, and developer FAQ.
-  - Complete documentation index in `README.md`.
-  - Repaired missing `Containerfile` copy paths and established build validation tests.
-- **Validation**:
-  - `scripts/validate_build.py` verifies Containerfile COPY references, Control Center GUI, Tray applet, Distrobox scripts, onboarding script, mesh script, diagnostics doctor, backup script, flavor script, flatpak builder, performance tuner, gamepad manager, ISO documentation, hardware flavors documentation, multiplayer documentation, backup documentation, flatpak packaging documentation, tuning documentation, controller documentation, SDDM/Plymouth/Sound themes, indie tool scripts, user documentation, and permissions.
+**Current Version:** 4.3.0
+**State:** Production-Ready Immutable Game Development OS Container
+**Target Upstream:** `ghcr.io/ublue-os/bazzite:latest` (Universal Blue / Fedora 41)
 
-## Resumption Instructions for Successor Agents
-1. Review `TODO.md` and `ROADMAP.md` for prioritized milestones.
-2. Run `python3 scripts/validate_build.py` to confirm workspace integrity.
-3. Track version updates in `VERSION.md` and document adjustments in `CHANGELOG.md`.
+---
+
+## 1. System Overview & Architecture
+
+Bobzzite is a specialized distribution designed for indie game developers, pixel artists, chiptune composers, and gaming handheld enthusiasts. It provides an atomic, ostree-based system layered directly on Fedora Silverblue via Universal Blue (`bazzite`).
+
+Key integrated subsystems include:
+- **Unified Dashboard**: Single-window Python/Tkinter `bobzzite-control-center` with grouped tabs, real-time logging, asynchronous subprocess workers, tooltips, and system tray management (`bobzzite-tray`).
+- **Complete Indie Tooling**: Godot 4, VS Codium, Blender, Aseprite, Audacity, LMMS, Inkscape, Tiled, RenderDoc, and Krita.
+- **Hardware Profile & Matrix Testing**: Automated flavor build matrix (`scripts/build-flavors.sh`) supporting `bobzzite` (desktop AMD/Intel), `bobzzite-deck` (handhelds with Gamescope), and `bobzzite-nvidia` (GeForce workstations) with automated inspection, smoke dry-runs, and compliance auditing.
+- **Asset, Packaging, Audio, & Test Pipelines**: Low-latency PipeWire quantum configurations, asset compression, gettext translation compilations, GDScript syntax validation, and SCons custom Godot export template builds.
+
+---
+
+## 2. Active Utilities Catalog
+
+All utilities are located in `scripts/` and mirrored in `config/files/usr/local/bin/`:
+1. `bobzzite-control-center`: Main unified desktop GUI.
+2. `bobzzite-tray`: System tray daemon with quick actions and server termination controls.
+3. `bobzzite-doctor`: Comprehensive system diagnostics and configuration auditor.
+4. `bobzzite-flavors`: Multi-hardware flavor build engine with `inspect`, `matrix-test`, and `config` actions.
+5. `bobzzite-hardware-audit`: ACPI sleep, DRM leasing, and controller hardware compliance auditor.
+6. `bobzzite-validate`: Repository integrity and build readiness validator.
+7. `bobzzite-package`: Headless Godot game packager and AppImage bundler.
+8. `bobzzite-export-templates`: SCons-based Godot export template builder.
+9. `bobzzite-test`: Headless GDScript syntax validator and game unit tester.
+10. `bobzzite-assets`: Lossless texture and audio transcoding pipeline.
+11. `bobzzite-i18n`: Multi-language CSV to GNU gettext compiler.
+12. `bobzzite-audio`: PipeWire low-latency quantum buffer management.
+13. `bobzzite-bench`: CPU, disk I/O, and Vulkan GPU benchmarking.
+14. `bobzzite-stream`: Sunshine host and Moonlight client manager.
+15. `bobzzite-vr`: Monado OpenXR and Wayland DRM display lease manager.
+16. `bobzzite-tweak`: Kernel sysctl, ZRAM, and power-profile optimizer.
+17. `bobzzite-clean`: Flatpak cache and temporary directory cleaner.
+18. `bobzzite-deploy`: Hardware detection and atomic rebase assistant.
+19. `bobzzite-gamepad`: Gamepad input event listener and latency tester.
+20. `bobzzite-backup`: Btrfs/ostree config snapshot and rollback utility.
+21. `bobzzite-devbox`: Containerized distrobox environment launcher.
+22. `bobzzite-onboarding`: First-boot interactive walkthrough.
+23. `bobzzite-mesh`: Peer-to-peer multiplayer testing mesh.
+24. `bobzzite-iso`: Universal Blue ISO build wrapper.
+
+---
+
+## 3. Resume Instructions for Successor Models
+
+To resume work without friction:
+1. Run `python3 scripts/validate_build.py` to confirm all 28 scripts and 20 documentation guides pass syntax and path checks.
+2. Run `docker build --check -f Containerfile .` to verify containerfile syntax.
+3. Consult `TODO.md` and `ROADMAP.md` for upcoming enhancements.
