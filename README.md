@@ -113,3 +113,23 @@ bobzzite-control-center
 - [`docs/BACKUP_ROLLBACK.md`](docs/BACKUP_ROLLBACK.md) — Atomic rollback and snapshot management.
 - [`docs/MULTIPLAYER.md`](docs/MULTIPLAYER.md) — Mesh networking, Syncthing, and Waypipe workflows.
 - [`docs/FLATPAK_PACKAGING.md`](docs/FLATPAK_PACKAGING.md) — Bob ecosystem Flatpak packaging.
+- [`docs/PERFORMANCE_TUNING.md`](docs/PERFORMANCE_TUNING.md) — Low-latency kernel/sysctl performance profiles.
+- [`docs/CONTROLLER_SUPPORT.md`](docs/CONTROLLER_SUPPORT.md) — Gamepad detection and handheld input mapping.
+- [`docs/MAINTENANCE.md`](docs/MAINTENANCE.md) — Automated cache purging and storage maintenance.
+- [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md) — System performance benchmarks and hardware profiling.
+- [`docs/AUDIO_SETUP.md`](docs/AUDIO_SETUP.md) — Low-latency PipeWire quantum buffers and audio routing.
+- [`docs/STREAMING.md`](docs/STREAMING.md) — Remote gameplay and development desktop streaming via Sunshine/Moonlight.
+- [`docs/BUILD_HEALTH.md`](docs/BUILD_HEALTH.md) — Build health diagnostics, validation metrics, and CI QA.
+- [`docs/GAME_PACKAGING.md`](docs/GAME_PACKAGING.md) — Headless game export and release binary bundling.
+- [`docs/VR_SETUP.md`](docs/VR_SETUP.md) — VR/XR headset connectivity, OpenXR runtimes, and Wayland DRM display leasing.
+- [`docs/HARDWARE_DETECTION.md`](docs/HARDWARE_DETECTION.md) — Automatic DMI chassis and PCI vendor probing for image flavor selection.
+- [`docs/HARDWARE_MATRIX_TESTING.md`](docs/HARDWARE_MATRIX_TESTING.md) — Multi-flavor build matrix test suite.
+- [`docs/HARDWARE_MATRIX_PROFILES.md`](docs/HARDWARE_MATRIX_PROFILES.md) — Hardware tier specifications, swap sizing, and handheld profiles.
+- [`docs/ASSET_PIPELINE.md`](docs/ASSET_PIPELINE.md) — Game asset texture optimization and audio stream transcoding.
+- [`docs/LOCALIZATION.md`](docs/LOCALIZATION.md) — Game translation tables, CSV templates, and gettext compilation.
+- [`docs/AUTOMATED_TESTING.md`](docs/AUTOMATED_TESTING.md) — Headless game unit testing, scene validation, and CI/CD integration.
+- [`docs/HARDWARE_CUSTOMIZATION.md`](docs/HARDWARE_CUSTOMIZATION.md) — Custom kernel parameters, compositors, and driver configurations.
+- [`docs/GODOT_CODIUM_INTEGRATION.md`](docs/GODOT_CODIUM_INTEGRATION.md) — Bidirectional Godot 4 & VS Codium LSP/DAP workflows.
+- [`docs/EXPORT_TEMPLATES.md`](docs/EXPORT_TEMPLATES.md) — Custom size-optimized Godot 4 export template compilation using SCons.
+- [`docs/HARDWARE_CAPABILITIES.md`](docs/HARDWARE_CAPABILITIES.md) — Hardware capabilities and video encoder comparison matrix.
+- [`docs/QUICK_REFERENCE.md`](docs/QUICK_REFERENCE.md) — Command-line utility and control center action quick reference cheatsheet.

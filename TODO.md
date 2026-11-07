@@ -1,50 +1,14 @@
-# bobzzite Short-Term TODO List
+# Bobzzite OS - Granular Task List (TODO)
 
-## Immediate Tasks (Sprint 2.3.0)
-- [x] Fix missing `config/files/` directory in Containerfile
-- [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
-- [x] Create build validation script (`scripts/validate_build.py`)
-- [x] Add release identification `/etc/bobzzite-release`
-- [x] Create complete governance docs suite (`VISION.md`, `ROADMAP.md`, `DEPLOY.md`, `IDEAS.md`, `MEMORY.md`, `CHANGELOG.md`, `HANDOFF.md`)
-- [x] Create indie dev suite installer `scripts/install-indie-tools.sh`
-- [x] Hook indie dev tool installer into `scripts/post-install.sh`
-- [x] Create Godot 4 + VS Codium integration script `scripts/configure-godot-codium.sh`
-- [x] Add Godot 4 editor external settings template and starter game project template in `/etc/skel/`
-- [x] Create user desktop application shortcuts (`bobzzite-dev-tools.desktop`, `bobzzite-godot-starter.desktop`)
-- [x] Install global helper scripts in `/usr/local/bin`
-- [x] Create comprehensive User Guide (`docs/USER_GUIDE.md`) with architecture diagram and FAQ
-- [x] Add GitHub Actions CI smoke test step using `scripts/validate_build.py`
-- [x] Add Containerfile image version metadata label
-- [x] Expand README.md with full command reference and documentation index
-- [x] Add custom Plymouth boot splash theme in `branding/plymouth/bobzzite/`
-- [x] Add custom SDDM login greeter theme in `branding/sddm/bobzzite/`
-- [x] Add Fastfetch system terminal branding profile in `config/files/etc/fastfetch/`
-- [x] Create unified Bobzzite Control Center GUI dashboard (`scripts/bobzzite-control-center.py`)
-- [x] Add launcher `config/files/etc/skel/.local/share/applications/bobzzite-control-center.desktop`
-- [x] Add Distrobox container management tool (`scripts/bobzzite-devbox.sh`)
-- [x] Document bootable ISO generation via Universal Blue isogenerator (`docs/ISO_BUILD.md`)
-- [x] Install `bobzzite-validate` into `/usr/local/bin` and ensure resilient path resolution in Control Center
-- [x] Add first-boot onboarding wizard (`scripts/bobzzite-onboarding.sh` and autostart launcher)
-- [x] Add ambient system sound theme (`branding/sounds/bobzzite/`)
-- [x] Add P2P mesh networking & remote collaboration manager (`scripts/bobzzite-mesh.sh` and `docs/MULTIPLAYER.md`)
-- [x] Add System Doctor health diagnostics tool (`scripts/bobzzite-doctor.sh` and `docs/DIAGNOSTICS.md`)
-- [x] Add multi-hardware flavor build automation (`scripts/build-flavors.sh` and CI matrix)
-- [x] Document hardware target matrix in `docs/HARDWARE_FLAVORS.md`
-- [x] Add atomic rollback, ostree pinning, and dev snapshot utility (`scripts/bobzzite-backup.sh` and `docs/BACKUP_ROLLBACK.md`)
-- [x] Add Flatpak packaging manifests for bobzilla and bobfilez (`packages/flatpak/`)
-- [x] Add Flatpak builder script (`scripts/build-flatpaks.sh` and `docs/FLATPAK_PACKAGING.md`)
-- [x] Add system performance & latency tuning tool (`scripts/bobzzite-tweak.sh` and `docs/PERFORMANCE_TUNING.md`)
-- [x] Add game controller and handheld PC mapping utility (`scripts/bobzzite-gamepad.sh` and `docs/CONTROLLER_SUPPORT.md`)
-- [x] Add System Tray Monitor applet (`scripts/bobzzite-tray.py` and autostart launcher)
-- [x] Add automated system cache and Flatpak pruning tool (`scripts/bobzzite-clean.sh` and `docs/MAINTENANCE.md`)
-- [x] Wire "Purge System Caches" action into unified Bobzzite Control Center
-- [x] Major release 2.0.0 milestone completed
-- [x] Implement automated system benchmark & hardware profiler (`bobzzite-bench.sh` and `docs/BENCHMARKS.md`)
-- [x] Add "Run Benchmark" action into Bobzzite Control Center
-- [x] Release 2.1.0 milestone completed
-- [x] Implement automated audio server diagnostic & switcher (`bobzzite-audio.sh` and `docs/AUDIO_SETUP.md`)
-- [x] Add "Audio & PipeWire" action into Bobzzite Control Center
-- [x] Release 2.2.0 milestone completed
-- [x] Enhance multi-hardware flavor build engine (`scripts/build-flavors.sh`)
-- [x] Wire "Hardware Flavors" action into Bobzzite Control Center
-- [x] Release 2.3.0 milestone completed
+## Active Sprint: v4.4.0 Release Verification & Polish
+- [x] Add `compare` action to `scripts/build-flavors.sh` producing side-by-side matrix table.
+- [x] Add `export-profile` action generating machine-readable JSON hardware specifications.
+- [x] Wire "Compare Profiles" button into `bobzzite-control-center` GUI with descriptive tooltip.
+- [x] Document comparison matrix in `docs/HARDWARE_MATRIX_COMPARISON.md`.
+- [x] Update `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate`.
+- [x] Bump release version to v4.4.0 across `VERSION.md`, `Containerfile`, and `bobzzite-release`.
+
+## Upcoming Enhancements
+- [ ] Add ARM64 cross-compilation target profile to `scripts/build-flavors.sh`.
+- [ ] Provide WebRTC-based remote desktop streaming helper script.
+- [ ] Create automated headless CI pipeline in `.github/workflows/build.yml`.

@@ -3,7 +3,6 @@
 
 import os
 import sys
-import re
 
 def check_containerfile_copies():
     containerfile = "Containerfile"
@@ -51,6 +50,17 @@ def check_scripts():
         "scripts/bobzzite-clean.sh",
         "scripts/bobzzite-bench.sh",
         "scripts/bobzzite-audio.sh",
+        "scripts/bobzzite-deploy.sh",
+        "scripts/bobzzite-stream.sh",
+        "scripts/bobzzite-package.sh",
+        "scripts/bobzzite-vr.sh",
+        "scripts/bobzzite-assets.sh",
+        "scripts/bobzzite-i18n.sh",
+        "scripts/bobzzite-test.sh",
+        "scripts/bobzzite-export-templates.sh",
+        "scripts/bobzzite-hardware-audit.sh",
+        "scripts/bobzzite-gdextension.sh",
+        "scripts/bobzzite-iso.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -100,7 +110,26 @@ def check_required_docs():
         "docs/CONTROLLER_SUPPORT.md",
         "docs/MAINTENANCE.md",
         "docs/BENCHMARKS.md",
-        "docs/AUDIO_SETUP.md"
+        "docs/AUDIO_SETUP.md",
+        "docs/STREAMING.md",
+        "docs/BUILD_HEALTH.md",
+        "docs/GAME_PACKAGING.md",
+        "docs/VR_SETUP.md",
+        "docs/HARDWARE_DETECTION.md",
+        "docs/HARDWARE_MATRIX_TESTING.md",
+        "docs/HARDWARE_MATRIX_PROFILES.md",
+        "docs/ASSET_PIPELINE.md",
+        "docs/LOCALIZATION.md",
+        "docs/AUTOMATED_TESTING.md",
+        "docs/HARDWARE_CUSTOMIZATION.md",
+        "docs/GODOT_CODIUM_INTEGRATION.md",
+        "docs/EXPORT_TEMPLATES.md",
+        "docs/HARDWARE_CAPABILITIES.md",
+        "docs/QUICK_REFERENCE.md",
+        "docs/HARDWARE_COMPLIANCE.md",
+        "docs/GDEXTENSION_GUIDE.md",
+        "docs/HARDWARE_PROFILES_INTEGRATION.md",
+        "docs/HARDWARE_MATRIX_COMPARISON.md"
     ]
     errors = 0
     for doc in required_docs:

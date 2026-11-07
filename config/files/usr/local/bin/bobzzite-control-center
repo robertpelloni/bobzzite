@@ -112,6 +112,36 @@ class BobzziteControlCenter:
         b3.grid(row=0, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(b3, "Wires Godot GDScript LSP port 6005, installs extensions, and sets Flatpak socket permissions.")
 
+        b4 = ttk.Button(btn_grid, text="📦 Package Game Project",
+                        command=lambda: self.run_async("bobzzite-package", "Packaging Godot 4 game project to Linux release..."))
+        b4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(b4, "Builds and exports standalone Linux binaries and resource packages headlessly.")
+
+        b5 = ttk.Button(btn_grid, text="🎨 Optimize Game Assets",
+                        command=lambda: self.run_async("bobzzite-assets", "Analyzing and optimizing textures & audio..."))
+        b5.grid(row=1, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(b5, "Scans and optimizes PNG textures and transcodes streaming audio for Godot projects.")
+
+        b6 = ttk.Button(btn_grid, text="🌐 Localization & i18n",
+                        command=lambda: self.run_async("bobzzite-i18n", "Scanning translation tables and string catalogs..."))
+        b6.grid(row=1, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(b6, "Extracts, generates, and compiles multi-language CSV and gettext translation tables.")
+
+        b7 = ttk.Button(btn_grid, text="🧪 Run Game Tests",
+                        command=lambda: self.run_async("bobzzite-test", "Running headless game unit tests & syntax checks..."))
+        b7.grid(row=2, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(b7, "Runs headless GDScript syntax validation, scene integrity scans, and unit tests.")
+
+        b8 = ttk.Button(btn_grid, text="⚙️ Export Templates",
+                        command=lambda: self.run_async("bobzzite-export-templates", "Inspecting Godot custom template parameters..."))
+        b8.grid(row=2, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(b8, "Compiles and configures custom, size-optimized Godot 4 export templates.")
+
+        b9 = ttk.Button(btn_grid, text="⚡ GDExtension (C++/Rust)",
+                        command=lambda: self.run_async("bobzzite-gdextension", "Scanning GDExtension native manifests..."))
+        b9.grid(row=3, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        ToolTip(b9, "Scaffolds and validates high-performance native C++ and godot-rust GDExtensions.")
+
         btn_grid.columnconfigure(0, weight=1)
         btn_grid.columnconfigure(1, weight=1)
         btn_grid.columnconfigure(2, weight=1)
@@ -178,9 +208,33 @@ class BobzziteControlCenter:
         h5.grid(row=1, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h5, "Queries status of Tailscale mesh networking and Syncthing P2P syncing.")
 
-        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("scripts/build-flavors.sh all manifest", "Inspecting Hardware Flavor Profiles & Bases..."))
-        h_flavors.grid(row=4, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
-        ToolTip(h_flavors, "Displays target matrix specifications for Desktop AMD/Intel, Handhelds, and NVIDIA builds.")
+        h_flavors = ttk.Button(hw_grid, text="Hardware Flavors", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all inspect; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all inspect; else echo 'Build flavors script not found'; fi", "Inspecting Hardware Flavor Profiles & Acceleration..."))
+        h_flavors.grid(row=4, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_flavors, "Inspects hardware profiles, base image URIs, compositors, and GPU acceleration.")
+
+        h_compare = ttk.Button(hw_grid, text="Compare Profiles", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all compare; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all compare; else echo 'Build flavors script not found'; fi", "Generating Side-by-Side Hardware Comparison Matrix..."))
+        h_compare.grid(row=4, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_compare, "Compares compositors, display leasing, audio buffers, and drivers across flavors side-by-side.")
+
+        h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
+        h_deploy.grid(row=7, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
+
+        h_iso = ttk.Button(hw_grid, text="Generate ISO", command=lambda: self.run_async("bobzzite-iso bobzzite", "Generating bootable installer media scripts..."))
+        h_iso.grid(row=6, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_iso, "Configures and generates bootable installation ISOs using the Universal Blue isogenerator.")
+
+        h_stream = ttk.Button(hw_grid, text="Game Streaming", command=lambda: self.run_async("bobzzite-stream status", "Inspecting Sunshine streaming host & video encoders..."))
+        h_stream.grid(row=5, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_stream, "Manages Sunshine game streaming host and Moonlight client pairing for remote playtests.")
+
+        h_vr = ttk.Button(hw_grid, text="VR & OpenXR", command=lambda: self.run_async("bobzzite-vr status", "Probing VR headsets, DRM leasing & OpenXR runtimes..."))
+        h_vr.grid(row=5, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_vr, "Checks connected VR headsets, Wayland DRM display leasing, and OpenXR runtime configuration.")
+
+        h_audit = ttk.Button(hw_grid, text="Hardware Audit", command=lambda: self.run_async("bobzzite-hardware-audit", "Auditing hardware compliance across flavor requirements..."))
+        h_audit.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_audit, "Audits CPU, GPU rendering, PipeWire audio, and controller compliance for Bobzzite OS.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
@@ -195,7 +249,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=3, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=8, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)
