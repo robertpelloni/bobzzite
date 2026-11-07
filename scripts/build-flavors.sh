@@ -13,8 +13,8 @@
 set -euo pipefail
 
 FLAVOR="${1:-all}"
-ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar | test-matrix | bench-matrix | config
-IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "3.5.0")}"
+ACTION="${2:-build}" # build | check | dry-run | manifest | export-tar | test-matrix | bench-matrix | config | summary
+IMAGE_VERSION="${3:-$(cat VERSION.md 2>/dev/null || echo "3.8.0")}"
 BUILD_TOOL="${BUILD_TOOL:-docker}"
 EXPORT_DIR="${EXPORT_DIR:-/tmp/bobzzite-flavors}"
 CONFIG_FILE="${CONFIG_FILE:-.flavor-config.env}"
@@ -111,6 +111,25 @@ esac)"
 EOF
             echo -e "  ${BOLD}${GREEN}✔ Configuration exported to ${CONFIG_FILE}.${NC}\n"
             ;;
+        summary)
+            echo -e "  [SUMMARY] Hardware Flavor Architecture Matrix:"
+            echo -e "    • Flavor Name     : ${BOLD}${target_flavor}${NC}"
+            echo -e "    • Base Image      : ${CYAN}${base_image}${NC}"
+            echo -e "    • Compositor      : $(case "$target_flavor" in
+                bobzzite-deck) echo "Gamescope (Steam Gamepad UI) + KWin Wayland";;
+                *) echo "KDE Plasma 6 (KWin Wayland)";;
+            esac)"
+            echo -e "    • Video Encoders  : $(case "$target_flavor" in
+                bobzzite-deck) echo "VA-API / AMF (RDNA 2/3 hardware encode)";;
+                bobzzite-nvidia) echo "NVENC / NVDEC (NVIDIA Optical Flow)";;
+                bobzzite) echo "VA-API / Intel QuickSync / AMF";;
+            esac)"
+            echo -e "    • Primary Devices : $(case "$target_flavor" in
+                bobzzite-deck) echo "Steam Deck (LCD/OLED), ROG Ally, Legion Go, AYANEO";;
+                bobzzite-nvidia) echo "GeForce RTX 20/30/40, GTX 16xx (Desktops/Laptops)";;
+                bobzzite) echo "AMD Radeon RX 5000-7000, Intel Arc, UHD Graphics";;
+            esac)\n"
+            ;;
         bench-matrix)
             echo -e "  [BENCH-MATRIX] Profiling hardware flavor architecture specifications..."
             echo -e "    • Target Flavor     : ${BOLD}${target_flavor}${NC}"
@@ -174,7 +193,7 @@ case "$FLAVOR" in
         process_flavor "bobzzite-nvidia"
         ;;
     *)
-        echo "Usage: $0 [all|bobzzite|bobzzite-deck|bobzzite-nvidia] [build|check|dry-run|manifest|export-tar|test-matrix|bench-matrix|config] [version]"
+        echo "Usage: $0 [all|bobzzite|bobzzite-deck|bobzzite-nvidia] [build|check|dry-run|manifest|export-tar|test-matrix|bench-matrix|config|summary] [version]"
         exit 1
         ;;
 esac

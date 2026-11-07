@@ -1,6 +1,6 @@
 # bobzzite Short-Term TODO List
 
-## Immediate Tasks (Sprint 3.7.0)
+## Immediate Tasks (Sprint 3.8.0)
 - [x] Fix missing `config/files/` directory in Containerfile
 - [x] Fix missing `branding/wallpapers/` and `branding/icons/` in Containerfile
 - [x] Create build validation script (`scripts/validate_build.py`)
@@ -87,3 +87,5 @@
 - [x] Implement custom Godot 4 export template compiler tool (`bobzzite-export-templates.sh` and `docs/EXPORT_TEMPLATES.md`)
 - [x] Wire "Export Templates" into Bobzzite Control Center
 - [x] Release 3.7.0 milestone completed
+- [x] Implement multi-flavor summary matrix (`scripts/build-flavors.sh all summary` and `docs/HARDWARE_CAPABILITIES.md`)
+- [x] Release 3.8.0 milestone completed

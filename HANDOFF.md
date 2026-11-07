@@ -2,8 +2,10 @@
 
 ## Session Overview
 - **Repository**: `bobzzite` (Universal Blue / Bazzite derivative for gaming and bob ecosystem)
-- **Current Version**: `3.7.0` (tracked in `VERSION.md`)
+- **Current Version**: `3.8.0` (tracked in `VERSION.md`)
 - **Key Features & Enhancements**:
+  - Multi-flavor architecture summary matrix action (`scripts/build-flavors.sh all summary`).
+  - Hardware capabilities and video encoder comparison guide authored in `docs/HARDWARE_CAPABILITIES.md`.
   - Custom Godot 4 export template compiler tool (`scripts/bobzzite-export-templates.sh` and `/usr/local/bin/bobzzite-export-templates`).
   - Export template customization guide authored in `docs/EXPORT_TEMPLATES.md`.
   - Integrated "Export Templates" action into the unified Bobzzite Control Center dashboard UI.

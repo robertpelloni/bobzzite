@@ -120,7 +120,8 @@ def check_required_docs():
         "docs/AUTOMATED_TESTING.md",
         "docs/HARDWARE_CUSTOMIZATION.md",
         "docs/GODOT_CODIUM_INTEGRATION.md",
-        "docs/EXPORT_TEMPLATES.md"
+        "docs/EXPORT_TEMPLATES.md",
+        "docs/HARDWARE_CAPABILITIES.md"
     ]
     errors = 0
     for doc in required_docs:
