@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [6.9.0] - 2025-05-18
+
+### Added
+- **OpenXR Eye-Tracking Calibration & Dynamic Foveated Rendering (`bobzzite-eye-track`)**:
+  - Implemented `scripts/bobzzite-eye-track.sh` (mirrored to `config/files/usr/local/bin/bobzzite-eye-track`) managing `XR_EXT_eye_gaze_interaction` extensions, 5-point calibration matrix, and Vulkan Tier 2 VRS dynamic foveated rendering.
+  - Authored comprehensive guide in `docs/VR_EYE_TRACKING.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "XR Eye Tracking" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-eye-track.sh` and `VR_EYE_TRACKING.md`.
+
+---
+
 ## [6.8.0] - 2025-05-18
 
 ### Added

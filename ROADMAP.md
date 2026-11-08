@@ -57,4 +57,5 @@
 - [x] Automated telemetry Prometheus exporter gateway (`bobzzite-metrics`, `docs/PROMETHEUS_METRICS.md`).
 - [x] Hardware profile comparison data matrices (`docs/HARDWARE_PROFILE_COMPARISON_DATA.md`).
 - [x] Automated CI benchmark regression gatekeeper (`bobzzite-bench-gate`, `docs/BENCHMARK_GATEKEEPER.md`).
-- [ ] Implement automated OpenXR eye-tracking calibration utility (`bobzzite-eye-track`).
+- [x] OpenXR eye-tracking calibration & dynamic foveated rendering (`bobzzite-eye-track`, `docs/VR_EYE_TRACKING.md`).
+- [ ] Implement automated zero-trust kernel module lockdown validator (`bobzzite-lockdown`).

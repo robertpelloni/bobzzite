@@ -272,32 +272,36 @@ class BobzziteControlCenter:
         h_vr.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_vr, "Checks connected VR headsets, Wayland DRM display leasing, and OpenXR runtime configuration.")
 
+        h_eye = ttk.Button(hw_grid, text="XR Eye Tracking", command=lambda: self.run_async("if command -v bobzzite-eye-track >/dev/null 2>&1; then bobzzite-eye-track status; elif [ -f scripts/bobzzite-eye-track.sh ]; then ./scripts/bobzzite-eye-track.sh status; else echo 'Eye track script not found'; fi", "Probing XR Eye-Tracking Extensions & Calibration..."))
+        h_eye.grid(row=6, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_eye, "Manages OpenXR eye-tracking extensions, 5-point calibration matrix, and dynamic foveated rendering.")
+
         h_iso = ttk.Button(hw_grid, text="Generate ISO", command=lambda: self.run_async("bobzzite-iso bobzzite", "Generating bootable installer media scripts..."))
-        h_iso.grid(row=6, column=1, padx=6, pady=4, sticky="ew")
+        h_iso.grid(row=7, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_iso, "Configures and generates bootable installation ISOs using the Universal Blue isogenerator.")
 
         h_audit = ttk.Button(hw_grid, text="Hardware Audit", command=lambda: self.run_async("bobzzite-hardware-audit", "Auditing hardware compliance across flavor requirements..."))
-        h_audit.grid(row=7, column=0, padx=6, pady=4, sticky="ew")
+        h_audit.grid(row=7, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_audit, "Audits CPU, GPU rendering, PipeWire audio, and controller compliance for Bobzzite OS.")
 
         h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
-        h_deploy.grid(row=7, column=1, padx=6, pady=4, sticky="ew")
+        h_deploy.grid(row=8, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
 
         h_val_prof = ttk.Button(hw_grid, text="Validate Profiles", command=lambda: self.run_async("if command -v bobzzite-profile-validate >/dev/null 2>&1; then bobzzite-profile-validate all; elif [ -f scripts/bobzzite-profile-validate.sh ]; then ./scripts/bobzzite-profile-validate.sh all; else echo 'Profile validate script not found'; fi", "Auditing Hardware JSON Profiles & Assertions..."))
-        h_val_prof.grid(row=8, column=0, padx=6, pady=4, sticky="ew")
+        h_val_prof.grid(row=9, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_val_prof, "Verifies that all target flavor profiles satisfy compositor, driver, and audio buffer constraints.")
 
         h_prof_an = ttk.Button(hw_grid, text="Profile Analysis", command=lambda: self.run_async("bobzzite-deploy profile-analyze", "Analyzing host hardware fit against target flavor profiles..."))
-        h_prof_an.grid(row=8, column=1, padx=6, pady=4, sticky="ew")
+        h_prof_an.grid(row=9, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_prof_an, "Calculates fit percentage and flavor migration recommendations for this physical machine.")
 
         h_compat = ttk.Button(hw_grid, text="Hardware Compatibility", command=lambda: self.run_async("if command -v bobzzite-compat >/dev/null 2>&1; then bobzzite-compat check; elif [ -f scripts/bobzzite-compat.sh ]; then ./scripts/bobzzite-compat.sh check; else echo 'Compat script not found'; fi", "Auditing broad hardware compatibility tier & instructions..."))
-        h_compat.grid(row=9, column=0, padx=6, pady=4, sticky="ew")
+        h_compat.grid(row=10, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_compat, "Audits CPU instruction sets (AVX2), GPU backends, and assigns compatibility tier.")
 
         h_multi_arch = ttk.Button(hw_grid, text="Multi-Arch Targets", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all multi-arch; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all multi-arch; else echo 'Build flavors script not found'; fi", "Querying multi-architecture build targets (x86_64, aarch64)..."))
-        h_multi_arch.grid(row=9, column=1, padx=6, pady=4, sticky="ew")
+        h_multi_arch.grid(row=10, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_multi_arch, "Displays multi-architecture compilation targets for x86_64 and ARM64 SBCs/laptops.")
 
         h_catalog = ttk.Button(hw_grid, text="Hardware Profiles Catalog", command=lambda: self.run_async("ls -la hardware_profiles/", "Listing version-controlled hardware profile JSON catalog..."))
@@ -345,7 +349,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=15, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=16, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

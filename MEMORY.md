@@ -21,5 +21,7 @@
   - Side-by-side hardware profile comparison data is documented in `docs/HARDWARE_PROFILE_COMPARISON_DATA.md`.
 - **CI Benchmark Regression Gatekeeper**:
   - `bobzzite-bench-gate` (`scripts/bobzzite-bench-gate.sh`) enforces compute SLA baselines and blocks builds on performance degradation.
+- **OpenXR Eye Tracking & Dynamic Foveated Rendering**:
+  - `bobzzite-eye-track` (`scripts/bobzzite-eye-track.sh`) manages XR_EXT_eye_gaze_interaction, VRS Tier 2 foveation, and 5-point calibration.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.
