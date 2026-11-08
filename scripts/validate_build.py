@@ -179,7 +179,8 @@ def check_required_docs():
         "docs/BENCHMARK_GATEKEEPER.md",
         "docs/VR_EYE_TRACKING.md",
         "docs/KERNEL_LOCKDOWN.md",
-        "docs/SHADER_CACHE_MANAGEMENT.md"
+        "docs/SHADER_CACHE_MANAGEMENT.md",
+        "docs/HARDWARE_DEPLOY_PROFILES.md"
     ]
     errors = 0
     for doc in required_docs:

@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.2.0] - 2025-05-18
+
+### Added
+- **Hardware Profile Comparison & Inspector Integration in `bobzzite-deploy`**:
+  - Enhanced `scripts/bobzzite-deploy.sh` (mirrored to `config/files/usr/local/bin/bobzzite-deploy`) with `profile-inspect` and `profile-compare` subcommands.
+  - Authored comprehensive guide in `docs/HARDWARE_DEPLOY_PROFILES.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Inspect Target Profile" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `HARDWARE_DEPLOY_PROFILES.md`.
+
+---
+
 ## [7.1.0] - 2025-05-18
 
 ### Added

@@ -294,8 +294,12 @@ class BobzziteControlCenter:
         ToolTip(h_audit, "Audits CPU, GPU rendering, PipeWire audio, and controller compliance for Bobzzite OS.")
 
         h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
-        h_deploy.grid(row=8, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_deploy.grid(row=8, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
+
+        h_dep_insp = ttk.Button(hw_grid, text="Inspect Target Profile", command=lambda: self.run_async("bobzzite-deploy profile-inspect bobzzite-deck", "Inspecting Steam Deck target profile..."))
+        h_dep_insp.grid(row=8, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_dep_insp, "Inspects hardware profile JSON specifications via bobzzite-deploy.")
 
         h_val_prof = ttk.Button(hw_grid, text="Validate Profiles", command=lambda: self.run_async("if command -v bobzzite-profile-validate >/dev/null 2>&1; then bobzzite-profile-validate all; elif [ -f scripts/bobzzite-profile-validate.sh ]; then ./scripts/bobzzite-profile-validate.sh all; else echo 'Profile validate script not found'; fi", "Auditing Hardware JSON Profiles & Assertions..."))
         h_val_prof.grid(row=9, column=0, padx=6, pady=4, sticky="ew")

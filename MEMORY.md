@@ -27,5 +27,7 @@
   - `bobzzite-lockdown` (`scripts/bobzzite-lockdown.sh`) audits EFI Secure Boot, kernel lockdown mode (`integrity`), and IOMMU device memory protections.
 - **Godot 4 Shader Pre-Compilation Caching**:
   - `bobzzite-shader-cache` (`scripts/bobzzite-shader-cache.sh`) pre-warms and exports Vulkan SPIR-V shader bytecode pipelines to prevent in-game compilation micro-stutters.
+- **Hardware Profile Deployment & Comparison Integration**:
+  - `bobzzite-deploy` (`scripts/bobzzite-deploy.sh`) now integrates `profile-inspect` and `profile-compare` directly to streamline atomic rebase decisions.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

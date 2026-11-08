@@ -125,6 +125,36 @@ case "${TARGET}" in
         analyze_hardware_profile
         ;;
 
+    profile-inspect|inspect)
+        FLAVOR="${2:-bobzzite}"
+        echo -e "${YELLOW}Inspecting Hardware Profile Specification: ${BOLD}${FLAVOR}${NC}"
+        PROFILES_DIR="/usr/share/bobzzite/hardware_profiles"
+        if [ ! -d "$PROFILES_DIR" ] && [ -d "hardware_profiles" ]; then
+            PROFILES_DIR="hardware_profiles"
+        fi
+        PROFILE_FILE="${PROFILES_DIR}/${FLAVOR}.json"
+        if [ -f "$PROFILE_FILE" ]; then
+            cat "$PROFILE_FILE"
+        else
+            echo -e "${RED}Error: Hardware profile ${PROFILE_FILE} not found.${NC}"
+            exit 1
+        fi
+        ;;
+
+    profile-compare|compare)
+        FLAVOR1="${2:-bobzzite}"
+        FLAVOR2="${3:-bobzzite-deck}"
+        echo -e "${YELLOW}Comparing Hardware Profiles: ${BOLD}${FLAVOR1} ⇄ ${FLAVOR2}${NC}"
+        if command -v bobzzite-diff >/dev/null 2>&1; then
+            bobzzite-diff "$FLAVOR1" "$FLAVOR2" terminal
+        elif [ -f scripts/bobzzite-diff.sh ]; then
+            ./scripts/bobzzite-diff.sh "$FLAVOR1" "$FLAVOR2" terminal
+        else
+            echo "bobzzite-diff tool not found."
+            exit 1
+        fi
+        ;;
+
     status)
         echo -e "${YELLOW}Querying active OS deployment and staged refs:${NC}"
         if command -v rpm-ostree >/dev/null 2>&1; then
@@ -168,7 +198,7 @@ case "${TARGET}" in
         ;;
 
     *)
-        echo "Usage: bobzzite-deploy [status|detect|profile-analyze|bobzzite|bobzzite-deck|bobzzite-nvidia] [registry|oci-archive]"
+        echo "Usage: bobzzite-deploy [status|detect|profile-analyze|profile-inspect|profile-compare|bobzzite|bobzzite-deck|bobzzite-nvidia] [flavor|registry|oci-archive]"
         exit 1
         ;;
 esac
