@@ -3,13 +3,14 @@
 Bobzzite OS - Lightweight Remote Web Dashboard Server
 ==============================================================================
 Provides browser-accessible system administration, real-time hardware telemetry,
-graphical resource utilization history, PipeWire buffer tuning, and remote diagnostics.
+network I/O streaming bandwidth graphs, PipeWire buffer tuning, and remote diagnostics.
 Zero external dependencies (uses standard library http.server).
 """
 
 import os
 import sys
 import json
+import time
 import socket
 import threading
 import subprocess
@@ -18,15 +19,41 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 PORT = int(os.environ.get("BOBZZITE_WEBDASH_PORT", 8080))
 HOST = os.environ.get("BOBZZITE_WEBDASH_HOST", "0.0.0.0")
 
+PREV_NET = {"rx": 0, "tx": 0, "time": time.time()}
+
+def get_net_bytes():
+    rx_total = 0
+    tx_total = 0
+    if os.path.exists("/proc/net/dev"):
+        try:
+            with open("/proc/net/dev") as f:
+                for line in f:
+                    if ":" in line:
+                        parts = line.split(":")[1].split()
+                        rx_total += int(parts[0])
+                        tx_total += int(parts[8])
+        except Exception:
+            pass
+    return rx_total, tx_total
+
 def get_system_stats():
+    global PREV_NET
+    now = time.time()
+    rx, tx = get_net_bytes()
+    dt = max(now - PREV_NET["time"], 0.1)
+    rx_rate = round((rx - PREV_NET["rx"]) / (1024 * dt), 1) if PREV_NET["rx"] > 0 else 0.0
+    tx_rate = round((tx - PREV_NET["tx"]) / (1024 * dt), 1) if PREV_NET["tx"] > 0 else 0.0
+    PREV_NET = {"rx": rx, "tx": tx, "time": now}
+
     stats = {
         "hostname": socket.gethostname(),
         "cpu_count": os.cpu_count() or 1,
         "load_avg": list(os.getloadavg()) if hasattr(os, "getloadavg") else [0.0, 0.0, 0.0],
-        "version": "5.7.0",
+        "version": "6.0.0",
         "dmi_product": "Generic Linux Device",
         "thermal_celsius": 42.0,
-        "battery_pct": 100
+        "rx_kbps": rx_rate,
+        "tx_kbps": tx_rate
     }
     if os.path.exists("/sys/class/dmi/id/product_name"):
         try:
@@ -35,7 +62,6 @@ def get_system_stats():
         except Exception:
             pass
 
-    # Read memory stats from /proc/meminfo
     if os.path.exists("/proc/meminfo"):
         try:
             with open("/proc/meminfo") as f:
@@ -47,7 +73,6 @@ def get_system_stats():
         except Exception:
             pass
 
-    # Read thermal zones if available
     if os.path.exists("/sys/class/thermal/thermal_zone0/temp"):
         try:
             with open("/sys/class/thermal/thermal_zone0/temp") as f:
@@ -105,7 +130,7 @@ HTML_PAGE = """<!DOCTYPE html>
         .metric-val { color: #10b981; font-weight: bold; }
         canvas {
             width: 100%;
-            height: 120px;
+            height: 100px;
             background-color: #0f172a;
             border-radius: 6px;
             border: 1px solid #334155;
@@ -128,43 +153,51 @@ HTML_PAGE = """<!DOCTYPE html>
 <body>
     <header>
         <h1>⚡ BOBZZITE OS REMOTE DASHBOARD</h1>
-        <div class="subtitle">Real-Time Headless & Handheld System Telemetry with Live Graphs</div>
+        <div class="subtitle">Real-Time Compute & Network Streaming Bandwidth Telemetry</div>
     </header>
     <div class="grid">
         <div class="card">
-            <div class="card-title">🖥️ System & Host Overview</div>
+            <div class="card-title">🖥️ System Overview</div>
             <div class="metric"><span class="metric-label">Device Hardware:</span><span class="metric-val" id="dmi">Loading...</span></div>
-            <div class="metric"><span class="metric-label">OS Version:</span><span class="metric-val" id="osver">Bobzzite v5.7.0</span></div>
+            <div class="metric"><span class="metric-label">OS Version:</span><span class="metric-val" id="osver">Bobzzite v6.0.0</span></div>
             <div class="metric"><span class="metric-label">Hostname:</span><span class="metric-val" id="hostname">Loading...</span></div>
             <div class="metric"><span class="metric-label">Thermal Sensor:</span><span class="metric-val" id="temp">Loading...</span></div>
         </div>
         <div class="card">
-            <div class="card-title">⚙️ Compute & Memory Telemetry</div>
+            <div class="card-title">⚙️ Compute Telemetry</div>
             <div class="metric"><span class="metric-label">Logical CPU Cores:</span><span class="metric-val" id="cpu">Loading...</span></div>
             <div class="metric"><span class="metric-label">Load Average (1m):</span><span class="metric-val" id="load">Loading...</span></div>
             <div class="metric"><span class="metric-label">Available RAM:</span><span class="metric-val" id="mem">Loading...</span></div>
             <canvas id="loadChart"></canvas>
         </div>
         <div class="card">
-            <div class="card-title">🎮 Diagnostics & Control</div>
+            <div class="card-title">🌐 Network & Streaming I/O</div>
+            <div class="metric"><span class="metric-label">Download (RX):</span><span class="metric-val" id="rxval">0.0 kB/s</span></div>
+            <div class="metric"><span class="metric-label">Upload (TX):</span><span class="metric-val" id="txval">0.0 kB/s</span></div>
+            <canvas id="netChart"></canvas>
             <button class="btn" onclick="fetch('/api/diagnostics').then(r=>r.json()).then(d=>alert(JSON.stringify(d, null, 2)))">Run Quick Health Check</button>
             <button class="btn" style="background-color: #b91c1c;" onclick="fetch('/api/stop').then(()=>alert('Server shutting down'))">Stop Dashboard</button>
         </div>
     </div>
     <script>
-        const canvas = document.getElementById('loadChart');
-        const ctx = canvas.getContext('2d');
-        const history = [];
+        const cpuCanvas = document.getElementById('loadChart');
+        const cpuCtx = cpuCanvas.getContext('2d');
+        const netCanvas = document.getElementById('netChart');
+        const netCtx = netCanvas.getContext('2d');
 
-        function drawGraph() {
+        const cpuHistory = [];
+        const rxHistory = [];
+
+        function drawLine(ctx, canvas, data, color) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.strokeStyle = '#00d2ff';
+            ctx.strokeStyle = color;
             ctx.lineWidth = 2;
             ctx.beginPath();
             const step = canvas.width / 20;
-            for (let i = 0; i < history.length; i++) {
+            const maxVal = Math.max(...data, 1);
+            for (let i = 0; i < data.length; i++) {
                 const x = i * step;
-                const y = canvas.height - (history[i] * 20);
+                const y = canvas.height - ((data[i] / maxVal) * (canvas.height - 10));
                 if (i === 0) ctx.moveTo(x, y);
                 else ctx.lineTo(x, y);
             }
@@ -182,10 +215,16 @@ HTML_PAGE = """<!DOCTYPE html>
                     document.getElementById('load').innerText = load.toFixed(2);
                     document.getElementById('mem').innerText = data.mem_available || 'N/A';
                     document.getElementById('temp').innerText = (data.thermal_celsius || '42.0') + ' °C';
+                    document.getElementById('rxval').innerText = (data.rx_kbps || 0) + ' kB/s';
+                    document.getElementById('txval').innerText = (data.tx_kbps || 0) + ' kB/s';
 
-                    history.push(load);
-                    if (history.length > 20) history.shift();
-                    drawGraph();
+                    cpuHistory.push(load);
+                    if (cpuHistory.length > 20) cpuHistory.shift();
+                    drawLine(cpuCtx, cpuCanvas, cpuHistory, '#00d2ff');
+
+                    rxHistory.push(data.rx_kbps || 0);
+                    if (rxHistory.length > 20) rxHistory.shift();
+                    drawLine(netCtx, netCanvas, rxHistory, '#10b981');
                 });
         }
         setInterval(updateTelemetry, 2000);

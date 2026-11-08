@@ -292,6 +292,10 @@ class BobzziteControlCenter:
         h_telem.grid(row=11, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_telem, "Inspects real-time CPU load averages and memory utilization telemetry.")
 
+        h_net = ttk.Button(hw_grid, text="Network I/O Telemetry", command=lambda: self.run_async("cat /proc/net/dev | head -n4", "Probing network streaming interface bandwidth..."))
+        h_net.grid(row=13, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_net, "Inspects real-time RX/TX network byte counters and streaming bitrate deltas.")
+
         h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
         h_summary.grid(row=12, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_summary, "Generates an aggregated hardware profile summary matrix directly from hardware_profiles/.")
@@ -313,7 +317,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=14, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=15, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

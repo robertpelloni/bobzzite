@@ -157,7 +157,8 @@ def check_required_docs():
         "docs/SECURITY_AUDITING.md",
         "docs/HARDWARE_TELEMETRY.md",
         "docs/HARDWARE_PROFILE_SUMMARY.md",
-        "docs/HARDWARE_COMPATIBILITY_REPORT.md"
+        "docs/HARDWARE_COMPATIBILITY_REPORT.md",
+        "docs/NETWORK_TELEMETRY.md"
     ]
     errors = 0
     for doc in required_docs:

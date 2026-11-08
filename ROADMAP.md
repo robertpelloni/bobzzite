@@ -46,3 +46,8 @@
 - [x] Live hardware performance telemetry graphs and guide (`docs/HARDWARE_TELEMETRY.md`).
 - [x] Comprehensive hardware profile summary matrix generator (`bobzzite-summary`) and guide (`docs/HARDWARE_PROFILE_SUMMARY.md`).
 - [x] Automated hardware compatibility reporter (`bobzzite-report`) and guide (`docs/HARDWARE_COMPATIBILITY_REPORT.md`).
+
+## Phase 5: Production Milestone & Enterprise Hardening (Milestone v6.0.0)
+- [x] Real-time network bandwidth streaming telemetry and dual-trace canvas graphing (`docs/NETWORK_TELEMETRY.md`).
+- [ ] Implement automated release provenance attestation via GitHub Actions SLSA.
+- [ ] Establish decentralized package mirror synchronization over IPFS.
