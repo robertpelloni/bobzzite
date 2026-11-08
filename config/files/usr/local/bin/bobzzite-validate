@@ -170,7 +170,8 @@ def check_required_docs():
         "docs/HARDWARE_MIGRATION_ASSISTANT.md",
         "docs/DECENTRALIZED_MIRRORS.md",
         "docs/ROOTLESS_SANDBOXING.md",
-        "docs/PROMETHEUS_METRICS.md"
+        "docs/PROMETHEUS_METRICS.md",
+        "docs/HARDWARE_PROFILE_COMPARISON_DATA.md"
     ]
     errors = 0
     for doc in required_docs:

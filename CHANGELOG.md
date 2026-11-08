@@ -5,6 +5,17 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [6.7.0] - 2025-05-18
+
+### Added
+- **Hardware Profile Comparison Data Matrix (`HARDWARE_PROFILE_COMPARISON_DATA.md`)**:
+  - Extracted comprehensive differential matrix artifacts comparing `bobzzite` against `bobzzite-deck`, `bobzzite-nvidia`, and `bobzzite-arm64`.
+  - Authored comprehensive guide in `docs/HARDWARE_PROFILE_COMPARISON_DATA.md`.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `HARDWARE_PROFILE_COMPARISON_DATA.md`.
+
+---
+
 ## [6.6.0] - 2025-05-18
 
 ### Added
