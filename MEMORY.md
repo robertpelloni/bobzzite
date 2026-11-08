@@ -29,5 +29,7 @@
   - `bobzzite-shader-cache` (`scripts/bobzzite-shader-cache.sh`) pre-warms and exports Vulkan SPIR-V shader bytecode pipelines to prevent in-game compilation micro-stutters.
 - **Hardware Profile Deployment & Comparison Integration**:
   - `bobzzite-deploy` (`scripts/bobzzite-deploy.sh`) now integrates `profile-inspect` and `profile-compare` directly to streamline atomic rebase decisions.
+- **Hardware Matrix Coverage Auditing**:
+  - `bobzzite-coverage` (`scripts/bobzzite-coverage.sh`) asserts 100% specification, build matrix, and documentation coverage across all supported form factors.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

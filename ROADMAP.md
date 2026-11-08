@@ -61,4 +61,5 @@
 - [x] Zero-trust kernel module lockdown & Secure Boot validation (`bobzzite-lockdown`, `docs/KERNEL_LOCKDOWN.md`).
 - [x] Godot 4 shader pre-compilation cache manager (`bobzzite-shader-cache`, `docs/SHADER_CACHE_MANAGEMENT.md`).
 - [x] Hardware profile comparison & inspector integration in `bobzzite-deploy` (`docs/HARDWARE_DEPLOY_PROFILES.md`).
+- [x] Multi-hardware matrix coverage auditor (`bobzzite-coverage`, `docs/HARDWARE_COVERAGE_AUDIT.md`).
 - [ ] Implement automated eBPF low-latency packet routing optimizer (`bobzzite-ebpf`).

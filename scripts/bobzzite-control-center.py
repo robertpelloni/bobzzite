@@ -321,8 +321,12 @@ class BobzziteControlCenter:
         h_catalog.grid(row=12, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_catalog, "Inspects the repository-tracked hardware profiles directory (hardware_profiles/).")
 
+        h_cov = ttk.Button(hw_grid, text="Hardware Coverage Audit", command=lambda: self.run_async("if command -v bobzzite-coverage >/dev/null 2>&1; then bobzzite-coverage audit; elif [ -f scripts/bobzzite-coverage.sh ]; then ./scripts/bobzzite-coverage.sh audit; else echo 'Coverage script not found'; fi", "Auditing Hardware Matrix Coverage Completeness..."))
+        h_cov.grid(row=12, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_cov, "Asserts end-to-end coverage across specifications, images, and documentation for all flavors.")
+
         h_telem = ttk.Button(hw_grid, text="Live Telemetry", command=lambda: self.run_async("cat /proc/loadavg && cat /proc/meminfo | head -n4", "Probing live system compute and memory load..."))
-        h_telem.grid(row=12, column=1, padx=6, pady=4, sticky="ew")
+        h_telem.grid(row=16, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_telem, "Inspects real-time CPU load averages and memory utilization telemetry.")
 
         h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
@@ -362,7 +366,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=17, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=18, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

@@ -82,6 +82,7 @@ def check_scripts():
         "scripts/bobzzite-eye-track.sh",
         "scripts/bobzzite-lockdown.sh",
         "scripts/bobzzite-shader-cache.sh",
+        "scripts/bobzzite-coverage.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -180,7 +181,8 @@ def check_required_docs():
         "docs/VR_EYE_TRACKING.md",
         "docs/KERNEL_LOCKDOWN.md",
         "docs/SHADER_CACHE_MANAGEMENT.md",
-        "docs/HARDWARE_DEPLOY_PROFILES.md"
+        "docs/HARDWARE_DEPLOY_PROFILES.md",
+        "docs/HARDWARE_COVERAGE_AUDIT.md"
     ]
     errors = 0
     for doc in required_docs:

@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.3.0] - 2025-05-18
+
+### Added
+- **Multi-Hardware Matrix Coverage Auditor (`bobzzite-coverage`)**:
+  - Implemented `scripts/bobzzite-coverage.sh` (mirrored to `config/files/usr/local/bin/bobzzite-coverage`) validating 100% matrix completeness across specifications, container image embedding, and build targets.
+  - Authored comprehensive guide in `docs/HARDWARE_COVERAGE_AUDIT.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Hardware Coverage Audit" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-coverage.sh` and `HARDWARE_COVERAGE_AUDIT.md`.
+
+---
+
 ## [7.2.0] - 2025-05-18
 
 ### Added
