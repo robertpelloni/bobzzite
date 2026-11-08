@@ -69,6 +69,7 @@ def check_scripts():
         "scripts/bobzzite-webdash.py",
         "scripts/bobzzite-sign.sh",
         "scripts/bobzzite-preview.sh",
+        "scripts/bobzzite-security.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -150,7 +151,8 @@ def check_required_docs():
         "docs/REMOTE_WEB_DASHBOARD.md",
         "docs/IMAGE_SIGNING_VERIFICATION.md",
         "docs/EPHEMERAL_PREVIEW_BUILDS.md",
-        "docs/HARDWARE_PROFILES_CATALOG.md"
+        "docs/HARDWARE_PROFILES_CATALOG.md",
+        "docs/SECURITY_AUDITING.md"
     ]
     errors = 0
     for doc in required_docs:
