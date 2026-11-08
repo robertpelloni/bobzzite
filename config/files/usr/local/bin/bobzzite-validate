@@ -67,6 +67,7 @@ def check_scripts():
         "scripts/bobzzite-ci.sh",
         "scripts/bobzzite-quirks.sh",
         "scripts/bobzzite-webdash.py",
+        "scripts/bobzzite-sign.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -145,7 +146,8 @@ def check_required_docs():
         "docs/MULTI_ARCH_BUILDS.md",
         "docs/WEBRTC_CLIENT_GUIDE.md",
         "docs/HARDWARE_QUIRKS.md",
-        "docs/REMOTE_WEB_DASHBOARD.md"
+        "docs/REMOTE_WEB_DASHBOARD.md",
+        "docs/IMAGE_SIGNING_VERIFICATION.md"
     ]
     errors = 0
     for doc in required_docs:

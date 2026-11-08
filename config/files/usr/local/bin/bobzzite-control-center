@@ -173,6 +173,10 @@ class BobzziteControlCenter:
         mb_webdash.grid(row=2, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb_webdash, "Inspects status of the lightweight remote web administration dashboard.")
 
+        mb_sign = ttk.Button(m_grid, text="Verify Image Signatures", command=lambda: self.run_async("if command -v bobzzite-sign >/dev/null 2>&1; then bobzzite-sign check-keys; elif [ -f scripts/bobzzite-sign.sh ]; then ./scripts/bobzzite-sign.sh check-keys; else echo 'Sign script not found'; fi", "Auditing Cosign & Sigstore Cryptographic Signatures..."))
+        mb_sign.grid(row=3, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_sign, "Verifies container image cryptographic signatures, Cosign public keys, and provenance.")
+
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)
         m_grid.columnconfigure(2, weight=1)
