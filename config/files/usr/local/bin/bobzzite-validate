@@ -72,6 +72,7 @@ def check_scripts():
         "scripts/bobzzite-security.sh",
         "scripts/bobzzite-summary.sh",
         "scripts/bobzzite-report.sh",
+        "scripts/bobzzite-provenance.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -158,7 +159,8 @@ def check_required_docs():
         "docs/HARDWARE_TELEMETRY.md",
         "docs/HARDWARE_PROFILE_SUMMARY.md",
         "docs/HARDWARE_COMPATIBILITY_REPORT.md",
-        "docs/NETWORK_TELEMETRY.md"
+        "docs/NETWORK_TELEMETRY.md",
+        "docs/SUPPLY_CHAIN_PROVENANCE.md"
     ]
     errors = 0
     for doc in required_docs:

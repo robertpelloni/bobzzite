@@ -182,8 +182,12 @@ class BobzziteControlCenter:
         ToolTip(mb_preview, "Manages ephemeral pull-request container image preview builds and staging tags.")
 
         mb_sec = ttk.Button(m_grid, text="Security Audit", command=lambda: self.run_async("if command -v bobzzite-security >/dev/null 2>&1; then bobzzite-security audit; elif [ -f scripts/bobzzite-security.sh ]; then ./scripts/bobzzite-security.sh audit; else echo 'Security script not found'; fi", "Auditing OS Immutability, SUID Binaries & Sandboxes..."))
-        mb_sec.grid(row=4, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        mb_sec.grid(row=4, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb_sec, "Audits ostree filesystem immutability, elevated privilege binaries, and Flatpak isolation.")
+
+        mb_prov = ttk.Button(m_grid, text="Supply-Chain Provenance", command=lambda: self.run_async("if command -v bobzzite-provenance >/dev/null 2>&1; then bobzzite-provenance status; elif [ -f scripts/bobzzite-provenance.sh ]; then ./scripts/bobzzite-provenance.sh status; else echo 'Provenance script not found'; fi", "Probing SLSA Provenance & SPDX SBOM Generator..."))
+        mb_prov.grid(row=4, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_prov, "Generates and verifies SPDX Software Bill of Materials and in-toto SLSA attestations.")
 
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)
