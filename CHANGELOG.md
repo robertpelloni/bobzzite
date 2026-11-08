@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [5.8.0] - 2025-05-18
+
+### Added
+- **Comprehensive Hardware Profile Summary Matrix Generator (`bobzzite-summary`)**:
+  - Implemented `scripts/bobzzite-summary.sh` (mirrored to `config/files/usr/local/bin/bobzzite-summary`) to aggregate all version-controlled specifications in `hardware_profiles/` and output aligned terminal tables, Markdown documentation, and JSON bundles.
+  - Authored comprehensive guide in `docs/HARDWARE_PROFILE_SUMMARY.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Hardware Profile Summary" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 37 scripts and 37 technical documentation guides.
+
+---
+
 ## [5.7.0] - 2025-05-18
 
 ### Added
@@ -13,8 +26,6 @@ This project adheres to Semantic Versioning and tracks a unified single source o
   - Authored comprehensive guide in `docs/HARDWARE_TELEMETRY.md`.
 - **Bobzzite Control Center GUI Integration**:
   - Added dedicated "Live Telemetry" button under Hardware & Gaming Profiles card.
-- **Continuous Validation**:
-  - Updated `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate` to continuously verify all 36 scripts and 36 technical documentation guides.
 
 ---
 
@@ -24,14 +35,3 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 - **Automated Security & Container Hardening Auditor (`bobzzite-security`)**:
   - Implemented `scripts/bobzzite-security.sh` to audit read-only ostree root immutability, SUID/SGID elevated binary counts, SELinux policy modes, and Flatpak application sandbox boundaries.
   - Authored comprehensive guide in `docs/SECURITY_AUDITING.md`.
-- **Bobzzite Control Center GUI Integration**:
-  - Added dedicated "Security Audit" button under System Updates & Diagnostics.
-
----
-
-## [5.5.0] - 2025-05-18
-
-### Added
-- **Version-Controlled Hardware Profiles Catalog (`hardware_profiles/`)**:
-  - Established dedicated `hardware_profiles/` directory tracking JSON specifications for `bobzzite`, `bobzzite-deck`, `bobzzite-nvidia`, and `bobzzite-arm64`.
-  - Authored comprehensive guide in `docs/HARDWARE_PROFILES_CATALOG.md`.
