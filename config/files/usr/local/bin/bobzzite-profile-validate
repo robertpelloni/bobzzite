@@ -32,7 +32,10 @@ echo -e "${BOLD}${BLUE}=== Bobzzite Hardware Profile Validator ===${NC}"
 
 validate_flavor_profile() {
     local flavor="$1"
-    local json_file="${PROFILE_DIR}/${flavor}-profile.json"
+    local json_file="${PROFILE_DIR}/${flavor}.json"
+    if [ ! -f "$json_file" ]; then
+        json_file="${PROFILE_DIR}/${flavor}-profile.json"
+    fi
 
     echo -e "${YELLOW}>>> Validating Hardware Profile: ${BOLD}${flavor}${NC}"
 
@@ -46,6 +49,9 @@ validate_flavor_profile() {
         else
             echo -e "  ${RED}Error: Build flavors tool not found.${NC}"
             return 1
+        fi
+        if [ -f "/tmp/bobzzite-flavors/${flavor}-profile.json" ]; then
+            json_file="/tmp/bobzzite-flavors/${flavor}-profile.json"
         fi
     fi
 

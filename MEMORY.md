@@ -12,5 +12,7 @@
 - **Hardware Profile Differential Analysis & Automated Migration**:
   - `bobzzite-diff` (`scripts/bobzzite-diff.sh`) inspects and compares target JSON profiles from `hardware_profiles/` and outputs terminal tables, Markdown tables, or JSON diffs.
   - `bobzzite-migrate` (`scripts/bobzzite-migrate.sh`) coordinates pre-flight hardware checks, differential analysis, snapshots, and atomic rebase execution across profiles.
+- **Decentralized Package Mirroring**:
+  - `bobzzite-ipfs` (`scripts/bobzzite-ipfs.sh`) manages P2P container layer distribution, offline fallback, and content-addressed verification via IPFS/Kubo.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

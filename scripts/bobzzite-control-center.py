@@ -189,6 +189,10 @@ class BobzziteControlCenter:
         mb_prov.grid(row=4, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb_prov, "Generates and verifies SPDX Software Bill of Materials and in-toto SLSA attestations.")
 
+        mb_ipfs = ttk.Button(m_grid, text="P2P / IPFS Package Mirror", command=lambda: self.run_async("if command -v bobzzite-ipfs >/dev/null 2>&1; then bobzzite-ipfs status; elif [ -f scripts/bobzzite-ipfs.sh ]; then ./scripts/bobzzite-ipfs.sh status; else echo 'IPFS script not found'; fi", "Probing Decentralized IPFS Package Mirror & Swarm Status..."))
+        mb_ipfs.grid(row=5, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_ipfs, "Inspects IPFS daemon, swarm peers, and content-addressed package distribution.")
+
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)
         m_grid.columnconfigure(2, weight=1)

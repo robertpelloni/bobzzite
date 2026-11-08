@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [6.4.0] - 2025-05-18
+
+### Added
+- **Decentralized Package Mirror Synchronization Engine (`bobzzite-ipfs`)**:
+  - Implemented `scripts/bobzzite-ipfs.sh` (mirrored to `config/files/usr/local/bin/bobzzite-ipfs`) for P2P distribution, layer pinning, and content-addressed verification via IPFS/Kubo.
+  - Authored comprehensive guide in `docs/DECENTRALIZED_MIRRORS.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "P2P / IPFS Package Mirror" button under System Updates & Diagnostics card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` to continuously verify `bobzzite-ipfs.sh` and `DECENTRALIZED_MIRRORS.md`.
+
+---
+
 ## [6.3.0] - 2025-05-18
 
 ### Added
