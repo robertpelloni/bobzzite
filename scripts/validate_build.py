@@ -184,7 +184,8 @@ def check_required_docs():
         "docs/SHADER_CACHE_MANAGEMENT.md",
         "docs/HARDWARE_DEPLOY_PROFILES.md",
         "docs/HARDWARE_COVERAGE_AUDIT.md",
-        "docs/EBPF_NETWORKING.md"
+        "docs/EBPF_NETWORKING.md",
+        "docs/HARDWARE_DEPLOY_COMPLIANCE.md"
     ]
     errors = 0
     for doc in required_docs:

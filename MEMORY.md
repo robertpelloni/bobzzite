@@ -33,5 +33,7 @@
   - `bobzzite-coverage` (`scripts/bobzzite-coverage.sh`) asserts 100% specification, build matrix, and documentation coverage across all supported form factors.
 - **eBPF Low-Latency Packet Fastpath**:
   - `bobzzite-ebpf` (`scripts/bobzzite-ebpf.sh`) manages XDP filters and NIC driver ring bypass for sub-microsecond multiplayer packet processing.
+- **Hardware Deployment Compliance & Validation Integration**:
+  - `bobzzite-deploy` now directly integrates `profile-audit` and `profile-validate` to confirm system readiness before rebasing.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

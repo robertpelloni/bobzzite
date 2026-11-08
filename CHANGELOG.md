@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.5.0] - 2025-05-18
+
+### Added
+- **Hardware Deployment Compliance & Profile Assertion Bridge**:
+  - Enhanced `scripts/bobzzite-deploy.sh` (mirrored to `config/files/usr/local/bin/bobzzite-deploy`) by bridging `profile-audit` (`bobzzite-hardware-audit`) and `profile-validate` (`bobzzite-profile-validate`) directly into deployment workflows.
+  - Authored comprehensive guide in `docs/HARDWARE_DEPLOY_COMPLIANCE.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Deploy Compliance Audit" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `HARDWARE_DEPLOY_COMPLIANCE.md`.
+
+---
+
 ## [7.4.0] - 2025-05-18
 
 ### Added

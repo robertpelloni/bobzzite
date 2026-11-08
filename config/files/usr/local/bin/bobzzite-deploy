@@ -155,6 +155,31 @@ case "${TARGET}" in
         fi
         ;;
 
+    profile-audit|audit)
+        echo -e "${YELLOW}Invoking Deep Hardware Compliance Auditor...${NC}"
+        if command -v bobzzite-hardware-audit >/dev/null 2>&1; then
+            bobzzite-hardware-audit
+        elif [ -f scripts/bobzzite-hardware-audit.sh ]; then
+            ./scripts/bobzzite-hardware-audit.sh
+        else
+            echo "bobzzite-hardware-audit tool not found."
+            exit 1
+        fi
+        ;;
+
+    profile-validate|validate)
+        FLAVOR="${2:-all}"
+        echo -e "${YELLOW}Validating Target Hardware Profile Assertions: ${BOLD}${FLAVOR}${NC}"
+        if command -v bobzzite-profile-validate >/dev/null 2>&1; then
+            bobzzite-profile-validate "$FLAVOR"
+        elif [ -f scripts/bobzzite-profile-validate.sh ]; then
+            ./scripts/bobzzite-profile-validate.sh "$FLAVOR"
+        else
+            echo "bobzzite-profile-validate tool not found."
+            exit 1
+        fi
+        ;;
+
     status)
         echo -e "${YELLOW}Querying active OS deployment and staged refs:${NC}"
         if command -v rpm-ostree >/dev/null 2>&1; then
@@ -198,7 +223,7 @@ case "${TARGET}" in
         ;;
 
     *)
-        echo "Usage: bobzzite-deploy [status|detect|profile-analyze|profile-inspect|profile-compare|bobzzite|bobzzite-deck|bobzzite-nvidia] [flavor|registry|oci-archive]"
+        echo "Usage: bobzzite-deploy [status|detect|profile-analyze|profile-inspect|profile-compare|profile-audit|profile-validate|bobzzite|bobzzite-deck|bobzzite-nvidia] [flavor|registry|oci-archive]"
         exit 1
         ;;
 esac
