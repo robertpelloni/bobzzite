@@ -97,7 +97,7 @@ case "$ACTION" in
         echo "| Hardware Target | Architecture | Profile JSON | Container Image Embed | Status |"
         echo "| :--- | :--- | :--- | :--- | :--- |"
         for flavor in "${FLAVORS[@]}"; do
-            local arch="x86_64"
+            arch="x86_64"
             [ "$flavor" = "bobzzite-arm64" ] && arch="aarch64"
             echo "| \`${flavor}\` | \`${arch}\` | Yes | Yes | **Covered** |"
         done

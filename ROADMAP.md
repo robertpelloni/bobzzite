@@ -64,4 +64,5 @@
 - [x] Multi-hardware matrix coverage auditor (`bobzzite-coverage`, `docs/HARDWARE_COVERAGE_AUDIT.md`).
 - [x] eBPF low-latency packet routing optimizer (`bobzzite-ebpf`, `docs/EBPF_NETWORKING.md`).
 - [x] Hardware deployment compliance & profile assertion bridge (`docs/HARDWARE_DEPLOY_COMPLIANCE.md`).
+- [x] Hardware deployment runbooks & operational workflows (`docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md`).
 - [ ] Implement automated Wayland color management & HDR calibration tool (`bobzzite-hdr`).

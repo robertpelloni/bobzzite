@@ -1,74 +1,93 @@
-# Bobzzite OS Deployment Guide
+# Bobzzite OS - Deployment and Rebase Guide
 
-## Overview
+Bobzzite OS is delivered as atomic OCI container images layered on Fedora Silverblue via Universal Blue (`bazzite`). Updates and hardware profile switches are handled safely and atomically using `rpm-ostree`.
 
-Bobzzite OS images are published as OCI containers via GitHub Packages (GHCR) and can be deployed directly onto existing Fedora Atomic (Silverblue, Kinoite, Bazzite) installations, or via bootable ISO media.
+## Hardware Flavors
 
----
-
-## Deployment Flavors
-
-| Flavor | Target Architecture / Hardware | Registry Tag |
-|---|---|---|
-| `bobzzite` | AMD Radeon & Intel Arc / UHD Graphics | `ghcr.io/robertpelloni/bobzzite:latest` |
-| `bobzzite-deck` | Valve Steam Deck (LCD/OLED), ROG Ally, Legion Go | `ghcr.io/robertpelloni/bobzzite-deck:latest` |
-| `bobzzite-nvidia` | NVIDIA GeForce RTX/GTX Desktop & Laptop GPUs | `ghcr.io/robertpelloni/bobzzite-nvidia:latest` |
+- **`bobzzite`**: Standard desktop workstation profile optimized for AMD Radeon and Intel Graphics GPUs running KDE Plasma Wayland.
+- **`bobzzite-deck`**: Handheld gaming console profile configured for Steam Deck, ROG Ally, and Lenovo Legion Go with embedded Gamescope sessions and handheld-daemon power management.
+- **`bobzzite-nvidia`**: High-performance workstation profile pre-loaded with open-kernel NVIDIA GPU drivers, CUDA compute toolkit, OptiX denoiser, and NVENC hardware video encoding.
+- **`bobzzite-arm64`**: ARM64 profile optimized for mobile SBCs and Snapdragon X Elite laptops with Panfrost and Freedreno open GPU drivers.
 
 ---
 
-## Deployment & Rebase Automation: `bobzzite-deploy`
+## The Complete Pre-Deployment & Rebase Pipeline
 
-The `bobzzite-deploy` utility automates deployment inspection and seamless switching between hardware flavors.
+The `bobzzite-deploy` utility orchestrates the entire deployment lifecycle, ensuring system compatibility and profile compliance before modifying ostree state:
 
-```bash
-# 1. Query current ostree deployment and status
-bobzzite-deploy status
-
-# 2. Rebase host to Desktop AMD/Intel flavor
-bobzzite-deploy bobzzite registry
-
-# 3. Rebase host to Steam Deck handheld flavor
-bobzzite-deploy bobzzite-deck registry
-
-# 4. Rebase host to NVIDIA proprietary driver flavor
-bobzzite-deploy bobzzite-nvidia registry
+```
+[1. Hardware Detection]    -->   bobzzite-deploy detect
+[2. Fit Analysis]          -->   bobzzite-deploy profile-analyze
+[3. Target Inspection]     -->   bobzzite-deploy profile-inspect <flavor>
+[4. Side-by-Side Diff]     -->   bobzzite-deploy profile-compare <current> <target>
+[5. Compliance Audit]      -->   bobzzite-deploy profile-audit
+[6. Profile Assertions]    -->   bobzzite-deploy profile-validate <flavor>
+[7. Atomic Rebase]         -->   sudo bobzzite-deploy <flavor>
 ```
 
 ---
 
-## Air-Gapped / Offline USB Deployment
+## Command Reference
 
-For testing or air-gapped machine setups without continuous internet access:
+### 1. Automatic Hardware Detection
+Probes DMI product strings, vendor IDs, and PCI graphics devices to recommend the optimal flavor:
+```bash
+bobzzite-deploy detect
+```
 
-1. **Export Local OCI Archive:**
-   ```bash
-   ./scripts/build-flavors.sh bobzzite export-tar
-   # Outputs /tmp/bobzzite-flavors/bobzzite.tar.gz
-   ```
+### 2. Deep Hardware Profile Analysis
+Calculates quantitative fit percentages and evaluates host hardware compatibility:
+```bash
+bobzzite-deploy profile-analyze
+```
 
-2. **Copy Archive to Target Machine:**
-   Transfer `bobzzite.tar.gz` to `/var/tmp/bobzzite.tar.gz` on the target system.
+### 3. Target Profile Inspection
+Queries the version-controlled JSON specification for a target flavor:
+```bash
+bobzzite-deploy profile-inspect bobzzite-deck
+```
 
-3. **Execute Offline Rebase:**
-   ```bash
-   bobzzite-deploy bobzzite oci-archive
-   ```
-   Or directly via `rpm-ostree`:
-   ```bash
-   sudo rpm-ostree rebase ostree-unverified-image:oci-archive:/var/tmp/bobzzite.tar.gz
-   ```
+### 4. Differential Comparison
+Compares architectural attributes, compositors, driver stacks, and audio quantum buffers:
+```bash
+bobzzite-deploy profile-compare bobzzite bobzzite-deck
+```
 
-4. **Reboot to Complete Deployment:**
-   ```bash
-   systemctl reboot
-   ```
+### 5. Hardware Compliance Audit
+Audits ACPI sleep states, Wayland DRM display leasing, Vulkan compute layers, and input device permissions:
+```bash
+bobzzite-deploy profile-audit
+```
+
+### 6. Profile Assertion Validation
+Asserts that the target configuration satisfies all required compositor and audio buffer constraints:
+```bash
+bobzzite-deploy profile-validate bobzzite-deck
+```
+
+### 7. Atomic Rebase Execution
+Executes the atomic ostree rebase against the target container image:
+```bash
+# Rebase from remote GitHub Container Registry (GHCR)
+sudo bobzzite-deploy bobzzite-deck
+
+# Or rebase from local offline OCI archive
+sudo bobzzite-deploy bobzzite-deck oci-archive
+```
 
 ---
 
-## Rollback & Recovery
+## Rollback & Snapshot Recovery
 
-If an issue is detected after rebasing, immediately revert to the prior pinned or active deployment:
+If a newly deployed image encounters unforeseen hardware regressions, the system can be rolled back instantly without data loss:
 
 ```bash
-bobzzite-backup rollback
+# Check staged and previous deployment refs
+rpm-ostree status
+
+# Roll back to previous deployment
+sudo rpm-ostree rollback
+
+# Pin a known good deployment
+sudo ostree admin pin 0
 ```

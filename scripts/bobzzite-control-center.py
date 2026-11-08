@@ -306,8 +306,12 @@ class BobzziteControlCenter:
         ToolTip(h_dep_insp, "Inspects hardware profile JSON specifications via bobzzite-deploy.")
 
         h_dep_audit = ttk.Button(hw_grid, text="Deploy Compliance Audit", command=lambda: self.run_async("bobzzite-deploy profile-audit", "Running Deployment Hardware Compliance Audit..."))
-        h_dep_audit.grid(row=16, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_dep_audit.grid(row=16, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_dep_audit, "Validates hardware compliance and profile assertions before atomic rebasing.")
+
+        h_dep_runbook = ttk.Button(hw_grid, text="Deployment Runbooks", command=lambda: self.run_async("cat docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md | head -n 30", "Displaying Hardware Deployment Runbooks..."))
+        h_dep_runbook.grid(row=16, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_dep_runbook, "Inspects operational runbooks for handheld, workstation, and air-gapped rebasing.")
 
         h_val_prof = ttk.Button(hw_grid, text="Validate Profiles", command=lambda: self.run_async("if command -v bobzzite-profile-validate >/dev/null 2>&1; then bobzzite-profile-validate all; elif [ -f scripts/bobzzite-profile-validate.sh ]; then ./scripts/bobzzite-profile-validate.sh all; else echo 'Profile validate script not found'; fi", "Auditing Hardware JSON Profiles & Assertions..."))
         h_val_prof.grid(row=9, column=0, padx=6, pady=4, sticky="ew")

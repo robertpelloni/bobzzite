@@ -185,7 +185,8 @@ def check_required_docs():
         "docs/HARDWARE_DEPLOY_PROFILES.md",
         "docs/HARDWARE_COVERAGE_AUDIT.md",
         "docs/EBPF_NETWORKING.md",
-        "docs/HARDWARE_DEPLOY_COMPLIANCE.md"
+        "docs/HARDWARE_DEPLOY_COMPLIANCE.md",
+        "docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md"
     ]
     errors = 0
     for doc in required_docs:

@@ -68,12 +68,10 @@ case "$ACTION" in
         check_iommu
         echo -e "\nAuditing Loaded Kernel Modules..."
         if [ -f /proc/modules ]; then
-            local mod_count
             mod_count=$(wc -l < /proc/modules)
             echo -e "Total Loaded Modules: ${BOLD}${mod_count}${NC}"
             echo -e "Checking module signature verification flag (/sys/module/module/parameters/sig_enforce)..."
             if [ -f /sys/module/module/parameters/sig_enforce ]; then
-                local sig
                 sig=$(cat /sys/module/module/parameters/sig_enforce)
                 echo -e "Module Signature Enforcement: ${BOLD}${sig}${NC}"
             else

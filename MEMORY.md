@@ -35,5 +35,6 @@
   - `bobzzite-ebpf` (`scripts/bobzzite-ebpf.sh`) manages XDP filters and NIC driver ring bypass for sub-microsecond multiplayer packet processing.
 - **Hardware Deployment Compliance & Validation Integration**:
   - `bobzzite-deploy` now directly integrates `profile-audit` and `profile-validate` to confirm system readiness before rebasing.
+  - Comprehensive operational deployment runbooks are maintained in `docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md`.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

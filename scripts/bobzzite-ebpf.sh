@@ -28,7 +28,6 @@ case "$ACTION" in
     status)
         echo -e "Action: ${CYAN}Probing Kernel BPF Subsystem & JIT Compiler${NC}"
         if [ -f /proc/sys/net/core/bpf_jit_enable ]; then
-            local jit
             jit=$(cat /proc/sys/net/core/bpf_jit_enable 2>/dev/null || echo 0)
             [ "$jit" -eq 1 ] && echo -e "eBPF JIT Compiler: ${GREEN}Enabled (Active)${NC}" || echo -e "eBPF JIT Compiler: ${YELLOW}Disabled / Constrained${NC}"
         else

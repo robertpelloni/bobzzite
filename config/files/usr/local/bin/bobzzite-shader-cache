@@ -31,7 +31,6 @@ case "$ACTION" in
         echo -e "Action: ${CYAN}Probing Vulkan Shader Pipeline Cache${NC}"
         echo -e "Cache Storage Location: ${BOLD}${CACHE_DIR}${NC}"
         if [ -d "$CACHE_DIR" ]; then
-            local count
             count=$(find "$CACHE_DIR" -type f 2>/dev/null | wc -l || echo 0)
             echo -e "Cached Shader Pipelines: ${GREEN}${count} compiled objects${NC}"
         else
@@ -52,7 +51,7 @@ case "$ACTION" in
     export)
         echo -e "Action: ${CYAN}Exporting Pre-compiled Shader Bundle${NC}"
         mkdir -p "$CACHE_DIR"
-        local archive="/tmp/godot-shader-cache-$(date +%s).tar.gz"
+        archive="/tmp/godot-shader-cache-$(date +%s).tar.gz"
         tar -czf "$archive" -C "$(dirname "$CACHE_DIR")" "$(basename "$CACHE_DIR")" 2>/dev/null || touch "$archive"
         echo -e "${GREEN}Exported bundle created: ${archive}${NC}"
         ;;

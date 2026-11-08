@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.6.0] - 2025-05-18
+
+### Added
+- **Hardware Deployment Documentation & Operational Runbooks**:
+  - Authored comprehensive guide in `docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md` covering handheld, workstation, and air-gapped rebase procedures.
+  - Fully synchronized `DEPLOY.md` and `docs/HARDWARE_DETECTION.md` with the 7-stage deployment pipeline.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Deployment Runbooks" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `HARDWARE_DEPLOYMENT_WORKFLOWS.md`.
+
+---
+
 ## [7.5.0] - 2025-05-18
 
 ### Added
