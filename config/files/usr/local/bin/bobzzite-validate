@@ -71,6 +71,7 @@ def check_scripts():
         "scripts/bobzzite-preview.sh",
         "scripts/bobzzite-security.sh",
         "scripts/bobzzite-summary.sh",
+        "scripts/bobzzite-report.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -155,7 +156,8 @@ def check_required_docs():
         "docs/HARDWARE_PROFILES_CATALOG.md",
         "docs/SECURITY_AUDITING.md",
         "docs/HARDWARE_TELEMETRY.md",
-        "docs/HARDWARE_PROFILE_SUMMARY.md"
+        "docs/HARDWARE_PROFILE_SUMMARY.md",
+        "docs/HARDWARE_COMPATIBILITY_REPORT.md"
     ]
     errors = 0
     for doc in required_docs:
