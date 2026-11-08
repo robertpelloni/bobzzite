@@ -285,8 +285,12 @@ class BobzziteControlCenter:
         ToolTip(h_multi_arch, "Displays multi-architecture compilation targets for x86_64 and ARM64 SBCs/laptops.")
 
         h_catalog = ttk.Button(hw_grid, text="Hardware Profiles Catalog", command=lambda: self.run_async("ls -la hardware_profiles/", "Listing version-controlled hardware profile JSON catalog..."))
-        h_catalog.grid(row=11, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_catalog.grid(row=11, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_catalog, "Inspects the repository-tracked hardware profiles directory (hardware_profiles/).")
+
+        h_telem = ttk.Button(hw_grid, text="Live Telemetry", command=lambda: self.run_async("cat /proc/loadavg && cat /proc/meminfo | head -n4", "Probing live system compute and memory load..."))
+        h_telem.grid(row=11, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_telem, "Inspects real-time CPU load averages and memory utilization telemetry.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")

@@ -2,8 +2,8 @@
 """
 Bobzzite OS - Lightweight Remote Web Dashboard Server
 ==============================================================================
-Provides browser-accessible system administration, hardware metrics monitoring,
-PipeWire buffer tuning, and remote diagnostics for headless dev rigs and handhelds.
+Provides browser-accessible system administration, real-time hardware telemetry,
+graphical resource utilization history, PipeWire buffer tuning, and remote diagnostics.
 Zero external dependencies (uses standard library http.server).
 """
 
@@ -23,8 +23,10 @@ def get_system_stats():
         "hostname": socket.gethostname(),
         "cpu_count": os.cpu_count() or 1,
         "load_avg": list(os.getloadavg()) if hasattr(os, "getloadavg") else [0.0, 0.0, 0.0],
-        "version": "5.3.0",
-        "dmi_product": "Generic Linux Device"
+        "version": "5.7.0",
+        "dmi_product": "Generic Linux Device",
+        "thermal_celsius": 42.0,
+        "battery_pct": 100
     }
     if os.path.exists("/sys/class/dmi/id/product_name"):
         try:
@@ -42,6 +44,14 @@ def get_system_stats():
                         stats["mem_total"] = line.split()[1] + " kB"
                     elif line.startswith("MemAvailable:"):
                         stats["mem_available"] = line.split()[1] + " kB"
+        except Exception:
+            pass
+
+    # Read thermal zones if available
+    if os.path.exists("/sys/class/thermal/thermal_zone0/temp"):
+        try:
+            with open("/sys/class/thermal/thermal_zone0/temp") as f:
+                stats["thermal_celsius"] = round(int(f.read().strip()) / 1000.0, 1)
         except Exception:
             pass
 
@@ -93,6 +103,14 @@ HTML_PAGE = """<!DOCTYPE html>
         .metric { font-size: 14px; margin-bottom: 8px; display: flex; justify-content: space-between; }
         .metric-label { color: #94a3b8; }
         .metric-val { color: #10b981; font-weight: bold; }
+        canvas {
+            width: 100%;
+            height: 120px;
+            background-color: #0f172a;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            margin-top: 8px;
+        }
         .btn {
             background-color: #0284c7;
             color: #ffffff;
@@ -110,20 +128,22 @@ HTML_PAGE = """<!DOCTYPE html>
 <body>
     <header>
         <h1>⚡ BOBZZITE OS REMOTE DASHBOARD</h1>
-        <div class="subtitle">Real-Time Headless & Handheld System Telemetry</div>
+        <div class="subtitle">Real-Time Headless & Handheld System Telemetry with Live Graphs</div>
     </header>
     <div class="grid">
         <div class="card">
             <div class="card-title">🖥️ System & Host Overview</div>
             <div class="metric"><span class="metric-label">Device Hardware:</span><span class="metric-val" id="dmi">Loading...</span></div>
-            <div class="metric"><span class="metric-label">OS Version:</span><span class="metric-val" id="osver">Bobzzite v5.3.0</span></div>
+            <div class="metric"><span class="metric-label">OS Version:</span><span class="metric-val" id="osver">Bobzzite v5.7.0</span></div>
             <div class="metric"><span class="metric-label">Hostname:</span><span class="metric-val" id="hostname">Loading...</span></div>
+            <div class="metric"><span class="metric-label">Thermal Sensor:</span><span class="metric-val" id="temp">Loading...</span></div>
         </div>
         <div class="card">
-            <div class="card-title">⚙️ Compute & Memory</div>
+            <div class="card-title">⚙️ Compute & Memory Telemetry</div>
             <div class="metric"><span class="metric-label">Logical CPU Cores:</span><span class="metric-val" id="cpu">Loading...</span></div>
             <div class="metric"><span class="metric-label">Load Average (1m):</span><span class="metric-val" id="load">Loading...</span></div>
             <div class="metric"><span class="metric-label">Available RAM:</span><span class="metric-val" id="mem">Loading...</span></div>
+            <canvas id="loadChart"></canvas>
         </div>
         <div class="card">
             <div class="card-title">🎮 Diagnostics & Control</div>
@@ -132,15 +152,44 @@ HTML_PAGE = """<!DOCTYPE html>
         </div>
     </div>
     <script>
-        fetch('/api/stats')
-            .then(r => r.json())
-            .then(data => {
-                document.getElementById('dmi').innerText = data.dmi_product || 'Generic Device';
-                document.getElementById('hostname').innerText = data.hostname || 'localhost';
-                document.getElementById('cpu').innerText = data.cpu_count || '1';
-                document.getElementById('load').innerText = data.load_avg ? data.load_avg[0].toFixed(2) : '0.00';
-                document.getElementById('mem').innerText = data.mem_available || 'N/A';
-            });
+        const canvas = document.getElementById('loadChart');
+        const ctx = canvas.getContext('2d');
+        const history = [];
+
+        function drawGraph() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = '#00d2ff';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            const step = canvas.width / 20;
+            for (let i = 0; i < history.length; i++) {
+                const x = i * step;
+                const y = canvas.height - (history[i] * 20);
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        }
+
+        function updateTelemetry() {
+            fetch('/api/stats')
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('dmi').innerText = data.dmi_product || 'Generic Device';
+                    document.getElementById('hostname').innerText = data.hostname || 'localhost';
+                    document.getElementById('cpu').innerText = data.cpu_count || '1';
+                    const load = data.load_avg ? data.load_avg[0] : 0;
+                    document.getElementById('load').innerText = load.toFixed(2);
+                    document.getElementById('mem').innerText = data.mem_available || 'N/A';
+                    document.getElementById('temp').innerText = (data.thermal_celsius || '42.0') + ' °C';
+
+                    history.push(load);
+                    if (history.length > 20) history.shift();
+                    drawGraph();
+                });
+        }
+        setInterval(updateTelemetry, 2000);
+        updateTelemetry();
     </script>
 </body>
 </html>
@@ -179,7 +228,6 @@ class WebDashHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
     def log_message(self, format, *args):
-        # Quiet standard HTTP access logging to avoid cluttering parent app
         return
 
 def main():

@@ -152,7 +152,8 @@ def check_required_docs():
         "docs/IMAGE_SIGNING_VERIFICATION.md",
         "docs/EPHEMERAL_PREVIEW_BUILDS.md",
         "docs/HARDWARE_PROFILES_CATALOG.md",
-        "docs/SECURITY_AUDITING.md"
+        "docs/SECURITY_AUDITING.md",
+        "docs/HARDWARE_TELEMETRY.md"
     ]
     errors = 0
     for doc in required_docs:
