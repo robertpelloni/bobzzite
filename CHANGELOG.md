@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [6.6.0] - 2025-05-18
+
+### Added
+- **Automated Telemetry Prometheus Exporter Gateway (`bobzzite-metrics`)**:
+  - Implemented `scripts/bobzzite-metrics.sh` (mirrored to `config/files/usr/local/bin/bobzzite-metrics`) exposing standard Prometheus text exposition format metrics for CPU load averages, memory pressure, thermal zones, and hardware flavor tags.
+  - Authored comprehensive guide in `docs/PROMETHEUS_METRICS.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Prometheus Metrics Gateway" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` to continuously verify `bobzzite-metrics.sh` and `PROMETHEUS_METRICS.md`.
+
+---
+
 ## [6.5.0] - 2025-05-18
 
 ### Added

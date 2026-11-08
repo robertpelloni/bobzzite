@@ -321,8 +321,12 @@ class BobzziteControlCenter:
         ToolTip(h_diff, "Compares architectural attributes and drivers between hardware profiles.")
 
         h_mig = ttk.Button(hw_grid, text="Hardware Migration Assistant", command=lambda: self.run_async("if command -v bobzzite-migrate >/dev/null 2>&1; then bobzzite-migrate bobzzite-deck --dry-run; elif [ -f scripts/bobzzite-migrate.sh ]; then ./scripts/bobzzite-migrate.sh bobzzite-deck --dry-run; else echo 'Migrate script not found'; fi", "Executing Hardware Migration Pre-Flight Check..."))
-        h_mig.grid(row=14, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_mig.grid(row=14, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_mig, "Conducts pre-flight compatibility checks, profile diff, snapshot backups, and atomic rebase assistance.")
+
+        h_metrics = ttk.Button(hw_grid, text="Prometheus Metrics Gateway", command=lambda: self.run_async("if command -v bobzzite-metrics >/dev/null 2>&1; then bobzzite-metrics status; elif [ -f scripts/bobzzite-metrics.sh ]; then ./scripts/bobzzite-metrics.sh status; else echo 'Metrics script not found'; fi", "Inspecting Prometheus Hardware Metrics Exposition..."))
+        h_metrics.grid(row=14, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_metrics, "Exposes hardware metrics (CPU load, thermal zones, memory, flavor) in standard Prometheus format.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")

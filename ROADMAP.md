@@ -54,4 +54,5 @@
 - [x] Hardware profile automated migration assistant (`bobzzite-migrate`, `docs/HARDWARE_MIGRATION_ASSISTANT.md`).
 - [x] Decentralized package mirror synchronization over IPFS (`bobzzite-ipfs`, `docs/DECENTRALIZED_MIRRORS.md`).
 - [x] Automated rootless container pod sandboxing for untrusted builds (`bobzzite-sandbox`, `docs/ROOTLESS_SANDBOXING.md`).
-- [ ] Implement automated telemetry Prometheus exporter gateway (`bobzzite-metrics`).
+- [x] Automated telemetry Prometheus exporter gateway (`bobzzite-metrics`, `docs/PROMETHEUS_METRICS.md`).
+- [ ] Implement automated CI benchmark regression gatekeeper (`bobzzite-bench-gate`).

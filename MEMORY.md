@@ -16,5 +16,7 @@
   - `bobzzite-ipfs` (`scripts/bobzzite-ipfs.sh`) manages P2P container layer distribution, offline fallback, and content-addressed verification via IPFS/Kubo.
 - **Rootless Pod Sandboxing**:
   - `bobzzite-sandbox` (`scripts/bobzzite-sandbox.sh`) manages isolated unprivileged Podman sandboxes with memory limits and seccomp filters for untrusted builds.
+- **Prometheus Hardware Telemetry**:
+  - `bobzzite-metrics` (`scripts/bobzzite-metrics.sh`) exports real-time system performance, thermals, and flavor tags in standard Prometheus exposition format.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

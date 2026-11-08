@@ -77,6 +77,7 @@ def check_scripts():
         "scripts/bobzzite-migrate.sh",
         "scripts/bobzzite-ipfs.sh",
         "scripts/bobzzite-sandbox.sh",
+        "scripts/bobzzite-metrics.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -168,7 +169,8 @@ def check_required_docs():
         "docs/HARDWARE_PROFILE_DIFF.md",
         "docs/HARDWARE_MIGRATION_ASSISTANT.md",
         "docs/DECENTRALIZED_MIRRORS.md",
-        "docs/ROOTLESS_SANDBOXING.md"
+        "docs/ROOTLESS_SANDBOXING.md",
+        "docs/PROMETHEUS_METRICS.md"
     ]
     errors = 0
     for doc in required_docs:
