@@ -312,6 +312,10 @@ class BobzziteControlCenter:
         h_diff.grid(row=13, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_diff, "Compares architectural attributes and drivers between hardware profiles.")
 
+        h_mig = ttk.Button(hw_grid, text="Hardware Migration Assistant", command=lambda: self.run_async("if command -v bobzzite-migrate >/dev/null 2>&1; then bobzzite-migrate bobzzite-deck --dry-run; elif [ -f scripts/bobzzite-migrate.sh ]; then ./scripts/bobzzite-migrate.sh bobzzite-deck --dry-run; else echo 'Migrate script not found'; fi", "Executing Hardware Migration Pre-Flight Check..."))
+        h_mig.grid(row=14, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_mig, "Conducts pre-flight compatibility checks, profile diff, snapshot backups, and atomic rebase assistance.")
+
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(mb4, "Performs health checks on atomic OS, GPU drivers, GameMode, and dev tool Flatpaks.")

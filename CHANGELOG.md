@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [6.3.0] - 2025-05-18
+
+### Added
+- **Hardware Profile Automated Migration Assistant (`bobzzite-migrate`)**:
+  - Implemented `scripts/bobzzite-migrate.sh` (mirrored to `config/files/usr/local/bin/bobzzite-migrate`) providing a 4-phase migration workflow: hardware detection, profile differential analysis, pre-rebase state snapshots, and atomic rebase execution.
+  - Authored comprehensive documentation in `docs/HARDWARE_MIGRATION_ASSISTANT.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Hardware Migration Assistant" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` to continuously verify `bobzzite-migrate.sh` and `HARDWARE_MIGRATION_ASSISTANT.md`.
+
+---
+
 ## [6.2.0] - 2025-05-18
 
 ### Added

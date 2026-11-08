@@ -51,4 +51,5 @@
 - [x] Real-time network bandwidth streaming telemetry and dual-trace canvas graphing (`docs/NETWORK_TELEMETRY.md`).
 - [x] Software supply chain SLSA Level 3 provenance attestations and SPDX SBOM generation (`docs/SUPPLY_CHAIN_PROVENANCE.md`).
 - [x] Hardware profile comparison data exporter & differential analyzer (`bobzzite-diff`, `docs/HARDWARE_PROFILE_DIFF.md`).
+- [x] Hardware profile automated migration assistant (`bobzzite-migrate`, `docs/HARDWARE_MIGRATION_ASSISTANT.md`).
 - [ ] Establish decentralized package mirror synchronization over IPFS.

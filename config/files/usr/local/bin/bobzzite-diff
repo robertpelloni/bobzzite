@@ -14,7 +14,10 @@ set -euo pipefail
 FLAVOR_A="${1:-bobzzite}"
 FLAVOR_B="${2:-bobzzite-deck}"
 FORMAT="${3:-terminal}"
-PROFILES_DIR="${PROFILES_DIR:-hardware_profiles}"
+PROFILES_DIR="${PROFILES_DIR:-/usr/share/bobzzite/hardware_profiles}"
+if [ ! -d "$PROFILES_DIR" ] && [ -d "hardware_profiles" ]; then
+    PROFILES_DIR="hardware_profiles"
+fi
 
 BOLD='\033[1m'
 GREEN='\033[0;32m'
