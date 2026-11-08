@@ -25,5 +25,7 @@
   - `bobzzite-eye-track` (`scripts/bobzzite-eye-track.sh`) manages XR_EXT_eye_gaze_interaction, VRS Tier 2 foveation, and 5-point calibration.
 - **Zero-Trust Kernel Lockdown**:
   - `bobzzite-lockdown` (`scripts/bobzzite-lockdown.sh`) audits EFI Secure Boot, kernel lockdown mode (`integrity`), and IOMMU device memory protections.
+- **Godot 4 Shader Pre-Compilation Caching**:
+  - `bobzzite-shader-cache` (`scripts/bobzzite-shader-cache.sh`) pre-warms and exports Vulkan SPIR-V shader bytecode pipelines to prevent in-game compilation micro-stutters.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

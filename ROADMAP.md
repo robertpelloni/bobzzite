@@ -59,4 +59,5 @@
 - [x] Automated CI benchmark regression gatekeeper (`bobzzite-bench-gate`, `docs/BENCHMARK_GATEKEEPER.md`).
 - [x] OpenXR eye-tracking calibration & dynamic foveated rendering (`bobzzite-eye-track`, `docs/VR_EYE_TRACKING.md`).
 - [x] Zero-trust kernel module lockdown & Secure Boot validation (`bobzzite-lockdown`, `docs/KERNEL_LOCKDOWN.md`).
-- [ ] Implement automated Godot 4 shader pre-compilation cache manager (`bobzzite-shader-cache`).
+- [x] Godot 4 shader pre-compilation cache manager (`bobzzite-shader-cache`, `docs/SHADER_CACHE_MANAGEMENT.md`).
+- [ ] Implement automated eBPF low-latency packet routing optimizer (`bobzzite-ebpf`).

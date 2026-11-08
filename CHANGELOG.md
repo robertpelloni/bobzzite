@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.1.0] - 2025-05-18
+
+### Added
+- **Godot 4 Shader Pre-Compilation Cache Manager (`bobzzite-shader-cache`)**:
+  - Implemented `scripts/bobzzite-shader-cache.sh` (mirrored to `config/files/usr/local/bin/bobzzite-shader-cache`) to pre-warm, inspect, and bundle Vulkan SPIR-V shader pipeline caches, eliminating in-game micro-stutters.
+  - Authored comprehensive guide in `docs/SHADER_CACHE_MANAGEMENT.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "🔥 Pre-warm Shader Cache" button under High-Value Quick Actions panel.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-shader-cache.sh` and `SHADER_CACHE_MANAGEMENT.md`.
+
+---
+
 ## [7.0.0] - 2025-05-18 - MILESTONE RELEASE 7.0
 
 ### Added

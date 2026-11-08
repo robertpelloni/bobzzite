@@ -139,8 +139,13 @@ class BobzziteControlCenter:
 
         b9 = ttk.Button(btn_grid, text="⚡ GDExtension (C++/Rust)",
                         command=lambda: self.run_async("bobzzite-gdextension", "Scanning GDExtension native manifests..."))
-        b9.grid(row=3, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        b9.grid(row=3, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(b9, "Scaffolds and validates high-performance native C++ and godot-rust GDExtensions.")
+
+        b10 = ttk.Button(btn_grid, text="🔥 Pre-warm Shader Cache",
+                         command=lambda: self.run_async("if command -v bobzzite-shader-cache >/dev/null 2>&1; then bobzzite-shader-cache prewarm Templates/Godot4_Starter; elif [ -f scripts/bobzzite-shader-cache.sh ]; then ./scripts/bobzzite-shader-cache.sh prewarm Templates/Godot4_Starter; else echo 'Shader cache script not found'; fi", "Pre-warming Vulkan SPIR-V Shader Pipeline Caches..."))
+        b10.grid(row=3, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(b10, "Pre-compiles Godot 4 shaders to eliminate runtime micro-stutter and frame drops.")
 
         btn_grid.columnconfigure(0, weight=1)
         btn_grid.columnconfigure(1, weight=1)
