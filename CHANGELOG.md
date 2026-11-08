@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [6.8.0] - 2025-05-18
+
+### Added
+- **Automated CI Benchmark Regression Gatekeeper (`bobzzite-bench-gate`)**:
+  - Implemented `scripts/bobzzite-bench-gate.sh` (mirrored to `config/files/usr/local/bin/bobzzite-bench-gate`) enforcing performance baseline SLAs and checking for CPU/IO regressions.
+  - Authored comprehensive guide in `docs/BENCHMARK_GATEKEEPER.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Benchmark Gatekeeper" button under System Updates & Diagnostics card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-bench-gate.sh` and `BENCHMARK_GATEKEEPER.md`.
+
+---
+
 ## [6.7.0] - 2025-05-18
 
 ### Added

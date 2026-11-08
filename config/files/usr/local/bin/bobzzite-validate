@@ -78,6 +78,7 @@ def check_scripts():
         "scripts/bobzzite-ipfs.sh",
         "scripts/bobzzite-sandbox.sh",
         "scripts/bobzzite-metrics.sh",
+        "scripts/bobzzite-bench-gate.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -171,7 +172,8 @@ def check_required_docs():
         "docs/DECENTRALIZED_MIRRORS.md",
         "docs/ROOTLESS_SANDBOXING.md",
         "docs/PROMETHEUS_METRICS.md",
-        "docs/HARDWARE_PROFILE_COMPARISON_DATA.md"
+        "docs/HARDWARE_PROFILE_COMPARISON_DATA.md",
+        "docs/BENCHMARK_GATEKEEPER.md"
     ]
     errors = 0
     for doc in required_docs:

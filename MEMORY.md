@@ -19,5 +19,7 @@
 - **Prometheus Hardware Telemetry & Comparison Data Extraction**:
   - `bobzzite-metrics` (`scripts/bobzzite-metrics.sh`) exports real-time system performance, thermals, and flavor tags in standard Prometheus exposition format.
   - Side-by-side hardware profile comparison data is documented in `docs/HARDWARE_PROFILE_COMPARISON_DATA.md`.
+- **CI Benchmark Regression Gatekeeper**:
+  - `bobzzite-bench-gate` (`scripts/bobzzite-bench-gate.sh`) enforces compute SLA baselines and blocks builds on performance degradation.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

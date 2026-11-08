@@ -56,4 +56,5 @@
 - [x] Automated rootless container pod sandboxing for untrusted builds (`bobzzite-sandbox`, `docs/ROOTLESS_SANDBOXING.md`).
 - [x] Automated telemetry Prometheus exporter gateway (`bobzzite-metrics`, `docs/PROMETHEUS_METRICS.md`).
 - [x] Hardware profile comparison data matrices (`docs/HARDWARE_PROFILE_COMPARISON_DATA.md`).
-- [ ] Implement automated CI benchmark regression gatekeeper (`bobzzite-bench-gate`).
+- [x] Automated CI benchmark regression gatekeeper (`bobzzite-bench-gate`, `docs/BENCHMARK_GATEKEEPER.md`).
+- [ ] Implement automated OpenXR eye-tracking calibration utility (`bobzzite-eye-track`).

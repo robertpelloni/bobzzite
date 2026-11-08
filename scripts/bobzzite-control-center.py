@@ -197,6 +197,10 @@ class BobzziteControlCenter:
         mb_sb.grid(row=5, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb_sb, "Spawns isolated, unprivileged rootless Podman sandboxes with memory and CPU cgroups constraints.")
 
+        mb_bgate = ttk.Button(m_grid, text="Benchmark Gatekeeper", command=lambda: self.run_async("if command -v bobzzite-bench-gate >/dev/null 2>&1; then bobzzite-bench-gate check; elif [ -f scripts/bobzzite-bench-gate.sh ]; then ./scripts/bobzzite-bench-gate.sh check; else echo 'Bench gate script not found'; fi", "Executing CI Performance Regression Gate Check..."))
+        mb_bgate.grid(row=6, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_bgate, "Runs reproducible hashing and compute benchmark, verifying performance against baseline SLA.")
+
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)
         m_grid.columnconfigure(2, weight=1)
