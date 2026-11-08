@@ -65,6 +65,7 @@ def check_scripts():
         "scripts/bobzzite-profile-validate.sh",
         "scripts/bobzzite-compat.sh",
         "scripts/bobzzite-ci.sh",
+        "scripts/bobzzite-quirks.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -141,7 +142,8 @@ def check_required_docs():
         "docs/HARDWARE_COMPATIBILITY_MATRIX.md",
         "docs/CONTINUOUS_INTEGRATION.md",
         "docs/MULTI_ARCH_BUILDS.md",
-        "docs/WEBRTC_CLIENT_GUIDE.md"
+        "docs/WEBRTC_CLIENT_GUIDE.md",
+        "docs/HARDWARE_QUIRKS.md"
     ]
     errors = 0
     for doc in required_docs:

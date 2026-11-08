@@ -229,8 +229,12 @@ class BobzziteControlCenter:
         ToolTip(h_webrtc, "Probes WebRTC browser streaming gateway ports and hardware video encoder acceleration.")
 
         h_client = ttk.Button(hw_grid, text="Generate WebRTC Client", command=lambda: self.run_async("if command -v bobzzite-webrtc >/dev/null 2>&1; then bobzzite-webrtc generate-client; elif [ -f scripts/bobzzite-webrtc.sh ]; then ./scripts/bobzzite-webrtc.sh generate-client; else echo 'WebRTC script not found'; fi", "Generating zero-dependency HTML5 WebRTC client..."))
-        h_client.grid(row=10, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_client.grid(row=10, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_client, "Creates a zero-install HTML5/JS WebRTC playtest client page with gamepad support.")
+
+        h_quirks = ttk.Button(hw_grid, text="Hardware Quirks", command=lambda: self.run_async("if command -v bobzzite-quirks >/dev/null 2>&1; then bobzzite-quirks probe; elif [ -f scripts/bobzzite-quirks.sh ]; then ./scripts/bobzzite-quirks.sh probe; else echo 'Quirks script not found'; fi", "Probing hardware device quirks and mitigations..."))
+        h_quirks.grid(row=10, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_quirks, "Detects device-specific hardware quirks (Steam Deck, Ally, Legion Go) and applies fixes.")
 
         h_vr = ttk.Button(hw_grid, text="VR & OpenXR", command=lambda: self.run_async("bobzzite-vr status", "Probing VR headsets, DRM leasing & OpenXR runtimes..."))
         h_vr.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
