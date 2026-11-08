@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.0.0] - 2025-05-18 - MILESTONE RELEASE 7.0
+
+### Added
+- **Zero-Trust Kernel Lockdown & Secure Boot Validator (`bobzzite-lockdown`)**:
+  - Implemented `scripts/bobzzite-lockdown.sh` (mirrored to `config/files/usr/local/bin/bobzzite-lockdown`) auditing EFI Secure Boot state, kernel lockdown mode (`integrity` / `confidentiality`), unsigned kernel modules, and IOMMU DMA device isolation.
+  - Authored comprehensive guide in `docs/KERNEL_LOCKDOWN.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Kernel Lockdown & Security" button under System Updates & Diagnostics card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-lockdown.sh` and `KERNEL_LOCKDOWN.md`.
+
+---
+
 ## [6.9.0] - 2025-05-18
 
 ### Added

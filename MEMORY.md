@@ -23,5 +23,7 @@
   - `bobzzite-bench-gate` (`scripts/bobzzite-bench-gate.sh`) enforces compute SLA baselines and blocks builds on performance degradation.
 - **OpenXR Eye Tracking & Dynamic Foveated Rendering**:
   - `bobzzite-eye-track` (`scripts/bobzzite-eye-track.sh`) manages XR_EXT_eye_gaze_interaction, VRS Tier 2 foveation, and 5-point calibration.
+- **Zero-Trust Kernel Lockdown**:
+  - `bobzzite-lockdown` (`scripts/bobzzite-lockdown.sh`) audits EFI Secure Boot, kernel lockdown mode (`integrity`), and IOMMU device memory protections.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

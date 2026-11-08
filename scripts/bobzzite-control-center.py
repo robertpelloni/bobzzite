@@ -198,8 +198,12 @@ class BobzziteControlCenter:
         ToolTip(mb_sb, "Spawns isolated, unprivileged rootless Podman sandboxes with memory and CPU cgroups constraints.")
 
         mb_bgate = ttk.Button(m_grid, text="Benchmark Gatekeeper", command=lambda: self.run_async("if command -v bobzzite-bench-gate >/dev/null 2>&1; then bobzzite-bench-gate check; elif [ -f scripts/bobzzite-bench-gate.sh ]; then ./scripts/bobzzite-bench-gate.sh check; else echo 'Bench gate script not found'; fi", "Executing CI Performance Regression Gate Check..."))
-        mb_bgate.grid(row=6, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        mb_bgate.grid(row=6, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb_bgate, "Runs reproducible hashing and compute benchmark, verifying performance against baseline SLA.")
+
+        mb_lock = ttk.Button(m_grid, text="Kernel Lockdown & Security", command=lambda: self.run_async("if command -v bobzzite-lockdown >/dev/null 2>&1; then bobzzite-lockdown audit; elif [ -f scripts/bobzzite-lockdown.sh ]; then ./scripts/bobzzite-lockdown.sh audit; else echo 'Lockdown script not found'; fi", "Auditing EFI Secure Boot, Kernel Lockdown & IOMMU..."))
+        mb_lock.grid(row=6, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_lock, "Audits EFI Secure Boot status, kernel lockdown modes, and IOMMU DMA protections.")
 
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)
@@ -297,43 +301,43 @@ class BobzziteControlCenter:
         ToolTip(h_prof_an, "Calculates fit percentage and flavor migration recommendations for this physical machine.")
 
         h_compat = ttk.Button(hw_grid, text="Hardware Compatibility", command=lambda: self.run_async("if command -v bobzzite-compat >/dev/null 2>&1; then bobzzite-compat check; elif [ -f scripts/bobzzite-compat.sh ]; then ./scripts/bobzzite-compat.sh check; else echo 'Compat script not found'; fi", "Auditing broad hardware compatibility tier & instructions..."))
-        h_compat.grid(row=10, column=0, padx=6, pady=4, sticky="ew")
+        h_compat.grid(row=11, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_compat, "Audits CPU instruction sets (AVX2), GPU backends, and assigns compatibility tier.")
 
         h_multi_arch = ttk.Button(hw_grid, text="Multi-Arch Targets", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all multi-arch; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all multi-arch; else echo 'Build flavors script not found'; fi", "Querying multi-architecture build targets (x86_64, aarch64)..."))
-        h_multi_arch.grid(row=10, column=1, padx=6, pady=4, sticky="ew")
+        h_multi_arch.grid(row=11, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_multi_arch, "Displays multi-architecture compilation targets for x86_64 and ARM64 SBCs/laptops.")
 
         h_catalog = ttk.Button(hw_grid, text="Hardware Profiles Catalog", command=lambda: self.run_async("ls -la hardware_profiles/", "Listing version-controlled hardware profile JSON catalog..."))
-        h_catalog.grid(row=11, column=0, padx=6, pady=4, sticky="ew")
+        h_catalog.grid(row=12, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_catalog, "Inspects the repository-tracked hardware profiles directory (hardware_profiles/).")
 
         h_telem = ttk.Button(hw_grid, text="Live Telemetry", command=lambda: self.run_async("cat /proc/loadavg && cat /proc/meminfo | head -n4", "Probing live system compute and memory load..."))
-        h_telem.grid(row=11, column=1, padx=6, pady=4, sticky="ew")
+        h_telem.grid(row=12, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_telem, "Inspects real-time CPU load averages and memory utilization telemetry.")
 
         h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
-        h_summary.grid(row=12, column=0, padx=6, pady=4, sticky="ew")
+        h_summary.grid(row=13, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_summary, "Generates an aggregated hardware profile summary matrix directly from hardware_profiles/.")
 
         h_report = ttk.Button(hw_grid, text="Hardware Compatibility Report", command=lambda: self.run_async("if command -v bobzzite-report >/dev/null 2>&1; then bobzzite-report summary; elif [ -f scripts/bobzzite-report.sh ]; then ./scripts/bobzzite-report.sh summary; else echo 'Report script not found'; fi", "Compiling Comprehensive Host Hardware Diagnostic Report..."))
-        h_report.grid(row=12, column=1, padx=6, pady=4, sticky="ew")
+        h_report.grid(row=13, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_report, "Aggregates hardware probing, compatibility tiers, audio buffers, and exportable Markdown report.")
 
         h_net = ttk.Button(hw_grid, text="Network I/O Telemetry", command=lambda: self.run_async("cat /proc/net/dev | head -n4", "Probing network streaming interface bandwidth..."))
-        h_net.grid(row=13, column=0, padx=6, pady=4, sticky="ew")
+        h_net.grid(row=14, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_net, "Inspects real-time RX/TX network byte counters and streaming bitrate deltas.")
 
         h_diff = ttk.Button(hw_grid, text="Profile Diff Analyzer", command=lambda: self.run_async("if command -v bobzzite-diff >/dev/null 2>&1; then bobzzite-diff bobzzite bobzzite-deck terminal; elif [ -f scripts/bobzzite-diff.sh ]; then ./scripts/bobzzite-diff.sh bobzzite bobzzite-deck terminal; else echo 'Diff script not found'; fi", "Analyzing Profile Divergences (bobzzite vs bobzzite-deck)..."))
-        h_diff.grid(row=13, column=1, padx=6, pady=4, sticky="ew")
+        h_diff.grid(row=14, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_diff, "Compares architectural attributes and drivers between hardware profiles.")
 
         h_mig = ttk.Button(hw_grid, text="Hardware Migration Assistant", command=lambda: self.run_async("if command -v bobzzite-migrate >/dev/null 2>&1; then bobzzite-migrate bobzzite-deck --dry-run; elif [ -f scripts/bobzzite-migrate.sh ]; then ./scripts/bobzzite-migrate.sh bobzzite-deck --dry-run; else echo 'Migrate script not found'; fi", "Executing Hardware Migration Pre-Flight Check..."))
-        h_mig.grid(row=14, column=0, padx=6, pady=4, sticky="ew")
+        h_mig.grid(row=15, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_mig, "Conducts pre-flight compatibility checks, profile diff, snapshot backups, and atomic rebase assistance.")
 
         h_metrics = ttk.Button(hw_grid, text="Prometheus Metrics Gateway", command=lambda: self.run_async("if command -v bobzzite-metrics >/dev/null 2>&1; then bobzzite-metrics status; elif [ -f scripts/bobzzite-metrics.sh ]; then ./scripts/bobzzite-metrics.sh status; else echo 'Metrics script not found'; fi", "Inspecting Prometheus Hardware Metrics Exposition..."))
-        h_metrics.grid(row=14, column=1, padx=6, pady=4, sticky="ew")
+        h_metrics.grid(row=15, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_metrics, "Exposes hardware metrics (CPU load, thermal zones, memory, flavor) in standard Prometheus format.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
@@ -349,7 +353,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=16, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=17, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

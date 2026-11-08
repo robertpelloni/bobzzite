@@ -80,6 +80,7 @@ def check_scripts():
         "scripts/bobzzite-metrics.sh",
         "scripts/bobzzite-bench-gate.sh",
         "scripts/bobzzite-eye-track.sh",
+        "scripts/bobzzite-lockdown.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -175,7 +176,8 @@ def check_required_docs():
         "docs/PROMETHEUS_METRICS.md",
         "docs/HARDWARE_PROFILE_COMPARISON_DATA.md",
         "docs/BENCHMARK_GATEKEEPER.md",
-        "docs/VR_EYE_TRACKING.md"
+        "docs/VR_EYE_TRACKING.md",
+        "docs/KERNEL_LOCKDOWN.md"
     ]
     errors = 0
     for doc in required_docs:
