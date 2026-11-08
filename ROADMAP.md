@@ -47,7 +47,8 @@
 - [x] Comprehensive hardware profile summary matrix generator (`bobzzite-summary`) and guide (`docs/HARDWARE_PROFILE_SUMMARY.md`).
 - [x] Automated hardware compatibility reporter (`bobzzite-report`) and guide (`docs/HARDWARE_COMPATIBILITY_REPORT.md`).
 
-## Phase 5: Production Milestone & Enterprise Hardening (Milestone v6.0.0 to v6.1.0)
+## Phase 5: Production Milestone & Enterprise Hardening (Milestone v6.0.0 to v6.2.0)
 - [x] Real-time network bandwidth streaming telemetry and dual-trace canvas graphing (`docs/NETWORK_TELEMETRY.md`).
 - [x] Software supply chain SLSA Level 3 provenance attestations and SPDX SBOM generation (`docs/SUPPLY_CHAIN_PROVENANCE.md`).
+- [x] Hardware profile comparison data exporter & differential analyzer (`bobzzite-diff`, `docs/HARDWARE_PROFILE_DIFF.md`).
 - [ ] Establish decentralized package mirror synchronization over IPFS.

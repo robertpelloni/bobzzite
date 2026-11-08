@@ -1,11 +1,11 @@
 # Bobzzite OS - Granular Task List (TODO)
 
-## Active Sprint: v6.1.0 Release Verification & Polish
-- [x] Create `scripts/bobzzite-provenance.sh` for SPDX SBOM & SLSA Level 3 provenance.
-- [x] Document supply-chain provenance in `docs/SUPPLY_CHAIN_PROVENANCE.md`.
-- [x] Wire "Supply-Chain Provenance" action into `bobzzite-control-center` GUI with descriptive tooltip.
-- [x] Update `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate`.
-- [x] Bump release version to v6.1.0 across `VERSION.md`, `Containerfile`, and `bobzzite-release`.
+## Active Sprint: v6.2.0 Release Verification & Polish
+- [x] Create `scripts/bobzzite-diff.sh` for hardware profile comparative analysis.
+- [x] Document differential analysis in `docs/HARDWARE_PROFILE_DIFF.md`.
+- [x] Wire "Profile Diff Analyzer" action into `bobzzite-control-center` GUI with descriptive tooltip.
+- [x] Update `scripts/validate_build.py` and mirror executables to `config/files/usr/local/bin/`.
+- [x] Bump release version to v6.2.0 across `VERSION.md`, `Containerfile`, and `bobzzite-release`.
 
 ## Upcoming Enhancements
 - [ ] Establish decentralized package mirror synchronization over IPFS.

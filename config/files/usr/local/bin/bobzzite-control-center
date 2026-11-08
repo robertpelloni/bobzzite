@@ -296,10 +296,6 @@ class BobzziteControlCenter:
         h_telem.grid(row=11, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_telem, "Inspects real-time CPU load averages and memory utilization telemetry.")
 
-        h_net = ttk.Button(hw_grid, text="Network I/O Telemetry", command=lambda: self.run_async("cat /proc/net/dev | head -n4", "Probing network streaming interface bandwidth..."))
-        h_net.grid(row=13, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
-        ToolTip(h_net, "Inspects real-time RX/TX network byte counters and streaming bitrate deltas.")
-
         h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
         h_summary.grid(row=12, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_summary, "Generates an aggregated hardware profile summary matrix directly from hardware_profiles/.")
@@ -307,6 +303,14 @@ class BobzziteControlCenter:
         h_report = ttk.Button(hw_grid, text="Hardware Compatibility Report", command=lambda: self.run_async("if command -v bobzzite-report >/dev/null 2>&1; then bobzzite-report summary; elif [ -f scripts/bobzzite-report.sh ]; then ./scripts/bobzzite-report.sh summary; else echo 'Report script not found'; fi", "Compiling Comprehensive Host Hardware Diagnostic Report..."))
         h_report.grid(row=12, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_report, "Aggregates hardware probing, compatibility tiers, audio buffers, and exportable Markdown report.")
+
+        h_net = ttk.Button(hw_grid, text="Network I/O Telemetry", command=lambda: self.run_async("cat /proc/net/dev | head -n4", "Probing network streaming interface bandwidth..."))
+        h_net.grid(row=13, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_net, "Inspects real-time RX/TX network byte counters and streaming bitrate deltas.")
+
+        h_diff = ttk.Button(hw_grid, text="Profile Diff Analyzer", command=lambda: self.run_async("if command -v bobzzite-diff >/dev/null 2>&1; then bobzzite-diff bobzzite bobzzite-deck terminal; elif [ -f scripts/bobzzite-diff.sh ]; then ./scripts/bobzzite-diff.sh bobzzite bobzzite-deck terminal; else echo 'Diff script not found'; fi", "Analyzing Profile Divergences (bobzzite vs bobzzite-deck)..."))
+        h_diff.grid(row=13, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_diff, "Compares architectural attributes and drivers between hardware profiles.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")

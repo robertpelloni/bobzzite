@@ -9,5 +9,7 @@
   - System configuration files live in `config/files/` and are mapped to root `/`.
   - Build scripts live in `config/scripts/build.sh`.
   - Post-install setup lives in `scripts/post-install.sh`.
+- **Hardware Profile Differential Analysis**:
+  - `bobzzite-diff` (`scripts/bobzzite-diff.sh`) inspects and compares target JSON profiles from `hardware_profiles/` and outputs terminal tables, Markdown tables, or JSON diffs.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

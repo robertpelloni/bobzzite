@@ -5,6 +5,20 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [6.2.0] - 2025-05-18
+
+### Added
+- **Hardware Profile Comparison Data Exporter & Differential Analyzer (`bobzzite-diff`)**:
+  - Implemented `scripts/bobzzite-diff.sh` (mirrored to `config/files/usr/local/bin/bobzzite-diff`) to perform comparative differential analysis across hardware profiles in `hardware_profiles/`.
+  - Supported terminal, markdown, and structured JSON output formats.
+  - Authored comprehensive guide in `docs/HARDWARE_PROFILE_DIFF.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Profile Diff Analyzer" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` to continuously verify `bobzzite-diff.sh` and `HARDWARE_PROFILE_DIFF.md`.
+
+---
+
 ## [6.1.0] - 2025-05-18
 
 ### Added
