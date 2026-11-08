@@ -1,0 +1,11 @@
+{
+  "flavor": "bobzzite-nvidia",
+  "arch": "linux/amd64",
+  "version": "5.5.0",
+  "base_image": "ghcr.io/ublue-os/bazzite-nvidia:latest",
+  "compositor": "kwin_wayland",
+  "hardware_target": "Workstation / Laptop NVIDIA GeForce RTX/GTX",
+  "driver_stack": "NVIDIA Proprietary AKMOD",
+  "video_encoders": ["nvenc", "nvdec", "cuda"],
+  "audio_quantum_default": 128
+}

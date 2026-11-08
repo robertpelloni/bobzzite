@@ -17,7 +17,8 @@
 set -euo pipefail
 
 TARGET="${1:-all}"
-PROFILE_DIR="${PROFILE_DIR:-/tmp/bobzzite-flavors}"
+PROFILE_DIR="${PROFILE_DIR:-hardware_profiles}"
+[ -d "$PROFILE_DIR" ] || PROFILE_DIR="/tmp/bobzzite-flavors"
 
 BOLD='\033[1m'
 GREEN='\033[0;32m'

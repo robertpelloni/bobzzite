@@ -174,8 +174,12 @@ class BobzziteControlCenter:
         ToolTip(mb_webdash, "Inspects status of the lightweight remote web administration dashboard.")
 
         mb_sign = ttk.Button(m_grid, text="Verify Image Signatures", command=lambda: self.run_async("if command -v bobzzite-sign >/dev/null 2>&1; then bobzzite-sign check-keys; elif [ -f scripts/bobzzite-sign.sh ]; then ./scripts/bobzzite-sign.sh check-keys; else echo 'Sign script not found'; fi", "Auditing Cosign & Sigstore Cryptographic Signatures..."))
-        mb_sign.grid(row=3, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        mb_sign.grid(row=3, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb_sign, "Verifies container image cryptographic signatures, Cosign public keys, and provenance.")
+
+        mb_preview = ttk.Button(m_grid, text="Staging / PR Builds", command=lambda: self.run_async("if command -v bobzzite-preview >/dev/null 2>&1; then bobzzite-preview status; elif [ -f scripts/bobzzite-preview.sh ]; then ./scripts/bobzzite-preview.sh status; else echo 'Preview script not found'; fi", "Inspecting Ephemeral PR Preview Builds & Staging..."))
+        mb_preview.grid(row=3, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_preview, "Manages ephemeral pull-request container image preview builds and staging tags.")
 
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)
@@ -276,6 +280,10 @@ class BobzziteControlCenter:
         h_multi_arch.grid(row=9, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_multi_arch, "Displays multi-architecture compilation targets for x86_64 and ARM64 SBCs/laptops.")
 
+        h_catalog = ttk.Button(hw_grid, text="Hardware Profiles Catalog", command=lambda: self.run_async("ls -la hardware_profiles/", "Listing version-controlled hardware profile JSON catalog..."))
+        h_catalog.grid(row=11, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_catalog, "Inspects the repository-tracked hardware profiles directory (hardware_profiles/).")
+
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(mb4, "Performs health checks on atomic OS, GPU drivers, GameMode, and dev tool Flatpaks.")
@@ -289,7 +297,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=11, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=12, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)
