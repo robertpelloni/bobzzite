@@ -83,6 +83,7 @@ def check_scripts():
         "scripts/bobzzite-lockdown.sh",
         "scripts/bobzzite-shader-cache.sh",
         "scripts/bobzzite-coverage.sh",
+        "scripts/bobzzite-ebpf.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -182,7 +183,8 @@ def check_required_docs():
         "docs/KERNEL_LOCKDOWN.md",
         "docs/SHADER_CACHE_MANAGEMENT.md",
         "docs/HARDWARE_DEPLOY_PROFILES.md",
-        "docs/HARDWARE_COVERAGE_AUDIT.md"
+        "docs/HARDWARE_COVERAGE_AUDIT.md",
+        "docs/EBPF_NETWORKING.md"
     ]
     errors = 0
     for doc in required_docs:

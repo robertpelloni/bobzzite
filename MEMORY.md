@@ -31,5 +31,7 @@
   - `bobzzite-deploy` (`scripts/bobzzite-deploy.sh`) now integrates `profile-inspect` and `profile-compare` directly to streamline atomic rebase decisions.
 - **Hardware Matrix Coverage Auditing**:
   - `bobzzite-coverage` (`scripts/bobzzite-coverage.sh`) asserts 100% specification, build matrix, and documentation coverage across all supported form factors.
+- **eBPF Low-Latency Packet Fastpath**:
+  - `bobzzite-ebpf` (`scripts/bobzzite-ebpf.sh`) manages XDP filters and NIC driver ring bypass for sub-microsecond multiplayer packet processing.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

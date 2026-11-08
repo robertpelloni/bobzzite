@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.4.0] - 2025-05-18
+
+### Added
+- **eBPF Low-Latency Packet Routing Optimizer (`bobzzite-ebpf`)**:
+  - Implemented `scripts/bobzzite-ebpf.sh` (mirrored to `config/files/usr/local/bin/bobzzite-ebpf`) managing XDP driver fastpaths, multiplayer UDP packet bypass, and packet statistics.
+  - Authored comprehensive guide in `docs/EBPF_NETWORKING.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "eBPF Network Optimizer" button under System Updates & Diagnostics card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-ebpf.sh` and `EBPF_NETWORKING.md`.
+
+---
+
 ## [7.3.0] - 2025-05-18
 
 ### Added

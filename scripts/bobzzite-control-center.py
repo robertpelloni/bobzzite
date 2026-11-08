@@ -210,6 +210,10 @@ class BobzziteControlCenter:
         mb_lock.grid(row=6, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb_lock, "Audits EFI Secure Boot status, kernel lockdown modes, and IOMMU DMA protections.")
 
+        mb_ebpf = ttk.Button(m_grid, text="eBPF Network Optimizer", command=lambda: self.run_async("if command -v bobzzite-ebpf >/dev/null 2>&1; then bobzzite-ebpf status; elif [ -f scripts/bobzzite-ebpf.sh ]; then ./scripts/bobzzite-ebpf.sh status; else echo 'eBPF script not found'; fi", "Probing eBPF/XDP Fastpath Packet Optimization..."))
+        mb_ebpf.grid(row=7, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_ebpf, "Manages XDP fastpath packet acceleration for low-latency multiplayer gaming and game streaming.")
+
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)
         m_grid.columnconfigure(2, weight=1)
