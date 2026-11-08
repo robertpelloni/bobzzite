@@ -53,4 +53,5 @@
 - [x] Hardware profile comparison data exporter & differential analyzer (`bobzzite-diff`, `docs/HARDWARE_PROFILE_DIFF.md`).
 - [x] Hardware profile automated migration assistant (`bobzzite-migrate`, `docs/HARDWARE_MIGRATION_ASSISTANT.md`).
 - [x] Decentralized package mirror synchronization over IPFS (`bobzzite-ipfs`, `docs/DECENTRALIZED_MIRRORS.md`).
-- [ ] Implement automated rootless container pod sandboxing for web services (`bobzzite-sandbox`).
+- [x] Automated rootless container pod sandboxing for untrusted builds (`bobzzite-sandbox`, `docs/ROOTLESS_SANDBOXING.md`).
+- [ ] Implement automated telemetry Prometheus exporter gateway (`bobzzite-metrics`).

@@ -14,5 +14,7 @@
   - `bobzzite-migrate` (`scripts/bobzzite-migrate.sh`) coordinates pre-flight hardware checks, differential analysis, snapshots, and atomic rebase execution across profiles.
 - **Decentralized Package Mirroring**:
   - `bobzzite-ipfs` (`scripts/bobzzite-ipfs.sh`) manages P2P container layer distribution, offline fallback, and content-addressed verification via IPFS/Kubo.
+- **Rootless Pod Sandboxing**:
+  - `bobzzite-sandbox` (`scripts/bobzzite-sandbox.sh`) manages isolated unprivileged Podman sandboxes with memory limits and seccomp filters for untrusted builds.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

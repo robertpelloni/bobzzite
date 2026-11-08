@@ -5,6 +5,21 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [6.5.0] - 2025-05-18
+
+### Added
+- **Automated Rootless Container Pod Sandboxing Engine (`bobzzite-sandbox`)**:
+  - Implemented `scripts/bobzzite-sandbox.sh` (mirrored to `config/files/usr/local/bin/bobzzite-sandbox`) for running untrusted third-party game builds and mods in unprivileged Podman user namespaces with cgroups v2 resource limits (2GB RAM, 2 CPUs).
+  - Authored comprehensive guide in `docs/ROOTLESS_SANDBOXING.md`.
+- **System Image Profile Deployment**:
+  - Embedded version-controlled hardware profile JSON catalog directly into `config/files/usr/share/bobzzite/hardware_profiles/` for offline container operation.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Rootless Sandbox" button under System Updates & Diagnostics card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` to continuously verify `bobzzite-sandbox.sh` and `ROOTLESS_SANDBOXING.md`.
+
+---
+
 ## [6.4.0] - 2025-05-18
 
 ### Added

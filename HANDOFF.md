@@ -1,6 +1,6 @@
 # Bobzzite OS - Session Handoff & Architecture Transition Guide
 
-**Current Version:** 6.4.0
+**Current Version:** 6.5.0
 **State:** Production-Ready Multi-Architecture Immutable Game Development OS Container
 **Target Upstream:** `ghcr.io/ublue-os/bazzite:latest` (Universal Blue / Fedora 41)
 
@@ -11,9 +11,9 @@
 Bobzzite is a specialized distribution designed for indie game developers, pixel artists, chiptune composers, and gaming handheld enthusiasts. It provides an atomic, ostree-based system layered directly on Fedora Silverblue via Universal Blue (`bazzite`).
 
 Key integrated subsystems include:
-- **Unified Dashboard**: Single-window Python/Tkinter `bobzzite-control-center` with grouped tabs, real-time logging, asynchronous subprocess workers, tooltips, and system tray management (`bobzzite-tray`). Exposes flavor inspection, matrix comparison, profile validation, hardware fit analysis, broad compatibility auditing, local CI runner, multi-arch targets, hardware quirk mitigations, remote web dashboard with live canvas compute & network telemetry, cryptographic image signature verification, supply-chain provenance attestations, profile differential analysis (`bobzzite-diff`), hardware migration assistant (`bobzzite-migrate`), decentralized IPFS mirrors (`bobzzite-ipfs`), staging/preview builds, security auditing, hardware profiles catalog, hardware profile summary, hardware compatibility reporting, network bandwidth I/O, and WebRTC client generation.
+- **Unified Dashboard**: Single-window Python/Tkinter `bobzzite-control-center` with grouped tabs, real-time logging, asynchronous subprocess workers, tooltips, and system tray management (`bobzzite-tray`). Exposes flavor inspection, matrix comparison, profile validation, hardware fit analysis, broad compatibility auditing, local CI runner, multi-arch targets, hardware quirk mitigations, remote web dashboard with live canvas compute & network telemetry, cryptographic image signature verification, supply-chain provenance attestations, profile differential analysis (`bobzzite-diff`), hardware migration assistant (`bobzzite-migrate`), decentralized IPFS mirrors (`bobzzite-ipfs`), rootless Podman sandboxes (`bobzzite-sandbox`), staging/preview builds, security auditing, hardware profiles catalog, hardware profile summary, hardware compatibility reporting, network bandwidth I/O, and WebRTC client generation.
 - **Complete Indie Tooling**: Godot 4, VS Codium, Blender, Aseprite, Audacity, LMMS, Inkscape, Tiled, RenderDoc, and Krita.
-- **Hardware Profile & Matrix Testing**: Automated flavor build matrix (`scripts/build-flavors.sh`) supporting `bobzzite` (desktop AMD/Intel), `bobzzite-deck` (handhelds with Gamescope), `bobzzite-nvidia` (GeForce workstations), and `bobzzite-arm64` (Snapdragon X Elite / RK3588) with repository-tracked specifications in `hardware_profiles/`, automated inspection, comparison matrices, JSON profile export, smoke dry-runs, profile assertion validation (`bobzzite-profile-validate`), hardware profile differential analysis (`bobzzite-diff`), automated migration assistant (`bobzzite-migrate`), decentralized package mirroring (`bobzzite-ipfs`), hardware fit analysis (`bobzzite-deploy profile-analyze`), compatibility auditing (`bobzzite-compat`), hardware quirk mitigation (`bobzzite-quirks`), cryptographic signing (`bobzzite-sign`), SLSA provenance generation (`bobzzite-provenance`), security auditing (`bobzzite-security`), hardware summary reporting (`bobzzite-summary`), compatibility reporting (`bobzzite-report`), and local CI runner (`bobzzite-ci`).
+- **Hardware Profile & Matrix Testing**: Automated flavor build matrix (`scripts/build-flavors.sh`) supporting `bobzzite` (desktop AMD/Intel), `bobzzite-deck` (handhelds with Gamescope), `bobzzite-nvidia` (GeForce workstations), and `bobzzite-arm64` (Snapdragon X Elite / RK3588) with repository-tracked specifications in `hardware_profiles/` and embedded into `config/files/usr/share/bobzzite/hardware_profiles/`, automated inspection, comparison matrices, JSON profile export, smoke dry-runs, profile assertion validation (`bobzzite-profile-validate`), hardware profile differential analysis (`bobzzite-diff`), automated migration assistant (`bobzzite-migrate`), decentralized package mirroring (`bobzzite-ipfs`), rootless container sandboxing (`bobzzite-sandbox`), hardware fit analysis (`bobzzite-deploy profile-analyze`), compatibility auditing (`bobzzite-compat`), hardware quirk mitigation (`bobzzite-quirks`), cryptographic signing (`bobzzite-sign`), SLSA provenance generation (`bobzzite-provenance`), security auditing (`bobzzite-security`), hardware summary reporting (`bobzzite-summary`), compatibility reporting (`bobzzite-report`), and local CI runner (`bobzzite-ci`).
 - **Remote Playtesting & Streaming**: Both Moonlight/Sunshine native game streaming (`bobzzite-stream`) and zero-install WebRTC browser streaming (`bobzzite-webrtc`) with integrated HTML5 gamepad test client generation (`bobzzite-webrtc generate-client`) and remote web administration with live compute and network dual-trace graphs (`bobzzite-webdash`).
 - **Asset, Packaging, Audio, & Test Pipelines**: Low-latency PipeWire quantum configurations, asset compression, gettext translation compilations, GDScript syntax validation, and SCons custom Godot export template builds.
 
@@ -33,7 +33,8 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 9. `bobzzite-diff`: Hardware profile differential analyzer for granular side-by-side spec comparisons.
 10. `bobzzite-migrate`: Automated hardware migration assistant coordinating pre-flight checks and rebasing.
 11. `bobzzite-ipfs`: Decentralized package mirror and P2P layer synchronization engine.
-12. `bobzzite-compat`: Broad hardware compatibility and tier auditor.
+12. `bobzzite-sandbox`: Rootless container pod sandboxing engine with memory and CPU constraints.
+13. `bobzzite-compat`: Broad hardware compatibility and tier auditor.
 13. `bobzzite-quirks`: Hardware device quirks and runtime workaround manager.
 14. `bobzzite-security`: Security hardening, SUID binary, and sandbox auditor.
 15. `bobzzite-webdash`: Lightweight remote web dashboard server with live vector graphs.
@@ -67,6 +68,6 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 ## 3. Resume Instructions for Successor Models
 
 To resume work without friction:
-1. Run `python3 scripts/validate_build.py` to confirm all 42 scripts and 43 documentation guides pass syntax and path checks.
+1. Run `python3 scripts/validate_build.py` to confirm all 43 scripts and 44 documentation guides pass syntax and path checks.
 2. Run `docker build --check -f Containerfile .` to verify containerfile syntax.
 3. Consult `TODO.md` and `ROADMAP.md` for upcoming enhancements.
