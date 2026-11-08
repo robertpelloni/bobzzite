@@ -166,8 +166,12 @@ class BobzziteControlCenter:
         ToolTip(mb3, "Runs repository integrity, asset copy, and documentation checks.")
 
         mb_ci = ttk.Button(m_grid, text="Run CI Smoke Suite", command=lambda: self.run_async("if command -v bobzzite-ci >/dev/null 2>&1; then bobzzite-ci; elif [ -f scripts/bobzzite-ci.sh ]; then ./scripts/bobzzite-ci.sh; else echo 'CI runner script not found'; fi", "Executing Complete Local CI Smoke Test Pipeline..."))
-        mb_ci.grid(row=2, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        mb_ci.grid(row=2, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb_ci, "Executes the full automated CI validation suite locally before pushing changes.")
+
+        mb_webdash = ttk.Button(m_grid, text="Web Dashboard", command=lambda: self.run_async("if command -v bobzzite-webdash >/dev/null 2>&1; then bobzzite-webdash status; elif [ -f scripts/bobzzite-webdash.py ]; then python3 scripts/bobzzite-webdash.py status; else echo 'Webdash script not found'; fi", "Probing Remote Web Dashboard Server..."))
+        mb_webdash.grid(row=2, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_webdash, "Inspects status of the lightweight remote web administration dashboard.")
 
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)

@@ -66,6 +66,7 @@ def check_scripts():
         "scripts/bobzzite-compat.sh",
         "scripts/bobzzite-ci.sh",
         "scripts/bobzzite-quirks.sh",
+        "scripts/bobzzite-webdash.py",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -143,7 +144,8 @@ def check_required_docs():
         "docs/CONTINUOUS_INTEGRATION.md",
         "docs/MULTI_ARCH_BUILDS.md",
         "docs/WEBRTC_CLIENT_GUIDE.md",
-        "docs/HARDWARE_QUIRKS.md"
+        "docs/HARDWARE_QUIRKS.md",
+        "docs/REMOTE_WEB_DASHBOARD.md"
     ]
     errors = 0
     for doc in required_docs:
