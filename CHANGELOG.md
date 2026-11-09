@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [8.2.0] - 2025-05-18
+
+### Added
+- **Adaptive Thermal Fan Curve & Sensor Auditor (`bobzzite-fan`)**:
+  - Implemented `scripts/bobzzite-fan.sh` (mirrored to `config/files/usr/local/bin/bobzzite-fan`) auditing hardware monitoring sysfs inputs (`/sys/class/hwmon`), thermal zones, cooling devices, and dynamic acoustic profiles (`quiet`, `balanced`, `performance`).
+  - Authored comprehensive guide in `docs/THERMAL_MANAGEMENT.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Fan Curves & Thermals" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-fan.sh` and `THERMAL_MANAGEMENT.md`.
+
+---
+
 ## [8.1.0] - 2025-05-18
 
 ### Added

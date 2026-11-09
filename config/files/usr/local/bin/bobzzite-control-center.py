@@ -357,6 +357,10 @@ class BobzziteControlCenter:
         h_rt.grid(row=20, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_rt, "Audits GPU hardware ray tracing extensions (VK_KHR_ray_tracing_pipeline, acceleration structures) and RADV/NV drivers.")
 
+        h_fan = ttk.Button(hw_grid, text="Fan Curves & Thermals", command=lambda: self.run_async("if command -v bobzzite-fan >/dev/null 2>&1; then bobzzite-fan audit; elif [ -f scripts/bobzzite-fan.sh ]; then ./scripts/bobzzite-fan.sh audit; else echo 'Fan script not found'; fi", "Auditing Adaptive Thermal Fan Curves & Sensors..."))
+        h_fan.grid(row=21, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_fan, "Audits hwmon thermal inputs, cooling devices, and configures acoustic fan profiles (quiet/balanced/perf).")
+
         h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
         h_summary.grid(row=13, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_summary, "Generates an aggregated hardware profile summary matrix directly from hardware_profiles/.")
@@ -394,7 +398,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=21, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=22, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

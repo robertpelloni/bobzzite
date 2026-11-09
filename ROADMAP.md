@@ -70,4 +70,5 @@
 - [x] Comprehensive hardware profile summary & compliance data catalog (`docs/HARDWARE_PROFILE_SUMMARY_DATA.md`).
 - [x] CPU microcode & hardware mitigation auditor (`bobzzite-microcode`, `docs/CPU_MICROCODE_MANAGEMENT.md`).
 - [x] Vulkan ray tracing pipeline & capability auditor (`bobzzite-raytracing`, `docs/VULKAN_RAYTRACING.md`).
-- [ ] Implement adaptive thermal fan curve manager for gaming handhelds (`bobzzite-fan`).
+- [x] Adaptive thermal fan curve manager (`bobzzite-fan`, `docs/THERMAL_MANAGEMENT.md`).
+- [ ] Implement Gamescope HDR calibration profile generator (`bobzzite-hdr-cal`).
