@@ -38,5 +38,7 @@
   - Comprehensive operational deployment runbooks are maintained in `docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md`.
 - **Wayland Color Management & HDR Calibration**:
   - `bobzzite-hdr` (`scripts/bobzzite-hdr.sh`) manages `xx-color-management-v4` protocol negotiation, BT.2020 WCG, and Gamescope HDR luminance mapping.
+- **Battery Health & Charge Threshold Optimization**:
+  - `bobzzite-battery` (`scripts/bobzzite-battery.sh`) queries `/sys/class/power_supply`, calculates battery wear levels, and sets hardware charge end thresholds (80%) for mobile handhelds and gaming laptops.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

@@ -66,4 +66,5 @@
 - [x] Hardware deployment compliance & profile assertion bridge (`docs/HARDWARE_DEPLOY_COMPLIANCE.md`).
 - [x] Hardware deployment runbooks & operational workflows (`docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md`).
 - [x] Wayland color management & HDR calibration (`bobzzite-hdr`, `docs/WAYLAND_HDR_SETUP.md`).
+- [x] Battery health & charge threshold optimizer (`bobzzite-battery`, `docs/BATTERY_HEALTH_MANAGEMENT.md`).
 - [ ] Implement automated zero-dependency microcode updater (`bobzzite-microcode`).

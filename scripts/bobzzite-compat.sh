@@ -25,7 +25,8 @@ NC='\033[0m'
 echo -e "${BOLD}${BLUE}=== Bobzzite OS Broad Hardware Compatibility Auditor ===${NC}"
 
 audit_cpu() {
-    echo -e "\n${YELLOW}>>> CPU Architecture & Instruction Set Audit:${NC}"
+    echo -e "
+${YELLOW}>>> CPU Architecture & Instruction Set Audit:${NC}"
     local cpu_model="Unknown CPU"
     if [ -f /proc/cpuinfo ]; then
         cpu_model=$(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2 | xargs || echo "x86_64")
@@ -37,17 +38,35 @@ audit_cpu() {
         flags=$(grep -m1 "flags" /proc/cpuinfo | cut -d: -f2 || true)
     fi
 
-    # Check for x86-64-v2 / v3 baseline instructions
     local has_sse4_2=0 has_avx=0 has_avx2=0 has_fma=0
     echo "$flags" | grep -qw "sse4_2" && has_sse4_2=1 || true
     echo "$flags" | grep -qw "avx" && has_avx=1 || true
     echo "$flags" | grep -qw "avx2" && has_avx2=1 || true
     echo "$flags" | grep -qw "fma" && has_fma=1 || true
 
-    echo -e "  • SSE 4.2 Support     : $([ "$has_sse4_2" -eq 1 ] && echo -e "${GREEN}Supported${NC}" || echo -e "${YELLOW}Missing${NC})"
-    echo -e "  • AVX Vector Extensions: $([ "$has_avx" -eq 1 ] && echo -e "${GREEN}Supported${NC}" || echo -e "${YELLOW}Missing${NC})"
-    echo -e "  • AVX2 High Throughput: $([ "$has_avx2" -eq 1 ] && echo -e "${GREEN}Supported (Optimal for Godot 4 & Blender)${NC}" || echo -e "${YELLOW}Missing (Fallback mode)${NC})"
-    echo -e "  • FMA3 Floating Point : $([ "$has_fma" -eq 1 ] && echo -e "${GREEN}Supported${NC}" || echo -e "${YELLOW}Missing${NC})"
+    if [ "$has_sse4_2" -eq 1 ]; then
+        echo -e "  • SSE 4.2 Support     : ${GREEN}Supported${NC}"
+    else
+        echo -e "  • SSE 4.2 Support     : ${YELLOW}Missing${NC}"
+    fi
+
+    if [ "$has_avx" -eq 1 ]; then
+        echo -e "  • AVX Vector Extensions: ${GREEN}Supported${NC}"
+    else
+        echo -e "  • AVX Vector Extensions: ${YELLOW}Missing${NC}"
+    fi
+
+    if [ "$has_avx2" -eq 1 ]; then
+        echo -e "  • AVX2 High Throughput: ${GREEN}Supported (Optimal for Godot 4 & Blender)${NC}"
+    else
+        echo -e "  • AVX2 High Throughput: ${YELLOW}Missing (Fallback mode)${NC}"
+    fi
+
+    if [ "$has_fma" -eq 1 ]; then
+        echo -e "  • FMA3 Floating Point : ${GREEN}Supported${NC}"
+    else
+        echo -e "  • FMA3 Floating Point : ${YELLOW}Missing${NC}"
+    fi
 }
 
 audit_gpu() {

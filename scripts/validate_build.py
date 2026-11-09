@@ -85,6 +85,7 @@ def check_scripts():
         "scripts/bobzzite-coverage.sh",
         "scripts/bobzzite-ebpf.sh",
         "scripts/bobzzite-hdr.sh",
+        "scripts/bobzzite-battery.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -188,7 +189,8 @@ def check_required_docs():
         "docs/EBPF_NETWORKING.md",
         "docs/HARDWARE_DEPLOY_COMPLIANCE.md",
         "docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md",
-        "docs/WAYLAND_HDR_SETUP.md"
+        "docs/WAYLAND_HDR_SETUP.md",
+        "docs/BATTERY_HEALTH_MANAGEMENT.md"
     ]
     errors = 0
     for doc in required_docs:

@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.8.0] - 2025-05-18
+
+### Added
+- **Battery Health & Charge Threshold Optimizer (`bobzzite-battery`)**:
+  - Implemented `scripts/bobzzite-battery.sh` (mirrored to `config/files/usr/local/bin/bobzzite-battery`) querying power supply sysfs attributes, cycle degradation retention, and setting charging stop-thresholds (80%) to maximize cell longevity.
+  - Authored comprehensive guide in `docs/BATTERY_HEALTH_MANAGEMENT.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Battery Health & Charging" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-battery.sh` and `BATTERY_HEALTH_MANAGEMENT.md`.
+
+---
+
 ## [7.7.0] - 2025-05-18
 
 ### Added
