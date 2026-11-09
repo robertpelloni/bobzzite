@@ -305,6 +305,10 @@ class BobzziteControlCenter:
         h_dep_insp.grid(row=8, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_dep_insp, "Inspects hardware profile JSON specifications via bobzzite-deploy.")
 
+        h_hdr = ttk.Button(hw_grid, text="HDR & Color Management", command=lambda: self.run_async("if command -v bobzzite-hdr >/dev/null 2>&1; then bobzzite-hdr status; elif [ -f scripts/bobzzite-hdr.sh ]; then ./scripts/bobzzite-hdr.sh status; else echo 'HDR script not found'; fi", "Probing Wayland Color Management & HDR Tone-Mapping..."))
+        h_hdr.grid(row=17, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_hdr, "Calibrates Wayland xx-color-management-v4, BT.2020 WCG, and Gamescope HDR luminance.")
+
         h_dep_audit = ttk.Button(hw_grid, text="Deploy Compliance Audit", command=lambda: self.run_async("bobzzite-deploy profile-audit", "Running Deployment Hardware Compliance Audit..."))
         h_dep_audit.grid(row=16, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_dep_audit, "Validates hardware compliance and profile assertions before atomic rebasing.")
@@ -338,7 +342,7 @@ class BobzziteControlCenter:
         ToolTip(h_cov, "Asserts end-to-end coverage across specifications, images, and documentation for all flavors.")
 
         h_telem = ttk.Button(hw_grid, text="Live Telemetry", command=lambda: self.run_async("cat /proc/loadavg && cat /proc/meminfo | head -n4", "Probing live system compute and memory load..."))
-        h_telem.grid(row=17, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        h_telem.grid(row=18, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_telem, "Inspects real-time CPU load averages and memory utilization telemetry.")
 
         h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
@@ -378,7 +382,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=19, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=20, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

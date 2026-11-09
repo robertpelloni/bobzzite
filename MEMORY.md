@@ -36,5 +36,7 @@
 - **Hardware Deployment Compliance & Validation Integration**:
   - `bobzzite-deploy` now directly integrates `profile-audit` and `profile-validate` to confirm system readiness before rebasing.
   - Comprehensive operational deployment runbooks are maintained in `docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md`.
+- **Wayland Color Management & HDR Calibration**:
+  - `bobzzite-hdr` (`scripts/bobzzite-hdr.sh`) manages `xx-color-management-v4` protocol negotiation, BT.2020 WCG, and Gamescope HDR luminance mapping.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

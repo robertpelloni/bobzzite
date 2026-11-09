@@ -1,6 +1,6 @@
 # Bobzzite OS - Session Handoff & Architecture Transition Guide
 
-**Current Version:** 7.6.0
+**Current Version:** 7.7.0
 **State:** Production-Ready Multi-Architecture Immutable Game Development OS Container
 **Target Upstream:** `ghcr.io/ublue-os/bazzite:latest` (Universal Blue / Fedora 41)
 
@@ -41,7 +41,8 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 17. `bobzzite-shader-cache`: Godot 4 Vulkan SPIR-V shader pipeline pre-warming manager.
 18. `bobzzite-coverage`: Multi-hardware matrix completeness and coverage auditor.
 19. `bobzzite-ebpf`: eBPF and XDP low-latency packet routing optimizer.
-20. `bobzzite-compat`: Broad hardware compatibility and tier auditor.
+20. `bobzzite-hdr`: Wayland color management and HDR calibration manager.
+21. `bobzzite-compat`: Broad hardware compatibility and tier auditor.
 13. `bobzzite-quirks`: Hardware device quirks and runtime workaround manager.
 14. `bobzzite-security`: Security hardening, SUID binary, and sandbox auditor.
 15. `bobzzite-webdash`: Lightweight remote web dashboard server with live vector graphs.
@@ -75,6 +76,6 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 ## 3. Resume Instructions for Successor Models
 
 To resume work without friction:
-1. Run `python3 scripts/validate_build.py` to confirm all 50 scripts and 55 documentation guides pass syntax and path checks.
+1. Run `python3 scripts/validate_build.py` to confirm all 51 scripts and 56 documentation guides pass syntax and path checks.
 2. Run `docker build --check -f Containerfile .` to verify containerfile syntax.
 3. Consult `TODO.md` and `ROADMAP.md` for upcoming enhancements.

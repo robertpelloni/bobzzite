@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.7.0] - 2025-05-18
+
+### Added
+- **Wayland Color Management & HDR Calibration (`bobzzite-hdr`)**:
+  - Implemented `scripts/bobzzite-hdr.sh` (mirrored to `config/files/usr/local/bin/bobzzite-hdr`) managing Wayland `xx-color-management-v4`, EDID HDR metadata extraction, BT.2020 WCG, and Gamescope launch flags.
+  - Authored comprehensive guide in `docs/WAYLAND_HDR_SETUP.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "HDR & Color Management" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-hdr.sh` and `WAYLAND_HDR_SETUP.md`.
+
+---
+
 ## [7.6.0] - 2025-05-18
 
 ### Added

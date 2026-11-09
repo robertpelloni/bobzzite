@@ -84,6 +84,7 @@ def check_scripts():
         "scripts/bobzzite-shader-cache.sh",
         "scripts/bobzzite-coverage.sh",
         "scripts/bobzzite-ebpf.sh",
+        "scripts/bobzzite-hdr.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -186,7 +187,8 @@ def check_required_docs():
         "docs/HARDWARE_COVERAGE_AUDIT.md",
         "docs/EBPF_NETWORKING.md",
         "docs/HARDWARE_DEPLOY_COMPLIANCE.md",
-        "docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md"
+        "docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md",
+        "docs/WAYLAND_HDR_SETUP.md"
     ]
     errors = 0
     for doc in required_docs:
