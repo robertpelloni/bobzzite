@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [8.6.0] - 2025-05-18
+
+### Added
+- **Hardware Audio Quantum Latency Stress Benchmark (`bobzzite-audio-stress`)**:
+  - Implemented `scripts/bobzzite-audio-stress.sh` (mirrored to `config/files/usr/local/bin/bobzzite-audio-stress`) benchmarking PipeWire buffer quantum presets (64, 128, 256, 512 frames) under simulated multi-stream DSP workloads.
+  - Authored comprehensive guide in `docs/AUDIO_LATENCY_STRESS.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Audio Latency Stress Test" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-audio-stress.sh` and `AUDIO_LATENCY_STRESS.md`.
+
+---
+
 ## [8.5.0] - 2025-05-18
 
 ### Added

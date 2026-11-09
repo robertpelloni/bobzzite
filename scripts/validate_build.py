@@ -92,6 +92,7 @@ def check_scripts():
         "scripts/bobzzite-hdr-cal.sh",
         "scripts/bobzzite-gyro.sh",
         "scripts/bobzzite-shm.sh",
+        "scripts/bobzzite-audio-stress.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -204,6 +205,7 @@ def check_required_docs():
         "docs/GAMESCOPE_HDR_CALIBRATION.md",
         "docs/HANDHELD_GYRO_CALIBRATION.md",
         "docs/SHARED_MEMORY_PIPELINE.md",
+        "docs/AUDIO_LATENCY_STRESS.md",
     ]
     errors = 0
     for doc in required_docs:

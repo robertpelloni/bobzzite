@@ -249,6 +249,10 @@ class BobzziteControlCenter:
         h_audio.grid(row=3, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_audio, "Inspects PipeWire audio server status, active sound cards, and audio latency quantum.")
 
+        h_astress = ttk.Button(hw_grid, text="Audio Latency Stress Test", command=lambda: self.run_async("if command -v bobzzite-audio-stress >/dev/null 2>&1; then bobzzite-audio-stress audit; elif [ -f scripts/bobzzite-audio-stress.sh ]; then ./scripts/bobzzite-audio-stress.sh audit; else echo 'Audio stress script not found'; fi", "Running PipeWire Audio Buffer Quantum Latency Stress Test..."))
+        h_astress.grid(row=24, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_astress, "Stress-tests buffer quantums (64, 128, 256, 512 frames) against simulated game audio DSP load to verify zero-xrun stability.")
+
         h6 = ttk.Button(hw_grid, text="System Tuning", command=lambda: self.run_async("bobzzite-tweak status", "Inspecting system performance tunables..."))
         h6.grid(row=2, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h6, "Queries low-latency sysctl parameters, split lock mitigation, and PipeWire latency.")
@@ -410,7 +414,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=24, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=25, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

@@ -1,7 +1,7 @@
 {
   "flavor": "bobzzite-nvidia",
   "arch": "linux/amd64",
-  "version": "8.5.0",
+  "version": "8.6.0",
   "base_image": "ghcr.io/ublue-os/bazzite-nvidia:latest",
   "compositor": "kwin_wayland",
   "hardware_target": "Workstation / Laptop NVIDIA GeForce RTX/GTX",

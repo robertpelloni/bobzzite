@@ -1,6 +1,6 @@
 # Bobzzite OS - Session Handoff & Architecture Transition Guide
 
-**Current Version:** 8.5.0
+**Current Version:** 8.6.0
 **State:** Production-Ready Multi-Architecture Immutable Game Development OS Container
 **Target Upstream:** `ghcr.io/ublue-os/bazzite:latest` (Universal Blue / Fedora 41)
 
@@ -77,6 +77,6 @@ All utilities are located in `scripts/` and mirrored in `config/files/usr/local/
 ## 3. Resume Instructions for Successor Models
 
 To resume work without friction:
-1. Run `python3 scripts/validate_build.py` to confirm all 58 scripts and 64 documentation guides pass syntax and path checks.
+1. Run `python3 scripts/validate_build.py` to confirm all 59 scripts and 65 documentation guides pass syntax and path checks.
 2. Run `docker build --check -f Containerfile .` to verify containerfile syntax.
 3. Consult `TODO.md` and `ROADMAP.md` for upcoming enhancements.
