@@ -89,6 +89,7 @@ def check_scripts():
         "scripts/bobzzite-microcode.sh",
         "scripts/bobzzite-raytracing.sh",
         "scripts/bobzzite-fan.sh",
+        "scripts/bobzzite-hdr-cal.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -198,6 +199,7 @@ def check_required_docs():
         "docs/CPU_MICROCODE_MANAGEMENT.md",
         "docs/VULKAN_RAYTRACING.md",
         "docs/THERMAL_MANAGEMENT.md",
+        "docs/GAMESCOPE_HDR_CALIBRATION.md",
     ]
     errors = 0
     for doc in required_docs:

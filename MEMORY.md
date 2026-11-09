@@ -48,5 +48,7 @@
   - `bobzzite-raytracing` (`scripts/bobzzite-raytracing.sh`) audits GPU hardware, direct rendering nodes, and Vulkan KHR ray tracing extensions (`VK_KHR_ray_tracing_pipeline`, `VK_KHR_acceleration_structure`, `VK_KHR_ray_query`, `VK_KHR_pipeline_library`) and driver configurations.
 - **Adaptive Thermal Fan Curve Management**:
   - `bobzzite-fan` (`scripts/bobzzite-fan.sh`) audits `/sys/class/hwmon` and `/sys/class/thermal` inputs, cooling devices, and configures acoustic fan profiles (`quiet`, `balanced`, `performance`).
+- **Gamescope HDR Calibration & Tone-Mapping**:
+  - `bobzzite-hdr-cal` (`scripts/bobzzite-hdr-cal.sh`) computes display peak nit luminance mappings and generates calibrated Gamescope launch flags (`--hdr-enabled`, `--hdr-sdr-content-nits 203`, `--hdr-itm-enable`) and DXVK/VKD3D HDR environment variables.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

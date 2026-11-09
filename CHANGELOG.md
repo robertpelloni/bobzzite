@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [8.3.0] - 2025-05-18
+
+### Added
+- **Gamescope HDR Calibration Profile Generator (`bobzzite-hdr-cal`)**:
+  - Implemented `scripts/bobzzite-hdr-cal.sh` (mirrored to `config/files/usr/local/bin/bobzzite-hdr-cal`) probing display luminance capabilities and generating calibrated Gamescope launch flags and DXVK HDR environment variables.
+  - Authored comprehensive guide in `docs/GAMESCOPE_HDR_CALIBRATION.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Gamescope HDR Calibration" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-hdr-cal.sh` and `GAMESCOPE_HDR_CALIBRATION.md`.
+
+---
+
 ## [8.2.0] - 2025-05-18
 
 ### Added

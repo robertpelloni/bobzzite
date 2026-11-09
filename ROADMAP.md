@@ -71,4 +71,5 @@
 - [x] CPU microcode & hardware mitigation auditor (`bobzzite-microcode`, `docs/CPU_MICROCODE_MANAGEMENT.md`).
 - [x] Vulkan ray tracing pipeline & capability auditor (`bobzzite-raytracing`, `docs/VULKAN_RAYTRACING.md`).
 - [x] Adaptive thermal fan curve manager (`bobzzite-fan`, `docs/THERMAL_MANAGEMENT.md`).
-- [ ] Implement Gamescope HDR calibration profile generator (`bobzzite-hdr-cal`).
+- [x] Gamescope HDR calibration profile generator (`bobzzite-hdr-cal`, `docs/GAMESCOPE_HDR_CALIBRATION.md`).
+- [ ] Implement handheld gyro and motion sensor calibrator (`bobzzite-gyro`).

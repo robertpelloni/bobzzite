@@ -361,6 +361,10 @@ class BobzziteControlCenter:
         h_fan.grid(row=21, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_fan, "Audits hwmon thermal inputs, cooling devices, and configures acoustic fan profiles (quiet/balanced/perf).")
 
+        h_hdr_cal = ttk.Button(hw_grid, text="Gamescope HDR Calibration", command=lambda: self.run_async("if command -v bobzzite-hdr-cal >/dev/null 2>&1; then bobzzite-hdr-cal probe; elif [ -f scripts/bobzzite-hdr-cal.sh ]; then ./scripts/bobzzite-hdr-cal.sh probe; else echo 'HDR calibration script not found'; fi", "Probing Display Luminance & Gamescope HDR Flags..."))
+        h_hdr_cal.grid(row=22, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_hdr_cal, "Probes display peak nits and generates calibrated Gamescope HDR launch arguments and DXVK variables.")
+
         h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
         h_summary.grid(row=13, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_summary, "Generates an aggregated hardware profile summary matrix directly from hardware_profiles/.")
@@ -398,7 +402,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=22, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=23, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)
