@@ -1,11 +1,14 @@
 {
   "flavor": "bobzzite-arm64",
   "arch": "linux/arm64",
-  "version": "5.5.0",
+  "version": "8.4.0",
   "base_image": "ghcr.io/ublue-os/bazzite:latest",
   "compositor": "kwin_wayland",
   "hardware_target": "ARM64 SBCs & Snapdragon X Elite Laptops",
   "driver_stack": "Mesa Panfrost / Freedreno (Turnip)",
-  "video_encoders": ["v4l2m2m", "vaapi"],
+  "video_encoders": [
+    "v4l2m2m",
+    "vaapi"
+  ],
   "audio_quantum_default": 256
 }

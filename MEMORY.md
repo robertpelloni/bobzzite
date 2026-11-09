@@ -50,5 +50,7 @@
   - `bobzzite-fan` (`scripts/bobzzite-fan.sh`) audits `/sys/class/hwmon` and `/sys/class/thermal` inputs, cooling devices, and configures acoustic fan profiles (`quiet`, `balanced`, `performance`).
 - **Gamescope HDR Calibration & Tone-Mapping**:
   - `bobzzite-hdr-cal` (`scripts/bobzzite-hdr-cal.sh`) computes display peak nit luminance mappings and generates calibrated Gamescope launch flags (`--hdr-enabled`, `--hdr-sdr-content-nits 203`, `--hdr-itm-enable`) and DXVK/VKD3D HDR environment variables.
+- **Handheld Gyroscope & Motion Sensor Calibration**:
+  - `bobzzite-gyro` (`scripts/bobzzite-gyro.sh`) probes Industrial I/O (`/sys/bus/iio/devices`) and evdev motion nodes, calculates resting zero-rate bias drift offsets, and writes calibration matrices for Steam Deck, ROG Ally, and Legion Go IMUs.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

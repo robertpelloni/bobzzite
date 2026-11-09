@@ -365,6 +365,10 @@ class BobzziteControlCenter:
         h_hdr_cal.grid(row=22, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_hdr_cal, "Probes display peak nits and generates calibrated Gamescope HDR launch arguments and DXVK variables.")
 
+        h_gyro = ttk.Button(hw_grid, text="Handheld Gyro & Motion", command=lambda: self.run_async("if command -v bobzzite-gyro >/dev/null 2>&1; then bobzzite-gyro calibrate; elif [ -f scripts/bobzzite-gyro.sh ]; then ./scripts/bobzzite-gyro.sh calibrate; else echo 'Gyro script not found'; fi", "Calibrating 6-Axis Motion & Gyroscope Sensors..."))
+        h_gyro.grid(row=23, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_gyro, "Calibrates stationary resting bias drift and sensitivity for Steam Deck, ROG Ally, and Legion Go IMUs.")
+
         h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
         h_summary.grid(row=13, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_summary, "Generates an aggregated hardware profile summary matrix directly from hardware_profiles/.")
@@ -402,7 +406,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=23, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=24, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

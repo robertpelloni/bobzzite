@@ -1,11 +1,14 @@
 {
   "flavor": "bobzzite-deck",
   "arch": "linux/amd64",
-  "version": "5.5.0",
+  "version": "8.4.0",
   "base_image": "ghcr.io/ublue-os/bazzite-deck:latest",
   "compositor": "gamescope",
   "hardware_target": "Handheld Gaming PCs (Steam Deck, ROG Ally, Legion Go)",
   "driver_stack": "RADV ACO (AMD Mesa)",
-  "video_encoders": ["vaapi", "amf"],
+  "video_encoders": [
+    "vaapi",
+    "amf"
+  ],
   "audio_quantum_default": 256
 }

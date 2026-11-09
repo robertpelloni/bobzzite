@@ -72,4 +72,5 @@
 - [x] Vulkan ray tracing pipeline & capability auditor (`bobzzite-raytracing`, `docs/VULKAN_RAYTRACING.md`).
 - [x] Adaptive thermal fan curve manager (`bobzzite-fan`, `docs/THERMAL_MANAGEMENT.md`).
 - [x] Gamescope HDR calibration profile generator (`bobzzite-hdr-cal`, `docs/GAMESCOPE_HDR_CALIBRATION.md`).
-- [ ] Implement handheld gyro and motion sensor calibrator (`bobzzite-gyro`).
+- [x] Handheld gyro & motion sensor calibrator (`bobzzite-gyro`, `docs/HANDHELD_GYRO_CALIBRATION.md`).
+- [ ] Implement memory-mapped shared buffer playtesting diagnostics (`bobzzite-shm`).

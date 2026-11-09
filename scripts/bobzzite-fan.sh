@@ -39,7 +39,6 @@ audit_thermal_sensors() {
             [ -f "$mon/name" ] && name=$(cat "$mon/name")
             echo -e "  • Hwmon Node: ${BOLD}${name}${NC} (${mon})"
 
-            # Print temperature inputs if present
             for temp in "$mon"/temp*_input; do
                 [ -f "$temp" ] || continue
                 local tval
@@ -48,7 +47,6 @@ audit_thermal_sensors() {
                 echo -e "    - Temperature: ${CYAN}${tc}°C${NC} ($(basename "$temp"))"
             done
 
-            # Print fan PWM inputs if present
             for pwm in "$mon"/pwm*; do
                 [ -f "$pwm" ] || continue
                 local pval

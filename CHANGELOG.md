@@ -5,43 +5,16 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
-## [8.3.0] - 2025-05-18
+## [8.4.0] - 2025-05-18
 
 ### Added
-- **Gamescope HDR Calibration Profile Generator (`bobzzite-hdr-cal`)**:
-  - Implemented `scripts/bobzzite-hdr-cal.sh` (mirrored to `config/files/usr/local/bin/bobzzite-hdr-cal`) probing display luminance capabilities and generating calibrated Gamescope launch flags and DXVK HDR environment variables.
-  - Authored comprehensive guide in `docs/GAMESCOPE_HDR_CALIBRATION.md`.
+- **Handheld Gyro & Motion Sensor Calibrator (`bobzzite-gyro`)**:
+  - Implemented `scripts/bobzzite-gyro.sh` (mirrored to `config/files/usr/local/bin/bobzzite-gyro`) to probe Industrial I/O (`/sys/bus/iio/devices`) and evdev motion nodes, calculate resting zero-rate bias drift offsets, and generate calibration profiles.
+  - Authored comprehensive guide in `docs/HANDHELD_GYRO_CALIBRATION.md`.
 - **Bobzzite Control Center GUI Integration**:
-  - Added dedicated "Gamescope HDR Calibration" button under Hardware & Gaming Profiles card.
+  - Added dedicated "Handheld Gyro & Motion" button under Hardware & Gaming Profiles card.
 - **Continuous Validation**:
-  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-hdr-cal.sh` and `GAMESCOPE_HDR_CALIBRATION.md`.
-
----
-
-## [8.2.0] - 2025-05-18
-
-### Added
-- **Adaptive Thermal Fan Curve & Sensor Auditor (`bobzzite-fan`)**:
-  - Implemented `scripts/bobzzite-fan.sh` (mirrored to `config/files/usr/local/bin/bobzzite-fan`) auditing hardware monitoring sysfs inputs (`/sys/class/hwmon`), thermal zones, cooling devices, and dynamic acoustic profiles (`quiet`, `balanced`, `performance`).
-  - Authored comprehensive guide in `docs/THERMAL_MANAGEMENT.md`.
-- **Bobzzite Control Center GUI Integration**:
-  - Added dedicated "Fan Curves & Thermals" button under Hardware & Gaming Profiles card.
-- **Continuous Validation**:
-  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-fan.sh` and `THERMAL_MANAGEMENT.md`.
-
----
-
-## [8.1.0] - 2025-05-18
-
-### Added
-- **Vulkan Ray Tracing Pipeline & Capability Auditor (`bobzzite-raytracing`)**:
-  - Implemented `scripts/bobzzite-raytracing.sh` (mirrored to `config/files/usr/local/bin/bobzzite-raytracing`) auditing GPU hardware, direct rendering nodes, and Vulkan KHR ray tracing extensions (`VK_KHR_ray_tracing_pipeline`, `VK_KHR_acceleration_structure`, `VK_KHR_ray_query`, `VK_KHR_pipeline_library`).
-  - Audits driver configuration parameters including Mesa RADV flags (`RADV_PERFTEST=rt`) and NVIDIA RTX RT Cores.
-  - Authored comprehensive guide in `docs/VULKAN_RAYTRACING.md`.
-- **Bobzzite Control Center GUI Integration**:
-  - Added dedicated "Vulkan Ray Tracing" button under Hardware & Gaming Profiles card.
-- **Continuous Validation**:
-  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-raytracing.sh` and `VULKAN_RAYTRACING.md`.
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-gyro.sh` and `HANDHELD_GYRO_CALIBRATION.md`.
 
 ---
 

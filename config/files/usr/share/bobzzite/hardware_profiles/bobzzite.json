@@ -1,11 +1,15 @@
 {
   "flavor": "bobzzite",
   "arch": "linux/amd64",
-  "version": "5.5.0",
+  "version": "8.4.0",
   "base_image": "ghcr.io/ublue-os/bazzite:latest",
   "compositor": "kwin_wayland",
   "hardware_target": "Desktop / Laptop AMD Radeon & Intel Arc",
   "driver_stack": "Mesa RADV / ANV",
-  "video_encoders": ["vaapi", "qsv", "amf"],
+  "video_encoders": [
+    "vaapi",
+    "qsv",
+    "amf"
+  ],
   "audio_quantum_default": 128
 }
