@@ -1,6 +1,6 @@
 # Bobzzite OS - Session Handoff & Architecture Transition Guide
 
-**Current Version:** 8.6.0
+**Current Version:** 8.7.0
 **State:** Production-Ready Multi-Architecture Immutable Game Development OS Container
 **Target Upstream:** `ghcr.io/ublue-os/bazzite:latest` (Universal Blue / Fedora 41)
 

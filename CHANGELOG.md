@@ -5,6 +5,20 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [8.7.0] - 2025-05-19
+
+### Added
+- **Extended Hardware Deployment & Cross-Flavor Compliance Matrix (`bobzzite-deploy`)**:
+  - Enhanced `scripts/bobzzite-deploy.sh` (mirrored to `config/files/usr/local/bin/bobzzite-deploy`) with a new `profile-summary` (`summary`) subcommand delegating to `bobzzite-summary` for complete cross-flavor hardware parameter verification.
+  - Added native support for ARM64 architecture deployment (`bobzzite-arm64`).
+  - Authored comprehensive documentation updates across `docs/HARDWARE_DEPLOY_COMPLIANCE.md` and `DEPLOY.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Updated "Hardware Profile Summary" button in `scripts/bobzzite-control-center.py` to route through `bobzzite-deploy profile-summary` with detailed tooltip guidance.
+- **Continuous Governance**:
+  - Tracked across `VERSION.md`, `ROADMAP.md`, `TODO.md`, `MEMORY.md`, and `HANDOFF.md`.
+
+---
+
 ## [8.6.0] - 2025-05-18
 
 ### Added

@@ -16,14 +16,18 @@ Before executing an atomic rebase (`rpm-ostree rebase`), system administrators a
 ## Usage
 
 ```bash
+# Generate cross-flavor hardware profile compliance summary matrix
+bobzzite-deploy profile-summary
+
 # Validate hardware profile assertions for handheld target
 bobzzite-deploy profile-validate bobzzite-deck
 
 # Execute deep hardware compliance audit
 bobzzite-deploy profile-audit
 
-# Rebase to target flavor once verified
+# Rebase to target flavor once verified (e.g. Steam Deck or ARM64)
 sudo bobzzite-deploy bobzzite-deck
+sudo bobzzite-deploy bobzzite-arm64
 ```
 
 ## Control Center Integration

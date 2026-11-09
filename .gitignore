@@ -2,3 +2,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.log
+
+# Auto-generated and temp files
+*.log
+*.tmp
+*.pyc
+__pycache__/
+/tmp/

@@ -22,7 +22,8 @@ The `bobzzite-deploy` utility orchestrates the entire deployment lifecycle, ensu
 [4. Side-by-Side Diff]     -->   bobzzite-deploy profile-compare <current> <target>
 [5. Compliance Audit]      -->   bobzzite-deploy profile-audit
 [6. Profile Assertions]    -->   bobzzite-deploy profile-validate <flavor>
-[7. Atomic Rebase]         -->   sudo bobzzite-deploy <flavor>
+[7. Compliance Summary]    -->   bobzzite-deploy profile-summary
+[8. Atomic Rebase]         -->   sudo bobzzite-deploy <flavor>
 ```
 
 ---
@@ -65,11 +66,18 @@ Asserts that the target configuration satisfies all required compositor and audi
 bobzzite-deploy profile-validate bobzzite-deck
 ```
 
-### 7. Atomic Rebase Execution
+### 7. Cross-Flavor Compliance Summary
+Generates the comprehensive cross-flavor matrix asserting compositor, encoder, and buffer parameters:
+```bash
+bobzzite-deploy profile-summary
+```
+
+### 8. Atomic Rebase Execution
 Executes the atomic ostree rebase against the target container image:
 ```bash
-# Rebase from remote GitHub Container Registry (GHCR)
+# Rebase from remote GitHub Container Registry (GHCR) for handheld or ARM64
 sudo bobzzite-deploy bobzzite-deck
+sudo bobzzite-deploy bobzzite-arm64
 
 # Or rebase from local offline OCI archive
 sudo bobzzite-deploy bobzzite-deck oci-archive

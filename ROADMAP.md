@@ -75,4 +75,6 @@
 - [x] Handheld gyro & motion sensor calibrator (`bobzzite-gyro`, `docs/HANDHELD_GYRO_CALIBRATION.md`).
 - [x] Memory-mapped shared buffer diagnostics engine (`bobzzite-shm`, `docs/SHARED_MEMORY_PIPELINE.md`).
 - [x] Hardware audio quantum latency stress benchmark (`bobzzite-audio-stress`, `docs/AUDIO_LATENCY_STRESS.md`).
+- [x] Extended hardware deployment & compliance summary integration (`bobzzite-deploy`, `docs/HARDWARE_DEPLOY_COMPLIANCE.md`).
+- [ ] Implement multi-GPU dynamic switching and PRIME render offload validation (`bobzzite-prime`).
 - [ ] Implement Vulkan shader pipeline warm-up gatekeeper (`bobzzite-warmup`).

@@ -180,6 +180,18 @@ case "${TARGET}" in
         fi
         ;;
 
+    profile-summary|summary)
+        echo -e "${YELLOW}Generating Cross-Flavor Hardware Profile Compliance Summary:${NC}"
+        if command -v bobzzite-summary >/dev/null 2>&1; then
+            bobzzite-summary terminal
+        elif [ -f scripts/bobzzite-summary.sh ]; then
+            ./scripts/bobzzite-summary.sh terminal
+        else
+            echo "bobzzite-summary tool not found."
+            exit 1
+        fi
+        ;;
+
     status)
         echo -e "${YELLOW}Querying active OS deployment and staged refs:${NC}"
         if command -v rpm-ostree >/dev/null 2>&1; then
@@ -193,7 +205,7 @@ case "${TARGET}" in
         fi
         ;;
 
-    bobzzite|bobzzite-deck|bobzzite-nvidia)
+    bobzzite|bobzzite-deck|bobzzite-nvidia|bobzzite-arm64)
         echo -e "${GREEN}Initiating rebase to flavor: ${BOLD}${TARGET}${NC}..."
         if ! command -v rpm-ostree >/dev/null 2>&1; then
             echo -e "${YELLOW}Notice: Host is running in a non-atomic or container environment.${NC}"
@@ -223,7 +235,7 @@ case "${TARGET}" in
         ;;
 
     *)
-        echo "Usage: bobzzite-deploy [status|detect|profile-analyze|profile-inspect|profile-compare|profile-audit|profile-validate|bobzzite|bobzzite-deck|bobzzite-nvidia] [flavor|registry|oci-archive]"
+        echo "Usage: bobzzite-deploy [status|detect|profile-analyze|profile-inspect|profile-compare|profile-audit|profile-validate|profile-summary|bobzzite|bobzzite-deck|bobzzite-nvidia|bobzzite-arm64] [flavor|registry|oci-archive]"
         exit 1
         ;;
 esac

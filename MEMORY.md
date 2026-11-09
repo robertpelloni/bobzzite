@@ -56,5 +56,7 @@
   - `bobzzite-shm` (`scripts/bobzzite-shm.sh`) audits `/dev/shm` tmpfs allocation, Wayland `wl_shm` buffer pools, PipeWire locked ring buffers, and Linux kernel `dma-buf` zero-copy texture sharing pipelines.
 - **Hardware Audio Quantum Latency Stress Benchmarking**:
   - `bobzzite-audio-stress` (`scripts/bobzzite-audio-stress.sh`) benchmarks PipeWire buffer quantums (64, 128, 256, 512 frames) under simulated multi-channel game audio DSP workloads to verify zero-xrun stability.
+- **Extended Hardware Deployment & Cross-Flavor Compliance Matrix**:
+  - `bobzzite-deploy` (`scripts/bobzzite-deploy.sh`) now integrates `profile-summary` (`summary`) subcommand to expose unified multi-flavor parameter tables prior to atomic rebasing, as well as ARM64 architecture deployment targets (`bobzzite-arm64`).
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.
