@@ -52,5 +52,7 @@
   - `bobzzite-hdr-cal` (`scripts/bobzzite-hdr-cal.sh`) computes display peak nit luminance mappings and generates calibrated Gamescope launch flags (`--hdr-enabled`, `--hdr-sdr-content-nits 203`, `--hdr-itm-enable`) and DXVK/VKD3D HDR environment variables.
 - **Handheld Gyroscope & Motion Sensor Calibration**:
   - `bobzzite-gyro` (`scripts/bobzzite-gyro.sh`) probes Industrial I/O (`/sys/bus/iio/devices`) and evdev motion nodes, calculates resting zero-rate bias drift offsets, and writes calibration matrices for Steam Deck, ROG Ally, and Legion Go IMUs.
+- **Shared Memory & Zero-Copy Pipeline Auditing**:
+  - `bobzzite-shm` (`scripts/bobzzite-shm.sh`) audits `/dev/shm` tmpfs allocation, Wayland `wl_shm` buffer pools, PipeWire locked ring buffers, and Linux kernel `dma-buf` zero-copy texture sharing pipelines.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

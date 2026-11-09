@@ -73,4 +73,5 @@
 - [x] Adaptive thermal fan curve manager (`bobzzite-fan`, `docs/THERMAL_MANAGEMENT.md`).
 - [x] Gamescope HDR calibration profile generator (`bobzzite-hdr-cal`, `docs/GAMESCOPE_HDR_CALIBRATION.md`).
 - [x] Handheld gyro & motion sensor calibrator (`bobzzite-gyro`, `docs/HANDHELD_GYRO_CALIBRATION.md`).
-- [ ] Implement memory-mapped shared buffer playtesting diagnostics (`bobzzite-shm`).
+- [x] Memory-mapped shared buffer diagnostics engine (`bobzzite-shm`, `docs/SHARED_MEMORY_PIPELINE.md`).
+- [ ] Implement hardware audio quantum latency stress benchmark (`bobzzite-audio-stress`).

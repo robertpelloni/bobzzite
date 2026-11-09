@@ -211,12 +211,16 @@ class BobzziteControlCenter:
         ToolTip(mb_lock, "Audits EFI Secure Boot status, kernel lockdown modes, and IOMMU DMA protections.")
 
         mb_ebpf = ttk.Button(m_grid, text="eBPF Network Optimizer", command=lambda: self.run_async("if command -v bobzzite-ebpf >/dev/null 2>&1; then bobzzite-ebpf status; elif [ -f scripts/bobzzite-ebpf.sh ]; then ./scripts/bobzzite-ebpf.sh status; else echo 'eBPF script not found'; fi", "Probing eBPF/XDP Fastpath Packet Optimization..."))
-        mb_ebpf.grid(row=7, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        mb_ebpf.grid(row=7, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(mb_ebpf, "Manages XDP fastpath packet acceleration for low-latency multiplayer gaming and game streaming.")
 
         mb_ucode = ttk.Button(m_grid, text="CPU Microcode & Mitigations", command=lambda: self.run_async("if command -v bobzzite-microcode >/dev/null 2>&1; then bobzzite-microcode audit; elif [ -f scripts/bobzzite-microcode.sh ]; then ./scripts/bobzzite-microcode.sh audit; else echo 'Microcode script not found'; fi", "Auditing CPU Microcode & Hardware Vulnerability Mitigations..."))
-        mb_ucode.grid(row=7, column=2, padx=6, pady=4, sticky="ew")
+        mb_ucode.grid(row=7, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(mb_ucode, "Inspects active processor microcode level, early initramfs loading, and sysfs CPU vulnerability mitigations.")
+
+        mb_shm = ttk.Button(m_grid, text="Shared Memory & Zero-Copy", command=lambda: self.run_async("if command -v bobzzite-shm >/dev/null 2>&1; then bobzzite-shm audit; elif [ -f scripts/bobzzite-shm.sh ]; then ./scripts/bobzzite-shm.sh audit; else echo 'SHM script not found'; fi", "Auditing /dev/shm & Wayland Zero-Copy DMA-BUF Pipelines..."))
+        mb_shm.grid(row=7, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_shm, "Audits /dev/shm tmpfs allocation, Wayland wl_shm pools, and Linux dma-buf zero-copy pipelines.")
 
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)

@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [8.5.0] - 2025-05-18
+
+### Added
+- **Memory-Mapped Shared Buffer Diagnostics Engine (`bobzzite-shm`)**:
+  - Implemented `scripts/bobzzite-shm.sh` (mirrored to `config/files/usr/local/bin/bobzzite-shm`) auditing POSIX shared memory (`/dev/shm`), Wayland `wl_shm` buffer pools, PipeWire locked ring buffers, and Linux kernel `dma-buf` zero-copy texture sharing pipelines.
+  - Authored comprehensive guide in `docs/SHARED_MEMORY_PIPELINE.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Shared Memory & Zero-Copy" button under System Updates & Diagnostics card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-shm.sh` and `SHARED_MEMORY_PIPELINE.md`.
+
+---
+
 ## [8.4.0] - 2025-05-18
 
 ### Added
