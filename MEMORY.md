@@ -44,5 +44,7 @@
   - Comprehensive reference documenting aggregated specs, driver stacks, video encoders, audio buffers, and compliance tiers is cataloged in `docs/HARDWARE_PROFILE_SUMMARY_DATA.md` and linked from `docs/HARDWARE_PROFILE_SUMMARY.md`.
 - **CPU Microcode & Hardware Mitigation Auditing**:
   - `bobzzite-microcode` (`scripts/bobzzite-microcode.sh`) audits active CPU microcode levels, processor family/model/stepping, and kernel sysfs vulnerability mitigations (Spectre, Meltdown, Downfall, Retbleed).
+- **Vulkan Ray Tracing Pipeline & Capability Auditing**:
+  - `bobzzite-raytracing` (`scripts/bobzzite-raytracing.sh`) audits GPU hardware, direct rendering nodes, and Vulkan KHR ray tracing extensions (`VK_KHR_ray_tracing_pipeline`, `VK_KHR_acceleration_structure`, `VK_KHR_ray_query`, `VK_KHR_pipeline_library`) and driver configurations.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

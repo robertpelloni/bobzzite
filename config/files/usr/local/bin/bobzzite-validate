@@ -87,6 +87,7 @@ def check_scripts():
         "scripts/bobzzite-hdr.sh",
         "scripts/bobzzite-battery.sh",
         "scripts/bobzzite-microcode.sh",
+        "scripts/bobzzite-raytracing.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -194,6 +195,7 @@ def check_required_docs():
         "docs/BATTERY_HEALTH_MANAGEMENT.md",
         "docs/HARDWARE_PROFILE_SUMMARY_DATA.md",
         "docs/CPU_MICROCODE_MANAGEMENT.md",
+        "docs/VULKAN_RAYTRACING.md",
     ]
     errors = 0
     for doc in required_docs:

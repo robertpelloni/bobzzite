@@ -5,6 +5,20 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [8.1.0] - 2025-05-18
+
+### Added
+- **Vulkan Ray Tracing Pipeline & Capability Auditor (`bobzzite-raytracing`)**:
+  - Implemented `scripts/bobzzite-raytracing.sh` (mirrored to `config/files/usr/local/bin/bobzzite-raytracing`) auditing GPU hardware, direct rendering nodes, and Vulkan KHR ray tracing extensions (`VK_KHR_ray_tracing_pipeline`, `VK_KHR_acceleration_structure`, `VK_KHR_ray_query`, `VK_KHR_pipeline_library`).
+  - Audits driver configuration parameters including Mesa RADV flags (`RADV_PERFTEST=rt`) and NVIDIA RTX RT Cores.
+  - Authored comprehensive guide in `docs/VULKAN_RAYTRACING.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "Vulkan Ray Tracing" button under Hardware & Gaming Profiles card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-raytracing.sh` and `VULKAN_RAYTRACING.md`.
+
+---
+
 ## [8.0.0] - 2025-05-18 - MAJOR MILESTONE RELEASE 8.0
 
 ### Added

@@ -69,4 +69,5 @@
 - [x] Battery health & charge threshold optimizer (`bobzzite-battery`, `docs/BATTERY_HEALTH_MANAGEMENT.md`).
 - [x] Comprehensive hardware profile summary & compliance data catalog (`docs/HARDWARE_PROFILE_SUMMARY_DATA.md`).
 - [x] CPU microcode & hardware mitigation auditor (`bobzzite-microcode`, `docs/CPU_MICROCODE_MANAGEMENT.md`).
-- [ ] Implement automated Vulkan ray tracing pipeline capability auditor (`bobzzite-raytracing`).
+- [x] Vulkan ray tracing pipeline & capability auditor (`bobzzite-raytracing`, `docs/VULKAN_RAYTRACING.md`).
+- [ ] Implement adaptive thermal fan curve manager for gaming handhelds (`bobzzite-fan`).

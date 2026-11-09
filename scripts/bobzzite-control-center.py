@@ -353,6 +353,10 @@ class BobzziteControlCenter:
         h_telem.grid(row=19, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_telem, "Inspects real-time CPU load averages and memory utilization telemetry.")
 
+        h_rt = ttk.Button(hw_grid, text="Vulkan Ray Tracing", command=lambda: self.run_async("if command -v bobzzite-raytracing >/dev/null 2>&1; then bobzzite-raytracing audit; elif [ -f scripts/bobzzite-raytracing.sh ]; then ./scripts/bobzzite-raytracing.sh audit; else echo 'Raytracing script not found'; fi", "Auditing Vulkan KHR Hardware Ray Tracing Pipeline..."))
+        h_rt.grid(row=20, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_rt, "Audits GPU hardware ray tracing extensions (VK_KHR_ray_tracing_pipeline, acceleration structures) and RADV/NV drivers.")
+
         h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
         h_summary.grid(row=13, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_summary, "Generates an aggregated hardware profile summary matrix directly from hardware_profiles/.")
