@@ -86,6 +86,7 @@ def check_scripts():
         "scripts/bobzzite-ebpf.sh",
         "scripts/bobzzite-hdr.sh",
         "scripts/bobzzite-battery.sh",
+        "scripts/bobzzite-microcode.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -192,6 +193,7 @@ def check_required_docs():
         "docs/WAYLAND_HDR_SETUP.md",
         "docs/BATTERY_HEALTH_MANAGEMENT.md",
         "docs/HARDWARE_PROFILE_SUMMARY_DATA.md",
+        "docs/CPU_MICROCODE_MANAGEMENT.md",
     ]
     errors = 0
     for doc in required_docs:

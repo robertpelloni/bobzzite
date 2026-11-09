@@ -42,5 +42,7 @@
   - `bobzzite-battery` (`scripts/bobzzite-battery.sh`) queries `/sys/class/power_supply`, calculates battery wear levels, and sets hardware charge end thresholds (80%) for mobile handhelds and gaming laptops.
 - **Hardware Profile Summary & Compliance Matrix**:
   - Comprehensive reference documenting aggregated specs, driver stacks, video encoders, audio buffers, and compliance tiers is cataloged in `docs/HARDWARE_PROFILE_SUMMARY_DATA.md` and linked from `docs/HARDWARE_PROFILE_SUMMARY.md`.
+- **CPU Microcode & Hardware Mitigation Auditing**:
+  - `bobzzite-microcode` (`scripts/bobzzite-microcode.sh`) audits active CPU microcode levels, processor family/model/stepping, and kernel sysfs vulnerability mitigations (Spectre, Meltdown, Downfall, Retbleed).
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

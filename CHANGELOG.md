@@ -5,6 +5,20 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [8.0.0] - 2025-05-18 - MAJOR MILESTONE RELEASE 8.0
+
+### Added
+- **CPU Microcode & Hardware Mitigation Auditor (`bobzzite-microcode`)**:
+  - Implemented `scripts/bobzzite-microcode.sh` (mirrored to `config/files/usr/local/bin/bobzzite-microcode`) to audit active CPU microcode levels, processor family/model/stepping, and early-loading mechanisms.
+  - Audits kernel sysfs vulnerability mitigations across all vectors (`/sys/devices/system/cpu/vulnerabilities/`) including Downfall, Spectre, Meltdown, MDS, Retbleed, and SRBDS.
+  - Authored comprehensive architecture and mitigation guide in `docs/CPU_MICROCODE_MANAGEMENT.md`.
+- **Bobzzite Control Center GUI Integration**:
+  - Added dedicated "CPU Microcode & Mitigations" button under System Maintenance & Diagnostics card.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `bobzzite-microcode.sh` and `CPU_MICROCODE_MANAGEMENT.md`.
+
+---
+
 ## [7.9.0] - 2025-05-18
 
 ### Added
