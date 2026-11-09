@@ -29,3 +29,5 @@ bobzzite-summary markdown
 # Output consolidated JSON bundle
 bobzzite-summary json
 ```
+
+For the complete detailed specifications and compliance ratings across all flavors, see [`docs/HARDWARE_PROFILE_SUMMARY_DATA.md`](HARDWARE_PROFILE_SUMMARY_DATA.md).

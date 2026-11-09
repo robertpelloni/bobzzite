@@ -1,11 +1,10 @@
 # Bobzzite OS - Granular Task List (TODO)
 
-## Active Sprint: v7.8.0 Release Verification & Polish
-- [x] Create `scripts/bobzzite-battery.sh` for battery health and threshold optimization.
-- [x] Document charging thresholds in `docs/BATTERY_HEALTH_MANAGEMENT.md`.
-- [x] Wire "Battery Health & Charging" action into `bobzzite-control-center` GUI with descriptive tooltip.
-- [x] Update `scripts/validate_build.py` and mirror executables to `config/files/usr/local/bin/`.
-- [x] Bump release version to v7.8.0 across `VERSION.md`, `Containerfile`, and `bobzzite-release`.
+## Active Sprint: v7.9.0 Release Verification & Polish
+- [x] Generate comprehensive hardware profile summary and compliance data documentation (`docs/HARDWARE_PROFILE_SUMMARY_DATA.md`).
+- [x] Cross-link hardware summary data in `docs/HARDWARE_PROFILE_SUMMARY.md`.
+- [x] Register `docs/HARDWARE_PROFILE_SUMMARY_DATA.md` in `scripts/validate_build.py` and local CI runner.
+- [x] Bump release version to v7.9.0 across `VERSION.md`, `Containerfile`, and `bobzzite-release`.
 
 ## Upcoming Enhancements
 - [ ] Implement automated zero-dependency microcode updater (`bobzzite-microcode`).

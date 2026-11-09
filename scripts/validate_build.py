@@ -190,7 +190,8 @@ def check_required_docs():
         "docs/HARDWARE_DEPLOY_COMPLIANCE.md",
         "docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md",
         "docs/WAYLAND_HDR_SETUP.md",
-        "docs/BATTERY_HEALTH_MANAGEMENT.md"
+        "docs/BATTERY_HEALTH_MANAGEMENT.md",
+        "docs/HARDWARE_PROFILE_SUMMARY_DATA.md",
     ]
     errors = 0
     for doc in required_docs:

@@ -5,6 +5,17 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [7.9.0] - 2025-05-18
+
+### Added
+- **Hardware Profile Summary & Compliance Data Matrix**:
+  - Authored comprehensive reference catalog in `docs/HARDWARE_PROFILE_SUMMARY_DATA.md` documenting aggregated specs, driver stacks, video encoders, audio buffers, and compliance tiers across all four target flavors (`bobzzite`, `bobzzite-deck`, `bobzzite-nvidia`, `bobzzite-arm64`).
+  - Added direct reference linkage in `docs/HARDWARE_PROFILE_SUMMARY.md`.
+- **Continuous Validation**:
+  - Updated `scripts/validate_build.py` and `bobzzite-validate` to continuously verify `HARDWARE_PROFILE_SUMMARY_DATA.md`.
+
+---
+
 ## [7.8.0] - 2025-05-18
 
 ### Added

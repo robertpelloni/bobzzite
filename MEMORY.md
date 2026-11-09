@@ -40,5 +40,7 @@
   - `bobzzite-hdr` (`scripts/bobzzite-hdr.sh`) manages `xx-color-management-v4` protocol negotiation, BT.2020 WCG, and Gamescope HDR luminance mapping.
 - **Battery Health & Charge Threshold Optimization**:
   - `bobzzite-battery` (`scripts/bobzzite-battery.sh`) queries `/sys/class/power_supply`, calculates battery wear levels, and sets hardware charge end thresholds (80%) for mobile handhelds and gaming laptops.
+- **Hardware Profile Summary & Compliance Matrix**:
+  - Comprehensive reference documenting aggregated specs, driver stacks, video encoders, audio buffers, and compliance tiers is cataloged in `docs/HARDWARE_PROFILE_SUMMARY_DATA.md` and linked from `docs/HARDWARE_PROFILE_SUMMARY.md`.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.
