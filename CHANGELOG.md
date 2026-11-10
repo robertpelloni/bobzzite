@@ -5,6 +5,17 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [9.2.0] - 2025-05-19
+
+### Added
+- **Hardware Profile Analysis & Multi-Arch Rebase Routing Engine (`docs/HARDWARE_PROFILE_ANALYSIS.md`)**:
+  - Expanded probing criteria to include host CPU architectures (`x86_64` vs `aarch64`), DMI identifiers, PCI vendor IDs, and ARM64 Device Tree/SoC detection (Snapdragon X Elite, Rockchip RK3588).
+  - Updated fit scoring recommendations across all 4 target flavors (`bobzzite`, `bobzzite-deck`, `bobzzite-nvidia`, `bobzzite-arm64`).
+- **Continuous Governance**:
+  - Tracked across `VERSION.md`, `ROADMAP.md`, `TODO.md`, `MEMORY.md`, and `HANDOFF.md`.
+
+---
+
 ## [9.1.0] - 2025-05-19
 
 ### Added

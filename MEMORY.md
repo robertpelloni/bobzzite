@@ -66,5 +66,7 @@
   - Updated and expanded to Milestone 9.0 in `docs/HARDWARE_MATRIX_COMPARISON.md`, covering 13 technical dimensions across all 4 supported hardware flavors.
 - **Hardware Coverage & Certification**:
   - Certified 100% across all four flavors in `docs/HARDWARE_COVERAGE_AUDIT.md`, with continuous verification via `bobzzite-coverage`.
+- **Hardware Profile Analysis & Rebase Routing**:
+  - Maintained in `docs/HARDWARE_PROFILE_ANALYSIS.md`, detailing DMI identifiers, ARM64 Device Tree signatures, PCI detection, and fit score recommendations across all 4 flavors.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

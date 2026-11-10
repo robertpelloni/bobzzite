@@ -1,7 +1,7 @@
 {
   "flavor": "bobzzite",
   "arch": "linux/amd64",
-  "version": "9.1.0",
+  "version": "9.2.0",
   "base_image": "ghcr.io/ublue-os/bazzite:latest",
   "compositor": "kwin_wayland",
   "hardware_target": "Desktop / Laptop AMD Radeon & Intel Arc",

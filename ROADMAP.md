@@ -80,4 +80,5 @@
 - [x] Multi-flavor hardware profile comparison data matrix sync (`docs/HARDWARE_PROFILE_COMPARISON_DATA.md`).
 - [x] v9.0.0 Milestone: Multi-Architecture Hardware Matrix Expansion & Unified Comparison Catalog (`docs/HARDWARE_MATRIX_COMPARISON.md`).
 - [x] v9.1.0: End-to-end hardware matrix coverage audit & multi-flavor certification catalog (`docs/HARDWARE_COVERAGE_AUDIT.md`).
+- [x] v9.2.0: Hardware profile analysis & multi-arch rebase routing engine (`docs/HARDWARE_PROFILE_ANALYSIS.md`).
 - [ ] Implement Vulkan shader pipeline warm-up gatekeeper (`bobzzite-warmup`).
