@@ -77,4 +77,5 @@
 - [x] Hardware audio quantum latency stress benchmark (`bobzzite-audio-stress`, `docs/AUDIO_LATENCY_STRESS.md`).
 - [x] Extended hardware deployment & compliance summary integration (`bobzzite-deploy`, `docs/HARDWARE_DEPLOY_COMPLIANCE.md`).
 - [x] Dynamic multi-GPU & PRIME render offload engine (`bobzzite-prime`, `docs/PRIME_GPU_OFFLOAD.md`).
+- [x] Multi-flavor hardware profile comparison data matrix sync (`docs/HARDWARE_PROFILE_COMPARISON_DATA.md`).
 - [ ] Implement Vulkan shader pipeline warm-up gatekeeper (`bobzzite-warmup`).

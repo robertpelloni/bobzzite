@@ -5,6 +5,17 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [8.9.0] - 2025-05-19
+
+### Added
+- **Hardware Profile Comparison Data Matrix Synchronization (`docs/HARDWARE_PROFILE_COMPARISON_DATA.md`)**:
+  - Updated comprehensive multi-flavor comparison matrices comparing `bobzzite` against `bobzzite-deck`, `bobzzite-nvidia`, and `bobzzite-arm64`.
+  - Documented base image layers, Wayland/Gamescope compositors, Mesa/NVIDIA driver stacks, video encoder capabilities, audio latency quantums, and dynamic PRIME offload configurations.
+- **Continuous Governance**:
+  - Tracked across `VERSION.md`, `ROADMAP.md`, `TODO.md`, `MEMORY.md`, and `HANDOFF.md`.
+
+---
+
 ## [8.8.0] - 2025-05-19
 
 ### Added

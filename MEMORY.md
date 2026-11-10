@@ -60,5 +60,7 @@
   - `bobzzite-deploy` (`scripts/bobzzite-deploy.sh`) now integrates `profile-summary` (`summary`) subcommand to expose unified multi-flavor parameter tables prior to atomic rebasing, as well as ARM64 architecture deployment targets (`bobzzite-arm64`).
 - **Dynamic Multi-GPU & PRIME Render Offload Engine**:
   - `bobzzite-prime` (`scripts/bobzzite-prime.sh`) probes GPU bus topology and manages dynamic render delegation between iGPU and dGPU (`__NV_PRIME_RENDER_OFFLOAD=1`, `DRI_PRIME=1`), documented in `docs/PRIME_GPU_OFFLOAD.md`.
+- **Hardware Profile Comparison Data Matrix**:
+  - Generated and maintained in `docs/HARDWARE_PROFILE_COMPARISON_DATA.md`, documenting cross-flavor divergence in base images, compositors, driver stacks, video encoders, audio quantums, and PRIME offload mechanisms.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.
