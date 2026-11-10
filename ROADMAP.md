@@ -79,4 +79,5 @@
 - [x] Dynamic multi-GPU & PRIME render offload engine (`bobzzite-prime`, `docs/PRIME_GPU_OFFLOAD.md`).
 - [x] Multi-flavor hardware profile comparison data matrix sync (`docs/HARDWARE_PROFILE_COMPARISON_DATA.md`).
 - [x] v9.0.0 Milestone: Multi-Architecture Hardware Matrix Expansion & Unified Comparison Catalog (`docs/HARDWARE_MATRIX_COMPARISON.md`).
+- [x] v9.1.0: End-to-end hardware matrix coverage audit & multi-flavor certification catalog (`docs/HARDWARE_COVERAGE_AUDIT.md`).
 - [ ] Implement Vulkan shader pipeline warm-up gatekeeper (`bobzzite-warmup`).

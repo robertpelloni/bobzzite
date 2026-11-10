@@ -5,6 +5,17 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [9.1.0] - 2025-05-19
+
+### Added
+- **Multi-Flavor Hardware Matrix Coverage Audit & Certification Catalog (`docs/HARDWARE_COVERAGE_AUDIT.md`)**:
+  - Updated coverage verification matrix asserting 100% certification across all four flavors (`bobzzite`, `bobzzite-deck`, `bobzzite-nvidia`, `bobzzite-arm64`).
+  - Documented complete 4-tier audit criteria spanning profile schemas, offline container embedding, build matrix integration, and subsystem drivers (PRIME offload, ray tracing, fan curves, gyro drift calibration).
+- **Continuous Governance**:
+  - Tracked across `VERSION.md`, `ROADMAP.md`, `TODO.md`, `MEMORY.md`, and `HANDOFF.md`.
+
+---
+
 ## [9.0.0] - 2025-05-19 - MAJOR MILESTONE RELEASE 9.0
 
 ### Added

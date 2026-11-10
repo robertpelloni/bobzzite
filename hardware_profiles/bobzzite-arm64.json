@@ -1,7 +1,7 @@
 {
   "flavor": "bobzzite-arm64",
   "arch": "linux/arm64",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "base_image": "ghcr.io/ublue-os/bazzite:latest",
   "compositor": "kwin_wayland",
   "hardware_target": "ARM64 SBCs & Snapdragon X Elite Laptops",

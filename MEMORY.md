@@ -64,5 +64,7 @@
   - Generated and maintained in `docs/HARDWARE_PROFILE_COMPARISON_DATA.md`, documenting cross-flavor divergence in base images, compositors, driver stacks, video encoders, audio quantums, and PRIME offload mechanisms.
 - **Master Hardware Matrix Specification**:
   - Updated and expanded to Milestone 9.0 in `docs/HARDWARE_MATRIX_COMPARISON.md`, covering 13 technical dimensions across all 4 supported hardware flavors.
+- **Hardware Coverage & Certification**:
+  - Certified 100% across all four flavors in `docs/HARDWARE_COVERAGE_AUDIT.md`, with continuous verification via `bobzzite-coverage`.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.
