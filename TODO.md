@@ -1,11 +1,12 @@
 # Bobzzite OS - Granular Task List (TODO)
 
-## Active Sprint: v8.7.0 Release - Extended Hardware Deployment & Compliance Summary
-- [x] Enhance `scripts/bobzzite-deploy.sh` with `profile-summary` subcommand and ARM64 rebase target support.
-- [x] Document extended hardware deployment and compliance integration in `docs/HARDWARE_DEPLOY_COMPLIANCE.md` and `DEPLOY.md`.
-- [x] Connect `profile-summary` action to Bobzzite Control Center GUI with detailed tooltip.
-- [x] Bump release version to v8.7.0 across `VERSION.md`, `Containerfile`, `bobzzite-release`, and changelog.
+## Active Sprint: v8.8.0 Release - Dynamic Multi-GPU & PRIME Render Offload Engine
+- [x] Create `scripts/bobzzite-prime.sh` and mirror to `config/files/usr/local/bin/bobzzite-prime`.
+- [x] Document multi-GPU architecture, battery conservation, and offload protocols in `docs/PRIME_GPU_OFFLOAD.md`.
+- [x] Connect "Multi-GPU & PRIME Offload" action into `bobzzite-control-center` GUI with descriptive tooltip.
+- [x] Register prime offload engine in `scripts/validate_build.py` and `config/files/usr/local/bin/bobzzite-validate`.
+- [x] Bump release version to v8.8.0 across `VERSION.md`, `Containerfile`, `bobzzite-release`, and `hardware_profiles/`.
 
 ## Upcoming Enhancements
-- [ ] Implement automated multi-GPU PRIME offload switcher (`bobzzite-prime`).
 - [ ] Implement Vulkan shader pipeline warm-up gatekeeper (`bobzzite-warmup`).
+- [ ] Implement automated battery charge cycle logging and wear rate historical tracking.

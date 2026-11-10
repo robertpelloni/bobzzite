@@ -1,7 +1,7 @@
 {
   "flavor": "bobzzite-deck",
   "arch": "linux/amd64",
-  "version": "8.7.0",
+  "version": "8.8.0",
   "base_image": "ghcr.io/ublue-os/bazzite-deck:latest",
   "compositor": "gamescope",
   "hardware_target": "Handheld Gaming PCs (Steam Deck, ROG Ally, Legion Go)",

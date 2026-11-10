@@ -5,15 +5,16 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
-## [8.7.0] - 2025-05-19
+## [8.8.0] - 2025-05-19
 
 ### Added
-- **Extended Hardware Deployment & Cross-Flavor Compliance Matrix (`bobzzite-deploy`)**:
-  - Enhanced `scripts/bobzzite-deploy.sh` (mirrored to `config/files/usr/local/bin/bobzzite-deploy`) with a new `profile-summary` (`summary`) subcommand delegating to `bobzzite-summary` for complete cross-flavor hardware parameter verification.
-  - Added native support for ARM64 architecture deployment (`bobzzite-arm64`).
-  - Authored comprehensive documentation updates across `docs/HARDWARE_DEPLOY_COMPLIANCE.md` and `DEPLOY.md`.
+- **Dynamic Multi-GPU & PRIME Render Offload Engine (`bobzzite-prime`)**:
+  - Implemented `scripts/bobzzite-prime.sh` (mirrored to `config/files/usr/local/bin/bobzzite-prime`) managing GPU bus scanning, discrete adapter detection (NVIDIA GeForce / AMD Radeon), and offload environment configuration.
+  - Added subcommands: `status`, `probe`, `env`, `offload <cmd>`, and `json`.
+  - Configured dynamic environment bindings (`__NV_PRIME_RENDER_OFFLOAD=1`, `__GLX_VENDOR_LIBRARY_NAME=nvidia`, `__VK_LAYER_NV_optimus=NVIDIA_only`, `DRI_PRIME=1`) for launching demanding titles and Godot 4.
+  - Authored comprehensive architecture guide in `docs/PRIME_GPU_OFFLOAD.md`.
 - **Bobzzite Control Center GUI Integration**:
-  - Updated "Hardware Profile Summary" button in `scripts/bobzzite-control-center.py` to route through `bobzzite-deploy profile-summary` with detailed tooltip guidance.
+  - Added dedicated "Multi-GPU & PRIME Offload" button under Hardware & Gaming Profiles panel with detailed tooltip guidance.
 - **Continuous Governance**:
   - Tracked across `VERSION.md`, `ROADMAP.md`, `TODO.md`, `MEMORY.md`, and `HANDOFF.md`.
 

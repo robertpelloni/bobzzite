@@ -76,5 +76,5 @@
 - [x] Memory-mapped shared buffer diagnostics engine (`bobzzite-shm`, `docs/SHARED_MEMORY_PIPELINE.md`).
 - [x] Hardware audio quantum latency stress benchmark (`bobzzite-audio-stress`, `docs/AUDIO_LATENCY_STRESS.md`).
 - [x] Extended hardware deployment & compliance summary integration (`bobzzite-deploy`, `docs/HARDWARE_DEPLOY_COMPLIANCE.md`).
-- [ ] Implement multi-GPU dynamic switching and PRIME render offload validation (`bobzzite-prime`).
+- [x] Dynamic multi-GPU & PRIME render offload engine (`bobzzite-prime`, `docs/PRIME_GPU_OFFLOAD.md`).
 - [ ] Implement Vulkan shader pipeline warm-up gatekeeper (`bobzzite-warmup`).

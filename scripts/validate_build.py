@@ -93,6 +93,7 @@ def check_scripts():
         "scripts/bobzzite-gyro.sh",
         "scripts/bobzzite-shm.sh",
         "scripts/bobzzite-audio-stress.sh",
+        "scripts/bobzzite-prime.sh",
         "config/files/usr/local/bin/bobzzite-validate"
     ]
     errors = 0
@@ -206,6 +207,7 @@ def check_required_docs():
         "docs/HANDHELD_GYRO_CALIBRATION.md",
         "docs/SHARED_MEMORY_PIPELINE.md",
         "docs/AUDIO_LATENCY_STRESS.md",
+        "docs/PRIME_GPU_OFFLOAD.md",
     ]
     errors = 0
     for doc in required_docs:

@@ -253,6 +253,10 @@ class BobzziteControlCenter:
         h_astress.grid(row=24, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_astress, "Stress-tests buffer quantums (64, 128, 256, 512 frames) against simulated game audio DSP load to verify zero-xrun stability.")
 
+        h_prime = ttk.Button(hw_grid, text="Multi-GPU & PRIME Offload", command=lambda: self.run_async("if command -v bobzzite-prime >/dev/null 2>&1; then bobzzite-prime status; elif [ -f scripts/bobzzite-prime.sh ]; then ./scripts/bobzzite-prime.sh status; else echo 'Prime script not found'; fi", "Probing Multi-GPU Topology & Dynamic PRIME Offload..."))
+        h_prime.grid(row=25, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_prime, "Probes integrated (iGPU) and discrete (dGPU) adapters and configures dynamic PRIME render offloading.")
+
         h6 = ttk.Button(hw_grid, text="System Tuning", command=lambda: self.run_async("bobzzite-tweak status", "Inspecting system performance tunables..."))
         h6.grid(row=2, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h6, "Queries low-latency sysctl parameters, split lock mitigation, and PipeWire latency.")
@@ -321,7 +325,7 @@ class BobzziteControlCenter:
         h_hdr.grid(row=17, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_hdr, "Calibrates Wayland xx-color-management-v4, BT.2020 WCG, and Gamescope HDR luminance.")
 
-        h_dep_audit = ttk.Button(hw_grid, text="Deploy Compliance Audit", command=lambda: self.run_async("if command -v bobzzite-deploy >/dev/null 2>&1; then bobzzite-deploy profile-audit; elif [ -f scripts/bobzzite-deploy.sh ]; then ./scripts/bobzzite-deploy.sh profile-audit; else echo 'Deploy script not found'; fi", "Running Deployment Hardware Compliance Audit..."))
+        h_dep_audit = ttk.Button(hw_grid, text="Deploy Compliance Audit", command=lambda: self.run_async("bobzzite-deploy profile-audit", "Running Deployment Hardware Compliance Audit..."))
         h_dep_audit.grid(row=16, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_dep_audit, "Validates hardware compliance and profile assertions before atomic rebasing.")
 
@@ -377,9 +381,9 @@ class BobzziteControlCenter:
         h_gyro.grid(row=23, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_gyro, "Calibrates stationary resting bias drift and sensitivity for Steam Deck, ROG Ally, and Legion Go IMUs.")
 
-        h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-deploy >/dev/null 2>&1; then bobzzite-deploy profile-summary; elif [ -f scripts/bobzzite-deploy.sh ]; then ./scripts/bobzzite-deploy.sh profile-summary; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix via bobzzite-deploy..."))
+        h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
         h_summary.grid(row=13, column=0, padx=6, pady=4, sticky="ew")
-        ToolTip(h_summary, "Generates cross-flavor hardware profile compliance matrix asserting compositor, encoder, and buffer parameters via bobzzite-deploy profile-summary.")
+        ToolTip(h_summary, "Generates an aggregated hardware profile summary matrix directly from hardware_profiles/.")
 
         h_report = ttk.Button(hw_grid, text="Hardware Compatibility Report", command=lambda: self.run_async("if command -v bobzzite-report >/dev/null 2>&1; then bobzzite-report summary; elif [ -f scripts/bobzzite-report.sh ]; then ./scripts/bobzzite-report.sh summary; else echo 'Report script not found'; fi", "Compiling Comprehensive Host Hardware Diagnostic Report..."))
         h_report.grid(row=13, column=1, padx=6, pady=4, sticky="ew")

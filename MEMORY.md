@@ -58,5 +58,7 @@
   - `bobzzite-audio-stress` (`scripts/bobzzite-audio-stress.sh`) benchmarks PipeWire buffer quantums (64, 128, 256, 512 frames) under simulated multi-channel game audio DSP workloads to verify zero-xrun stability.
 - **Extended Hardware Deployment & Cross-Flavor Compliance Matrix**:
   - `bobzzite-deploy` (`scripts/bobzzite-deploy.sh`) now integrates `profile-summary` (`summary`) subcommand to expose unified multi-flavor parameter tables prior to atomic rebasing, as well as ARM64 architecture deployment targets (`bobzzite-arm64`).
+- **Dynamic Multi-GPU & PRIME Render Offload Engine**:
+  - `bobzzite-prime` (`scripts/bobzzite-prime.sh`) probes GPU bus topology and manages dynamic render delegation between iGPU and dGPU (`__NV_PRIME_RENDER_OFFLOAD=1`, `DRI_PRIME=1`), documented in `docs/PRIME_GPU_OFFLOAD.md`.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.
