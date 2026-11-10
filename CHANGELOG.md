@@ -5,6 +5,17 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [9.0.0] - 2025-05-19 - MAJOR MILESTONE RELEASE 9.0
+
+### Added
+- **Multi-Architecture Hardware Matrix Expansion & Unified Comparison Catalog**:
+  - Expanded `docs/HARDWARE_MATRIX_COMPARISON.md` across all four supported flavors (`bobzzite`, `bobzzite-deck`, `bobzzite-nvidia`, and `bobzzite-arm64`).
+  - Documented complete technical matrix specifications for dynamic PRIME render offloading, Vulkan ray tracing, adaptive fan curves, Gamescope HDR tone-mapping, 6-axis gyro drift calibration, shared memory DMA-BUF zero-copy pipelines, audio quantum stress baselines, and battery charging thresholds.
+- **Continuous Governance**:
+  - Tracked across `VERSION.md`, `ROADMAP.md`, `TODO.md`, `MEMORY.md`, and `HANDOFF.md`.
+
+---
+
 ## [8.9.0] - 2025-05-19
 
 ### Added

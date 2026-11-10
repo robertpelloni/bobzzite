@@ -62,5 +62,7 @@
   - `bobzzite-prime` (`scripts/bobzzite-prime.sh`) probes GPU bus topology and manages dynamic render delegation between iGPU and dGPU (`__NV_PRIME_RENDER_OFFLOAD=1`, `DRI_PRIME=1`), documented in `docs/PRIME_GPU_OFFLOAD.md`.
 - **Hardware Profile Comparison Data Matrix**:
   - Generated and maintained in `docs/HARDWARE_PROFILE_COMPARISON_DATA.md`, documenting cross-flavor divergence in base images, compositors, driver stacks, video encoders, audio quantums, and PRIME offload mechanisms.
+- **Master Hardware Matrix Specification**:
+  - Updated and expanded to Milestone 9.0 in `docs/HARDWARE_MATRIX_COMPARISON.md`, covering 13 technical dimensions across all 4 supported hardware flavors.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.
