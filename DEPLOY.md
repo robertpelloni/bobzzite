@@ -66,10 +66,11 @@ Asserts that the target configuration satisfies all required compositor and audi
 bobzzite-deploy profile-validate bobzzite-deck
 ```
 
-### 7. Cross-Flavor Compliance Summary
+### 7. Cross-Flavor Compliance & Coverage Matrix
 Generates the comprehensive cross-flavor matrix asserting compositor, encoder, and buffer parameters:
 ```bash
 bobzzite-deploy profile-summary
+bobzzite-deploy profile-compliance
 ```
 
 ### 8. Atomic Rebase Execution

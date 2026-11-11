@@ -325,9 +325,9 @@ class BobzziteControlCenter:
         h_hdr.grid(row=17, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(h_hdr, "Calibrates Wayland xx-color-management-v4, BT.2020 WCG, and Gamescope HDR luminance.")
 
-        h_dep_audit = ttk.Button(hw_grid, text="Deploy Compliance Audit", command=lambda: self.run_async("bobzzite-deploy profile-audit", "Running Deployment Hardware Compliance Audit..."))
+        h_dep_audit = ttk.Button(hw_grid, text="Deploy Compliance Audit", command=lambda: self.run_async("if command -v bobzzite-deploy >/dev/null 2>&1; then bobzzite-deploy profile-compliance; elif [ -f scripts/bobzzite-deploy.sh ]; then ./scripts/bobzzite-deploy.sh profile-compliance; else echo 'Deploy script not found'; fi", "Running Complete Deployment Hardware & Matrix Compliance Audit..."))
         h_dep_audit.grid(row=16, column=0, padx=6, pady=4, sticky="ew")
-        ToolTip(h_dep_audit, "Validates hardware compliance and profile assertions before atomic rebasing.")
+        ToolTip(h_dep_audit, "Executes end-to-end hardware profile coverage audit and compliance summary matrix before rebasing via bobzzite-deploy.")
 
         h_dep_runbook = ttk.Button(hw_grid, text="Deployment Runbooks", command=lambda: self.run_async("cat docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md | head -n 30", "Displaying Hardware Deployment Runbooks..."))
         h_dep_runbook.grid(row=16, column=1, padx=6, pady=4, sticky="ew")

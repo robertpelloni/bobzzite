@@ -68,5 +68,7 @@
   - Certified 100% across all four flavors in `docs/HARDWARE_COVERAGE_AUDIT.md`, with continuous verification via `bobzzite-coverage`.
 - **Hardware Profile Analysis & Rebase Routing**:
   - Maintained in `docs/HARDWARE_PROFILE_ANALYSIS.md`, detailing DMI identifiers, ARM64 Device Tree signatures, PCI detection, and fit score recommendations across all 4 flavors.
+- **Hardware Profile Comparison & Compliance in Deployment**:
+  - `bobzzite-deploy` provides `profile-compare` with multi-format output and `profile-compliance` unifying coverage auditing and summary matrices, documented in `docs/HARDWARE_DEPLOY_COMPLIANCE.md`.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.

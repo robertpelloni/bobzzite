@@ -1,10 +1,11 @@
 # Bobzzite OS - Granular Task List (TODO)
 
-## Active Sprint: v9.2.0 Release - Hardware Profile Analysis & Multi-Arch Rebase Routing
-- [x] Expand `docs/HARDWARE_PROFILE_ANALYSIS.md` with ARM64 SoC signatures and 4-flavor fit scoring matrix.
-- [x] Document host CPU architectures, PCI vendor IDs, and multi-GPU PRIME integration during profile analysis.
-- [x] Verify continuous validation suite with zero errors.
-- [x] Bump release version to v9.2.0 across `VERSION.md`, `Containerfile`, `bobzzite-release`, and `hardware_profiles/`.
+## Active Sprint: v9.3.0 Release - Hardware Profile Multi-Format Comparison & Compliance Reporting
+- [x] Refine `bobzzite-deploy profile-compare` with multi-format support (`terminal`, `markdown`, `json`).
+- [x] Implement `bobzzite-deploy profile-compliance` subcommand coordinating coverage audit and profile summary.
+- [x] Update documentation across `docs/HARDWARE_DEPLOY_COMPLIANCE.md` and `DEPLOY.md`.
+- [x] Update Bobzzite Control Center GUI button and descriptive tooltip.
+- [x] Bump release version to v9.3.0 across `VERSION.md`, `Containerfile`, `bobzzite-release`, and `hardware_profiles/`.
 
 ## Upcoming Enhancements
 - [ ] Implement Vulkan shader pipeline warm-up gatekeeper (`bobzzite-warmup`).

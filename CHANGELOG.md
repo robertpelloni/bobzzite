@@ -5,6 +5,19 @@ This project adheres to Semantic Versioning and tracks a unified single source o
 
 ---
 
+## [9.3.0] - 2025-05-19
+
+### Added
+- **Hardware Profile Multi-Format Comparison & Compliance Reporting in `bobzzite-deploy`**:
+  - Enhanced `bobzzite-deploy` with multi-format profile differential comparisons (`terminal`, `markdown`, `json`).
+  - Added `bobzzite-deploy profile-compliance` (`compliance`) subcommand unifying `bobzzite-coverage` and `bobzzite-summary` for pre-rebase host and catalog verification.
+  - Updated Bobzzite Control Center GUI button and tooltip for complete compliance verification.
+  - Updated technical documentation in `docs/HARDWARE_DEPLOY_COMPLIANCE.md` and `DEPLOY.md`.
+- **Continuous Governance**:
+  - Tracked across `VERSION.md`, `ROADMAP.md`, `TODO.md`, `MEMORY.md`, and `HANDOFF.md`.
+
+---
+
 ## [9.2.0] - 2025-05-19
 
 ### Added
