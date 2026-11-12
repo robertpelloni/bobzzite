@@ -139,8 +139,13 @@ class BobzziteControlCenter:
 
         b9 = ttk.Button(btn_grid, text="⚡ GDExtension (C++/Rust)",
                         command=lambda: self.run_async("bobzzite-gdextension", "Scanning GDExtension native manifests..."))
-        b9.grid(row=3, column=0, columnspan=3, padx=6, pady=4, sticky="ew")
+        b9.grid(row=3, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
         ToolTip(b9, "Scaffolds and validates high-performance native C++ and godot-rust GDExtensions.")
+
+        b10 = ttk.Button(btn_grid, text="🔥 Pre-warm Shader Cache",
+                         command=lambda: self.run_async("if command -v bobzzite-shader-cache >/dev/null 2>&1; then bobzzite-shader-cache prewarm Templates/Godot4_Starter; elif [ -f scripts/bobzzite-shader-cache.sh ]; then ./scripts/bobzzite-shader-cache.sh prewarm Templates/Godot4_Starter; else echo 'Shader cache script not found'; fi", "Pre-warming Vulkan SPIR-V Shader Pipeline Caches..."))
+        b10.grid(row=3, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(b10, "Pre-compiles Godot 4 shaders to eliminate runtime micro-stutter and frame drops.")
 
         btn_grid.columnconfigure(0, weight=1)
         btn_grid.columnconfigure(1, weight=1)
@@ -164,6 +169,58 @@ class BobzziteControlCenter:
         mb3 = ttk.Button(m_grid, text="Validate Repo / Build", command=lambda: self.run_async("if command -v bobzzite-validate >/dev/null 2>&1; then bobzzite-validate; elif [ -f scripts/validate_build.py ]; then python3 scripts/validate_build.py; else echo 'Validation script not found'; fi", "Validating system & build readiness..."))
         mb3.grid(row=0, column=2, padx=6, pady=4, sticky="ew")
         ToolTip(mb3, "Runs repository integrity, asset copy, and documentation checks.")
+
+        mb_ci = ttk.Button(m_grid, text="Run CI Smoke Suite", command=lambda: self.run_async("if command -v bobzzite-ci >/dev/null 2>&1; then bobzzite-ci; elif [ -f scripts/bobzzite-ci.sh ]; then ./scripts/bobzzite-ci.sh; else echo 'CI runner script not found'; fi", "Executing Complete Local CI Smoke Test Pipeline..."))
+        mb_ci.grid(row=2, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_ci, "Executes the full automated CI validation suite locally before pushing changes.")
+
+        mb_webdash = ttk.Button(m_grid, text="Web Dashboard", command=lambda: self.run_async("if command -v bobzzite-webdash >/dev/null 2>&1; then bobzzite-webdash status; elif [ -f scripts/bobzzite-webdash.py ]; then python3 scripts/bobzzite-webdash.py status; else echo 'Webdash script not found'; fi", "Probing Remote Web Dashboard Server..."))
+        mb_webdash.grid(row=2, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_webdash, "Inspects status of the lightweight remote web administration dashboard.")
+
+        mb_sign = ttk.Button(m_grid, text="Verify Image Signatures", command=lambda: self.run_async("if command -v bobzzite-sign >/dev/null 2>&1; then bobzzite-sign check-keys; elif [ -f scripts/bobzzite-sign.sh ]; then ./scripts/bobzzite-sign.sh check-keys; else echo 'Sign script not found'; fi", "Auditing Cosign & Sigstore Cryptographic Signatures..."))
+        mb_sign.grid(row=3, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_sign, "Verifies container image cryptographic signatures, Cosign public keys, and provenance.")
+
+        mb_preview = ttk.Button(m_grid, text="Staging / PR Builds", command=lambda: self.run_async("if command -v bobzzite-preview >/dev/null 2>&1; then bobzzite-preview status; elif [ -f scripts/bobzzite-preview.sh ]; then ./scripts/bobzzite-preview.sh status; else echo 'Preview script not found'; fi", "Inspecting Ephemeral PR Preview Builds & Staging..."))
+        mb_preview.grid(row=3, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_preview, "Manages ephemeral pull-request container image preview builds and staging tags.")
+
+        mb_sec = ttk.Button(m_grid, text="Security Audit", command=lambda: self.run_async("if command -v bobzzite-security >/dev/null 2>&1; then bobzzite-security audit; elif [ -f scripts/bobzzite-security.sh ]; then ./scripts/bobzzite-security.sh audit; else echo 'Security script not found'; fi", "Auditing OS Immutability, SUID Binaries & Sandboxes..."))
+        mb_sec.grid(row=4, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_sec, "Audits ostree filesystem immutability, elevated privilege binaries, and Flatpak isolation.")
+
+        mb_prov = ttk.Button(m_grid, text="Supply-Chain Provenance", command=lambda: self.run_async("if command -v bobzzite-provenance >/dev/null 2>&1; then bobzzite-provenance status; elif [ -f scripts/bobzzite-provenance.sh ]; then ./scripts/bobzzite-provenance.sh status; else echo 'Provenance script not found'; fi", "Probing SLSA Provenance & SPDX SBOM Generator..."))
+        mb_prov.grid(row=4, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_prov, "Generates and verifies SPDX Software Bill of Materials and in-toto SLSA attestations.")
+
+        mb_ipfs = ttk.Button(m_grid, text="P2P / IPFS Package Mirror", command=lambda: self.run_async("if command -v bobzzite-ipfs >/dev/null 2>&1; then bobzzite-ipfs status; elif [ -f scripts/bobzzite-ipfs.sh ]; then ./scripts/bobzzite-ipfs.sh status; else echo 'IPFS script not found'; fi", "Probing Decentralized IPFS Package Mirror & Swarm Status..."))
+        mb_ipfs.grid(row=5, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_ipfs, "Inspects IPFS daemon, swarm peers, and content-addressed package distribution.")
+
+        mb_sb = ttk.Button(m_grid, text="Rootless Sandbox", command=lambda: self.run_async("if command -v bobzzite-sandbox >/dev/null 2>&1; then bobzzite-sandbox status; elif [ -f scripts/bobzzite-sandbox.sh ]; then ./scripts/bobzzite-sandbox.sh status; else echo 'Sandbox script not found'; fi", "Probing Unprivileged User Namespaces & Rootless Podman..."))
+        mb_sb.grid(row=5, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_sb, "Spawns isolated, unprivileged rootless Podman sandboxes with memory and CPU cgroups constraints.")
+
+        mb_bgate = ttk.Button(m_grid, text="Benchmark Gatekeeper", command=lambda: self.run_async("if command -v bobzzite-bench-gate >/dev/null 2>&1; then bobzzite-bench-gate check; elif [ -f scripts/bobzzite-bench-gate.sh ]; then ./scripts/bobzzite-bench-gate.sh check; else echo 'Bench gate script not found'; fi", "Executing CI Performance Regression Gate Check..."))
+        mb_bgate.grid(row=6, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_bgate, "Runs reproducible hashing and compute benchmark, verifying performance against baseline SLA.")
+
+        mb_lock = ttk.Button(m_grid, text="Kernel Lockdown & Security", command=lambda: self.run_async("if command -v bobzzite-lockdown >/dev/null 2>&1; then bobzzite-lockdown audit; elif [ -f scripts/bobzzite-lockdown.sh ]; then ./scripts/bobzzite-lockdown.sh audit; else echo 'Lockdown script not found'; fi", "Auditing EFI Secure Boot, Kernel Lockdown & IOMMU..."))
+        mb_lock.grid(row=6, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_lock, "Audits EFI Secure Boot status, kernel lockdown modes, and IOMMU DMA protections.")
+
+        mb_ebpf = ttk.Button(m_grid, text="eBPF Network Optimizer", command=lambda: self.run_async("if command -v bobzzite-ebpf >/dev/null 2>&1; then bobzzite-ebpf status; elif [ -f scripts/bobzzite-ebpf.sh ]; then ./scripts/bobzzite-ebpf.sh status; else echo 'eBPF script not found'; fi", "Probing eBPF/XDP Fastpath Packet Optimization..."))
+        mb_ebpf.grid(row=7, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_ebpf, "Manages XDP fastpath packet acceleration for low-latency multiplayer gaming and game streaming.")
+
+        mb_ucode = ttk.Button(m_grid, text="CPU Microcode & Mitigations", command=lambda: self.run_async("if command -v bobzzite-microcode >/dev/null 2>&1; then bobzzite-microcode audit; elif [ -f scripts/bobzzite-microcode.sh ]; then ./scripts/bobzzite-microcode.sh audit; else echo 'Microcode script not found'; fi", "Auditing CPU Microcode & Hardware Vulnerability Mitigations..."))
+        mb_ucode.grid(row=7, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_ucode, "Inspects active processor microcode level, early initramfs loading, and sysfs CPU vulnerability mitigations.")
+
+        mb_shm = ttk.Button(m_grid, text="Shared Memory & Zero-Copy", command=lambda: self.run_async("if command -v bobzzite-shm >/dev/null 2>&1; then bobzzite-shm audit; elif [ -f scripts/bobzzite-shm.sh ]; then ./scripts/bobzzite-shm.sh audit; else echo 'SHM script not found'; fi", "Auditing /dev/shm & Wayland Zero-Copy DMA-BUF Pipelines..."))
+        mb_shm.grid(row=7, column=2, padx=6, pady=4, sticky="ew")
+        ToolTip(mb_shm, "Audits /dev/shm tmpfs allocation, Wayland wl_shm pools, and Linux dma-buf zero-copy pipelines.")
 
         m_grid.columnconfigure(0, weight=1)
         m_grid.columnconfigure(1, weight=1)
@@ -192,6 +249,14 @@ class BobzziteControlCenter:
         h_audio.grid(row=3, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_audio, "Inspects PipeWire audio server status, active sound cards, and audio latency quantum.")
 
+        h_astress = ttk.Button(hw_grid, text="Audio Latency Stress Test", command=lambda: self.run_async("if command -v bobzzite-audio-stress >/dev/null 2>&1; then bobzzite-audio-stress audit; elif [ -f scripts/bobzzite-audio-stress.sh ]; then ./scripts/bobzzite-audio-stress.sh audit; else echo 'Audio stress script not found'; fi", "Running PipeWire Audio Buffer Quantum Latency Stress Test..."))
+        h_astress.grid(row=24, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_astress, "Stress-tests buffer quantums (64, 128, 256, 512 frames) against simulated game audio DSP load to verify zero-xrun stability.")
+
+        h_prime = ttk.Button(hw_grid, text="Multi-GPU & PRIME Offload", command=lambda: self.run_async("if command -v bobzzite-prime >/dev/null 2>&1; then bobzzite-prime status; elif [ -f scripts/bobzzite-prime.sh ]; then ./scripts/bobzzite-prime.sh status; else echo 'Prime script not found'; fi", "Probing Multi-GPU Topology & Dynamic PRIME Offload..."))
+        h_prime.grid(row=25, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_prime, "Probes integrated (iGPU) and discrete (dGPU) adapters and configures dynamic PRIME render offloading.")
+
         h6 = ttk.Button(hw_grid, text="System Tuning", command=lambda: self.run_async("bobzzite-tweak status", "Inspecting system performance tunables..."))
         h6.grid(row=2, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h6, "Queries low-latency sysctl parameters, split lock mitigation, and PipeWire latency.")
@@ -216,25 +281,129 @@ class BobzziteControlCenter:
         h_compare.grid(row=4, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_compare, "Compares compositors, display leasing, audio buffers, and drivers across flavors side-by-side.")
 
-        h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
-        h_deploy.grid(row=7, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
-        ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
-
-        h_iso = ttk.Button(hw_grid, text="Generate ISO", command=lambda: self.run_async("bobzzite-iso bobzzite", "Generating bootable installer media scripts..."))
-        h_iso.grid(row=6, column=1, padx=6, pady=4, sticky="ew")
-        ToolTip(h_iso, "Configures and generates bootable installation ISOs using the Universal Blue isogenerator.")
-
         h_stream = ttk.Button(hw_grid, text="Game Streaming", command=lambda: self.run_async("bobzzite-stream status", "Inspecting Sunshine streaming host & video encoders..."))
         h_stream.grid(row=5, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_stream, "Manages Sunshine game streaming host and Moonlight client pairing for remote playtests.")
 
+        h_webrtc = ttk.Button(hw_grid, text="WebRTC Stream", command=lambda: self.run_async("if command -v bobzzite-webrtc >/dev/null 2>&1; then bobzzite-webrtc status; elif [ -f scripts/bobzzite-webrtc.sh ]; then ./scripts/bobzzite-webrtc.sh status; else echo 'WebRTC script not found'; fi", "Inspecting WebRTC browser playtest streaming gateway..."))
+        h_webrtc.grid(row=5, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_webrtc, "Probes WebRTC browser streaming gateway ports and hardware video encoder acceleration.")
+
+        h_client = ttk.Button(hw_grid, text="Generate WebRTC Client", command=lambda: self.run_async("if command -v bobzzite-webrtc >/dev/null 2>&1; then bobzzite-webrtc generate-client; elif [ -f scripts/bobzzite-webrtc.sh ]; then ./scripts/bobzzite-webrtc.sh generate-client; else echo 'WebRTC script not found'; fi", "Generating zero-dependency HTML5 WebRTC client..."))
+        h_client.grid(row=10, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_client, "Creates a zero-install HTML5/JS WebRTC playtest client page with gamepad support.")
+
+        h_quirks = ttk.Button(hw_grid, text="Hardware Quirks", command=lambda: self.run_async("if command -v bobzzite-quirks >/dev/null 2>&1; then bobzzite-quirks probe; elif [ -f scripts/bobzzite-quirks.sh ]; then ./scripts/bobzzite-quirks.sh probe; else echo 'Quirks script not found'; fi", "Probing hardware device quirks and mitigations..."))
+        h_quirks.grid(row=10, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_quirks, "Detects device-specific hardware quirks (Steam Deck, Ally, Legion Go) and applies fixes.")
+
         h_vr = ttk.Button(hw_grid, text="VR & OpenXR", command=lambda: self.run_async("bobzzite-vr status", "Probing VR headsets, DRM leasing & OpenXR runtimes..."))
-        h_vr.grid(row=5, column=1, padx=6, pady=4, sticky="ew")
+        h_vr.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
         ToolTip(h_vr, "Checks connected VR headsets, Wayland DRM display leasing, and OpenXR runtime configuration.")
 
+        h_eye = ttk.Button(hw_grid, text="XR Eye Tracking", command=lambda: self.run_async("if command -v bobzzite-eye-track >/dev/null 2>&1; then bobzzite-eye-track status; elif [ -f scripts/bobzzite-eye-track.sh ]; then ./scripts/bobzzite-eye-track.sh status; else echo 'Eye track script not found'; fi", "Probing XR Eye-Tracking Extensions & Calibration..."))
+        h_eye.grid(row=6, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_eye, "Manages OpenXR eye-tracking extensions, 5-point calibration matrix, and dynamic foveated rendering.")
+
+        h_iso = ttk.Button(hw_grid, text="Generate ISO", command=lambda: self.run_async("bobzzite-iso bobzzite", "Generating bootable installer media scripts..."))
+        h_iso.grid(row=7, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_iso, "Configures and generates bootable installation ISOs using the Universal Blue isogenerator.")
+
         h_audit = ttk.Button(hw_grid, text="Hardware Audit", command=lambda: self.run_async("bobzzite-hardware-audit", "Auditing hardware compliance across flavor requirements..."))
-        h_audit.grid(row=6, column=0, padx=6, pady=4, sticky="ew")
+        h_audit.grid(row=7, column=1, padx=6, pady=4, sticky="ew")
         ToolTip(h_audit, "Audits CPU, GPU rendering, PipeWire audio, and controller compliance for Bobzzite OS.")
+
+        h_deploy = ttk.Button(hw_grid, text="Deploy & Rebase", command=lambda: self.run_async("bobzzite-deploy detect", "Probing hardware signatures & recommended flavor..."))
+        h_deploy.grid(row=8, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_deploy, "Detects hardware signatures (Steam Deck, NVIDIA, AMD) and displays recommended rebase target.")
+
+        h_dep_insp = ttk.Button(hw_grid, text="Inspect Target Profile", command=lambda: self.run_async("bobzzite-deploy profile-inspect bobzzite-deck", "Inspecting Steam Deck target profile..."))
+        h_dep_insp.grid(row=8, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_dep_insp, "Inspects hardware profile JSON specifications via bobzzite-deploy.")
+
+        h_hdr = ttk.Button(hw_grid, text="HDR & Color Management", command=lambda: self.run_async("if command -v bobzzite-hdr >/dev/null 2>&1; then bobzzite-hdr status; elif [ -f scripts/bobzzite-hdr.sh ]; then ./scripts/bobzzite-hdr.sh status; else echo 'HDR script not found'; fi", "Probing Wayland Color Management & HDR Tone-Mapping..."))
+        h_hdr.grid(row=17, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_hdr, "Calibrates Wayland xx-color-management-v4, BT.2020 WCG, and Gamescope HDR luminance.")
+
+        h_dep_audit = ttk.Button(hw_grid, text="Deploy Compliance Audit", command=lambda: self.run_async("if command -v bobzzite-deploy >/dev/null 2>&1; then bobzzite-deploy profile-compliance; elif [ -f scripts/bobzzite-deploy.sh ]; then ./scripts/bobzzite-deploy.sh profile-compliance; else echo 'Deploy script not found'; fi", "Running Complete Deployment Hardware & Matrix Compliance Audit..."))
+        h_dep_audit.grid(row=16, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_dep_audit, "Executes end-to-end hardware profile coverage audit and compliance summary matrix before rebasing via bobzzite-deploy.")
+
+        h_dep_runbook = ttk.Button(hw_grid, text="Deployment Runbooks", command=lambda: self.run_async("cat docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md | head -n 30", "Displaying Hardware Deployment Runbooks..."))
+        h_dep_runbook.grid(row=16, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_dep_runbook, "Inspects operational runbooks for handheld, workstation, and air-gapped rebasing.")
+
+        h_bat = ttk.Button(hw_grid, text="Battery Health & Charging", command=lambda: self.run_async("if command -v bobzzite-battery >/dev/null 2>&1; then bobzzite-battery health; elif [ -f scripts/bobzzite-battery.sh ]; then ./scripts/bobzzite-battery.sh health; else echo 'Battery script not found'; fi", "Auditing Battery Cell Health & Setting Charge Thresholds..."))
+        h_bat.grid(row=18, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_bat, "Audits cycle degradation and sets 80% charge threshold to maximize handheld battery life.")
+
+        h_val_prof = ttk.Button(hw_grid, text="Validate Profiles", command=lambda: self.run_async("if command -v bobzzite-profile-validate >/dev/null 2>&1; then bobzzite-profile-validate all; elif [ -f scripts/bobzzite-profile-validate.sh ]; then ./scripts/bobzzite-profile-validate.sh all; else echo 'Profile validate script not found'; fi", "Auditing Hardware JSON Profiles & Assertions..."))
+        h_val_prof.grid(row=9, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_val_prof, "Verifies that all target flavor profiles satisfy compositor, driver, and audio buffer constraints.")
+
+        h_prof_an = ttk.Button(hw_grid, text="Profile Analysis", command=lambda: self.run_async("bobzzite-deploy profile-analyze", "Analyzing host hardware fit against target flavor profiles..."))
+        h_prof_an.grid(row=9, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_prof_an, "Calculates fit percentage and flavor migration recommendations for this physical machine.")
+
+        h_compat = ttk.Button(hw_grid, text="Hardware Compatibility", command=lambda: self.run_async("if command -v bobzzite-compat >/dev/null 2>&1; then bobzzite-compat check; elif [ -f scripts/bobzzite-compat.sh ]; then ./scripts/bobzzite-compat.sh check; else echo 'Compat script not found'; fi", "Auditing broad hardware compatibility tier & instructions..."))
+        h_compat.grid(row=11, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_compat, "Audits CPU instruction sets (AVX2), GPU backends, and assigns compatibility tier.")
+
+        h_multi_arch = ttk.Button(hw_grid, text="Multi-Arch Targets", command=lambda: self.run_async("if command -v bobzzite-build-flavors >/dev/null 2>&1; then bobzzite-build-flavors all multi-arch; elif [ -f scripts/build-flavors.sh ]; then ./scripts/build-flavors.sh all multi-arch; else echo 'Build flavors script not found'; fi", "Querying multi-architecture build targets (x86_64, aarch64)..."))
+        h_multi_arch.grid(row=11, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_multi_arch, "Displays multi-architecture compilation targets for x86_64 and ARM64 SBCs/laptops.")
+
+        h_catalog = ttk.Button(hw_grid, text="Hardware Profiles Catalog", command=lambda: self.run_async("ls -la hardware_profiles/", "Listing version-controlled hardware profile JSON catalog..."))
+        h_catalog.grid(row=12, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_catalog, "Inspects the repository-tracked hardware profiles directory (hardware_profiles/).")
+
+        h_cov = ttk.Button(hw_grid, text="Hardware Coverage Audit", command=lambda: self.run_async("if command -v bobzzite-coverage >/dev/null 2>&1; then bobzzite-coverage audit; elif [ -f scripts/bobzzite-coverage.sh ]; then ./scripts/bobzzite-coverage.sh audit; else echo 'Coverage script not found'; fi", "Auditing Hardware Matrix Coverage Completeness..."))
+        h_cov.grid(row=12, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_cov, "Asserts end-to-end coverage across specifications, images, and documentation for all flavors.")
+
+        h_telem = ttk.Button(hw_grid, text="Live Telemetry", command=lambda: self.run_async("cat /proc/loadavg && cat /proc/meminfo | head -n4", "Probing live system compute and memory load..."))
+        h_telem.grid(row=19, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_telem, "Inspects real-time CPU load averages and memory utilization telemetry.")
+
+        h_rt = ttk.Button(hw_grid, text="Vulkan Ray Tracing", command=lambda: self.run_async("if command -v bobzzite-raytracing >/dev/null 2>&1; then bobzzite-raytracing audit; elif [ -f scripts/bobzzite-raytracing.sh ]; then ./scripts/bobzzite-raytracing.sh audit; else echo 'Raytracing script not found'; fi", "Auditing Vulkan KHR Hardware Ray Tracing Pipeline..."))
+        h_rt.grid(row=20, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_rt, "Audits GPU hardware ray tracing extensions (VK_KHR_ray_tracing_pipeline, acceleration structures) and RADV/NV drivers.")
+
+        h_fan = ttk.Button(hw_grid, text="Fan Curves & Thermals", command=lambda: self.run_async("if command -v bobzzite-fan >/dev/null 2>&1; then bobzzite-fan audit; elif [ -f scripts/bobzzite-fan.sh ]; then ./scripts/bobzzite-fan.sh audit; else echo 'Fan script not found'; fi", "Auditing Adaptive Thermal Fan Curves & Sensors..."))
+        h_fan.grid(row=21, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_fan, "Audits hwmon thermal inputs, cooling devices, and configures acoustic fan profiles (quiet/balanced/perf).")
+
+        h_hdr_cal = ttk.Button(hw_grid, text="Gamescope HDR Calibration", command=lambda: self.run_async("if command -v bobzzite-hdr-cal >/dev/null 2>&1; then bobzzite-hdr-cal probe; elif [ -f scripts/bobzzite-hdr-cal.sh ]; then ./scripts/bobzzite-hdr-cal.sh probe; else echo 'HDR calibration script not found'; fi", "Probing Display Luminance & Gamescope HDR Flags..."))
+        h_hdr_cal.grid(row=22, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_hdr_cal, "Probes display peak nits and generates calibrated Gamescope HDR launch arguments and DXVK variables.")
+
+        h_gyro = ttk.Button(hw_grid, text="Handheld Gyro & Motion", command=lambda: self.run_async("if command -v bobzzite-gyro >/dev/null 2>&1; then bobzzite-gyro calibrate; elif [ -f scripts/bobzzite-gyro.sh ]; then ./scripts/bobzzite-gyro.sh calibrate; else echo 'Gyro script not found'; fi", "Calibrating 6-Axis Motion & Gyroscope Sensors..."))
+        h_gyro.grid(row=23, column=0, columnspan=2, padx=6, pady=4, sticky="ew")
+        ToolTip(h_gyro, "Calibrates stationary resting bias drift and sensitivity for Steam Deck, ROG Ally, and Legion Go IMUs.")
+
+        h_summary = ttk.Button(hw_grid, text="Hardware Profile Summary", command=lambda: self.run_async("if command -v bobzzite-summary >/dev/null 2>&1; then bobzzite-summary terminal; elif [ -f scripts/bobzzite-summary.sh ]; then ./scripts/bobzzite-summary.sh terminal; else echo 'Summary script not found'; fi", "Generating Comprehensive Hardware Profile Summary Matrix..."))
+        h_summary.grid(row=13, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_summary, "Generates an aggregated hardware profile summary matrix directly from hardware_profiles/.")
+
+        h_report = ttk.Button(hw_grid, text="Hardware Compatibility Report", command=lambda: self.run_async("if command -v bobzzite-report >/dev/null 2>&1; then bobzzite-report summary; elif [ -f scripts/bobzzite-report.sh ]; then ./scripts/bobzzite-report.sh summary; else echo 'Report script not found'; fi", "Compiling Comprehensive Host Hardware Diagnostic Report..."))
+        h_report.grid(row=13, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_report, "Aggregates hardware probing, compatibility tiers, audio buffers, and exportable Markdown report.")
+
+        h_net = ttk.Button(hw_grid, text="Network I/O Telemetry", command=lambda: self.run_async("cat /proc/net/dev | head -n4", "Probing network streaming interface bandwidth..."))
+        h_net.grid(row=14, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_net, "Inspects real-time RX/TX network byte counters and streaming bitrate deltas.")
+
+        h_diff = ttk.Button(hw_grid, text="Profile Diff Analyzer", command=lambda: self.run_async("if command -v bobzzite-diff >/dev/null 2>&1; then bobzzite-diff bobzzite bobzzite-deck terminal; elif [ -f scripts/bobzzite-diff.sh ]; then ./scripts/bobzzite-diff.sh bobzzite bobzzite-deck terminal; else echo 'Diff script not found'; fi", "Analyzing Profile Divergences (bobzzite vs bobzzite-deck)..."))
+        h_diff.grid(row=14, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_diff, "Compares architectural attributes and drivers between hardware profiles.")
+
+        h_mig = ttk.Button(hw_grid, text="Hardware Migration Assistant", command=lambda: self.run_async("if command -v bobzzite-migrate >/dev/null 2>&1; then bobzzite-migrate bobzzite-deck --dry-run; elif [ -f scripts/bobzzite-migrate.sh ]; then ./scripts/bobzzite-migrate.sh bobzzite-deck --dry-run; else echo 'Migrate script not found'; fi", "Executing Hardware Migration Pre-Flight Check..."))
+        h_mig.grid(row=15, column=0, padx=6, pady=4, sticky="ew")
+        ToolTip(h_mig, "Conducts pre-flight compatibility checks, profile diff, snapshot backups, and atomic rebase assistance.")
+
+        h_metrics = ttk.Button(hw_grid, text="Prometheus Metrics Gateway", command=lambda: self.run_async("if command -v bobzzite-metrics >/dev/null 2>&1; then bobzzite-metrics status; elif [ -f scripts/bobzzite-metrics.sh ]; then ./scripts/bobzzite-metrics.sh status; else echo 'Metrics script not found'; fi", "Inspecting Prometheus Hardware Metrics Exposition..."))
+        h_metrics.grid(row=15, column=1, padx=6, pady=4, sticky="ew")
+        ToolTip(h_metrics, "Exposes hardware metrics (CPU load, thermal zones, memory, flavor) in standard Prometheus format.")
 
         mb4 = ttk.Button(m_grid, text="System Doctor", command=lambda: self.run_async("bobzzite-doctor", "Running complete system diagnostics..."))
         mb4.grid(row=1, column=0, padx=6, pady=4, sticky="ew")
@@ -249,7 +418,7 @@ class BobzziteControlCenter:
         ToolTip(mb6, "Safely removes unused Flatpak runtimes, package caches, and temporary files.")
 
         h3 = ttk.Button(hw_grid, text="Quit Servers / Exit", style="Danger.TButton", command=self.quit_app)
-        h3.grid(row=0, column=2, rowspan=8, padx=6, pady=4, sticky="nsew")
+        h3.grid(row=0, column=2, rowspan=25, padx=6, pady=4, sticky="nsew")
         ToolTip(h3, "Safely closes background processes and exits the Bobzzite Control Center.")
 
         hw_grid.columnconfigure(0, weight=1)

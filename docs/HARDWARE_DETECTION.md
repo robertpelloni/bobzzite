@@ -1,36 +1,52 @@
-# Bobzzite OS Hardware Detection & Automatic Flavor Selection Guide
+# Bobzzite OS - Automated Hardware Flavor Detection Guide
 
-## Overview
+The `bobzzite-deploy` utility inspects host DMI firmware product strings, PCI device vendor and product classes, and kernel subsystem capabilities to determine the optimal Bobzzite OS hardware flavor for any machine.
 
-Bobzzite OS produces three specialized atomic operating system images to support the gaming and indie development ecosystem:
-- `bobzzite`: Desktop AMD Radeon and Intel Arc / UHD graphics.
-- `bobzzite-deck`: Handheld gaming PCs (Steam Deck LCD / OLED, ASUS ROG Ally, Lenovo Legion Go, AYANEO, GPD Win).
-- `bobzzite-nvidia`: Desktop and mobile workstations with NVIDIA GeForce RTX / GTX GPUs utilizing proprietary drivers.
+## Detection Logic
 
----
+1. **Handheld Console Detection**:
+   Inspects `/sys/class/dmi/id/product_name` for known hardware signatures:
+   - Valve Steam Deck (`Jupiter`, `Galileo`)
+   - ASUS ROG Ally
+   - Lenovo Legion Go
+   - AYANEO, GPD Win, and OneXPlayer devices
+   - *Recommendation:* `bobzzite-deck` (Gamescope session, handheld power controls, TDP tuning).
 
-## Hardware Probing Architecture: `bobzzite-deploy detect`
+2. **Discrete NVIDIA GPU Detection**:
+   Queries PCI vendor IDs via `lspci -nn` matching `10de` (NVIDIA Corporation):
+   - *Recommendation:* `bobzzite-nvidia` (Proprietary open-kernel modules, CUDA, OptiX, NVENC).
 
-The `bobzzite-deploy detect` tool automatically analyzes system DMI product strings and PCI device signatures to identify the ideal image flavor.
+3. **Standard PC Workstation**:
+   Fallback for generic AMD Radeon (RDNA / GCN) and Intel (Arc / Iris Xe) architectures:
+   - *Recommendation:* `bobzzite` (Lightweight open-source Mesa drivers, KDE Plasma Wayland).
+
+## Integrated Rebase Subcommands
+
+`bobzzite-deploy` exposes full verification commands before rebase:
 
 ```bash
-# Probe local hardware and print recommended image flavor
+# Detect recommended flavor
 bobzzite-deploy detect
+
+# Compute quantitative hardware fit percentage
+bobzzite-deploy profile-analyze
+
+# Inspect target hardware profile JSON
+bobzzite-deploy profile-inspect bobzzite-deck
+
+# Compare side-by-side profile differences
+bobzzite-deploy profile-compare bobzzite bobzzite-deck
+
+# Audit hardware compliance (sleep, DRM leasing, controllers)
+bobzzite-deploy profile-audit
+
+# Validate target profile assertion constraints
+bobzzite-deploy profile-validate bobzzite-deck
+
+# Rebase to recommended flavor
+sudo bobzzite-deploy bobzzite-deck
 ```
 
-### Detection Logic
+## Control Center Integration
 
-1. **Handheld Gaming PC Inspection (`/sys/class/dmi/id/product_name`):**
-   - Matches `Jupiter` or `Galileo` $\rightarrow$ Valve Steam Deck LCD / OLED.
-   - Matches `ROG Ally` $\rightarrow$ ASUS ROG Ally Z1 / Extreme.
-   - Matches `Legion Go` $\rightarrow$ Lenovo Legion Go.
-   - Matches `AYANEO`, `GPD`, or `ONEXPLAYER` handheld chassis.
-   - *Result:* Recommends `bobzzite-deck` (enables Steam Gamepad UI, Gamescope session, TDP controls, and handheld controller glyphs).
-
-2. **Discrete NVIDIA GPU Probe (`lspci -nn`):**
-   - Scans PCI classes `0300` (VGA) and `0302` (3D Controller) for vendor ID `10de` (NVIDIA Corporation).
-   - *Result:* Recommends `bobzzite-nvidia` (pre-loads proprietary NVIDIA kernel modules, CUDA runtime, and NVENC video hardware encoding).
-
-3. **Fallback Open Source Graphics:**
-   - Detects AMD Radeon (`vendor 1002`) or Intel Arc/Iris (`vendor 8086`).
-   - *Result:* Recommends standard `bobzzite` (upstream Mesa RADV/ANV Vulkan drivers).
+Hardware detection and rebase helpers are accessible directly within **Bobzzite Control Center** under the **🎮 Hardware & Gaming Profiles** panel.

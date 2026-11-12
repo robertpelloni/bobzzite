@@ -9,5 +9,66 @@
   - System configuration files live in `config/files/` and are mapped to root `/`.
   - Build scripts live in `config/scripts/build.sh`.
   - Post-install setup lives in `scripts/post-install.sh`.
+- **Hardware Profile Differential Analysis & Automated Migration**:
+  - `bobzzite-diff` (`scripts/bobzzite-diff.sh`) inspects and compares target JSON profiles from `hardware_profiles/` and outputs terminal tables, Markdown tables, or JSON diffs.
+  - `bobzzite-migrate` (`scripts/bobzzite-migrate.sh`) coordinates pre-flight hardware checks, differential analysis, snapshots, and atomic rebase execution across profiles.
+- **Decentralized Package Mirroring**:
+  - `bobzzite-ipfs` (`scripts/bobzzite-ipfs.sh`) manages P2P container layer distribution, offline fallback, and content-addressed verification via IPFS/Kubo.
+- **Rootless Pod Sandboxing**:
+  - `bobzzite-sandbox` (`scripts/bobzzite-sandbox.sh`) manages isolated unprivileged Podman sandboxes with memory limits and seccomp filters for untrusted builds.
+- **Prometheus Hardware Telemetry & Comparison Data Extraction**:
+  - `bobzzite-metrics` (`scripts/bobzzite-metrics.sh`) exports real-time system performance, thermals, and flavor tags in standard Prometheus exposition format.
+  - Side-by-side hardware profile comparison data is documented in `docs/HARDWARE_PROFILE_COMPARISON_DATA.md`.
+- **CI Benchmark Regression Gatekeeper**:
+  - `bobzzite-bench-gate` (`scripts/bobzzite-bench-gate.sh`) enforces compute SLA baselines and blocks builds on performance degradation.
+- **OpenXR Eye Tracking & Dynamic Foveated Rendering**:
+  - `bobzzite-eye-track` (`scripts/bobzzite-eye-track.sh`) manages XR_EXT_eye_gaze_interaction, VRS Tier 2 foveation, and 5-point calibration.
+- **Zero-Trust Kernel Lockdown**:
+  - `bobzzite-lockdown` (`scripts/bobzzite-lockdown.sh`) audits EFI Secure Boot, kernel lockdown mode (`integrity`), and IOMMU device memory protections.
+- **Godot 4 Shader Pre-Compilation Caching**:
+  - `bobzzite-shader-cache` (`scripts/bobzzite-shader-cache.sh`) pre-warms and exports Vulkan SPIR-V shader bytecode pipelines to prevent in-game compilation micro-stutters.
+- **Hardware Profile Deployment & Comparison Integration**:
+  - `bobzzite-deploy` (`scripts/bobzzite-deploy.sh`) now integrates `profile-inspect` and `profile-compare` directly to streamline atomic rebase decisions.
+- **Hardware Matrix Coverage Auditing**:
+  - `bobzzite-coverage` (`scripts/bobzzite-coverage.sh`) asserts 100% specification, build matrix, and documentation coverage across all supported form factors.
+- **eBPF Low-Latency Packet Fastpath**:
+  - `bobzzite-ebpf` (`scripts/bobzzite-ebpf.sh`) manages XDP filters and NIC driver ring bypass for sub-microsecond multiplayer packet processing.
+- **Hardware Deployment Compliance & Validation Integration**:
+  - `bobzzite-deploy` now directly integrates `profile-audit` and `profile-validate` to confirm system readiness before rebasing.
+  - Comprehensive operational deployment runbooks are maintained in `docs/HARDWARE_DEPLOYMENT_WORKFLOWS.md`.
+- **Wayland Color Management & HDR Calibration**:
+  - `bobzzite-hdr` (`scripts/bobzzite-hdr.sh`) manages `xx-color-management-v4` protocol negotiation, BT.2020 WCG, and Gamescope HDR luminance mapping.
+- **Battery Health & Charge Threshold Optimization**:
+  - `bobzzite-battery` (`scripts/bobzzite-battery.sh`) queries `/sys/class/power_supply`, calculates battery wear levels, and sets hardware charge end thresholds (80%) for mobile handhelds and gaming laptops.
+- **Hardware Profile Summary & Compliance Matrix**:
+  - Comprehensive reference documenting aggregated specs, driver stacks, video encoders, audio buffers, and compliance tiers is cataloged in `docs/HARDWARE_PROFILE_SUMMARY_DATA.md` and linked from `docs/HARDWARE_PROFILE_SUMMARY.md`.
+- **CPU Microcode & Hardware Mitigation Auditing**:
+  - `bobzzite-microcode` (`scripts/bobzzite-microcode.sh`) audits active CPU microcode levels, processor family/model/stepping, and kernel sysfs vulnerability mitigations (Spectre, Meltdown, Downfall, Retbleed).
+- **Vulkan Ray Tracing Pipeline & Capability Auditing**:
+  - `bobzzite-raytracing` (`scripts/bobzzite-raytracing.sh`) audits GPU hardware, direct rendering nodes, and Vulkan KHR ray tracing extensions (`VK_KHR_ray_tracing_pipeline`, `VK_KHR_acceleration_structure`, `VK_KHR_ray_query`, `VK_KHR_pipeline_library`) and driver configurations.
+- **Adaptive Thermal Fan Curve Management**:
+  - `bobzzite-fan` (`scripts/bobzzite-fan.sh`) audits `/sys/class/hwmon` and `/sys/class/thermal` inputs, cooling devices, and configures acoustic fan profiles (`quiet`, `balanced`, `performance`).
+- **Gamescope HDR Calibration & Tone-Mapping**:
+  - `bobzzite-hdr-cal` (`scripts/bobzzite-hdr-cal.sh`) computes display peak nit luminance mappings and generates calibrated Gamescope launch flags (`--hdr-enabled`, `--hdr-sdr-content-nits 203`, `--hdr-itm-enable`) and DXVK/VKD3D HDR environment variables.
+- **Handheld Gyroscope & Motion Sensor Calibration**:
+  - `bobzzite-gyro` (`scripts/bobzzite-gyro.sh`) probes Industrial I/O (`/sys/bus/iio/devices`) and evdev motion nodes, calculates resting zero-rate bias drift offsets, and writes calibration matrices for Steam Deck, ROG Ally, and Legion Go IMUs.
+- **Shared Memory & Zero-Copy Pipeline Auditing**:
+  - `bobzzite-shm` (`scripts/bobzzite-shm.sh`) audits `/dev/shm` tmpfs allocation, Wayland `wl_shm` buffer pools, PipeWire locked ring buffers, and Linux kernel `dma-buf` zero-copy texture sharing pipelines.
+- **Hardware Audio Quantum Latency Stress Benchmarking**:
+  - `bobzzite-audio-stress` (`scripts/bobzzite-audio-stress.sh`) benchmarks PipeWire buffer quantums (64, 128, 256, 512 frames) under simulated multi-channel game audio DSP workloads to verify zero-xrun stability.
+- **Extended Hardware Deployment & Cross-Flavor Compliance Matrix**:
+  - `bobzzite-deploy` (`scripts/bobzzite-deploy.sh`) now integrates `profile-summary` (`summary`) subcommand to expose unified multi-flavor parameter tables prior to atomic rebasing, as well as ARM64 architecture deployment targets (`bobzzite-arm64`).
+- **Dynamic Multi-GPU & PRIME Render Offload Engine**:
+  - `bobzzite-prime` (`scripts/bobzzite-prime.sh`) probes GPU bus topology and manages dynamic render delegation between iGPU and dGPU (`__NV_PRIME_RENDER_OFFLOAD=1`, `DRI_PRIME=1`), documented in `docs/PRIME_GPU_OFFLOAD.md`.
+- **Hardware Profile Comparison Data Matrix**:
+  - Generated and maintained in `docs/HARDWARE_PROFILE_COMPARISON_DATA.md`, documenting cross-flavor divergence in base images, compositors, driver stacks, video encoders, audio quantums, and PRIME offload mechanisms.
+- **Master Hardware Matrix Specification**:
+  - Updated and expanded to Milestone 9.0 in `docs/HARDWARE_MATRIX_COMPARISON.md`, covering 13 technical dimensions across all 4 supported hardware flavors.
+- **Hardware Coverage & Certification**:
+  - Certified 100% across all four flavors in `docs/HARDWARE_COVERAGE_AUDIT.md`, with continuous verification via `bobzzite-coverage`.
+- **Hardware Profile Analysis & Rebase Routing**:
+  - Maintained in `docs/HARDWARE_PROFILE_ANALYSIS.md`, detailing DMI identifiers, ARM64 Device Tree signatures, PCI detection, and fit score recommendations across all 4 flavors.
+- **Hardware Profile Comparison & Compliance in Deployment**:
+  - `bobzzite-deploy` provides `profile-compare` with multi-format output and `profile-compliance` unifying coverage auditing and summary matrices, documented in `docs/HARDWARE_DEPLOY_COMPLIANCE.md`.
 - **Validation**:
   - Build validation tool is located at `scripts/validate_build.py`.
